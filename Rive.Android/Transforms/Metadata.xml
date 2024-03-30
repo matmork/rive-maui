@@ -1,0 +1,40 @@
+﻿<metadata>
+  <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+
+  <attr path="/api/package[@name='app.rive.runtime.kotlin']"
+        name="managedName">Rive.Android
+  </attr>
+
+  <attr path="/api/package[@name='app.rive.runtime.kotlin.core']"
+        name="managedName">Rive.Android.Core
+  </attr>
+
+  <attr path="/api/package[@name='app.rive.runtime.kotlin.core.errors']"
+        name="managedName">Rive.Android.Core.Errors
+  </attr>
+
+  <attr path="/api/package[@name='app.rive.runtime.kotlin.controllers']"
+        name="managedName">Rive.Android.Controllers
+  </attr>
+
+  <attr path="/api/package[@name='app.rive.runtime.kotlin.renderers']"
+        name="managedName">Rive.Android.Renderers
+  </attr>
+
+  <remove-node path="/api/package[@name='app.rive.runtime.kotlin']/class[@name='RiveInitializer']"/>
+
+  <remove-node path="/api/package[@name='app.rive.runtime.kotlin']/class[@name='RiveFileRequest']"/>
+
+  <remove-node path="/api/package[@name='app.rive.runtime.kotlin.core']/class[@name='BytesRequest']"/>
+
+  <attr path="/api/package[@name='app.rive.runtime.kotlin.core']/class[@name='Loop']/field[@name='LOOP']"
+        name="name">LOOP2
+  </attr>
+
+</metadata>

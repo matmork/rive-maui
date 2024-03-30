@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+    <RootNamespace>Rive.iOS</RootNamespace>
+    <!-- Remove when this is closed https://github.com/xamarin/xamarin-macios/issues/10148 also https://github.com/xamarin/xamarin-macios/issues/4315 -->
+    <OutputPath>bin</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <!-- End change-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs"/>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeReference Include="RiveRuntime.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+      <Frameworks>CoreGraphics Foundation MetalKit UIKit RiveRuntime</Frameworks>
+    </NativeReference>
+  </ItemGroup>
+</Project>
