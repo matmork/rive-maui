@@ -16,7 +16,7 @@ public static class MauiProgram
             })
             .ConfigureMauiHandlers(handlers =>
             {
-                handlers.AddHandler<RiveView, RiveViewHandler>();
+                handlers.AddHandler<RiveView, RiveViewRenderer>();
             });
 
 #if DEBUG

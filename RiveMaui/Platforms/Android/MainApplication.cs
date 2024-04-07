@@ -15,7 +15,7 @@ public class MainApplication : MauiApplication
     {
         base.OnCreate();
 
-        var renderer = Rive.Android.Core.RendererType.Rive;
+        var renderer = Rive.Android.Core.RendererType.Skia;
         Rive.Android.Core.Rive.Instance.Init(Context, renderer!);
     }
 
