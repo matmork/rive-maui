@@ -1,4 +1,4 @@
-namespace RiveMaui;
+namespace Rive.Maui;
 
 public class RiveView : View
 {

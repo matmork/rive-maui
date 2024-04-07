@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0-ios;net8.0-android</TargetFrameworks>
+    <TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <RootNamespace>RiveMaui</RootNamespace>
     <UseMaui>true</UseMaui>
@@ -25,39 +25,30 @@
 
   <ItemGroup>
     <!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
     <!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128"/>
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
     <!-- Images -->
-    <MauiImage Include="Resources\Images\*"/>
-    <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>
+    <MauiImage Include="Resources\Images\*" />
+    <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
     <!-- Custom Fonts -->
-    <MauiFont Include="Resources\Fonts\*"/>
+    <MauiFont Include="Resources\Fonts\*" />
 
     <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)"/>
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14"/>
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14"/>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.Contains('-ios'))">
-    <ProjectReference Include="..\Rive.iOS\Rive.iOS.csproj" />
-    <!-- Reference the dll directly to get intellisense: https://github.com/xamarin/xamarin-macios/issues/10148 -->
-    <!-- Remember to also unload Rive.iOS project in solution -->
-    <!-- <Reference Include="Rive.iOS">
-      <HintPath>..\Rive.iOS\bin\Rive.iOS.dll</HintPath>
-    </Reference> -->
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TargetFramework.Contains('-android'))">
-    <ProjectReference Include="..\Rive.Android\Rive.Android.csproj" />
+  <ItemGroup>
+    <ProjectReference Include="..\Rive.Maui\Rive.Maui.csproj" />
   </ItemGroup>
 
 </Project>

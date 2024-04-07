@@ -1,10 +1,9 @@
-#if IOS
 using Foundation;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Rive.iOS;
 using UIKit;
 
-namespace RiveMaui;
+namespace Rive.Maui;
 
 public partial class RiveViewRenderer : ViewRenderer<RiveView, UIView>
 {
@@ -29,5 +28,3 @@ public partial class RiveViewRenderer : ViewRenderer<RiveView, UIView>
         SetNativeControl(riveView);
     }
 }
-
-#endif

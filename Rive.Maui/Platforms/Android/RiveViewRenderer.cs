@@ -1,21 +1,16 @@
-#if ANDROID
 using Android.Content;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Rive.Android;
 using View = Android.Views.View;
 
-namespace RiveMaui;
+namespace Rive.Maui;
 
-public partial class RiveViewRenderer : ViewRenderer<RiveView, View>
+public partial class RiveViewRenderer(Context context) : ViewRenderer<RiveView, View>(context)
 {
-    public RiveViewRenderer(Context context) : base(context)
-    {
-    }
+    private readonly Context context = context;
 
     public void Load(string animation)
     {
-        var context = Android.App.Application.Context;
-
         var identifier = context.Resources!.GetIdentifier(animation, "drawable", context.PackageName);
         if (identifier == 0)
         {
@@ -42,5 +37,3 @@ public partial class RiveViewRenderer : ViewRenderer<RiveView, View>
         SetNativeControl(riveView);
     }
 }
-
-#endif

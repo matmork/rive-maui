@@ -11,13 +11,5 @@ public class MainApplication : MauiApplication
     {
     }
 
-    public override void OnCreate()
-    {
-        base.OnCreate();
-
-        var renderer = Rive.Android.Core.RendererType.Skia;
-        Rive.Android.Core.Rive.Instance.Init(Context, renderer!);
-    }
-
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 }
