@@ -1,7 +1,7 @@
 # Rive Maui
 
-Work in progress
+Wrapper around the iOS/Android runtime
 
-[IOS recording](ios.mp4)
+_(Work in progress)_
 
-[Android recording](android.mp4)
+<img src="./ios.gif" width="320"> <img src="./android.gif" width="320">
