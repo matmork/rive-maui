@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
+    NavigationPage.HasNavigationBar="False"
     x:Class="RiveMaui.MainPage">
 
     <ScrollView>
@@ -27,7 +28,9 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <riveMaui:Rive ResourceName="runner" WidthRequest="400" HeightRequest="400" />
+            <Button Text="StateMachine" Clicked="Button_OnClicked" />
+
+            <riveMaui:Rive ResourceName="runner" Fit="Cover" WidthRequest="300" HeightRequest="300" />
 
         </VerticalStackLayout>
     </ScrollView>
