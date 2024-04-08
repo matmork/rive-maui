@@ -41,15 +41,16 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A4ViewC14playerDelegateAA0a6PlayerE0_pSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(py)playerDelegate",
             "mangledName": "$s11RiveRuntime0A4ViewC14playerDelegateAA0a6PlayerE0_pSgvp",
             "moduleName": "RiveRuntime",
             "declAttributes": [
-              "Custom",
               "HasInitialValue",
+              "Custom",
               "HasStorage",
               "ReferenceOwnership",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "ownership": 1,
@@ -69,17 +70,20 @@
                         "kind": "TypeNominal",
                         "name": "RivePlayerDelegate",
                         "printedName": "RiveRuntime.RivePlayerDelegate",
-                        "usr": "s:11RiveRuntime0A14PlayerDelegateP"
+                        "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC14playerDelegateAA0a6PlayerE0_pSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)playerDelegate",
                 "mangledName": "$s11RiveRuntime0A4ViewC14playerDelegateAA0a6PlayerE0_pSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               },
               {
@@ -101,17 +105,20 @@
                         "kind": "TypeNominal",
                         "name": "RivePlayerDelegate",
                         "printedName": "RiveRuntime.RivePlayerDelegate",
-                        "usr": "s:11RiveRuntime0A14PlayerDelegateP"
+                        "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC14playerDelegateAA0a6PlayerE0_pSgvs",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setPlayerDelegate:",
                 "mangledName": "$s11RiveRuntime0A4ViewC14playerDelegateAA0a6PlayerE0_pSgvs",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "set"
               },
               {
@@ -146,15 +153,16 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A4ViewC20stateMachineDelegateAA0a5StateeF0_pSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(py)stateMachineDelegate",
             "mangledName": "$s11RiveRuntime0A4ViewC20stateMachineDelegateAA0a5StateeF0_pSgvp",
             "moduleName": "RiveRuntime",
             "declAttributes": [
-              "Custom",
               "HasInitialValue",
+              "Custom",
               "HasStorage",
               "ReferenceOwnership",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "ownership": 1,
             "hasStorage": true,
@@ -180,10 +188,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC20stateMachineDelegateAA0a5StateeF0_pSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)stateMachineDelegate",
                 "mangledName": "$s11RiveRuntime0A4ViewC20stateMachineDelegateAA0a5StateeF0_pSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               },
               {
@@ -212,10 +223,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC20stateMachineDelegateAA0a5StateeF0_pSgvs",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setStateMachineDelegate:",
                 "mangledName": "$s11RiveRuntime0A4ViewC20stateMachineDelegateAA0a5StateeF0_pSgvs",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "set"
               },
               {
@@ -251,7 +265,7 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A4ViewC7showFPSSbvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(py)showFPS",
             "mangledName": "$s11RiveRuntime0A4ViewC7showFPSSbvp",
             "moduleName": "RiveRuntime",
             "declAttributes": [
@@ -259,6 +273,7 @@
               "Custom",
               "HasStorage",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "hasStorage": true,
@@ -276,10 +291,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC7showFPSSbvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)showFPS",
                 "mangledName": "$s11RiveRuntime0A4ViewC7showFPSSbvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               },
               {
@@ -300,10 +318,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC7showFPSSbvs",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setShowFPS:",
                 "mangledName": "$s11RiveRuntime0A4ViewC7showFPSSbvs",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "set"
               },
               {
@@ -339,7 +360,7 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A4ViewC15showFPSCountersSbvpZ",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(cpy)showFPSCounters",
             "mangledName": "$s11RiveRuntime0A4ViewC15showFPSCountersSbvpZ",
             "moduleName": "RiveRuntime",
             "static": true,
@@ -349,6 +370,7 @@
               "HasStorage",
               "Custom",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "hasStorage": true,
@@ -366,13 +388,14 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC15showFPSCountersSbvgZ",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(cm)showFPSCounters",
                 "mangledName": "$s11RiveRuntime0A4ViewC15showFPSCountersSbvgZ",
                 "moduleName": "RiveRuntime",
                 "static": true,
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               },
@@ -394,13 +417,14 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A4ViewC15showFPSCountersSbvsZ",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(cm)setShowFPSCounters:",
                 "mangledName": "$s11RiveRuntime0A4ViewC15showFPSCountersSbvsZ",
                 "moduleName": "RiveRuntime",
                 "static": true,
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "set"
               },
@@ -470,7 +494,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -481,13 +505,15 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11RiveRuntime0A4ViewC5model8autoPlayAcA0A5ModelC_Sbtcfc",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)initWithModel:autoPlay:",
             "mangledName": "$s11RiveRuntime0A4ViewC5model8autoPlayAcA0A5ModelC_Sbtcfc",
             "moduleName": "RiveRuntime",
+            "objc_name": "initWithModel:autoPlay:",
             "declAttributes": [
               "Custom",
               "Convenience",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "init_kind": "Convenience"
           },
@@ -538,7 +564,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -549,13 +575,14 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A4ViewC8setModel_8autoPlayyAA0aE0C_SbtKF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setModel:autoPlay:error:",
             "mangledName": "$s11RiveRuntime0A4ViewC8setModel_8autoPlayyAA0aE0C_SbtKF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
               "Custom",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "throwing": true,
@@ -579,13 +606,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A4ViewC27setPreferredFramesPerSecond09preferredfgH0ySi_tF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setPreferredFramesPerSecondWithPreferredFramesPerSecond:",
             "mangledName": "$s11RiveRuntime0A4ViewC27setPreferredFramesPerSecond09preferredfgH0ySi_tF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
+            "objc_name": "setPreferredFramesPerSecondWithPreferredFramesPerSecond:",
             "declAttributes": [
               "Custom",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -608,14 +637,16 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A4ViewC26setPreferredFrameRateRange09preferredfgH0ySo07CAFramegH0V_tF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setPreferredFrameRateRangeWithPreferredFrameRateRange:",
             "mangledName": "$s11RiveRuntime0A4ViewC26setPreferredFrameRateRange09preferredfgH0ySo07CAFramegH0V_tF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "intro_iOS": "15.0",
+            "objc_name": "setPreferredFrameRateRangeWithPreferredFrameRateRange:",
             "declAttributes": [
               "Custom",
               "AccessControl",
+              "ObjC",
               "Available",
               "RawDocComment"
             ],
@@ -1416,19 +1447,23 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A14PlayerDelegateP6player15playedWithModelyAA0aH0CSg_tF",
+            "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate(im)playerWithPlayedWithModel:",
             "mangledName": "$s11RiveRuntime0A14PlayerDelegateP6player15playedWithModelyAA0aH0CSg_tF",
             "moduleName": "RiveRuntime",
             "genericSig": "<τ_0_0 where τ_0_0 : RiveRuntime.RivePlayerDelegate>",
             "sugared_genericSig": "<Self where Self : RiveRuntime.RivePlayerDelegate>",
             "protocolReq": true,
+            "objc_name": "playerWithPlayedWithModel:",
+            "declAttributes": [
+              "ObjC"
+            ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           },
@@ -1451,19 +1486,23 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A14PlayerDelegateP6player15pausedWithModelyAA0aH0CSg_tF",
+            "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate(im)playerWithPausedWithModel:",
             "mangledName": "$s11RiveRuntime0A14PlayerDelegateP6player15pausedWithModelyAA0aH0CSg_tF",
             "moduleName": "RiveRuntime",
             "genericSig": "<τ_0_0 where τ_0_0 : RiveRuntime.RivePlayerDelegate>",
             "sugared_genericSig": "<Self where Self : RiveRuntime.RivePlayerDelegate>",
             "protocolReq": true,
+            "objc_name": "playerWithPausedWithModel:",
+            "declAttributes": [
+              "ObjC"
+            ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           },
@@ -1486,7 +1525,7 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
@@ -1499,12 +1538,16 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A14PlayerDelegateP6player15loopedWithModel4typeyAA0aH0CSg_SitF",
+            "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate(im)playerWithLoopedWithModel:type:",
             "mangledName": "$s11RiveRuntime0A14PlayerDelegateP6player15loopedWithModel4typeyAA0aH0CSg_SitF",
             "moduleName": "RiveRuntime",
             "genericSig": "<τ_0_0 where τ_0_0 : RiveRuntime.RivePlayerDelegate>",
             "sugared_genericSig": "<Self where Self : RiveRuntime.RivePlayerDelegate>",
             "protocolReq": true,
+            "objc_name": "playerWithLoopedWithModel:type:",
+            "declAttributes": [
+              "ObjC"
+            ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           },
@@ -1527,19 +1570,23 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A14PlayerDelegateP6player16stoppedWithModelyAA0aH0CSg_tF",
+            "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate(im)playerWithStoppedWithModel:",
             "mangledName": "$s11RiveRuntime0A14PlayerDelegateP6player16stoppedWithModelyAA0aH0CSg_tF",
             "moduleName": "RiveRuntime",
             "genericSig": "<τ_0_0 where τ_0_0 : RiveRuntime.RivePlayerDelegate>",
             "sugared_genericSig": "<Self where Self : RiveRuntime.RivePlayerDelegate>",
             "protocolReq": true,
+            "objc_name": "playerWithStoppedWithModel:",
+            "declAttributes": [
+              "ObjC"
+            ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           },
@@ -1568,31 +1615,36 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A14PlayerDelegateP6player12didAdvanceby9riveModelySd_AA0aI0CSgtF",
+            "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate(im)playerWithDidAdvanceby:riveModel:",
             "mangledName": "$s11RiveRuntime0A14PlayerDelegateP6player12didAdvanceby9riveModelySd_AA0aI0CSgtF",
             "moduleName": "RiveRuntime",
             "genericSig": "<τ_0_0 where τ_0_0 : RiveRuntime.RivePlayerDelegate>",
             "sugared_genericSig": "<Self where Self : RiveRuntime.RivePlayerDelegate>",
             "protocolReq": true,
+            "objc_name": "playerWithDidAdvanceby:riveModel:",
+            "declAttributes": [
+              "ObjC"
+            ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
-        "usr": "s:11RiveRuntime0A14PlayerDelegateP",
+        "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate",
         "mangledName": "$s11RiveRuntime0A14PlayerDelegateP",
         "moduleName": "RiveRuntime",
         "genericSig": "<τ_0_0 : AnyObject>",
         "sugared_genericSig": "<Self : AnyObject>",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "ObjC"
         ]
       },
       {
@@ -2092,7 +2144,7 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A9ViewModelC04riveC0AA0aC0CSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(py)riveView",
             "mangledName": "$s11RiveRuntime0A9ViewModelC04riveC0AA0aC0CSgvp",
             "moduleName": "RiveRuntime",
             "isOpen": true,
@@ -2101,6 +2153,7 @@
               "HasStorage",
               "SetterAccess",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "hasStorage": true,
@@ -2126,11 +2179,14 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A9ViewModelC04riveC0AA0aC0CSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)riveView",
                 "mangledName": "$s11RiveRuntime0A9ViewModelC04riveC0AA0aC0CSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
                 "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -2150,7 +2206,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -2204,11 +2260,12 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11RiveRuntime0A9ViewModelC_16stateMachineName3fit9alignment8autoPlay08artboardG0AcA0aD0C_SSSgSo0A3FitVSo0A9AlignmentVSbAKtcfc",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)init:stateMachineName:fit:alignment:autoPlay:artboardName:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC_16stateMachineName3fit9alignment8autoPlay08artboardG0AcA0aD0C_SSSgSo0A3FitVSo0A9AlignmentVSbAKtcfc",
             "moduleName": "RiveRuntime",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "init_kind": "Designated"
           },
@@ -2227,7 +2284,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -2282,11 +2339,12 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11RiveRuntime0A9ViewModelC_13animationName3fit9alignment8autoPlay08artboardF0AcA0aD0C_SSSgSo0A3FitVSo0A9AlignmentVSbAKtcfc",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)init:animationName:fit:alignment:autoPlay:artboardName:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC_13animationName3fit9alignment8autoPlay08artboardF0AcA0aD0C_SSSgSo0A3FitVSo0A9AlignmentVSbAKtcfc",
             "moduleName": "RiveRuntime",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "init_kind": "Designated"
           },
@@ -2785,14 +2843,14 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A9ViewModelC04riveD0AA0aD0CSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(py)riveModel",
             "mangledName": "$s11RiveRuntime0A9ViewModelC04riveD0AA0aD0CSgvp",
             "moduleName": "RiveRuntime",
             "isOpen": true,
@@ -2801,6 +2859,7 @@
               "HasStorage",
               "SetterAccess",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "hasStorage": true,
@@ -2819,18 +2878,21 @@
                         "kind": "TypeNominal",
                         "name": "RiveModel",
                         "printedName": "RiveRuntime.RiveModel",
-                        "usr": "s:11RiveRuntime0A5ModelC"
+                        "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A9ViewModelC04riveD0AA0aD0CSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)riveModel",
                 "mangledName": "$s11RiveRuntime0A9ViewModelC04riveD0AA0aD0CSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
                 "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -3477,8 +3539,8 @@
           },
           {
             "kind": "Function",
-            "name": "setInput",
-            "printedName": "setInput(_:value:)",
+            "name": "setBoolInput",
+            "printedName": "setBoolInput(_:value:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3499,8 +3561,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)setInput:value:",
-            "mangledName": "$s11RiveRuntime0A9ViewModelC8setInput_5valueySS_SbtF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)setBoolInput:value:",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC12setBoolInput_5valueySS_SbtF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
@@ -3534,20 +3596,21 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC8setInput_5valueySS_SftF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)setInput:value:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC8setInput_5valueySS_SftF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
-            "name": "setInput",
-            "printedName": "setInput(_:value:)",
+            "name": "setNumberInput",
+            "printedName": "setNumberInput(_:value:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3568,12 +3631,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC8setInput_5valueySS_SdtF",
-            "mangledName": "$s11RiveRuntime0A9ViewModelC8setInput_5valueySS_SdtF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)setNumberInput:value:",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC14setNumberInput_5valueySS_SdtF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -3862,18 +3926,20 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC6player010playedWithD0yAA0aD0CSg_tF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)playerWithPlayedWithModel:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC6player010playedWithD0yAA0aD0CSg_tF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
+            "objc_name": "playerWithPlayedWithModel:",
             "declAttributes": [
+              "ObjC",
               "AccessControl",
               "RawDocComment"
             ],
@@ -3898,18 +3964,20 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC6player010pausedWithD0yAA0aD0CSg_tF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)playerWithPausedWithModel:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC6player010pausedWithD0yAA0aD0CSg_tF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
+            "objc_name": "playerWithPausedWithModel:",
             "declAttributes": [
+              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -3933,7 +4001,7 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
@@ -3946,11 +4014,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC6player010loopedWithD04typeyAA0aD0CSg_SitF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)playerWithLoopedWithModel:type:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC6player010loopedWithD04typeyAA0aD0CSg_SitF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
+            "objc_name": "playerWithLoopedWithModel:type:",
             "declAttributes": [
+              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -3974,18 +4044,20 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC6player011stoppedWithD0yAA0aD0CSg_tF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)playerWithStoppedWithModel:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC6player011stoppedWithD0yAA0aD0CSg_tF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
+            "objc_name": "playerWithStoppedWithModel:",
             "declAttributes": [
+              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -4015,18 +4087,20 @@
                     "kind": "TypeNominal",
                     "name": "RiveModel",
                     "printedName": "RiveRuntime.RiveModel",
-                    "usr": "s:11RiveRuntime0A5ModelC"
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A9ViewModelC6player12didAdvanceby04riveD0ySd_AA0aD0CSgtF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)playerWithDidAdvanceby:riveModel:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC6player12didAdvanceby04riveD0ySd_AA0aD0CSgtF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
+            "objc_name": "playerWithDidAdvanceby:riveModel:",
             "declAttributes": [
+              "ObjC",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -4106,7 +4180,7 @@
             "kind": "Conformance",
             "name": "RivePlayerDelegate",
             "printedName": "RivePlayerDelegate",
-            "usr": "s:11RiveRuntime0A14PlayerDelegateP",
+            "usr": "c:@M@RiveRuntime@objc(pl)RivePlayerDelegate",
             "mangledName": "$s11RiveRuntime0A14PlayerDelegateP"
           },
           {
@@ -4628,7 +4702,7 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A5ModelC12stateMachineSo0a5StateE8InstanceCSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(py)stateMachine",
             "mangledName": "$s11RiveRuntime0A5ModelC12stateMachineSo0a5StateE8InstanceCSgvp",
             "moduleName": "RiveRuntime",
             "declAttributes": [
@@ -4636,6 +4710,7 @@
               "HasStorage",
               "SetterAccess",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "hasStorage": true,
@@ -4661,10 +4736,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A5ModelC12stateMachineSo0a5StateE8InstanceCSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)stateMachine",
                 "mangledName": "$s11RiveRuntime0A5ModelC12stateMachineSo0a5StateE8InstanceCSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -4690,14 +4768,15 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A5ModelC9animationSo0A23LinearAnimationInstanceCSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(py)animation",
             "mangledName": "$s11RiveRuntime0A5ModelC9animationSo0A23LinearAnimationInstanceCSgvp",
             "moduleName": "RiveRuntime",
             "declAttributes": [
               "HasInitialValue",
               "HasStorage",
               "SetterAccess",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "hasStorage": true,
             "accessors": [
@@ -4722,10 +4801,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A5ModelC9animationSo0A23LinearAnimationInstanceCSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)animation",
                 "mangledName": "$s11RiveRuntime0A5ModelC9animationSo0A23LinearAnimationInstanceCSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -4751,14 +4833,15 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A5ModelC8artboardSo0A8ArtboardCSgvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(py)artboard",
             "mangledName": "$s11RiveRuntime0A5ModelC8artboardSo0A8ArtboardCSgvp",
             "moduleName": "RiveRuntime",
             "declAttributes": [
               "HasInitialValue",
               "HasStorage",
               "SetterAccess",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "hasStorage": true,
             "accessors": [
@@ -4783,10 +4866,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A5ModelC8artboardSo0A8ArtboardCSgvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)artboard",
                 "mangledName": "$s11RiveRuntime0A5ModelC8artboardSo0A8ArtboardCSgvg",
                 "moduleName": "RiveRuntime",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -4800,7 +4886,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -4810,11 +4896,13 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11RiveRuntime0A5ModelC8riveFileACSo0aE0C_tcfc",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)initWithRiveFile:",
             "mangledName": "$s11RiveRuntime0A5ModelC8riveFileACSo0aE0C_tcfc",
             "moduleName": "RiveRuntime",
+            "objc_name": "initWithRiveFile:",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "init_kind": "Designated"
           },
@@ -4827,7 +4915,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -4905,11 +4993,13 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11RiveRuntime0A5ModelC8fileName9extension2in7loadCdn12customLoaderACSS_SSSo8NSBundleCS2bSo0A9FileAssetC_10Foundation4DataVSo0A7FactoryCtcSgtKcfc",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)initWithFileName:extension:in:loadCdn:error:customLoader:",
             "mangledName": "$s11RiveRuntime0A5ModelC8fileName9extension2in7loadCdn12customLoaderACSS_SSSo8NSBundleCS2bSo0A9FileAssetC_10Foundation4DataVSo0A7FactoryCtcSgtKcfc",
             "moduleName": "RiveRuntime",
+            "objc_name": "initWithFileName:extension:in:loadCdn:error:customLoader:",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "throwing": true,
             "init_kind": "Designated"
@@ -4923,7 +5013,7 @@
                 "kind": "TypeNominal",
                 "name": "RiveModel",
                 "printedName": "RiveRuntime.RiveModel",
-                "usr": "s:11RiveRuntime0A5ModelC"
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
               },
               {
                 "kind": "TypeNominal",
@@ -4945,11 +5035,13 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11RiveRuntime0A5ModelC6webURL8delegate7loadCdnACSS_So0A12FileDelegate_pSbtcfc",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)initWithWebURL:delegate:loadCdn:",
             "mangledName": "$s11RiveRuntime0A5ModelC6webURL8delegate7loadCdnACSS_So0A12FileDelegate_pSbtcfc",
             "moduleName": "RiveRuntime",
+            "objc_name": "initWithWebURL:delegate:loadCdn:",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "init_kind": "Designated"
           },
@@ -4971,12 +5063,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A5ModelC11setArtboardyySSKF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)setArtboard:error:",
             "mangledName": "$s11RiveRuntime0A5ModelC11setArtboardyySSKF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "throwing": true,
@@ -5038,12 +5131,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A5ModelC15setStateMachineyySSKF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)setStateMachine:error:",
             "mangledName": "$s11RiveRuntime0A5ModelC15setStateMachineyySSKF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "throwing": true,
             "funcSelfKind": "NonMutating"
@@ -5103,12 +5197,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:11RiveRuntime0A5ModelC12setAnimationyySSKF",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)setAnimation:error:",
             "mangledName": "$s11RiveRuntime0A5ModelC12setAnimationyySSKF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "throwing": true,
             "funcSelfKind": "NonMutating"
@@ -5163,10 +5258,15 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11RiveRuntime0A5ModelC11descriptionSSvp",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(py)description",
             "mangledName": "$s11RiveRuntime0A5ModelC11descriptionSSvp",
             "moduleName": "RiveRuntime",
+            "overriding": true,
+            "objc_name": "description",
             "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
               "AccessControl",
               "RawDocComment"
             ],
@@ -5184,21 +5284,58 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11RiveRuntime0A5ModelC11descriptionSSvg",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)description",
                 "mangledName": "$s11RiveRuntime0A5ModelC11descriptionSSvg",
                 "moduleName": "RiveRuntime",
+                "overriding": true,
+                "objc_name": "description",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveModel",
+                "printedName": "RiveRuntime.RiveModel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveModel"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveModel(im)init",
+            "mangledName": "$s11RiveRuntime0A5ModelCACycfc",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
-        "usr": "s:11RiveRuntime0A5ModelC",
+        "usr": "c:@M@RiveRuntime@objc(cs)RiveModel",
         "mangledName": "$s11RiveRuntime0A5ModelC",
         "moduleName": "RiveRuntime",
         "isOpen": true,
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
         ],
         "conformances": [
           {
@@ -5222,6 +5359,55 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
       },
@@ -5654,119 +5840,119 @@
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1119,
+      "offset": 1143,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1342,
+      "offset": 1372,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1848,
+      "offset": 1884,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1903,
+      "offset": 1939,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1978,
+      "offset": 2014,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2150,
+      "offset": 2186,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3307,
+      "offset": 3355,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3594,
+      "offset": 3642,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3783,
+      "offset": 3831,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3872,
+      "offset": 3920,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3934,
+      "offset": 3982,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4372,
+      "offset": 4420,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4437,
+      "offset": 4485,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 4603,
+      "offset": 4651,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5352,
+      "offset": 5400,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6308,
+      "offset": 6356,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6338,
+      "offset": 6386,
       "length": 1,
       "value": "0"
     },
@@ -5787,7 +5973,7 @@
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveView.swift",
       "kind": "Array",
-      "offset": 17391,
+      "offset": 17501,
       "length": 2,
       "value": "[]"
     },
@@ -5843,147 +6029,147 @@
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1576,
+      "offset": 1588,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2063,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
-      "kind": "StringLiteral",
-      "offset": 2439,
-      "length": 6,
-      "value": "\".riv\""
-    },
-    {
-      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2619,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2686,
+      "offset": 2081,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3172,
+      "offset": 2457,
       "length": 6,
       "value": "\".riv\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3355,
+      "offset": 2637,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3468,
+      "offset": 2704,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 3190,
+      "length": 6,
+      "value": "\".riv\""
+    },
+    {
+      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3373,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4064,
+      "offset": 3486,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4094,
+      "offset": 4082,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4657,
+      "offset": 4112,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4687,
+      "offset": 4675,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 5855,
+      "offset": 4705,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5879,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 8015,
+      "offset": 8039,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 8102,
+      "offset": 8126,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 8258,
+      "offset": 8282,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 9328,
+      "offset": 9352,
       "length": 32,
       "value": "\"Cannot configure nil RiveModel\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 10418,
+      "offset": 10442,
       "length": 22,
       "value": "\"Current model is nil\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 13256,
+      "offset": 13302,
       "length": 114,
       "value": "\"Could not set text value on text run: \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 13309,
+      "offset": 13355,
       "length": 2,
       "value": "\" as the text run could not be found from the active artboard\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "Array",
-      "offset": 13575,
+      "offset": 13621,
       "length": 2,
       "value": "[]"
     },
@@ -5997,7 +6183,7 @@
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 18336,
+      "offset": 18412,
       "length": 11,
       "value": "\"RiveRuntime.Coordinator\""
     },
@@ -6144,170 +6330,177 @@
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 675,
+      "offset": 715,
       "length": 6,
       "value": "\".riv\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 726,
+      "offset": 766,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 1437,
+      "offset": 1489,
       "length": 24,
       "value": "\"Name \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 1450,
+      "offset": 1502,
       "length": 3,
       "value": "\" not found\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 1861,
+      "offset": 1913,
       "length": 26,
       "value": "\"Index \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 1876,
+      "offset": 1928,
       "length": 3,
       "value": "\" not found\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 2076,
+      "offset": 2128,
       "length": 21,
       "value": "\"No Default Artboard\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 2306,
+      "offset": 2364,
       "length": 24,
       "value": "\"Name \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 2319,
+      "offset": 2377,
       "length": 3,
       "value": "\" not found\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2938,
+      "offset": 2996,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3022,
+      "offset": 3080,
       "length": 31,
       "value": "\"Index \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3040,
+      "offset": 3098,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3042,
+      "offset": 3100,
       "length": 3,
       "value": "\" not found\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3296,
+      "offset": 3360,
       "length": 24,
       "value": "\"Name \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3309,
+      "offset": 3373,
       "length": 3,
       "value": "\" not found\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3504,
+      "offset": 3568,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3623,
+      "offset": 3687,
       "length": 26,
       "value": "\"Index \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3638,
+      "offset": 3702,
       "length": 3,
       "value": "\" not found\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3739,
+      "offset": 3818,
       "length": 25,
       "value": "\"RiveModel - [Artboard: \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3862,
+      "offset": 3941,
       "length": 16,
       "value": "\"StateMachine: \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3903,
+      "offset": 3982,
       "length": 3,
       "value": "\"]\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 3986,
+      "offset": 4065,
       "length": 13,
       "value": "\"Animation: \""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 4021,
+      "offset": 4100,
       "length": 3,
       "value": "\"]\""
     },
     {
       "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
-      "offset": 4075,
+      "offset": 4154,
       "length": 3,
       "value": "\"]\""
+    },
+    {
+      "filePath": "\/Users\/matmo\/Projects\/rive-ios\/Source\/RiveModel.swift",
+      "kind": "StringLiteral",
+      "offset": 182,
+      "length": 9,
+      "value": "\"RiveRuntime.RiveModel\""
     }
   ]
 }

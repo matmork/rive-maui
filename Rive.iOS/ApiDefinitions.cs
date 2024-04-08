@@ -1,4 +1,5 @@
 using System;
+using CoreAnimation;
 using CoreGraphics;
 using Foundation;
 using MetalKit;
@@ -829,8 +830,89 @@ namespace Rive.iOS
 		NativeHandle Constructor (NSCoder coder);*/
 	}
 
+	// @interface RiveModel : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime9RiveModel")]
+	[DisableDefaultCtor]
+	interface RiveModel
+	{
+		// @property (nonatomic, strong) RiveStateMachineInstance * _Nullable stateMachine;
+		[NullAllowed, Export ("stateMachine", ArgumentSemantic.Strong)]
+		RiveStateMachineInstance StateMachine { get; set; }
+
+		// @property (nonatomic, strong) RiveLinearAnimationInstance * _Nullable animation;
+		[NullAllowed, Export ("animation", ArgumentSemantic.Strong)]
+		RiveLinearAnimationInstance Animation { get; set; }
+
+		// @property (readonly, nonatomic, strong) RiveArtboard * _Null_unspecified artboard;
+		[Export ("artboard", ArgumentSemantic.Strong)]
+		RiveArtboard Artboard { get; }
+
+		// -(instancetype _Nonnull)initWithRiveFile:(RiveFile * _Nonnull)riveFile __attribute__((objc_designated_initializer));
+		[Export ("initWithRiveFile:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (RiveFile riveFile);
+
+		// -(instancetype _Nullable)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle loadCdn:(BOOL)loadCdn error:(NSError * _Nullable * _Nullable)error customLoader:(LoadAsset _Nullable)customLoader __attribute__((objc_designated_initializer));
+		[Export ("initWithFileName:extension:in:loadCdn:error:customLoader:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (string fileName, string extension, NSBundle bundle, bool loadCdn, [NullAllowed] out NSError error, [NullAllowed] LoadAsset customLoader);
+
+		// -(instancetype _Nonnull)initWithWebURL:(NSString * _Nonnull)webURL delegate:(id<RiveFileDelegate> _Nonnull)delegate loadCdn:(BOOL)loadCdn __attribute__((objc_designated_initializer));
+		[Export ("initWithWebURL:delegate:loadCdn:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (string webURL, RiveFileDelegate @delegate, bool loadCdn);
+
+		// -(BOOL)setArtboard:(NSString * _Nonnull)name error:(NSError * _Nullable * _Nullable)error;
+		[Export ("setArtboard:error:")]
+		bool SetArtboard (string name, [NullAllowed] out NSError error);
+
+		// -(BOOL)setStateMachine:(NSString * _Nonnull)name error:(NSError * _Nullable * _Nullable)error;
+		[Export ("setStateMachine:error:")]
+		bool SetStateMachine (string name, [NullAllowed] out NSError error);
+
+		// -(BOOL)setAnimation:(NSString * _Nonnull)name error:(NSError * _Nullable * _Nullable)error;
+		[Export ("setAnimation:error:")]
+		bool SetAnimation (string name, [NullAllowed] out NSError error);
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull description;
+		[Export ("description")]
+		string Description { get; }
+	}
+
+	// @protocol RivePlayerDelegate
+	[Protocol (Name = "_TtP11RiveRuntime18RivePlayerDelegate_"), Model]
+	[BaseType (typeof(NSObject))]
+	interface RivePlayerDelegate
+	{
+		// @required -(void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithPlayedWithModel:")]
+		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// @required -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithPausedWithModel:")]
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// @required -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
+		[Abstract]
+		[Export ("playerWithLoopedWithModel:type:")]
+		void PlayerWithLoopedWithModel ([NullAllowed] RiveModel riveModel, nint type);
+
+		// @required -(void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithStoppedWithModel:")]
+		void PlayerWithStoppedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// @required -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithDidAdvanceby:riveModel:")]
+		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);
+	}
+
 	// @protocol RiveStateMachineDelegate
 	[Protocol (Name = "_TtP11RiveRuntime24RiveStateMachineDelegate_"), Model]
+	[BaseType (typeof(NSObject))]
 	interface RiveStateMachineDelegate
 	{
 		// @optional -(void)touchBeganOnArtboard:(RiveArtboard * _Nullable)artboard atLocation:(CGPoint)location;
@@ -866,10 +948,52 @@ namespace Rive.iOS
 	[BaseType (typeof(RiveRendererView), Name = "_TtC11RiveRuntime8RiveView")]
 	interface RiveView
 	{
+		[Wrap ("WeakPlayerDelegate")]
+		[NullAllowed]
+		RivePlayerDelegate PlayerDelegate { get; set; }
+
+		// @property (nonatomic, weak) id<RivePlayerDelegate> _Nullable playerDelegate;
+		[NullAllowed, Export ("playerDelegate", ArgumentSemantic.Weak)]
+		NSObject WeakPlayerDelegate { get; set; }
+
+		[Wrap ("WeakStateMachineDelegate")]
+		[NullAllowed]
+		RiveStateMachineDelegate StateMachineDelegate { get; set; }
+
+		// @property (nonatomic, weak) id<RiveStateMachineDelegate> _Nullable stateMachineDelegate;
+		[NullAllowed, Export ("stateMachineDelegate", ArgumentSemantic.Weak)]
+		NSObject WeakStateMachineDelegate { get; set; }
+
+		// @property (nonatomic) BOOL showFPS;
+		[Export ("showFPS")]
+		bool ShowFPS { get; set; }
+
+		// @property (nonatomic, class) BOOL showFPSCounters;
+		[Static]
+		[Export ("showFPSCounters")]
+		bool ShowFPSCounters { get; set; }
+
+		// -(instancetype _Nonnull)initWithModel:(RiveModel * _Nonnull)model autoPlay:(BOOL)autoPlay;
+		[Export ("initWithModel:autoPlay:")]
+		NativeHandle Constructor (RiveModel model, bool autoPlay);
+
 		/*// -(instancetype _Nonnull)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
 		[Export ("initWithCoder:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor (NSCoder aDecoder);*/
+
+		// -(BOOL)setModel:(RiveModel * _Nonnull)model autoPlay:(BOOL)autoPlay error:(NSError * _Nullable * _Nullable)error;
+		[Export ("setModel:autoPlay:error:")]
+		bool SetModel (RiveModel model, bool autoPlay, [NullAllowed] out NSError error);
+
+		// -(void)setPreferredFramesPerSecondWithPreferredFramesPerSecond:(NSInteger)preferredFramesPerSecond;
+		[Export ("setPreferredFramesPerSecondWithPreferredFramesPerSecond:")]
+		void SetPreferredFramesPerSecondWithPreferredFramesPerSecond (nint preferredFramesPerSecond);
+
+		// -(void)setPreferredFrameRateRangeWithPreferredFrameRateRange:(CAFrameRateRange)preferredFrameRateRange __attribute__((availability(ios, introduced=15.0)));
+		// [iOS (15,0)]
+		[Export ("setPreferredFrameRateRangeWithPreferredFrameRateRange:")]
+		void SetPreferredFrameRateRangeWithPreferredFrameRateRange (CAFrameRateRange preferredFrameRateRange);
 
 		// -(void)advanceWithDelta:(double)delta;
 		[Export ("advanceWithDelta:")]
@@ -896,11 +1020,25 @@ namespace Rive.iOS
 		void TouchesCancelled (NSSet<UITouch> touches, [NullAllowed] UIEvent @event);
 	}
 
-	// @interface RiveViewModel : NSObject <RiveFileDelegate, RiveStateMachineDelegate>
+	// @interface RiveViewModel : NSObject <RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate>
 	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime13RiveViewModel")]
 	[DisableDefaultCtor]
-	interface RiveViewModel : RiveFileDelegate, RiveStateMachineDelegate
+	interface RiveViewModel : RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate
 	{
+		// @property (readonly, nonatomic, strong) RiveView * _Nullable riveView;
+		[NullAllowed, Export ("riveView", ArgumentSemantic.Strong)]
+		RiveView RiveView { get; }
+
+		// -(instancetype _Nonnull)init:(RiveModel * _Nonnull)model stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
+		[Export ("init:stateMachineName:fit:alignment:autoPlay:artboardName:")]
+		[DesignatedInitializer]
+		NativeHandle InitStateMachineName (RiveModel model, [NullAllowed] string stateMachineName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName);
+
+		// -(instancetype _Nonnull)init:(RiveModel * _Nonnull)model animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
+		[Export ("init:animationName:fit:alignment:autoPlay:artboardName:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (RiveModel model, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName);
+
 		// -(instancetype _Nonnull)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName loadCdn:(BOOL)loadCdn customLoader:(LoadAsset _Nullable)customLoader __attribute__((objc_designated_initializer));
 		[Export ("initWithFileName:extension:in:stateMachineName:fit:alignment:autoPlay:artboardName:loadCdn:customLoader:")]
 		[DesignatedInitializer]
@@ -915,6 +1053,10 @@ namespace Rive.iOS
 		[Export ("initWithWebURL:animationName:fit:alignment:autoPlay:loadCdn:artboardName:")]
 		[DesignatedInitializer]
 		NativeHandle initWithWebURL2 (string webURL, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, bool loadCdn, [NullAllowed] string artboardName);
+
+		// @property (readonly, nonatomic, strong) RiveModel * _Nullable riveModel;
+		[NullAllowed, Export ("riveModel", ArgumentSemantic.Strong)]
+		RiveModel RiveModel { get; }
 
 		// @property (readonly, nonatomic) BOOL isPlaying;
 		[Export ("isPlaying")]
@@ -969,9 +1111,17 @@ namespace Rive.iOS
 		[Export ("triggerInput:")]
 		void TriggerInput (string inputName);
 
-		// -(void)setInput:(NSString * _Nonnull)inputName value:(BOOL)value;
+		// -(void)setBoolInput:(NSString * _Nonnull)inputName value:(BOOL)value;
+		[Export ("setBoolInput:value:")]
+		void SetBoolInput (string inputName, bool value);
+
+		// -(void)setInput:(NSString * _Nonnull)inputName value:(float)value;
 		[Export ("setInput:value:")]
-		void SetInput (string inputName, bool value);
+		void SetInput (string inputName, float value);
+
+		// -(void)setNumberInput:(NSString * _Nonnull)inputName value:(double)value;
+		[Export ("setNumberInput:value:")]
+		void SetNumberInput (string inputName, double value);
 
 		// -(NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName __attribute__((warn_unused_result("")));
 		[Export ("getTextRunValue:")]
@@ -1007,6 +1157,26 @@ namespace Rive.iOS
 		/*// -(BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
 		[Export ("riveFileDidLoad:error:")]
 		bool RiveFileDidLoad (RiveFile riveFile, [NullAllowed] out NSError error);*/
+
+		// -(void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithPlayedWithModel:")]
+		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithPausedWithModel:")]
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
+		[Export ("playerWithLoopedWithModel:type:")]
+		void PlayerWithLoopedWithModel ([NullAllowed] RiveModel riveModel, nint type);
+
+		// -(void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithStoppedWithModel:")]
+		void PlayerWithStoppedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithDidAdvanceby:riveModel:")]
+		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);
 	}
 
 	// @interface StateMachineInput : NSObject
