@@ -6,10 +6,4 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
-
-    private void Button_OnClicked(object? sender, EventArgs e)
-    {
-        Button.IsVisible = false;
-        RiveView.Load("runner");
-    }
 }

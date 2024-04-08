@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
-             x:Class="RiveMaui.MainPage">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
+    x:Class="RiveMaui.MainPage">
 
     <ScrollView>
         <VerticalStackLayout
@@ -26,9 +27,7 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <Button x:Name="Button" Text="Click" Clicked="Button_OnClicked" />
-
-            <riveMaui:RiveView WidthRequest="400" HeightRequest="400" x:Name="RiveView" />
+            <riveMaui:Rive ResourceName="runner" WidthRequest="400" HeightRequest="400" />
 
         </VerticalStackLayout>
     </ScrollView>

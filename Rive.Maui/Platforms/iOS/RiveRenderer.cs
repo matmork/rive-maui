@@ -5,19 +5,31 @@ using UIKit;
 
 namespace Rive.Maui;
 
-public partial class RiveViewRenderer : ViewRenderer<RiveView, UIView>
+internal partial class RiveRenderer : ViewRenderer<Rive, UIView>
 {
-    public void Load(string animation)
+    public override void MovedToWindow()
     {
+        if (!string.IsNullOrWhiteSpace(Element?.ResourceName))
+        {
+            Load();
+        }
+
+        base.MovedToWindow();
+    }
+
+    private void Load()
+    {
+        var control = Element!;
+
         var riveVM = new RiveViewModel(
-            animation,
+            control.ResourceName,
             ".riv",
             NSBundle.MainBundle,
-            null,
+            control.StateMachineName,
             RiveFit.contain,
             RiveAlignment.center,
-            true,
-            null,
+            control.Autoplay,
+            control.AnimationName,
             true,
             null
         );
