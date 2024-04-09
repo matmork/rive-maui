@@ -5,6 +5,19 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Rive.Android</PackageId>
+    <Title>Rive Android</Title>
+    <Description>Wrapper around the Android runtime</Description>
+    <Version>1.0.0-pre.1</Version>
+    <PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Com.Getkeepsafe.Relinker" Version="1.3.1" />
     <PackageReference Include="Xamarin.Android.Volley" Version="1.2.1.9" />

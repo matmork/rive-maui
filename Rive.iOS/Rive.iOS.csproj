@@ -6,9 +6,21 @@
     <IsBindingProject>true</IsBindingProject>
     <RootNamespace>Rive.iOS</RootNamespace>
     <!-- Remove when this is closed https://github.com/xamarin/xamarin-macios/issues/10148 also https://github.com/xamarin/xamarin-macios/issues/4315 -->
-    <OutputPath>bin</OutputPath>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+<!--    <OutputPath>bin</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>-->
     <!-- End change-->
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Rive.iOS</PackageId>
+    <Title>Rive iOS</Title>
+    <Description>Wrapper around the iOS runtime</Description>
+    <Version>1.0.0-pre.1</Version>
+    <PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
