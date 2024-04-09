@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace RiveMaui;
+namespace Example;
 
 [Application]
 public class MainApplication : MauiApplication

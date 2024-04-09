@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Rive.Maui;
-namespace RiveMaui;
+
+namespace Example;
 
 public static class MauiProgram
 {

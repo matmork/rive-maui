@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace RiveMaui;
+namespace Example;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

@@ -1,4 +1,6 @@
-﻿namespace RiveMaui;
+﻿using Example.Pages;
+
+namespace Example;
 
 public partial class App : Application
 {

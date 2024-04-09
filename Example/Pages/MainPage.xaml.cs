@@ -1,4 +1,4 @@
-﻿namespace RiveMaui;
+﻿namespace Example.Pages;
 
 public partial class MainPage : ContentPage
 {

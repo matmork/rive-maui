@@ -2,6 +2,7 @@ using System.Windows.Input;
 
 namespace Rive.Maui;
 
+[ContentProperty(nameof(StateMachineInputs))]
 public class Rive : View
 {
     public static readonly BindableProperty ArtboardNameProperty = BindableProperty.Create(
@@ -60,6 +61,12 @@ public class Rive : View
         typeof(Rive)
     );
 
+    public static readonly BindableProperty StateMachineInputsProperty = BindableProperty.Create(
+        nameof(StateMachineInputs),
+        typeof(StateMachineInputCollection),
+        typeof(Rive)
+    );
+
     public string? ArtboardName
     {
         get => (string?)GetValue(ArtboardNameProperty);
@@ -106,6 +113,17 @@ public class Rive : View
     {
         get => (ICommand?)GetValue(OnStateMachineChangeCommandProperty);
         set => SetValue(OnStateMachineChangeCommandProperty, value);
+    }
+
+    public StateMachineInputCollection StateMachineInputs
+    {
+        get => (StateMachineInputCollection)GetValue(StateMachineInputsProperty);
+        set => SetValue(StateMachineInputsProperty, value);
+    }
+
+    public Rive()
+    {
+        StateMachineInputs = new StateMachineInputCollection(this);
     }
 
     private static void OnAnimationNameChanged(BindableObject bindable, object oldvalue, object newvalue)

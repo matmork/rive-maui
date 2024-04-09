@@ -27,8 +27,9 @@ internal partial class RiveRenderer(Context context) : ViewRenderer<Rive, View>(
         if (_listener != null)
         {
             _riveView?.UnregisterListener(_listener);
-            _listener.Control = null;
+            _listener.Control.SetTarget(null);
             _listener.Dispose();
+            _listener = null;
         }
 
         base.OnDetachedFromWindow();
@@ -74,7 +75,7 @@ internal partial class RiveRenderer(Context context) : ViewRenderer<Rive, View>(
         _riveView = new RiveAnimationView(context, null);
 
         _listener = new StateListener();
-        _listener.Control = control;
+        _listener.Control.SetTarget(control);
         _riveView.RegisterListener(_listener);
 
         _riveView.SetRiveResource(
@@ -153,7 +154,7 @@ internal partial class RiveRenderer(Context context) : ViewRenderer<Rive, View>(
 
 internal class StateListener : Java.Lang.Object, RiveFileController.IListener
 {
-    public Rive? Control { get; set; }
+    public WeakReference<Rive?> Control { get; set; } = new(null);
 
     public void NotifyAdvance(float elapsed)
     {
@@ -173,7 +174,10 @@ internal class StateListener : Java.Lang.Object, RiveFileController.IListener
 
     public void NotifyStateChanged(string stateMachineName, string stateName)
     {
-        Control?.OnStateMachineChangeCommand?.Execute(new StateMachineChange(stateMachineName, stateName));
+        if (Control.TryGetTarget(out var control))
+        {
+            control.OnStateMachineChangeCommand?.Execute(new StateMachineChange(stateMachineName, stateName));
+        }
     }
 
     public void NotifyStop(IPlayableInstance animation)

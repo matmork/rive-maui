@@ -63,7 +63,7 @@ internal partial class RiveRenderer : ViewRenderer<Rive, UIView>
             null
         );
 
-        _riveVM.Control = control;
+        _riveVM.Control.SetTarget(control);
 
         var riveView = _riveVM.CreateRiveView;
         riveView.Frame = Element!.Bounds;
@@ -151,10 +151,13 @@ internal class CustomRiveViewModel : RiveViewModel
 
     #endregion
 
-    public Rive? Control { get; set; }
+    public WeakReference<Rive?> Control { get; set; } = new(null);
 
     public override void StateMachine(RiveStateMachineInstance stateMachine, string stateName)
     {
-        Control?.OnStateMachineChangeCommand?.Execute(new StateMachineChange(stateMachine.Name, stateName));
+        if (Control.TryGetTarget(out var control))
+        {
+            control.OnStateMachineChangeCommand?.Execute(new StateMachineChange(stateMachine.Name, stateName));
+        }
     }
 }

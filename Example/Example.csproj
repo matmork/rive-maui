@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RiveMaui</RootNamespace>
+    <RootNamespace>Example</RootNamespace>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
     <!-- Display name -->
-    <ApplicationTitle>RiveMaui</ApplicationTitle>
+    <ApplicationTitle>Rive Maui Example</ApplicationTitle>
 
     <!-- App Identifier -->
-    <ApplicationId>com.companyname.rivemaui</ApplicationId>
+    <ApplicationId>com.companyname.rivemauiexample</ApplicationId>
 
     <!-- Versions -->
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -25,50 +25,50 @@
 
   <ItemGroup>
     <!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
 
     <!-- Splash Screen -->
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128"/>
 
     <!-- Images -->
-    <MauiImage Include="Resources\Images\*" />
-    <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+    <MauiImage Include="Resources\Images\*"/>
+    <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>
 
     <!-- Custom Fonts -->
-    <MauiFont Include="Resources\Fonts\*" />
+    <MauiFont Include="Resources\Fonts\*"/>
 
     <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14"/>
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\StateMachinePage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\StateMachinePage.xaml.cs">
+      <DependentUpon>StateMachinePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Rive.Maui\Rive.Maui.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <MauiXaml Update="MainPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="StateMachinePage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="StateMachinePage.xaml.cs">
-      <DependentUpon>StateMachinePage.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
 
 </Project>

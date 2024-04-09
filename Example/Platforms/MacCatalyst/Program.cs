@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace RiveMaui;
+namespace Example;
 
 public class Program
 {
