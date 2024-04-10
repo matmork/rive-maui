@@ -32,6 +32,11 @@ internal partial class RiveRenderer(Context context) : ViewRenderer<Rive, View>(
             _listener = null;
         }
 
+        Element?.StateMachineInputs.Dispose();
+
+        // https://github.com/rive-app/rive-android/blob/master/MEMORY_MANAGEMENT.md
+        _riveView = null;
+
         base.OnDetachedFromWindow();
     }
 

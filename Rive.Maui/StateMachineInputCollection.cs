@@ -24,8 +24,13 @@ public sealed class StateMachineInputCollection : ObservableCollection<StateMach
         CollectionChanged += InputsVectorChanged;
     }
 
-    ~StateMachineInputCollection()
+    public void Dispose()
     {
+        foreach (var input in this)
+        {
+            input.SetRive(new WeakReference<Rive?>(null));
+        }
+
         CollectionChanged -= InputsVectorChanged;
     }
 

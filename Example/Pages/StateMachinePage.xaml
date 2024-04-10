@@ -3,39 +3,39 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:maui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
+    xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
     x:Class="Example.Pages.StateMachinePage"
     Title="StateMachine">
     <Grid RowDefinitions="300,*" RowSpacing="25">
-        <maui:Rive
+        <riveMaui:Rive
             Grid.Row="0"
             Fit="Cover"
             ResourceName="animatedloginscreen">
-            <maui:BoolInput
+            <riveMaui:BoolInput
                 StateMachineName="Login Machine"
                 InputName="isChecking"
                 Value="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}" />
 
-            <maui:NumberInput
+            <riveMaui:NumberInput
                 StateMachineName="Login Machine"
                 InputName="numLook"
                 Value="{Binding Value, Source={x:Reference LookSlider}}" />
 
-            <maui:BoolInput
+            <riveMaui:BoolInput
                 StateMachineName="Login Machine"
                 InputName="isHandsUp"
                 Value="{Binding IsToggled, Source={x:Reference IsHandsUpSwitch}}" />
 
-            <maui:TriggerInput
+            <riveMaui:TriggerInput
                 x:Name="TrigFail"
                 StateMachineName="Login Machine"
                 InputName="trigFail" />
 
-            <maui:TriggerInput
+            <riveMaui:TriggerInput
                 x:Name="TrigSuccess"
                 StateMachineName="Login Machine"
                 InputName="trigSuccess" />
-        </maui:Rive>
+        </riveMaui:Rive>
 
         <StackLayout Grid.Row="1" Spacing="25" Padding="25, 0">
             <HorizontalStackLayout Spacing="10">

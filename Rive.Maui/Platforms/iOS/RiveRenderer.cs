@@ -12,9 +12,21 @@ internal partial class RiveRenderer : ViewRenderer<Rive, UIView>
 
     public override void MovedToWindow()
     {
-        if (!string.IsNullOrWhiteSpace(Element?.ResourceName))
+        // Added to window
+        if (Window != null)
         {
-            Load();
+            if (!string.IsNullOrWhiteSpace(Element?.ResourceName))
+            {
+                Load();
+            }
+        }
+        // Removed from window
+        else
+        {
+            Element?.StateMachineInputs.Dispose();
+            _riveVM?.Control.SetTarget(null);
+            _riveVM?.Dispose();
+            _riveVM = null;
         }
 
         base.MovedToWindow();
