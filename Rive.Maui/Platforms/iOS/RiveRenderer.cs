@@ -1,5 +1,6 @@
 using Foundation;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
 using ObjCRuntime;
 using Rive.iOS;
 using UIKit;
@@ -10,26 +11,22 @@ internal partial class RiveRenderer : ViewRenderer<Rive, UIView>
 {
     private CustomRiveViewModel? _riveVM;
 
-    public override void MovedToWindow()
+    protected override void OnElementChanged(ElementChangedEventArgs<Rive> e)
     {
-        // Added to window
-        if (Window != null)
+        base.OnElementChanged(e);
+
+        if (e.OldElement != null)
         {
-            if (!string.IsNullOrWhiteSpace(Element?.ResourceName))
-            {
-                Load();
-            }
-        }
-        // Removed from window
-        else
-        {
-            Element?.StateMachineInputs.Dispose();
+            e.OldElement?.StateMachineInputs.Dispose();
             _riveVM?.Control.SetTarget(null);
             _riveVM?.Dispose();
             _riveVM = null;
         }
 
-        base.MovedToWindow();
+        if (e.NewElement != null && !string.IsNullOrWhiteSpace(Element?.ResourceName))
+        {
+            Load();
+        }
     }
 
     private void Load()

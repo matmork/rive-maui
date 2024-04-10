@@ -1,5 +1,6 @@
 using Android.Content;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
 using Rive.Android;
 using Rive.Android.Controllers;
 using Rive.Android.Core;
@@ -12,9 +13,20 @@ internal partial class RiveRenderer(Context context) : ViewRenderer<Rive, View>(
     private RiveAnimationView? _riveView;
     private StateListener? _listener;
 
+    protected override void OnElementChanged(ElementChangedEventArgs<Rive> e)
+    {
+        base.OnElementChanged(e);
+
+        if (!string.IsNullOrWhiteSpace(Element?.ResourceName))
+        {
+            Load();
+        }
+    }
+
+    // https://github.com/rive-app/rive-android/blob/master/MEMORY_MANAGEMENT.md
     protected override void OnAttachedToWindow()
     {
-        if (!string.IsNullOrWhiteSpace(Element?.ResourceName))
+        if (!string.IsNullOrWhiteSpace(Element?.ResourceName) && _riveView == null)
         {
             Load();
         }
@@ -33,8 +45,6 @@ internal partial class RiveRenderer(Context context) : ViewRenderer<Rive, View>(
         }
 
         Element?.StateMachineInputs.Dispose();
-
-        // https://github.com/rive-app/rive-android/blob/master/MEMORY_MANAGEMENT.md
         _riveView = null;
 
         base.OnDetachedFromWindow();
