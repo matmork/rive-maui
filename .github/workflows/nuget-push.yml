@@ -28,8 +28,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
-      - name: Select Xcode 15.1
-        run: sudo xcode-select -s /Applications/Xcode_15.1.app
+      # Use Xcode 15.2 until 15.3 is recommended
+      # see https://github.com/dotnet/maui/issues/21057
+      - name: Select Xcode 15.2
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app
 
       - name: Setup .NET according to global.json
         uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3
@@ -39,8 +41,14 @@ jobs:
       - name: Install MAUI Workload
         run: dotnet workload install maui
 
+      - name: Create staging folder
+        run: mkdir -p staging
+
       - name: Build package
-        run: dotnet pack -c Release src/Rive.Maui/Rive.Maui.csproj
+        run: |
+          dotnet pack -o staging -c Release src/Rive.Android/Rive.Android.csproj
+          dotnet pack -o staging -c Release src/Rive.iOS/Rive.iOS.csproj
+          dotnet pack -o staging -c Release src/Rive.Maui/Rive.Maui.csproj
 
       - name: Publish
-        run: nuget push src/Rive.Maui/bin/Release/*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+        run: nuget push staging/*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
