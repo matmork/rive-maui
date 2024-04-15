@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0-android</TargetFramework>
+		<SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<PackageId>Rive.Android</PackageId>
+		<Title>Rive Android</Title>
+		<Description>Wrapper around the Android runtime</Description>
+		<Version>1.0.0-pre.4</Version>
+		<PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Com.Getkeepsafe.Relinker" />
+		<PackageReference Include="Xamarin.Android.Volley" />
+		<PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" />
+		<PackageReference Include="Xamarin.Kotlin.StdLib" />
+	</ItemGroup>
+</Project>
