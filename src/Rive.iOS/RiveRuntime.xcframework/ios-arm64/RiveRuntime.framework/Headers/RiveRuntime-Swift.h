@@ -280,7 +280,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
-@import QuartzCore;
 @import UIKit;
 #endif
 
@@ -314,42 +313,10 @@ SWIFT_CLASS("_TtC11RiveRuntime14FPSCounterView")
 @end
 
 
-@class RiveStateMachineInstance;
-@class RiveLinearAnimationInstance;
 @class RiveArtboard;
-@class RiveFile;
-@class NSString;
-@class NSBundle;
-@protocol RiveFileDelegate;
-
-SWIFT_CLASS("_TtC11RiveRuntime9RiveModel")
-@interface RiveModel : NSObject
-@property (nonatomic, strong) RiveStateMachineInstance * _Nullable stateMachine;
-@property (nonatomic, strong) RiveLinearAnimationInstance * _Nullable animation;
-@property (nonatomic, readonly, strong) RiveArtboard * _Null_unspecified artboard;
-- (nonnull instancetype)initWithRiveFile:(RiveFile * _Nonnull)riveFile OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle loadCdn:(BOOL)loadCdn error:(NSError * _Nullable * _Nullable)error customLoader:(LoadAsset _Nullable)customLoader OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithWebURL:(NSString * _Nonnull)webURL delegate:(id <RiveFileDelegate> _Nonnull)delegate loadCdn:(BOOL)loadCdn OBJC_DESIGNATED_INITIALIZER;
-/// Sets a new Artboard and makes the current StateMachine and Animation nil
-- (BOOL)setArtboard:(NSString * _Nonnull)name error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)setStateMachine:(NSString * _Nonnull)name error:(NSError * _Nullable * _Nullable)error;
-- (BOOL)setAnimation:(NSString * _Nonnull)name error:(NSError * _Nullable * _Nullable)error;
-@property (nonatomic, readonly, copy) NSString * _Nonnull description;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_PROTOCOL("_TtP11RiveRuntime18RivePlayerDelegate_")
-@protocol RivePlayerDelegate
-- (void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
-- (void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
-- (void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
-- (void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
-- (void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
-@end
-
+@class RiveStateMachineInstance;
 @class StateMachineInput;
+@class NSString;
 @class RiveEvent;
 
 SWIFT_PROTOCOL("_TtP11RiveRuntime24RiveStateMachineDelegate_")
@@ -371,28 +338,9 @@ SWIFT_PROTOCOL("_TtP11RiveRuntime24RiveStateMachineDelegate_")
 
 SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 @interface RiveView : RiveRendererView
-@property (nonatomic, weak) id <RivePlayerDelegate> _Nullable playerDelegate;
-@property (nonatomic, weak) id <RiveStateMachineDelegate> _Nullable stateMachineDelegate;
-/// Shows or hides the FPS counter on this RiveView
-@property (nonatomic) BOOL showFPS;
-/// Shows or hides the FPS counters on all RiveViews
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL showFPSCounters;)
-+ (BOOL)showFPSCounters SWIFT_WARN_UNUSED_RESULT;
-+ (void)setShowFPSCounters:(BOOL)value;
 /// Minimalist constructor, call <code>.configure</code> to customize the <code>RiveView</code> later.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithModel:(RiveModel * _Nonnull)model autoPlay:(BOOL)autoPlay;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-/// This resets the view with the new model. Useful when the <code>RiveView</code> was initialized without one.
-- (BOOL)setModel:(RiveModel * _Nonnull)model autoPlay:(BOOL)autoPlay error:(NSError * _Nullable * _Nullable)error;
-/// Hints to underlying CADisplayLink the preferred FPS to run at
-/// \param preferredFramesPerSecond Integer number of seconds to set preferred FPS at
-///
-- (void)setPreferredFramesPerSecondWithPreferredFramesPerSecond:(NSInteger)preferredFramesPerSecond;
-/// Hints to underlying CADisplayLink the preferred frame rate range
-/// \param preferredFrameRateRange Frame rate range to set
-///
-- (void)setPreferredFrameRateRangeWithPreferredFrameRateRange:(CAFrameRateRange)preferredFrameRateRange SWIFT_AVAILABILITY(ios,introduced=15.0);
 /// Advances the Artboard and either a StateMachine or an Animation.
 /// Also fires any remaining events in the queue.
 /// \param delta elapsed seconds since the last advance
@@ -409,6 +357,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL showFPSCounters;)
 - (nonnull instancetype)initWithFrame:(CGRect)frameRect device:(id <MTLDevice> _Nullable)device SWIFT_UNAVAILABLE;
 @end
 
+@class RiveFile;
 
 /// An object used for controlling a RiveView. For most common Rive files you should only need
 /// to interact with a <code>RiveViewModel</code> object.
@@ -450,94 +399,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL showFPSCounters;)
 ///
 /// \endcode
 SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
-@interface RiveViewModel : NSObject <RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate>
-@property (nonatomic, readonly, strong) RiveView * _Nullable riveView;
-- (nonnull instancetype)init:(RiveModel * _Nonnull)model stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init:(RiveModel * _Nonnull)model animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName loadCdn:(BOOL)loadCdn customLoader:(LoadAsset _Nullable)customLoader OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithWebURL:(NSString * _Nonnull)webURL stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay loadCdn:(BOOL)loadCdn artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithWebURL:(NSString * _Nonnull)webURL animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay loadCdn:(BOOL)loadCdn artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, strong) RiveModel * _Nullable riveModel;
-@property (nonatomic, readonly) BOOL isPlaying;
-@property (nonatomic) BOOL autoPlay;
-@property (nonatomic) RiveFit fit;
-@property (nonatomic) RiveAlignment alignment;
-/// Hints to underlying CADisplayLink in RiveView (if created) the preferred FPS to run at
-/// For more, see: https://developer.apple.com/documentation/quartzcore/cadisplaylink/1648421-preferredframespersecond
-/// \param preferredFramesPerSecond Integer number of seconds to set preferred FPS at
-///
-- (void)setPreferredFramesPerSecondWithPreferredFramesPerSecond:(NSInteger)preferredFramesPerSecond;
-/// Hints to underlying CADisplayLink in RiveView (if created) the preferred frame rate range
-/// For more, see: https://developer.apple.com/documentation/quartzcore/cadisplaylink/3875343-preferredframeraterange
-/// \param preferredFrameRateRange Frame rate range to set
-///
-- (void)setPreferredFrameRateRangeWithPreferredFrameRateRange:(CAFrameRateRange)preferredFrameRateRange SWIFT_AVAILABILITY(ios,introduced=15.0);
-/// Starts the active Animation or StateMachine from it’s last position. It will start
-/// from the beginning if the active Animation has ended or a new one is provided.
-/// \param animationName The name of a new Animation to play on the current Artboard
-///
-/// \param loop The loop mode for the active Animation
-///
-- (void)playWithAnimationName:(NSString * _Nullable)animationName loop:(RiveLoop)loop direction:(RiveDirection)direction;
-/// Halts the active Animation or StateMachine and will resume from it’s current position when next played
-- (void)pause;
-/// Halts the active Animation or StateMachine and sets it at its starting position
-- (void)stop;
-/// Sets the active Animation or StateMachine back to their starting position
-- (void)reset;
-/// Instantiates elements in the model needed to play in a <code>RiveView</code>
-- (BOOL)configureModelWithArtboardName:(NSString * _Nullable)artboardName stateMachineName:(NSString * _Nullable)stateMachineName animationName:(NSString * _Nullable)animationName error:(NSError * _Nullable * _Nullable)error;
-/// Sets the Artboard, StateMachine or Animation back to the first one given to the RiveViewModel
-- (void)resetToDefaultModel;
-/// Provide the active StateMachine a <code>Trigger</code> input
-/// \param inputName The name of a <code>Trigger</code> input on the active StateMachine
-///
-- (void)triggerInput:(NSString * _Nonnull)inputName;
-/// Provide the active StateMachine a <code>Boolean</code> input
-/// \param inputName The name of a <code>Boolean</code> input on the active StateMachine
-///
-/// \param value A Bool value for the input
-///
-- (void)setBoolInput:(NSString * _Nonnull)inputName value:(BOOL)value;
-/// Provide the active StateMachine a <code>Number</code> input
-/// \param inputName The name of a <code>Number</code> input on the active StateMachine
-///
-/// \param value A Float value for the input
-///
-- (void)setInput:(NSString * _Nonnull)inputName value:(float)value;
-/// Provide the active StateMachine a <code>Number</code> input
-/// \param inputName The name of a <code>Number</code> input on the active StateMachine
-///
-/// \param value A Double value for the input
-///
-- (void)setNumberInput:(NSString * _Nonnull)inputName value:(double)value;
-/// Get a text value from a specified text run
-/// \param textRunName The name of a <code>Text Run</code> on the active Artboard
-///
-///
-/// returns:
-/// String text value of the specified text run if applicable
-- (NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName SWIFT_WARN_UNUSED_RESULT;
-/// Set a text value for a specified text run
-/// \param textRunName The name of a <code>Text Run</code> on the active Artboard
-///
-/// \param value A String value for the text run
-///
-- (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
-- (NSArray<NSString *> * _Nonnull)artboardNames SWIFT_WARN_UNUSED_RESULT;
-/// Makes a new <code>RiveView</code> for the instance property with data from model which will
-/// replace any previous <code>RiveView</code>. This is called when first drawing a <code>RiveViewRepresentable</code>.
-///
-/// returns:
-/// Reference to the new view that the <code>RiveViewModel</code> will be maintaining
-- (RiveView * _Nonnull)createRiveView SWIFT_WARN_UNUSED_RESULT;
+@interface RiveViewModel : NSObject <RiveFileDelegate, RiveStateMachineDelegate>
 /// Gives updated layout values to the provided <code>RiveView</code>. This is called in
 /// the process of re-displaying <code>RiveViewRepresentable</code>.
 /// \param view the <code>RiveView</code> that will be updated
 ///
 - (void)updateWithView:(RiveView * _Nonnull)view;
-/// Stops maintaining a connection to any <code>RiveView</code>
-- (void)deregisterView;
 /// This can be used to connect with and configure an <code>RiveView</code> that was created elsewhere.
 /// Does not need to be called when updating an already configured <code>RiveView</code>. Useful for
 /// attaching views created in a <code>UIViewController</code> or Storyboard.
@@ -546,11 +413,6 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 - (void)setView:(RiveView * _Nonnull)view;
 /// Called by RiveFile when it finishes downloading an asset asynchronously
 - (BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
-- (void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
-- (void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
-- (void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
-- (void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
-- (void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

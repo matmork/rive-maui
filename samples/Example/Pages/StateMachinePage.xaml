@@ -6,8 +6,8 @@
     xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
     x:Class="Example.Pages.StateMachinePage"
     Title="StateMachine">
-    <Grid RowDefinitions="300,*" RowSpacing="25">
-        <riveMaui:Rive
+    <Grid RowDefinitions="350,*" RowSpacing="25">
+        <riveMaui:RivePlayer
             Grid.Row="0"
             Fit="Cover"
             ResourceName="animatedloginscreen">
@@ -35,7 +35,7 @@
                 x:Name="TrigSuccess"
                 StateMachineName="Login Machine"
                 InputName="trigSuccess" />
-        </riveMaui:Rive>
+        </riveMaui:RivePlayer>
 
         <StackLayout Grid.Row="1" Spacing="25" Padding="25, 0">
             <HorizontalStackLayout Spacing="10">

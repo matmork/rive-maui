@@ -7,8 +7,13 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    private void Button_OnClicked(object? sender, EventArgs e)
+    private void StateMachine_OnClicked(object? sender, EventArgs e)
     {
         Navigation.PushAsync(new StateMachinePage());
+    }
+
+    private void TouchInput_OnClicked(object? sender, EventArgs e)
+    {
+        Navigation.PushAsync(new TouchInputPage());
     }
 }

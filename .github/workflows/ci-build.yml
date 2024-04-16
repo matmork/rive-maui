@@ -30,7 +30,7 @@ jobs:
     name: Build
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        uses: actions/checkout@v4
 
       # Use Xcode 15.2 until 15.3 is recommended
       # see https://github.com/dotnet/maui/issues/21057
@@ -38,7 +38,7 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_15.2.app
 
       - name: Setup .NET according to global.json
-        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3
+        uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
 
@@ -55,7 +55,7 @@ jobs:
           dotnet pack -o staging -c Debug src/Rive.Maui/Rive.Maui.csproj /p:VersionSuffix="-pr-${{ github.event.number }}"
 
       - name: Upload NuGet Artifact
-        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+        uses: actions/upload-artifact@v4
         with:
           name: rive-ci-build
           path: staging
