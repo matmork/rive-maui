@@ -11,9 +11,7 @@ _(Work in progress)_
 
 
 ## Getting started
+- Install [Rive.Maui nuget](https://www.nuget.org/packages/Rive.Maui/)
 - Call .UseRive() on MauiAppBuilder in MauiProgram.cs
-- Set iOS target version in .csproj to at least 14:
-
-```<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>```
-
+- Set iOS target version in .csproj to at least 14: ```<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>```
 - Add .riv files to Resources/Images
