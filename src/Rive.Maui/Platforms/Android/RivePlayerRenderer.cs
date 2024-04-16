@@ -61,32 +61,6 @@ internal partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePl
             return;
         }
 
-        var riveFit = control.Fit switch
-        {
-            RivePlayerFit.Fill => Android.Core.Fit.Fill!,
-            RivePlayerFit.Contain => Android.Core.Fit.Contain!,
-            RivePlayerFit.Cover => Android.Core.Fit.Cover!,
-            RivePlayerFit.FitHeight => Android.Core.Fit.FitHeight!,
-            RivePlayerFit.FitWidth => Android.Core.Fit.FitWidth!,
-            RivePlayerFit.ScaleDown => Android.Core.Fit.ScaleDown!,
-            RivePlayerFit.NoFit => Android.Core.Fit.None!,
-            _ => Android.Core.Fit.Contain!
-        };
-
-        var riveAlignment = control.Alignment switch
-        {
-            RivePlayerAlignment.TopLeft => Android.Core.Alignment.TopLeft!,
-            RivePlayerAlignment.TopCenter => Android.Core.Alignment.TopCenter!,
-            RivePlayerAlignment.TopRight => Android.Core.Alignment.TopRight!,
-            RivePlayerAlignment.CenterLeft => Android.Core.Alignment.CenterLeft!,
-            RivePlayerAlignment.Center => Android.Core.Alignment.Center!,
-            RivePlayerAlignment.CenterRight => Android.Core.Alignment.CenterRight!,
-            RivePlayerAlignment.BottomLeft => Android.Core.Alignment.BottomLeft!,
-            RivePlayerAlignment.BottomCenter => Android.Core.Alignment.BottomCenter!,
-            RivePlayerAlignment.BottomRight => Android.Core.Alignment.BottomRight!,
-            _ => Android.Core.Alignment.Center!
-        };
-
         RiveView = new RiveAnimationView(context, null);
 
         if (control.OnStateMachineChangeCommand != null)
@@ -96,6 +70,10 @@ internal partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePl
             RiveView.RegisterListener(_listener);
         }
 
+        var riveAlignment = GetAlignment(control.Alignment);
+        var riveFit = GetFit(control.Fit);
+        var riveLoop = GetLoop(control.Loop);
+
         RiveView.SetRiveResource(
             identifier,
             control.ArtboardName,
@@ -104,7 +82,7 @@ internal partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePl
             control.AutoPlay,
             riveFit,
             riveAlignment,
-            Android.Core.Loop.Auto!
+            riveLoop
         );
 
         RiveView.LayoutParameters = new LayoutParams(
@@ -115,26 +93,58 @@ internal partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePl
         SetNativeControl(RiveView);
     }
 
-    private static Android.Core.Loop GetLoop(RivePlayerLoop loop)
+    private static Alignment GetAlignment(RivePlayerAlignment alignment)
     {
-        return loop switch
+        return alignment switch
         {
-            RivePlayerLoop.OneShot => Android.Core.Loop.Oneshot!,
-            RivePlayerLoop.Loop => Android.Core.Loop.Loop2!,
-            RivePlayerLoop.PingPong => Android.Core.Loop.Pingpong!,
-            RivePlayerLoop.AutoLoop => Android.Core.Loop.Auto!,
-            _ => Android.Core.Loop.Auto!
+            RivePlayerAlignment.TopLeft => Alignment.TopLeft!,
+            RivePlayerAlignment.TopCenter => Alignment.TopCenter!,
+            RivePlayerAlignment.TopRight => Alignment.TopRight!,
+            RivePlayerAlignment.CenterLeft => Alignment.CenterLeft!,
+            RivePlayerAlignment.Center => Alignment.Center!,
+            RivePlayerAlignment.CenterRight => Alignment.CenterRight!,
+            RivePlayerAlignment.BottomLeft => Alignment.BottomLeft!,
+            RivePlayerAlignment.BottomCenter => Alignment.BottomCenter!,
+            RivePlayerAlignment.BottomRight => Alignment.BottomRight!,
+            _ => Alignment.Center!
         };
     }
 
-    private static Android.Core.Direction GetDirection(RivePlayerDirection direction)
+    private static Fit GetFit(RivePlayerFit fit)
+    {
+        return fit switch
+        {
+            RivePlayerFit.Fill => Fit.Fill!,
+            RivePlayerFit.Contain => Fit.Contain!,
+            RivePlayerFit.Cover => Fit.Cover!,
+            RivePlayerFit.FitHeight => Fit.FitHeight!,
+            RivePlayerFit.FitWidth => Fit.FitWidth!,
+            RivePlayerFit.ScaleDown => Fit.ScaleDown!,
+            RivePlayerFit.NoFit => Fit.None!,
+            _ => Fit.Contain!
+        };
+    }
+
+    private static Loop GetLoop(RivePlayerLoop loop)
+    {
+        return loop switch
+        {
+            RivePlayerLoop.OneShot => Loop.Oneshot!,
+            RivePlayerLoop.Loop => Loop.Loop2!,
+            RivePlayerLoop.PingPong => Loop.Pingpong!,
+            RivePlayerLoop.AutoLoop => Loop.Auto!,
+            _ => Loop.Auto!
+        };
+    }
+
+    private static Direction GetDirection(RivePlayerDirection direction)
     {
         return direction switch
         {
-            RivePlayerDirection.Backwards => Android.Core.Direction.Backwards!,
-            RivePlayerDirection.Forwards => Android.Core.Direction.Forwards!,
-            RivePlayerDirection.AutoDirection => Android.Core.Direction.Auto!,
-            _ => Android.Core.Direction.Auto!
+            RivePlayerDirection.Backwards => Direction.Backwards!,
+            RivePlayerDirection.Forwards => Direction.Forwards!,
+            RivePlayerDirection.AutoDirection => Direction.Auto!,
+            _ => Direction.Auto!
         };
     }
 

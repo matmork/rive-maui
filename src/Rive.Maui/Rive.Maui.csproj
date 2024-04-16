@@ -13,7 +13,7 @@
 		<PackageId>Rive.Maui</PackageId>
 		<Title>Rive Maui</Title>
 		<Description>Rive animations in Maui using iOS/Android runtimes</Description>
-		<Version>1.0.0-pre.4</Version>
+		<Version>1.0.0-pre.5</Version>
 		<PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
