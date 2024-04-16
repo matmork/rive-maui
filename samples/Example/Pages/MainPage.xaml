@@ -28,9 +28,11 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <Button Text="StateMachine" Clicked="Button_OnClicked" />
+            <Button Text="StateMachine" Clicked="StateMachine_OnClicked" />
 
-            <riveMaui:Rive ResourceName="runner" Fit="Cover" WidthRequest="300" HeightRequest="300" />
+            <Button Text="TouchInput" Clicked="TouchInput_OnClicked" />
+
+            <riveMaui:RivePlayer ResourceName="runner" Fit="Cover" WidthRequest="300" HeightRequest="300" />
 
         </VerticalStackLayout>
     </ScrollView>

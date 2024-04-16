@@ -11,7 +11,7 @@
 
             builder.ConfigureMauiHandlers(handlers =>
              {
-                 handlers.AddHandler<Rive, RiveRenderer>();
+                 handlers.AddHandler<RivePlayer, RivePlayerRenderer>();
              });
 
             return builder;

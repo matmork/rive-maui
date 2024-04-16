@@ -16,11 +16,11 @@ namespace Rive.Maui;
 //
 public sealed class StateMachineInputCollection : ObservableCollection<StateMachineInput>
 {
-    private readonly WeakReference<Rive?> _rive;
+    private readonly WeakReference<RivePlayer?> _rivePlayerReference;
 
-    public StateMachineInputCollection(Rive rive)
+    public StateMachineInputCollection(RivePlayer rivePlayer)
     {
-        _rive = new WeakReference<Rive?>(rive);
+        _rivePlayerReference = new WeakReference<RivePlayer?>(rivePlayer);
         CollectionChanged += InputsVectorChanged;
     }
 
@@ -28,8 +28,10 @@ public sealed class StateMachineInputCollection : ObservableCollection<StateMach
     {
         foreach (var input in this)
         {
-            input.SetRive(new WeakReference<Rive?>(null));
+            input.RivePlayerReference.SetTarget(null);
         }
+
+        _rivePlayerReference.SetTarget(null);
 
         CollectionChanged -= InputsVectorChanged;
     }
@@ -41,9 +43,10 @@ public sealed class StateMachineInputCollection : ObservableCollection<StateMach
             case NotifyCollectionChangedAction.Add:
             case NotifyCollectionChangedAction.Replace:
             {
-                if (sender is ObservableCollection<StateMachineInput> collection)
+                if (sender is ObservableCollection<StateMachineInput> collection
+                    && _rivePlayerReference.TryGetTarget(out var rivePlayer))
                 {
-                    collection[e.NewStartingIndex].SetRive(_rive);
+                    collection[e.NewStartingIndex].RivePlayerReference.SetTarget(rivePlayer);
                 }
 
                 break;
@@ -52,7 +55,7 @@ public sealed class StateMachineInputCollection : ObservableCollection<StateMach
             {
                 if (sender is ObservableCollection<StateMachineInput> collection)
                 {
-                    collection[e.NewStartingIndex].SetRive(new WeakReference<Rive?>(null));
+                    collection[e.NewStartingIndex].RivePlayerReference.SetTarget(null);
                 }
 
                 break;
@@ -63,7 +66,7 @@ public sealed class StateMachineInputCollection : ObservableCollection<StateMach
                 {
                     foreach (var input in collection)
                     {
-                        input.SetRive(new WeakReference<Rive?>(null));
+                        input.RivePlayerReference.SetTarget(null);
                     }
                 }
 

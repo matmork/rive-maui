@@ -4,8 +4,16 @@ Wrapper around the iOS/Android runtime
 
 _(Work in progress)_
 
-### NOTE: iOS only works in simulator for now..
-
-<img src="./images/ios.gif" width="200"> <img src="./images/ios2.gif" width="200">
+<img src="./images/ios.gif" width="180"> <img src="./images/ios2.gif" width="180">
 <br>
-<img src="./images/android.gif" width="200"> <img src="./images/android2.gif" width="200">
+<br>
+<img src="./images/android.gif" width="180"> <img src="./images/android2.gif" width="180">
+
+
+## Getting started
+- Call .UseRive() on MauiAppBuilder in MauiProgram.cs
+- Set iOS target version in .csproj to at least 14:
+
+```<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>```
+
+- Add .riv files to Resources/Images
