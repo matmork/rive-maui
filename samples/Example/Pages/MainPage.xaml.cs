@@ -16,4 +16,9 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new TouchInputPage());
     }
+
+    private void ControlPlayback_OnClicked(object? sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ControlPlaybackPage());
+    }
 }
