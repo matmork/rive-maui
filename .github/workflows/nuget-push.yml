@@ -51,4 +51,4 @@ jobs:
           dotnet pack -o staging -c Release src/Rive.Maui/Rive.Maui.csproj
 
       - name: Publish
-        run: nuget push staging/*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+        run: nuget push staging/*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{secrets.NUGET_API_KEY}} -SkipDuplicate -NonInteractive

@@ -4,17 +4,16 @@
 		<SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
-		<NoWarn>BG8401;BG8605;BG8606;CS0108;CS0114</NoWarn>
+	<PropertyGroup>
 		<PackageId>Rive.Android</PackageId>
 		<Title>Rive Android</Title>
 		<Description>Wrapper around the Android runtime</Description>
-		<Version>1.0.0-pre.5</Version>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionSuffix>pre.6</VersionSuffix>
 		<PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
