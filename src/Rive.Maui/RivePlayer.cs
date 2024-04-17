@@ -147,6 +147,16 @@ public class RivePlayer : View
         set => SetValue(StateMachineInputsProperty, value);
     }
 
+    public ICommand PlayAnimationCommand => new Command<string>(animationName => PlayAnimation(animationName, Loop, Direction));
+
+    public ICommand PlayCommand => new Command(Play);
+
+    public ICommand PauseCommand => new Command(Pause);
+
+    public ICommand StopCommand => new Command(Stop);
+
+    public ICommand ResetCommand => new Command(Reset);
+
     public RivePlayer()
     {
         StateMachineInputs = new StateMachineInputCollection(this);
@@ -164,7 +174,7 @@ public class RivePlayer : View
 
     public void PlayAnimation(string animationName, RivePlayerLoop? loop = null, RivePlayerDirection? direction = null)
     {
-        if (Handler is RivePlayerRenderer renderer)
+        if (Handler is RivePlayerRenderer renderer && !string.IsNullOrWhiteSpace(animationName))
         {
             renderer.PlayAnimation(animationName, loop ?? Loop, direction ?? Direction);
         }

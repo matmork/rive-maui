@@ -17,34 +17,23 @@ internal sealed class CustomRiveView : RiveRendererView
     private RiveLinearAnimationInstance? _animation;
     private RiveStateMachineInstance? _stateMachine;
     private CADisplayLink? _displayLink;
+    private readonly CustomRiveViewProperties _properties;
     private double? _lastTime;
-    private RiveFit _fit;
-    private RiveAlignment _alignment;
-    private RiveLoop _loop;
-    private RiveDirection _direction;
 
-    public CustomRiveView(
-        string resource,
-        string? artboard = null,
-        string? animation = null,
-        string? stateMachine = null,
-        RivePlayerFit? fit = null,
-        RivePlayerAlignment? alignment = null,
-        RivePlayerLoop? loop = null,
-        RivePlayerDirection? direction = null
-    )
+    public CustomRiveView(CustomRiveViewProperties properties)
     {
+        _properties = properties;
         Opaque = false;
-        SetOptions(fit, alignment, loop, direction);
-        SetResource(resource, artboard, animation, stateMachine);
-    }
 
-    private void SetResource(string resource, string? artboard = null, string? animation = null, string? stateMachine = null)
-    {
-        var resourceUrl = NSBundle.MainBundle.GetUrlForResource(resource, ".riv");
+        var resourceUrl = NSBundle.MainBundle.GetUrlForResource(_properties.Resource, ".riv");
         var resourceData = NSData.FromUrl(resourceUrl);
         _riveFile = new RiveFile(resourceData, true, out _);
 
+        SetAnimation(_properties.AutoPlay, _properties.Artboard, _properties.Animation, _properties.StateMachine);
+    }
+
+    private void SetAnimation(bool autoplay, string? artboard, string? animation, string? stateMachine)
+    {
         _artboard = !string.IsNullOrWhiteSpace(artboard)
             ? _riveFile?.ArtboardFromName(artboard, out _)
             : _riveFile?.Artboard(out _);
@@ -52,8 +41,8 @@ internal sealed class CustomRiveView : RiveRendererView
         if (!string.IsNullOrWhiteSpace(animation))
         {
             _animation = _artboard?.AnimationFromName(animation, out _);
-            _animation?.Loop((int)_loop);
-            _animation?.Direction((int)_direction);
+            _animation?.Loop((int)_properties.Loop);
+            _animation?.Direction((int)_properties.Direction);
         }
         else
         {
@@ -62,56 +51,25 @@ internal sealed class CustomRiveView : RiveRendererView
                 : _artboard?.StateMachineFromIndex(0, out _);
         }
 
-        _displayLink = CADisplayLink.Create(Tick);
-        _displayLink.PreferredFrameRateRange = CAFrameRateRange.Create(30, 60, 60);
-        _displayLink.AddToRunLoop(NSRunLoop.Main, NSRunLoopMode.Common);
+        if (autoplay)
+        {
+            CreateDisplayLink();
+        }
+        else
+        {
+            Tick();
+            _lastTime = null;
+        }
     }
 
-    private void SetOptions(RivePlayerFit? fit = null, RivePlayerAlignment? alignment = null, RivePlayerLoop? loop = null,
-        RivePlayerDirection? direction = null)
+    private void CreateDisplayLink()
     {
-        _fit = fit switch
+        if (_displayLink == null)
         {
-            RivePlayerFit.Fill => RiveFit.fill,
-            RivePlayerFit.Contain => RiveFit.contain,
-            RivePlayerFit.Cover => RiveFit.cover,
-            RivePlayerFit.FitHeight => RiveFit.fitHeight,
-            RivePlayerFit.FitWidth => RiveFit.fitWidth,
-            RivePlayerFit.ScaleDown => RiveFit.scaleDown,
-            RivePlayerFit.NoFit => RiveFit.noFit,
-            _ => RiveFit.contain
-        };
-
-        _alignment = alignment switch
-        {
-            RivePlayerAlignment.TopLeft => RiveAlignment.topLeft,
-            RivePlayerAlignment.TopCenter => RiveAlignment.topCenter,
-            RivePlayerAlignment.TopRight => RiveAlignment.topRight,
-            RivePlayerAlignment.CenterLeft => RiveAlignment.centerLeft,
-            RivePlayerAlignment.Center => RiveAlignment.center,
-            RivePlayerAlignment.CenterRight => RiveAlignment.centerRight,
-            RivePlayerAlignment.BottomLeft => RiveAlignment.bottomLeft,
-            RivePlayerAlignment.BottomCenter => RiveAlignment.bottomCenter,
-            RivePlayerAlignment.BottomRight => RiveAlignment.bottomRight,
-            _ => RiveAlignment.center
-        };
-
-        _loop = loop switch
-        {
-            RivePlayerLoop.OneShot => RiveLoop.oneShot,
-            RivePlayerLoop.Loop => RiveLoop.loop,
-            RivePlayerLoop.PingPong => RiveLoop.pingPong,
-            RivePlayerLoop.AutoLoop => RiveLoop.autoLoop,
-            _ => RiveLoop.autoLoop
-        };
-
-        _direction = direction switch
-        {
-            RivePlayerDirection.Backwards => RiveDirection.backwards,
-            RivePlayerDirection.Forwards => RiveDirection.forwards,
-            RivePlayerDirection.AutoDirection => RiveDirection.autoDirection,
-            _ => RiveDirection.autoDirection
-        };
+            _displayLink = CADisplayLink.Create(Tick);
+            _displayLink.PreferredFrameRateRange = CAFrameRateRange.Create(30, 60, 60);
+            _displayLink.AddToRunLoop(NSRunLoop.Main, NSRunLoopMode.Common);
+        }
     }
 
     private void Tick()
@@ -169,7 +127,7 @@ internal sealed class CustomRiveView : RiveRendererView
             return;
 
         var location = touch.LocationInView(this);
-        var artboardLocation = ArtboardLocationFromTouchLocation(location, _artboard.Bounds, _fit, _alignment);
+        var artboardLocation = ArtboardLocationFromTouchLocation(location, _artboard.Bounds, _properties.Fit, _properties.Alignment);
 
         action(artboardLocation);
     }
@@ -191,7 +149,7 @@ internal sealed class CustomRiveView : RiveRendererView
         if (_artboard == null) return;
 
         var newFrame = new CGRect(rect.Location, size);
-        AlignWithRect(newFrame, _artboard.Bounds, _alignment, _fit);
+        AlignWithRect(newFrame, _artboard.Bounds, _properties.Alignment, _properties.Fit);
         DrawWithArtboard(_artboard);
     }
 
@@ -199,8 +157,8 @@ internal sealed class CustomRiveView : RiveRendererView
     {
         if (_artboard?.AnimationFromName(animationName, out var error) is { } animation && error == null)
         {
-            animation.Loop((int)_loop);
-            animation.Direction((int)_direction);
+            animation.Loop((int)_properties.Loop);
+            animation.Direction((int)_properties.Direction);
 
             if (animation.HasEnded())
             {
@@ -215,9 +173,14 @@ internal sealed class CustomRiveView : RiveRendererView
 
     public void Play()
     {
-        if (_displayLink != null)
+        if (_displayLink == null)
+        {
+            CreateDisplayLink();
+        }
+        else
         {
             _displayLink.Paused = false;
+            _lastTime = null;
         }
     }
 
@@ -232,13 +195,12 @@ internal sealed class CustomRiveView : RiveRendererView
     public void Stop()
     {
         Pause();
-        Reset();
     }
 
     public void Reset()
     {
-        _lastTime = null;
-        Tick();
+        ResetProperties(false);
+        SetAnimation(_properties.AutoPlay, _properties.Artboard, _properties.Animation, _properties.StateMachine);
     }
 
     public void SetInput(string stateMachineName, string inputName, bool value)
@@ -262,17 +224,18 @@ internal sealed class CustomRiveView : RiveRendererView
         _stateMachine?.GetTrigger(inputName)?.Fire();
     }
 
-    public new void Dispose()
+    private void ResetProperties(bool disposeFile = true)
     {
         _displayLink?.RemoveFromRunLoop(NSRunLoop.Main, NSRunLoopMode.Common);
         _displayLink?.Invalidate();
         _displayLink?.Dispose();
         _displayLink = null;
 
-        Control.SetTarget(null);
-
-        _riveFile?.Dispose();
-        _riveFile = null;
+        if (disposeFile)
+        {
+            _riveFile?.Dispose();
+            _riveFile = null;
+        }
 
         _artboard?.Dispose();
         _artboard = null;
@@ -282,7 +245,12 @@ internal sealed class CustomRiveView : RiveRendererView
 
         _stateMachine?.Dispose();
         _stateMachine = null;
+    }
 
+    public new void Dispose()
+    {
+        ResetProperties();
+        Control.SetTarget(null);
         base.Dispose();
     }
 }
