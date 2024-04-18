@@ -3,7 +3,7 @@
 # this might be useful, too:
 # https://github.com/dotnet/maui-samples/blob/main/8.0/Apps/WeatherTwentyOne/devops/GitHubActions/
 
-name: Nuget push
+name: NuGet push
 
 on:
   push:
@@ -21,9 +21,9 @@ env:
 
 jobs:
   # Check if it even builds
-  sanity-check-build:
+  build-and-publish-nuget-packages:
     runs-on: macos-13
-    name: Build
+    name: Build and publish NuGet packages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
