@@ -44,11 +44,11 @@ jobs:
       - name: Create staging folder
         run: mkdir -p staging
 
-      - name: Build package
+      - name: Build packages
         run: |
           dotnet pack -o staging -c Release src/Rive.Android/Rive.Android.csproj
           dotnet pack -o staging -c Release src/Rive.iOS/Rive.iOS.csproj
           dotnet pack -o staging -c Release src/Rive.Maui/Rive.Maui.csproj
 
-      - name: Publish
-        run: nuget push staging/*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{secrets.NUGET_API_KEY}} -SkipDuplicate -NonInteractive
+      - name: Publish to NuGet
+        run: dotnet nuget push staging/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
