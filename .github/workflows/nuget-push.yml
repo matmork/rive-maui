@@ -3,7 +3,7 @@
 # this might be useful, too:
 # https://github.com/dotnet/maui-samples/blob/main/8.0/Apps/WeatherTwentyOne/devops/GitHubActions/
 
-name: Nuget push
+name: NuGet push
 
 on:
   push:
@@ -21,9 +21,9 @@ env:
 
 jobs:
   # Check if it even builds
-  sanity-check-build:
+  build-and-publish-nuget-packages:
     runs-on: macos-13
-    name: Build
+    name: Build and publish NuGet packages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,11 +44,11 @@ jobs:
       - name: Create staging folder
         run: mkdir -p staging
 
-      - name: Build package
+      - name: Build packages
         run: |
           dotnet pack -o staging -c Release src/Rive.Android/Rive.Android.csproj
           dotnet pack -o staging -c Release src/Rive.iOS/Rive.iOS.csproj
           dotnet pack -o staging -c Release src/Rive.Maui/Rive.Maui.csproj
 
-      - name: Publish
-        run: nuget push staging/*.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey ${{secrets.NUGET_API_KEY}} -SkipDuplicate -NonInteractive
+      - name: Publish to NuGet
+        run: dotnet nuget push "staging/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
