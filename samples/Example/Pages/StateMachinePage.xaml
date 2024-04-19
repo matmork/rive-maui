@@ -1,63 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
-    x:Class="Example.Pages.StateMachinePage"
-    Title="StateMachine">
-    <Grid RowDefinitions="350,*" RowSpacing="25">
-        <riveMaui:RivePlayer
-            Grid.Row="0"
-            Fit="Cover"
-            ResourceName="animatedloginscreen">
-            <riveMaui:BoolInput
-                StateMachineName="Login Machine"
-                InputName="isChecking"
-                Value="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}" />
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
+             x:Class="Example.Pages.StateMachinePage"
+             Title="StateMachine">
+    <ScrollView>
+        <Grid RowDefinitions="350,*"
+              RowSpacing="25">
+            <riveMaui:RivePlayer Grid.Row="0"
+                                 Fit="Cover"
+                                 ResourceName="animatedloginscreen">
+                <riveMaui:BoolInput StateMachineName="Login Machine"
+                                    InputName="isChecking"
+                                    Value="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}" />
 
-            <riveMaui:NumberInput
-                StateMachineName="Login Machine"
-                InputName="numLook"
-                Value="{Binding Value, Source={x:Reference LookSlider}}" />
+                <riveMaui:NumberInput StateMachineName="Login Machine"
+                                      InputName="numLook"
+                                      Value="{Binding Value, Source={x:Reference LookSlider}}" />
 
-            <riveMaui:BoolInput
-                StateMachineName="Login Machine"
-                InputName="isHandsUp"
-                Value="{Binding IsToggled, Source={x:Reference IsHandsUpSwitch}}" />
+                <riveMaui:BoolInput StateMachineName="Login Machine"
+                                    InputName="isHandsUp"
+                                    Value="{Binding IsToggled, Source={x:Reference IsHandsUpSwitch}}" />
 
-            <riveMaui:TriggerInput
-                x:Name="TrigFail"
-                StateMachineName="Login Machine"
-                InputName="trigFail" />
+                <riveMaui:TriggerInput x:Name="TrigFail"
+                                       StateMachineName="Login Machine"
+                                       InputName="trigFail" />
 
-            <riveMaui:TriggerInput
-                x:Name="TrigSuccess"
-                StateMachineName="Login Machine"
-                InputName="trigSuccess" />
-        </riveMaui:RivePlayer>
+                <riveMaui:TriggerInput x:Name="TrigSuccess"
+                                       StateMachineName="Login Machine"
+                                       InputName="trigSuccess" />
+            </riveMaui:RivePlayer>
 
-        <StackLayout Grid.Row="1" Spacing="25" Padding="25, 0">
-            <HorizontalStackLayout Spacing="10">
-                <Switch x:Name="IsCheckingSwitch" />
-                <Label Text="Checking" VerticalOptions="Center" />
-            </HorizontalStackLayout>
+            <StackLayout Grid.Row="1"
+                         Spacing="25"
+                         Padding="25, 0">
+                <HorizontalStackLayout Spacing="10">
+                    <Switch x:Name="IsCheckingSwitch" />
+                    <Label Text="Checking"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
 
-            <Slider
-                x:Name="LookSlider"
-                IsEnabled="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}"
-                Minimum="0"
-                Maximum="100"
-                Value="0" />
+                <Slider x:Name="LookSlider"
+                        IsEnabled="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="0" />
 
-            <HorizontalStackLayout Spacing="10">
-                <Switch x:Name="IsHandsUpSwitch" />
-                <Label Text="Hands up" VerticalOptions="Center" />
-            </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Switch x:Name="IsHandsUpSwitch" />
+                    <Label Text="Hands up"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
 
-            <Button Text="Failure" Command="{Binding FireCommand, Source={x:Reference TrigFail}}" />
+                <Button Text="Failure"
+                        Command="{Binding FireCommand, Source={x:Reference TrigFail}}" />
 
-            <Button Text="Success" Command="{Binding FireCommand, Source={x:Reference TrigSuccess}}" />
-        </StackLayout>
-    </Grid>
+                <Button Text="Success"
+                        Command="{Binding FireCommand, Source={x:Reference TrigSuccess}}" />
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>
