@@ -1,38 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
-    xmlns:pages="clr-namespace:Example.Pages"
-    x:Class="Example.Pages.TouchInputPage"
-    x:DataType="pages:TouchInputPageViewModel"
-    Title="TouchPage">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
+             xmlns:pages="clr-namespace:Example.Pages"
+             x:Class="Example.Pages.TouchInputPage"
+             x:DataType="pages:TouchInputPageViewModel"
+             Title="TouchPage">
 
     <ContentPage.BindingContext>
         <pages:TouchInputPageViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout>
-        <Label
-            Margin="0,50,0,0"
-            Text="{Binding CurrentStateName, StringFormat='State name: {0}'}"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            FontSize="20" />
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Margin="0,50,0,0"
+                   Text="{Binding CurrentStateName, StringFormat='State name: {0}'}"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="20" />
 
-        <Label
-            Text="{Binding NumberInputValue, StringFormat='Number input: {0}'}"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            FontSize="20" />
+            <Label Text="{Binding NumberInputValue, StringFormat='Number input: {0}'}"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="20" />
 
-        <riveMaui:RivePlayer
-            Margin="0,40,0,0"
-            ResourceName="lil_guy"
-            Fit="Cover"
-            HeightRequest="500"
-            OnStateMachineChangeCommand="{Binding StateChangedCommand}" />
-    </VerticalStackLayout>
-
+            <riveMaui:RivePlayer Margin="0,40,0,0"
+                                 ResourceName="lil_guy"
+                                 Fit="Cover"
+                                 HeightRequest="500"
+                                 OnStateMachineChangeCommand="{Binding StateChangedCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
