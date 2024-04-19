@@ -1,27 +1,21 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Rive.Maui;
 
 namespace Example.Pages;
 
-public class TouchInputPageViewModel : INotifyPropertyChanged
+public partial class TouchInputPageViewModel : ObservableObject
 {
+    [ObservableProperty]
     private string? _currentStateName;
+
+    [ObservableProperty]
     private double _numberInputValue;
 
-    public string? CurrentStateName
-    {
-        get => _currentStateName;
-        set => SetField(ref _currentStateName, value);
-    }
-
-    public double NumberInputValue
-    {
-        get => _numberInputValue;
-        set => SetField(ref _numberInputValue, value);
-    }
-
-    public Command<StateMachineChange> StateChangedCommand => new(state =>
+    [RelayCommand]
+    private Task StateChanged(StateMachineChange state)
     {
         CurrentStateName = state.StateName;
         if (state.Inputs.TryGetValue("Number 1", out var value)
@@ -29,20 +23,6 @@ public class TouchInputPageViewModel : INotifyPropertyChanged
         {
             NumberInputValue = floatValue;
         }
-    });
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
+        return Task.CompletedTask;
     }
 }
