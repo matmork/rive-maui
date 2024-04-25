@@ -6,4 +6,9 @@ public partial class TouchInputPage : ContentPage
     {
         InitializeComponent();
     }
+
+    private void TouchInputPage_OnUnloaded(object? sender, EventArgs e)
+    {
+        RivePlayer.Handler?.DisconnectHandler();
+    }
 }

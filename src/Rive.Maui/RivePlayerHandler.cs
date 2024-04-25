@@ -1,20 +1,9 @@
-﻿#if IOS || MACCATALYST
-using PlatformView = Rive.iOS.RiveRendererView;
-#elif ANDROID
-using PlatformView = Rive.Android.RiveAnimationView;
-#elif WINDOWS
-using PlatformView = Microsoft.UI.Xaml.Controls.TextBox;
-#elif (NETSTANDARD || !PLATFORM) || (NET8_0_OR_GREATER && !IOS && !ANDROID)
-using PlatformView = System.Object;
-#endif
-using Microsoft.Maui.Handlers;
-
-namespace Rive.Maui;
+﻿namespace Rive.Maui;
 
 public partial class RivePlayerHandler
 {
-    public static IPropertyMapper<RivePlayer, RivePlayerHandler> PropertyMapper =
-        new PropertyMapper<RivePlayer, RivePlayerHandler>(ViewHandler.ViewMapper)
+    public static readonly IPropertyMapper<RivePlayer, RivePlayerHandler> PropertyMapper =
+        new PropertyMapper<RivePlayer, RivePlayerHandler>(ViewMapper)
         {
             [nameof(RivePlayer.ArtboardName)] = MapArtboardName,
             [nameof(RivePlayer.AnimationName)] = MapAnimationProperties,
@@ -25,19 +14,16 @@ public partial class RivePlayerHandler
             [nameof(RivePlayer.Alignment)] = MapAlignment,
             [nameof(RivePlayer.Loop)] = MapAnimationProperties,
             [nameof(RivePlayer.Direction)] = MapAnimationProperties,
-            [nameof(RivePlayer.OnStateMachineChangeCommand)] = MapOnStateMachineChangeCommand,
-            //[nameof(RivePlayer.StateMachineInputs)] = MapStateMachineInputs,
+            [nameof(RivePlayer.StateChangedCommand)] = MapStateChangedCommand
         };
 
-    public static CommandMapper<RivePlayer, RivePlayerHandler> CommandMapper = new(ViewCommandMapper)
+    public static readonly CommandMapper<RivePlayer, RivePlayerHandler> CommandMapper = new(ViewCommandMapper)
     {
-        [nameof(RivePlayer.PlayRequested)] = MapPlay,
-        [nameof(RivePlayer.PauseRequested)] = MapPause,
-        [nameof(RivePlayer.StopRequested)] = MapStop,
-        [nameof(RivePlayer.ResetRequested)] = MapReset,
+        [nameof(RivePlayer.Play)] = MapPlay,
+        [nameof(RivePlayer.Pause)] = MapPause,
+        [nameof(RivePlayer.Stop)] = MapStop,
+        [nameof(RivePlayer.Reset)] = MapReset,
+        [nameof(RivePlayer.SetInput)] = MapSetInput,
+        [nameof(RivePlayer.TriggerInput)] = MapTriggerInput,
     };
-
-    public RivePlayerHandler() : base(PropertyMapper, CommandMapper)
-    {
-    }
 }

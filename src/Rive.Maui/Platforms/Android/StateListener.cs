@@ -25,28 +25,29 @@ internal class StateListener : Java.Lang.Object, RiveFileController.IListener
 
     public void NotifyStateChanged(string stateMachineName, string stateName)
     {
-        if (RivePlayerHandlerReference.TryGetTarget(out var handler)
-            && handler is { PlatformView: not null, VirtualView.OnStateMachineChangeCommand: not null })
+        if (!RivePlayerHandlerReference.TryGetTarget(out var handler))
+            return;
+
+        var inputs = new Dictionary<string, object>();
+        foreach (var stateMachine in handler.PlatformView.StateMachines)
         {
-            var inputs = new Dictionary<string, object>();
-            foreach (var stateMachine in handler.PlatformView.StateMachines)
+            foreach (var input in stateMachine.Inputs)
             {
-                foreach (var input in stateMachine.Inputs)
+                switch (input)
                 {
-                    switch (input)
-                    {
-                        case SMINumber smiNumber:
-                            inputs.Add(smiNumber.Name, smiNumber.Value);
-                            break;
-                        case SMIBoolean smiBool:
-                            inputs.Add(smiBool.Name, smiBool.Value);
-                            break;
-                    }
+                    case SMINumber smiNumber:
+                        inputs.Add(smiNumber.Name, smiNumber.Value);
+                        break;
+                    case SMIBoolean smiBool:
+                        inputs.Add(smiBool.Name, smiBool.Value);
+                        break;
                 }
             }
-
-            handler.VirtualView.OnStateMachineChangeCommand?.Execute(new StateMachineChange(stateMachineName, stateName, inputs));
         }
+
+        var args = new StateMachineChangeArgs(stateMachineName, stateName, inputs);
+        handler.VirtualView.StateChangedEventManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
+        handler.VirtualView.StateChangedCommand?.Execute(args);
     }
 
     public void NotifyStop(IPlayableInstance animation)
