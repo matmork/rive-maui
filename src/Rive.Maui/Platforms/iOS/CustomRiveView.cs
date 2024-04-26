@@ -18,7 +18,6 @@ public sealed class CustomRiveView : RiveRendererView
     private double? _lastTime;
     private string? _resourceName;
     private string? _artboardName;
-    private string? _animationName;
     private string? _stateMachineName;
 
     public WeakReference<RivePlayer?> Control { get; set; } = new(null);
@@ -28,24 +27,7 @@ public sealed class CustomRiveView : RiveRendererView
         get => _artboardName;
         set
         {
-            if (_animationName == value)
-                return;
-
             _artboardName = value;
-            ResetProperties(false);
-            UpdateAnimation();
-        }
-    }
-
-    public string? AnimationName
-    {
-        get => _animationName;
-        set
-        {
-            if (_animationName == value)
-                return;
-
-            _animationName = value;
             ResetProperties(false);
             UpdateAnimation();
         }
@@ -56,15 +38,13 @@ public sealed class CustomRiveView : RiveRendererView
         get => _stateMachineName;
         set
         {
-            if (_animationName == value)
-                return;
-
             _stateMachineName = value;
             ResetProperties(false);
             UpdateAnimation();
         }
     }
 
+    public string? AnimationName { get; set; }
     public bool AutoPlay { get; set; }
     public RiveFit Fit { get; set; }
     public RiveAlignment Alignment { get; set; }
@@ -79,7 +59,7 @@ public sealed class CustomRiveView : RiveRendererView
     public void SetRiveResource(string? resourceName)
     {
         if (string.IsNullOrWhiteSpace(resourceName) ||
-            string.Equals(resourceName, _resourceName, StringComparison.InvariantCultureIgnoreCase))
+            string.Equals(resourceName, _resourceName, StringComparison.OrdinalIgnoreCase))
             return;
 
         if (_resourceName != null)
@@ -174,9 +154,9 @@ public sealed class CustomRiveView : RiveRendererView
 
             _riveStateMachine.AdvanceBy(elapsedTime);
         }
-        else if (_riveAnimation != null)
+        else
         {
-            _riveAnimation.AdvanceBy(elapsedTime);
+            _riveAnimation?.AdvanceBy(elapsedTime);
         }
 
         MainThread.BeginInvokeOnMainThread(SetNeedsDisplay);
@@ -219,7 +199,7 @@ public sealed class CustomRiveView : RiveRendererView
 
     public void PlayAnimation(string animationName)
     {
-        if (string.Equals(animationName, AnimationName, StringComparison.InvariantCultureIgnoreCase))
+        if (string.Equals(animationName, AnimationName, StringComparison.OrdinalIgnoreCase))
             return;
 
         if (_riveArtboard?.AnimationFromName(animationName, out var error) is { } animation && error == null)

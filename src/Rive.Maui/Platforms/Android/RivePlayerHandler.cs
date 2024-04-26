@@ -8,6 +8,7 @@ namespace Rive.Maui;
 public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimationView>(PropertyMapper, CommandMapper)
 {
     private StateListener? listener;
+    private string? _resourceName;
 
     protected override RiveAnimationView CreatePlatformView()
         => new(Context, null);
@@ -31,7 +32,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
 
     private void OnViewAttachedToWindow(object? sender, View.ViewAttachedToWindowEventArgs e)
     {
-        Load(VirtualView);
+        Load();
     }
 
     private void OnViewDetachedFromWindow(object? sender, View.ViewDetachedFromWindowEventArgs e)
@@ -47,24 +48,26 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
         VirtualView.StateMachineInputs.Dispose();
     }
 
-    private void Load(RivePlayer control)
+    private void Load()
     {
-        var resourceIdentifier = Context.Resources!.GetIdentifier(control.ResourceName, "drawable", Context.PackageName);
+        var resourceIdentifier = Context.Resources!.GetIdentifier(VirtualView.ResourceName, "drawable", Context.PackageName);
         if (resourceIdentifier == 0)
         {
             return;
         }
 
-        var riveAlignment = control.Alignment.AsRive();
-        var riveFit = control.Fit.AsRive();
-        var riveLoop = control.Loop.AsRive();
+        _resourceName = VirtualView.ResourceName;
+
+        var riveAlignment = VirtualView.Alignment.AsRive();
+        var riveFit = VirtualView.Fit.AsRive();
+        var riveLoop = VirtualView.Loop.AsRive();
 
         PlatformView.SetRiveResource(
             resourceIdentifier,
-            control.ArtboardName,
-            control.AnimationName,
-            control.StateMachineName,
-            control.AutoPlay,
+            VirtualView.ArtboardName,
+            VirtualView.AnimationName,
+            VirtualView.StateMachineName,
+            VirtualView.AutoPlay,
             riveFit,
             riveAlignment,
             riveLoop
@@ -76,9 +79,6 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
         );
     }
 
-    public static void MapArtboardName(RivePlayerHandler handler, RivePlayer view)
-        => handler.PlatformView.ArtboardName = view.ArtboardName;
-
     public static void MapAnimationProperties(RivePlayerHandler handler, RivePlayer view)
     {
         if (!string.IsNullOrWhiteSpace(view.AnimationName))
@@ -86,29 +86,52 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
             var riveLoop = view.Loop.AsRive();
             var riveDirection = view.Direction.AsRive();
 
-            handler.PlatformView.Play(view.AnimationName, riveLoop, riveDirection, false, true);
+            handler.PlatformView.Play(view.AnimationName, riveLoop, riveDirection, string.IsNullOrWhiteSpace(view.StateMachineName), true);
         }
+    }
+
+    public static void MapArtboardName(RivePlayerHandler handler, RivePlayer view)
+    {
+        if (!string.Equals(handler.PlatformView.ArtboardName, view.ArtboardName, StringComparison.OrdinalIgnoreCase))
+            handler.PlatformView.ArtboardName = view.ArtboardName;
     }
 
     public static void MapStateMachineName(RivePlayerHandler handler, RivePlayer view)
     {
         var rendererAttributes = handler.PlatformView.GetRendererAttributes();
-        rendererAttributes.StateMachineName = view.StateMachineName;
+
+        if (!string.Equals(rendererAttributes.StateMachineName, view.StateMachineName, StringComparison.OrdinalIgnoreCase))
+            rendererAttributes.StateMachineName = view.StateMachineName;
     }
 
     public static void MapResourceName(RivePlayerHandler handler, RivePlayer view)
     {
-        handler.Load(view);
+        if (string.IsNullOrWhiteSpace(view.ResourceName) ||
+            string.Equals(view.ResourceName, handler._resourceName, StringComparison.OrdinalIgnoreCase))
+            return;
+
+        handler.Load();
     }
 
     public static void MapAutoPlay(RivePlayerHandler handler, RivePlayer view)
-        => handler.PlatformView.Autoplay = view.AutoPlay;
+    {
+        if (handler.PlatformView.Autoplay != view.AutoPlay)
+            handler.PlatformView.Autoplay = view.AutoPlay;
+    }
 
     public static void MapFit(RivePlayerHandler handler, RivePlayer view)
-        => handler.PlatformView.Fit = view.Fit.AsRive();
+    {
+        var riveFit = view.Fit.AsRive();
+        if (handler.PlatformView.Fit != riveFit)
+            handler.PlatformView.Fit = riveFit;
+    }
 
     public static void MapAlignment(RivePlayerHandler handler, RivePlayer view)
-        => handler.PlatformView.Alignment = view.Alignment.AsRive();
+    {
+        var riveAlignment = view.Alignment.AsRive();
+        if (handler.PlatformView.Alignment != riveAlignment)
+            handler.PlatformView.Alignment = riveAlignment;
+    }
 
     public static void MapStateChangedCommand(RivePlayerHandler handler, RivePlayer view)
     {
