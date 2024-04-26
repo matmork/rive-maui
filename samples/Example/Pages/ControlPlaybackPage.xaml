@@ -4,7 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
              x:Class="Example.Pages.ControlPlaybackPage"
-             Unloaded="ControlPlaybackPage_OnUnloaded"
              Title="ControlPlayback">
 
     <ScrollView>

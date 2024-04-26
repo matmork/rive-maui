@@ -17,33 +17,10 @@ public sealed class CustomRiveView : RiveRendererView
     private CADisplayLink? _displayLink;
     private double? _lastTime;
     private string? _resourceName;
-    private string? _artboardName;
-    private string? _stateMachineName;
 
     public WeakReference<RivePlayer?> Control { get; set; } = new(null);
-
-    public string? ArtboardName
-    {
-        get => _artboardName;
-        set
-        {
-            _artboardName = value;
-            ResetProperties(false);
-            UpdateAnimation();
-        }
-    }
-
-    public string? StateMachineName
-    {
-        get => _stateMachineName;
-        set
-        {
-            _stateMachineName = value;
-            ResetProperties(false);
-            UpdateAnimation();
-        }
-    }
-
+    public string? ArtboardName { get; set; }
+    public string? StateMachineName { get; set; }
     public string? AnimationName { get; set; }
     public bool AutoPlay { get; set; }
     public RiveFit Fit { get; set; }
@@ -68,21 +45,30 @@ public sealed class CustomRiveView : RiveRendererView
         _resourceName = resourceName;
 
         var resourceUrl = NSBundle.MainBundle.GetUrlForResource(resourceName, ".riv");
+        if (resourceUrl == null)
+            return;
+
         var resourceData = NSData.FromUrl(resourceUrl);
+        if (resourceData == null)
+            return;
+
         _riveFile = new RiveFile(resourceData, true, out _);
 
         UpdateAnimation();
     }
 
-    private void UpdateAnimation()
+    public void UpdateAnimation()
     {
         _riveArtboard = !string.IsNullOrWhiteSpace(ArtboardName)
             ? _riveFile?.ArtboardFromName(ArtboardName, out _)
             : _riveFile?.Artboard(out _);
 
-        if (!string.IsNullOrWhiteSpace(AnimationName))
+        if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount == 0)
         {
-            _riveAnimation = _riveArtboard?.AnimationFromName(AnimationName, out _);
+            _riveAnimation = !string.IsNullOrWhiteSpace(AnimationName)
+                ? _riveArtboard?.AnimationFromName(AnimationName, out _)
+                : _riveArtboard?.AnimationFromIndex(0, out _);
+
             _riveAnimation?.Loop((int)Loop);
             _riveAnimation?.Direction((int)Direction);
         }
@@ -271,7 +257,7 @@ public sealed class CustomRiveView : RiveRendererView
         _riveStateMachine?.GetTrigger(inputName)?.Fire();
     }
 
-    private void ResetProperties(bool disposeFile = true)
+    public void ResetProperties(bool disposeFile = true)
     {
         _resourceName = null;
         _displayLink?.RemoveFromRunLoop(NSRunLoop.Main, NSRunLoopMode.Common);
@@ -298,7 +284,12 @@ public sealed class CustomRiveView : RiveRendererView
     public new void Dispose()
     {
         ResetProperties();
+
+        if (Control.TryGetTarget(out var control))
+            control.StateMachineInputs.Dispose();
+
         Control.SetTarget(null);
+
         base.Dispose();
     }
 }

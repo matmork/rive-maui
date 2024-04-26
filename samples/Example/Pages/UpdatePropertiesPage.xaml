@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
+             xmlns:pages="clr-namespace:Example.Pages"
+             x:Class="Example.Pages.UpdatePropertiesPage"
+             x:DataType="pages:UpdatePropertiesPageViewModel"
+             Title="TouchPage">
+
+    <ContentPage.BindingContext>
+        <pages:UpdatePropertiesPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <riveMaui:RivePlayer Margin="0,40,0,0"
+                                 ResourceName="{Binding ResourceName}"
+                                 ArtboardName="{Binding ArtboardName}"
+                                 Fit="Cover"
+                                 HeightRequest="400" />
+
+            <FlexLayout Wrap="Wrap"
+                        Padding="10"
+                        HorizontalOptions="Center">
+
+                <Button Text="ResourceName"
+                        Margin="5,5,0,5"
+                        Command="{Binding UpdatePropertyCommand, Mode=OneTime}"
+                        CommandParameter="resource" />
+
+                <Button Text="ArtboardName"
+                        Margin="5,5,0,5"
+                        Command="{Binding UpdatePropertyCommand, Mode=OneTime}"
+                        CommandParameter="artboard" />
+
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

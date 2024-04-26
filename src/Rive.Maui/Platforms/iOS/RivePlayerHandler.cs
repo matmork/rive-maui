@@ -26,8 +26,6 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
 
     protected override void DisconnectHandler(CustomRiveView platformView)
     {
-        VirtualView.StateMachineInputs.Dispose();
-        platformView.Control.SetTarget(null);
         platformView.Dispose();
 
         base.DisconnectHandler(platformView);
@@ -46,13 +44,21 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
     public static void MapArtboardName(RivePlayerHandler handler, RivePlayer view)
     {
         if (!string.Equals(handler.PlatformView.ArtboardName, view.ArtboardName, StringComparison.OrdinalIgnoreCase))
+        {
             handler.PlatformView.ArtboardName = view.ArtboardName;
+            handler.PlatformView.ResetProperties(false);
+            handler.PlatformView.UpdateAnimation();
+        }
     }
 
     private static void MapStateMachineName(RivePlayerHandler handler, RivePlayer view)
     {
         if (!string.Equals(handler.PlatformView.StateMachineName, view.StateMachineName, StringComparison.OrdinalIgnoreCase))
+        {
             handler.PlatformView.StateMachineName = view.StateMachineName;
+            handler.PlatformView.ResetProperties(false);
+            handler.PlatformView.UpdateAnimation();
+        }
     }
 
     private static void MapResourceName(RivePlayerHandler handler, RivePlayer view)
