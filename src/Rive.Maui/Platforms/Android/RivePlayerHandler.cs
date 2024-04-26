@@ -11,7 +11,15 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
     private string? _resourceName;
 
     protected override RiveAnimationView CreatePlatformView()
-        => new(Context, null);
+    {
+        var platformView = new RiveAnimationView(Context, null);
+        platformView.LayoutParameters = new ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MatchParent,
+            ViewGroup.LayoutParams.MatchParent
+        );
+
+        return platformView;
+    }
 
     protected override void ConnectHandler(RiveAnimationView platformView)
     {
@@ -32,7 +40,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
 
     private void OnViewAttachedToWindow(object? sender, View.ViewAttachedToWindowEventArgs e)
     {
-        Load();
+        SetRiveResource();
     }
 
     private void OnViewDetachedFromWindow(object? sender, View.ViewDetachedFromWindowEventArgs e)
@@ -48,13 +56,14 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
         VirtualView.StateMachineInputs.Dispose();
     }
 
-    private void Load()
+    private void SetRiveResource()
     {
-        var resourceIdentifier = Context.Resources!.GetIdentifier(VirtualView.ResourceName, "drawable", Context.PackageName);
-        if (resourceIdentifier == 0)
-        {
+        if (string.IsNullOrWhiteSpace(VirtualView.ResourceName))
             return;
-        }
+
+        var resourceIdentifier = Context.Resources?.GetIdentifier(VirtualView.ResourceName, "drawable", Context.PackageName) ?? 0;
+        if (resourceIdentifier == 0)
+            return;
 
         _resourceName = VirtualView.ResourceName;
 
@@ -71,11 +80,6 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
             riveFit,
             riveAlignment,
             riveLoop
-        );
-
-        PlatformView.LayoutParameters = new ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MatchParent,
-            ViewGroup.LayoutParams.MatchParent
         );
     }
 
@@ -110,7 +114,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, RiveAnimation
             string.Equals(view.ResourceName, handler._resourceName, StringComparison.OrdinalIgnoreCase))
             return;
 
-        handler.Load();
+        handler.SetRiveResource();
     }
 
     public static void MapAutoPlay(RivePlayerHandler handler, RivePlayer view)

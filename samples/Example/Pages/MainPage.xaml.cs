@@ -21,4 +21,9 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new ControlPlaybackPage());
     }
+
+    private void UpdateProperties_OnClicked(object? sender, EventArgs e)
+    {
+        Navigation.PushAsync(new UpdatePropertiesPage());
+    }
 }

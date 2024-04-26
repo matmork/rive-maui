@@ -6,9 +6,4 @@ public partial class ControlPlaybackPage : ContentPage
     {
         InitializeComponent();
     }
-
-    private void ControlPlaybackPage_OnUnloaded(object? sender, EventArgs e)
-    {
-        RivePlayer.Handler?.DisconnectHandler();
-    }
 }

@@ -59,6 +59,9 @@
 		<MauiXaml Update="Pages\ControlPlaybackPage.xaml">
 		  <SubType>Designer</SubType>
 		</MauiXaml>
+		<MauiXaml Update="Pages\UpdatePropertiesPage.xaml">
+		  <SubType>Designer</SubType>
+		</MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,6 +79,10 @@
 		</Compile>
 		<Compile Update="Pages\ControlPlaybackPage.xaml.cs">
 		  <DependentUpon>ControlPlaybackPage.xaml</DependentUpon>
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Pages\UpdatePropertiesPage.xaml.cs">
+		  <DependentUpon>UpdatePropertiesPage.xaml</DependentUpon>
 		  <SubType>Code</SubType>
 		</Compile>
 	</ItemGroup>
