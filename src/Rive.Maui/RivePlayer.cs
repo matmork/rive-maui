@@ -5,6 +5,14 @@ namespace Rive.Maui;
 [ContentProperty(nameof(StateMachineInputs))]
 public class RivePlayer : View
 {
+    internal readonly WeakEventManager StateChangedEventManager = new();
+
+    public event EventHandler<string> StateChanged
+    {
+        add => StateChangedEventManager.AddEventHandler(value);
+        remove => StateChangedEventManager.RemoveEventHandler(value);
+    }
+
     public static readonly BindableProperty ArtboardNameProperty = BindableProperty.Create(
         nameof(ArtboardName),
         typeof(string),
@@ -16,8 +24,7 @@ public class RivePlayer : View
         nameof(AnimationName),
         typeof(string),
         typeof(RivePlayer),
-        defaultValue: null,
-        propertyChanged: OnAnimationNameChanged
+        defaultValue: null
     );
 
     public static readonly BindableProperty StateMachineNameProperty = BindableProperty.Create(
@@ -69,8 +76,8 @@ public class RivePlayer : View
         defaultValue: RivePlayerDirection.AutoDirection
     );
 
-    public static readonly BindableProperty OnStateMachineChangeCommandProperty = BindableProperty.Create(
-        nameof(OnStateMachineChangeCommand),
+    public static readonly BindableProperty StateChangedCommandProperty = BindableProperty.Create(
+        nameof(StateChangedCommand),
         typeof(ICommand),
         typeof(RivePlayer)
     );
@@ -135,10 +142,10 @@ public class RivePlayer : View
         set => SetValue(DirectionProperty, value);
     }
 
-    public ICommand? OnStateMachineChangeCommand
+    public ICommand? StateChangedCommand
     {
-        get => (ICommand?)GetValue(OnStateMachineChangeCommandProperty);
-        set => SetValue(OnStateMachineChangeCommandProperty, value);
+        get => (ICommand?)GetValue(StateChangedCommandProperty);
+        set => SetValue(StateChangedCommandProperty, value);
     }
 
     public StateMachineInputCollection StateMachineInputs
@@ -147,92 +154,36 @@ public class RivePlayer : View
         set => SetValue(StateMachineInputsProperty, value);
     }
 
-    public ICommand PlayAnimationCommand => new Command<string>(animationName => PlayAnimation(animationName, Loop, Direction));
+    public ICommand PlayCommand
+        => new Command(Play);
 
-    public ICommand PlayCommand => new Command(Play);
+    public ICommand PauseCommand
+        => new Command(Pause);
 
-    public ICommand PauseCommand => new Command(Pause);
+    public ICommand StopCommand
+        => new Command(Stop);
 
-    public ICommand StopCommand => new Command(Stop);
-
-    public ICommand ResetCommand => new Command(Reset);
+    public ICommand ResetCommand
+        => new Command(Reset);
 
     public RivePlayer()
-    {
-        StateMachineInputs = new StateMachineInputCollection(this);
-    }
-
-    private static void OnAnimationNameChanged(BindableObject bindable, object oldvalue, object newvalue)
-    {
-        if (bindable is RivePlayer { Handler: RivePlayerRenderer renderer } rivePlayer
-            && newvalue is string animationName
-            && !string.IsNullOrWhiteSpace(animationName))
-        {
-            renderer.PlayAnimation(animationName, rivePlayer.Loop, rivePlayer.Direction);
-        }
-    }
-
-    public void PlayAnimation(string animationName, RivePlayerLoop? loop = null, RivePlayerDirection? direction = null)
-    {
-        if (Handler is RivePlayerRenderer renderer && !string.IsNullOrWhiteSpace(animationName))
-        {
-            renderer.PlayAnimation(animationName, loop ?? Loop, direction ?? Direction);
-        }
-    }
+        => StateMachineInputs = new StateMachineInputCollection(this);
 
     public void Play()
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.Play();
-        }
-    }
+        => Handler?.Invoke(nameof(Play));
 
     public void Pause()
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.Pause();
-        }
-    }
+        => Handler?.Invoke(nameof(Pause));
 
     public void Stop()
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.Stop();
-        }
-    }
+        => Handler?.Invoke(nameof(Stop));
 
     public void Reset()
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.Reset();
-        }
-    }
+        => Handler?.Invoke(nameof(Reset));
 
-    public void SetInput(string stateMachineName, string inputName, bool value)
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.SetInput(stateMachineName, inputName, value);
-        }
-    }
+    public void SetInput(StateMachineInputArgs args)
+        => Handler?.Invoke(nameof(SetInput), args);
 
-    public void SetInput(string stateMachineName, string inputName, float value)
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.SetInput(stateMachineName, inputName, value);
-        }
-    }
-
-    public void TriggerInput(string stateMachineName, string inputName)
-    {
-        if (Handler is RivePlayerRenderer renderer)
-        {
-            renderer.TriggerInput(stateMachineName, inputName);
-        }
-    }
+    public void TriggerInput(StateMachineTriggerInputArgs args)
+        => Handler?.Invoke(nameof(TriggerInput), args);
 }

@@ -11,15 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rive.Maui", "Rive.Maui\Rive
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{556E2D80-F338-43FE-A3D3-FDD6DA49D597}"
 	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\ci-build.yml = ..\.github\workflows\ci-build.yml
 		..\Directory.Build.props = ..\Directory.Build.props
 		..\Directory.Packages.props = ..\Directory.Packages.props
 		..\global.json = ..\global.json
-		..\README.md = ..\README.md
-		..\.github\workflows\ci-build.yml = ..\.github\workflows\ci-build.yml
 		..\.github\workflows\nuget-push.yml = ..\.github\workflows\nuget-push.yml
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "..\samples\Example\Example.csproj", "{F50C52A3-7FB1-477F-9242-65D3878B4865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "..\samples\Example\Example.csproj", "{F50C52A3-7FB1-477F-9242-65D3878B4865}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91BF814F-4604-4542-A0DD-4012CE564F8A}"
 EndProject
@@ -43,18 +43,19 @@ Global
 		{66292DD1-1904-451F-A13E-EA2DA8A60160}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F50C52A3-7FB1-477F-9242-65D3878B4865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F50C52A3-7FB1-477F-9242-65D3878B4865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50C52A3-7FB1-477F-9242-65D3878B4865}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{F50C52A3-7FB1-477F-9242-65D3878B4865}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F50C52A3-7FB1-477F-9242-65D3878B4865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47E827C6-5A5F-45C4-9C76-401B8D5AD4A1} = {91BF814F-4604-4542-A0DD-4012CE564F8A}
+		{E9231A92-A62D-4ADD-BC8D-CC66FB7358CE} = {91BF814F-4604-4542-A0DD-4012CE564F8A}
+		{66292DD1-1904-451F-A13E-EA2DA8A60160} = {91BF814F-4604-4542-A0DD-4012CE564F8A}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26D6A01D-73DF-426E-9C6A-1ED67C442F08}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E9231A92-A62D-4ADD-BC8D-CC66FB7358CE} = {91BF814F-4604-4542-A0DD-4012CE564F8A}
-		{47E827C6-5A5F-45C4-9C76-401B8D5AD4A1} = {91BF814F-4604-4542-A0DD-4012CE564F8A}
-		{66292DD1-1904-451F-A13E-EA2DA8A60160} = {91BF814F-4604-4542-A0DD-4012CE564F8A}
 	EndGlobalSection
 EndGlobal

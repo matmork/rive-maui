@@ -13,7 +13,7 @@ public partial class TouchInputPageViewModel : ObservableObject
     private double _numberInputValue;
 
     [RelayCommand]
-    private Task StateChanged(StateMachineChange state)
+    private Task StateChanged(StateMachineChangeArgs state)
     {
         CurrentStateName = state.StateName;
         if (state.Inputs.TryGetValue("Number 1", out var value)
@@ -21,6 +21,7 @@ public partial class TouchInputPageViewModel : ObservableObject
         {
             NumberInputValue = floatValue;
         }
+
         return Task.CompletedTask;
     }
 }

@@ -6,4 +6,9 @@ public partial class StateMachinePage : ContentPage
     {
         InitializeComponent();
     }
+
+    private void StateMachinePage_OnUnloaded(object? sender, EventArgs e)
+    {
+        RivePlayer.Handler?.DisconnectHandler();
+    }
 }

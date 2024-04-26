@@ -6,6 +6,7 @@
              xmlns:pages="clr-namespace:Example.Pages"
              x:Class="Example.Pages.TouchInputPage"
              x:DataType="pages:TouchInputPageViewModel"
+             Unloaded="TouchInputPage_OnUnloaded"
              Title="TouchPage">
 
     <ContentPage.BindingContext>
@@ -25,11 +26,12 @@
                    FontAttributes="Bold"
                    FontSize="20" />
 
-            <riveMaui:RivePlayer Margin="0,40,0,0"
+            <riveMaui:RivePlayer x:Name="RivePlayer"
+                                 Margin="0,40,0,0"
                                  ResourceName="lil_guy"
                                  Fit="Cover"
                                  HeightRequest="500"
-                                 OnStateMachineChangeCommand="{Binding StateChangedCommand}" />
+                                 StateChangedCommand="{Binding StateChangedCommand}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

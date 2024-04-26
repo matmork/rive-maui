@@ -4,13 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:riveMaui="clr-namespace:Rive.Maui;assembly=Rive.Maui"
              x:Class="Example.Pages.StateMachinePage"
+             Unloaded="StateMachinePage_OnUnloaded"
              Title="StateMachine">
     <ScrollView>
         <Grid RowDefinitions="350,*"
               RowSpacing="25">
-            <riveMaui:RivePlayer Grid.Row="0"
+            <riveMaui:RivePlayer x:Name="RivePlayer"
+                                 Grid.Row="0"
                                  Fit="Cover"
                                  ResourceName="animatedloginscreen">
+
                 <riveMaui:BoolInput StateMachineName="Login Machine"
                                     InputName="isChecking"
                                     Value="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}" />

@@ -8,50 +8,92 @@ using UIKit;
 namespace Rive.Maui;
 
 [SuppressMessage("Interoperability", "CA1416:Validate platform compatibility")]
-internal sealed class CustomRiveView : RiveRendererView
+public sealed class CustomRiveView : RiveRendererView
 {
+    private RiveFile? _riveFile;
+    private RiveArtboard? _riveArtboard;
+    private RiveLinearAnimationInstance? _riveAnimation;
+    private RiveStateMachineInstance? _riveStateMachine;
+    private CADisplayLink? _displayLink;
+    private double? _lastTime;
+    private string? _resourceName;
+    private string? _artboardName;
+    private string? _stateMachineName;
+
     public WeakReference<RivePlayer?> Control { get; set; } = new(null);
 
-    private RiveFile? _riveFile;
-    private RiveArtboard? _artboard;
-    private RiveLinearAnimationInstance? _animation;
-    private RiveStateMachineInstance? _stateMachine;
-    private CADisplayLink? _displayLink;
-    private readonly CustomRiveViewProperties _properties;
-    private double? _lastTime;
-
-    public CustomRiveView(CustomRiveViewProperties properties)
+    public string? ArtboardName
     {
-        _properties = properties;
-        Opaque = false;
+        get => _artboardName;
+        set
+        {
+            _artboardName = value;
+            ResetProperties(false);
+            UpdateAnimation();
+        }
+    }
 
-        var resourceUrl = NSBundle.MainBundle.GetUrlForResource(_properties.Resource, ".riv");
+    public string? StateMachineName
+    {
+        get => _stateMachineName;
+        set
+        {
+            _stateMachineName = value;
+            ResetProperties(false);
+            UpdateAnimation();
+        }
+    }
+
+    public string? AnimationName { get; set; }
+    public bool AutoPlay { get; set; }
+    public RiveFit Fit { get; set; }
+    public RiveAlignment Alignment { get; set; }
+    public RiveLoop Loop { get; set; }
+    public RiveDirection Direction { get; set; }
+
+    public CustomRiveView()
+    {
+        Opaque = false;
+    }
+
+    public void SetRiveResource(string? resourceName)
+    {
+        if (string.IsNullOrWhiteSpace(resourceName) ||
+            string.Equals(resourceName, _resourceName, StringComparison.OrdinalIgnoreCase))
+            return;
+
+        if (_resourceName != null)
+            ResetProperties();
+
+        _resourceName = resourceName;
+
+        var resourceUrl = NSBundle.MainBundle.GetUrlForResource(resourceName, ".riv");
         var resourceData = NSData.FromUrl(resourceUrl);
         _riveFile = new RiveFile(resourceData, true, out _);
 
-        SetAnimation(_properties.AutoPlay, _properties.Artboard, _properties.Animation, _properties.StateMachine);
+        UpdateAnimation();
     }
 
-    private void SetAnimation(bool autoplay, string? artboard, string? animation, string? stateMachine)
+    private void UpdateAnimation()
     {
-        _artboard = !string.IsNullOrWhiteSpace(artboard)
-            ? _riveFile?.ArtboardFromName(artboard, out _)
+        _riveArtboard = !string.IsNullOrWhiteSpace(ArtboardName)
+            ? _riveFile?.ArtboardFromName(ArtboardName, out _)
             : _riveFile?.Artboard(out _);
 
-        if (!string.IsNullOrWhiteSpace(animation))
+        if (!string.IsNullOrWhiteSpace(AnimationName))
         {
-            _animation = _artboard?.AnimationFromName(animation, out _);
-            _animation?.Loop((int)_properties.Loop);
-            _animation?.Direction((int)_properties.Direction);
+            _riveAnimation = _riveArtboard?.AnimationFromName(AnimationName, out _);
+            _riveAnimation?.Loop((int)Loop);
+            _riveAnimation?.Direction((int)Direction);
         }
         else
         {
-            _stateMachine = !string.IsNullOrWhiteSpace(stateMachine)
-                ? _artboard?.StateMachineFromName(stateMachine, out _)
-                : _artboard?.StateMachineFromIndex(0, out _);
+            _riveStateMachine = !string.IsNullOrWhiteSpace(StateMachineName)
+                ? _riveArtboard?.StateMachineFromName(StateMachineName, out _)
+                : _riveArtboard?.StateMachineFromIndex(0, out _);
         }
 
-        if (autoplay)
+        if (AutoPlay)
         {
             CreateDisplayLink();
         }
@@ -79,14 +121,14 @@ internal sealed class CustomRiveView : RiveRendererView
 
         var elapsedTime = timestamp - _lastTime.Value;
 
-        if (_stateMachine != null)
+        if (_riveStateMachine != null)
         {
-            if (Control.TryGetTarget(out var control) && control.OnStateMachineChangeCommand != null)
+            if (Control.TryGetTarget(out var control))
             {
                 var inputs = new Dictionary<string, object>();
-                for (var i = 0; i < _stateMachine.InputCount; i++)
+                for (var i = 0; i < _riveStateMachine.InputCount; i++)
                 {
-                    var input = _stateMachine.InputFromIndex(i, out _);
+                    var input = _riveStateMachine.InputFromIndex(i, out _);
                     switch (input)
                     {
                         case RiveSMINumber smiNumber:
@@ -98,21 +140,23 @@ internal sealed class CustomRiveView : RiveRendererView
                     }
                 }
 
-                for (var i = 0; i < _stateMachine.StateChangedCount; i++)
+                for (var i = 0; i < _riveStateMachine.StateChangedCount; i++)
                 {
-                    var stateChanged = _stateMachine.StateChangedFromIndex(i, out _);
+                    var stateChanged = _riveStateMachine.StateChangedFromIndex(i, out _);
                     if (stateChanged != null)
                     {
-                        control.OnStateMachineChangeCommand.Execute(new StateMachineChange(_stateMachine.Name, stateChanged.Name, inputs));
+                        var args = new StateMachineChangeArgs(_riveStateMachine.Name, stateChanged.Name, inputs);
+                        control.StateChangedEventManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
+                        control.StateChangedCommand?.Execute(args);
                     }
                 }
             }
 
-            _stateMachine.AdvanceBy(elapsedTime);
+            _riveStateMachine.AdvanceBy(elapsedTime);
         }
-        else if (_animation != null)
+        else
         {
-            _animation.AdvanceBy(elapsedTime);
+            _riveAnimation?.AdvanceBy(elapsedTime);
         }
 
         MainThread.BeginInvokeOnMainThread(SetNeedsDisplay);
@@ -123,51 +167,54 @@ internal sealed class CustomRiveView : RiveRendererView
     private void HandleTouch(NSSet touches, Action<CGPoint> action)
     {
         var first = touches.FirstOrDefault();
-        if (_stateMachine == null || _artboard == null || first is not UITouch touch)
+        if (_riveStateMachine == null || _riveArtboard == null || first is not UITouch touch)
             return;
 
         var location = touch.LocationInView(this);
-        var artboardLocation = ArtboardLocationFromTouchLocation(location, _artboard.Bounds, _properties.Fit, _properties.Alignment);
+        var artboardLocation = ArtboardLocationFromTouchLocation(location, _riveArtboard.Bounds, Fit, Alignment);
 
         action(artboardLocation);
     }
 
     public override void TouchesBegan(NSSet touches, UIEvent? evt)
-        => HandleTouch(touches, location => _stateMachine!.TouchBeganAtLocation(location));
+        => HandleTouch(touches, location => _riveStateMachine!.TouchBeganAtLocation(location));
 
     public override void TouchesMoved(NSSet touches, UIEvent? evt)
-        => HandleTouch(touches, location => _stateMachine!.TouchMovedAtLocation(location));
+        => HandleTouch(touches, location => _riveStateMachine!.TouchMovedAtLocation(location));
 
     public override void TouchesEnded(NSSet touches, UIEvent? evt)
-        => HandleTouch(touches, location => _stateMachine!.TouchEndedAtLocation(location));
+        => HandleTouch(touches, location => _riveStateMachine!.TouchEndedAtLocation(location));
 
     public override void TouchesCancelled(NSSet touches, UIEvent? evt)
-        => HandleTouch(touches, location => _stateMachine!.TouchCancelledAtLocation(location));
+        => HandleTouch(touches, location => _riveStateMachine!.TouchCancelledAtLocation(location));
 
     public override void DrawRive(CGRect rect, CGSize size)
     {
-        if (_artboard == null) return;
+        if (_riveArtboard == null) return;
 
         var newFrame = new CGRect(rect.Location, size);
-        AlignWithRect(newFrame, _artboard.Bounds, _properties.Alignment, _properties.Fit);
-        DrawWithArtboard(_artboard);
+        AlignWithRect(newFrame, _riveArtboard.Bounds, Alignment, Fit);
+        DrawWithArtboard(_riveArtboard);
     }
 
-    public void PlayAnimation(string animationName, RivePlayerLoop loop, RivePlayerDirection direction)
+    public void PlayAnimation(string animationName)
     {
-        if (_artboard?.AnimationFromName(animationName, out var error) is { } animation && error == null)
+        if (string.Equals(animationName, AnimationName, StringComparison.OrdinalIgnoreCase))
+            return;
+
+        if (_riveArtboard?.AnimationFromName(animationName, out var error) is { } animation && error == null)
         {
-            animation.Loop((int)_properties.Loop);
-            animation.Direction((int)_properties.Direction);
+            animation.Loop((int)Loop);
+            animation.Direction((int)Direction);
 
             if (animation.HasEnded())
             {
                 animation.Time = 0;
             }
 
-            _animation?.Dispose();
-            _animation = null;
-            _animation = animation;
+            _riveAnimation?.Dispose();
+            _riveAnimation = null;
+            _riveAnimation = animation;
         }
     }
 
@@ -200,12 +247,12 @@ internal sealed class CustomRiveView : RiveRendererView
     public void Reset()
     {
         ResetProperties(false);
-        SetAnimation(_properties.AutoPlay, _properties.Artboard, _properties.Animation, _properties.StateMachine);
+        UpdateAnimation();
     }
 
     public void SetInput(string stateMachineName, string inputName, bool value)
     {
-        if (_stateMachine?.GetBool(inputName) is { } riveBool)
+        if (_riveStateMachine?.GetBool(inputName) is { } riveBool)
         {
             riveBool.Value = value;
         }
@@ -213,7 +260,7 @@ internal sealed class CustomRiveView : RiveRendererView
 
     public void SetInput(string stateMachineName, string inputName, float value)
     {
-        if (_stateMachine?.GetNumber(inputName) is { } riveNumber)
+        if (_riveStateMachine?.GetNumber(inputName) is { } riveNumber)
         {
             riveNumber.Value = value;
         }
@@ -221,11 +268,12 @@ internal sealed class CustomRiveView : RiveRendererView
 
     public void TriggerInput(string stateMachineName, string inputName)
     {
-        _stateMachine?.GetTrigger(inputName)?.Fire();
+        _riveStateMachine?.GetTrigger(inputName)?.Fire();
     }
 
     private void ResetProperties(bool disposeFile = true)
     {
+        _resourceName = null;
         _displayLink?.RemoveFromRunLoop(NSRunLoop.Main, NSRunLoopMode.Common);
         _displayLink?.Invalidate();
         _displayLink?.Dispose();
@@ -237,14 +285,14 @@ internal sealed class CustomRiveView : RiveRendererView
             _riveFile = null;
         }
 
-        _artboard?.Dispose();
-        _artboard = null;
+        _riveArtboard?.Dispose();
+        _riveArtboard = null;
 
-        _animation?.Dispose();
-        _animation = null;
+        _riveAnimation?.Dispose();
+        _riveAnimation = null;
 
-        _stateMachine?.Dispose();
-        _stateMachine = null;
+        _riveStateMachine?.Dispose();
+        _riveStateMachine = null;
     }
 
     public new void Dispose()

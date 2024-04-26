@@ -51,7 +51,7 @@ public class BoolInput : StateMachineInput
 
     protected override void Apply(RivePlayer rivePlayer, string stateMachineName, string inputName)
     {
-        rivePlayer.SetInput(stateMachineName, inputName, Value);
+        rivePlayer.SetInput(new StateMachineInputArgs(stateMachineName, inputName, Value));
     }
 }
 
@@ -79,7 +79,7 @@ public class NumberInput : StateMachineInput
 
     protected override void Apply(RivePlayer rivePlayer, string stateMachineName, string inputName)
     {
-        rivePlayer.SetInput(stateMachineName, inputName, (float)Value);
+        rivePlayer.SetInput(new StateMachineInputArgs(stateMachineName, inputName, Value));
     }
 }
 
@@ -91,7 +91,7 @@ public class TriggerInput : StateMachineInput
             && !string.IsNullOrWhiteSpace(StateMachineName)
             && RivePlayerReference.TryGetTarget(out var rivePlayer))
         {
-            rivePlayer.TriggerInput(StateMachineName, InputName);
+            rivePlayer.TriggerInput(new StateMachineTriggerInputArgs(StateMachineName, InputName));
         }
     }
 
