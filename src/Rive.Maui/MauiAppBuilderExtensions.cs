@@ -10,9 +10,9 @@
 #endif
 
             builder.ConfigureMauiHandlers(handlers =>
-             {
-                 handlers.AddHandler<RivePlayer, RivePlayerHandler>();
-             });
+            {
+                handlers.AddHandler<RivePlayer, RivePlayerRenderer>();
+            });
 
             return builder;
         }
