@@ -5,7 +5,7 @@ namespace Rive.Maui;
 
 internal class StateListener : Java.Lang.Object, RiveFileController.IListener
 {
-    public WeakReference<RivePlayerHandler?> RivePlayerHandlerReference { get; set; } = new(null);
+    public WeakReference<RivePlayerRenderer?> RivePlayerHandlerReference { get; set; } = new(null);
 
     public void NotifyAdvance(float elapsed)
     {
@@ -25,11 +25,13 @@ internal class StateListener : Java.Lang.Object, RiveFileController.IListener
 
     public void NotifyStateChanged(string stateMachineName, string stateName)
     {
-        if (!RivePlayerHandlerReference.TryGetTarget(out var handler))
+        if (!RivePlayerHandlerReference.TryGetTarget(out var handler)
+            || handler.Element == null
+            || handler._riveAnimationView == null)
             return;
 
         var inputs = new Dictionary<string, object>();
-        foreach (var stateMachine in handler.PlatformView.StateMachines)
+        foreach (var stateMachine in handler._riveAnimationView.StateMachines)
         {
             foreach (var input in stateMachine.Inputs)
             {
@@ -46,8 +48,8 @@ internal class StateListener : Java.Lang.Object, RiveFileController.IListener
         }
 
         var args = new StateMachineChangeArgs(stateMachineName, stateName, inputs);
-        handler.VirtualView.StateChangedEventManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
-        handler.VirtualView.StateChangedCommand?.Execute(args);
+        handler.Element.StateChangedEventManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
+        handler.Element.StateChangedCommand?.Execute(args);
     }
 
     public void NotifyStop(IPlayableInstance animation)
