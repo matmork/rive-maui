@@ -10,6 +10,7 @@
     <PackageVersion Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.0.1" />
     <PackageVersion Include="Xamarin.AndroidX.Core.Core.Ktx" Version="1.12.0.4" />
     <PackageVersion Include="Xamarin.AndroidX.Startup.StartupRuntime" Version="1.1.1.11" />
+    <PackageVersion Include="Xamarin.Kotlin.Reflect" Version="1.9.22.1" />
     <PackageVersion Include="Xamarin.Kotlin.StdLib" Version="1.9.23" />
   </ItemGroup>
 </Project>

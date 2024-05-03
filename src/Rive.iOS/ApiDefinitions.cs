@@ -646,6 +646,12 @@ namespace Rive.iOS
 	{
 	}
 
+	// @interface RiveAudio : NSObject
+	[BaseType (typeof(NSObject))]
+	interface RiveAudio
+	{
+	}
+
 	// @interface RiveFactory : NSObject
 	[BaseType (typeof(NSObject))]
 	interface RiveFactory
@@ -657,6 +663,10 @@ namespace Rive.iOS
 		// -(RiveRenderImage * _Nonnull)decodeImage:(NSData * _Nonnull)data;
 		[Export ("decodeImage:")]
 		RiveRenderImage DecodeImage (NSData data);
+
+		// -(RiveAudio * _Nonnull)decodeAudio:(NSData * _Nonnull)data;
+		[Export ("decodeAudio:")]
+		RiveAudio DecodeAudio (NSData data);
 	}
 
 	// @interface RiveFileAsset : NSObject
@@ -667,6 +677,11 @@ namespace Rive.iOS
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
 		string Name { get; }
+
+		// -(NSString * _Nonnull)uniqueName;
+		[Export ("uniqueName")]
+		//[Verify (MethodToProperty)]
+		string UniqueName { get; }
 
 		// -(NSString * _Nonnull)uniqueFilename;
 		[Export ("uniqueFilename")]
@@ -705,6 +720,15 @@ namespace Rive.iOS
 		// -(void)font:(RiveFont * _Nonnull)font;
 		[Export ("font:")]
 		void Font (RiveFont font);
+	}
+
+	// @interface RiveAudioAsset : RiveFileAsset
+	[BaseType (typeof(RiveFileAsset))]
+	interface RiveAudioAsset
+	{
+		// -(void)audio:(RiveAudio * _Nonnull)audio;
+		[Export ("audio:")]
+		void Audio (RiveAudio audio);
 	}
 
 	// @interface RiveFileAssetLoader : NSObject
