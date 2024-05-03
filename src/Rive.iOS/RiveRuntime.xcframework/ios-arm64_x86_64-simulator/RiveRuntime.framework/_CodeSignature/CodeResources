@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/RiveFactory.h</key>
 		<data>
-		WO5ZKpWaZvhgK2KMmSJpQoU61ro=
+		tFIPlpfL+5Bxrn2h/k395p1eZ/Y=
 		</data>
 		<key>Headers/RiveFile.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/RiveFileAsset.h</key>
 		<data>
-		XXQhfydU2YbVvnCX9HwYWyxx038=
+		u+YLlFIaM4qipbZkXDU4sASEUsA=
 		</data>
 		<key>Headers/RiveFileAssetLoader.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kRaL26EY87PxT1FkjdHmKBNj+ic=
+		Fe1Dqiyz/bj9cxIQ/pU34BnXBk0=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -173,7 +173,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WAsJN5TVzUr0iTCk/vnB2gAvkYdNLkXFz1NZTZJg+cU=
+			m5GA+GrzBJ1jpIRfJ2LqOClI/AoX2Z5Ga+OSmKQrUF0=
 			</data>
 		</dict>
 		<key>Headers/RiveFile.h</key>
@@ -187,7 +187,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y1vDPN6ETyTmCGseq+amB3OjKXQAtbxG1dFngelATjA=
+			0UY9uqjzG6wIzSUrJle/IZ2Ioh3EHqtxl8T8p/oJ6w8=
 			</data>
 		</dict>
 		<key>Headers/RiveFileAssetLoader.h</key>
