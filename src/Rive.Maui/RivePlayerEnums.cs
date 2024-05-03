@@ -38,3 +38,9 @@ public enum RivePlayerAlignment
     BottomCenter,
     BottomRight
 }
+
+public enum RiveRendererType
+{
+    Skia,
+    Rive
+}
