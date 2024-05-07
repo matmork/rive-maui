@@ -1,9 +1,10 @@
 ﻿using Rive.Android.Controllers;
 using Rive.Android.Core;
+using Object = Java.Lang.Object;
 
 namespace Rive.Maui;
 
-internal class StateListener : Java.Lang.Object, RiveFileController.IListener
+internal class StateListener : Object, RiveFileController.IListener
 {
     public WeakReference<RivePlayerRenderer?> RivePlayerHandlerReference { get; set; } = new(null);
 
@@ -48,7 +49,7 @@ internal class StateListener : Java.Lang.Object, RiveFileController.IListener
         }
 
         var args = new StateMachineChangeArgs(stateMachineName, stateName, inputs);
-        handler.Element.StateChangedEventManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
+        handler.Element.StateChangedManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
         handler.Element.StateChangedCommand?.Execute(args);
     }
 

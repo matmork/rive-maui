@@ -44,3 +44,9 @@ public enum RiveRendererType
     Skia,
     Rive
 }
+
+public enum RivePlayerEvent
+{
+    GeneralEvent,
+    OpenURLEvent
+}

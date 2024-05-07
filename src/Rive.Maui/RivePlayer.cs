@@ -5,12 +5,20 @@ namespace Rive.Maui;
 [ContentProperty(nameof(StateMachineInputs))]
 public class RivePlayer : View
 {
-    internal readonly WeakEventManager StateChangedEventManager = new();
+    internal readonly WeakEventManager StateChangedManager = new();
+
+    internal readonly WeakEventManager EventReceivedManager = new();
 
     public event EventHandler<string> StateChanged
     {
-        add => StateChangedEventManager.AddEventHandler(value);
-        remove => StateChangedEventManager.RemoveEventHandler(value);
+        add => StateChangedManager.AddEventHandler(value);
+        remove => StateChangedManager.RemoveEventHandler(value);
+    }
+
+    public event EventHandler<string> EventReceived
+    {
+        add => EventReceivedManager.AddEventHandler(value);
+        remove => EventReceivedManager.RemoveEventHandler(value);
     }
 
     public static readonly BindableProperty ArtboardNameProperty = BindableProperty.Create(
@@ -82,6 +90,12 @@ public class RivePlayer : View
         typeof(RivePlayer)
     );
 
+    public static readonly BindableProperty EventReceivedCommandProperty = BindableProperty.Create(
+        nameof(EventReceivedCommand),
+        typeof(ICommand),
+        typeof(RivePlayer)
+    );
+
     public static readonly BindableProperty StateMachineInputsProperty = BindableProperty.Create(
         nameof(StateMachineInputs),
         typeof(StateMachineInputCollection),
@@ -146,6 +160,12 @@ public class RivePlayer : View
     {
         get => (ICommand?)GetValue(StateChangedCommandProperty);
         set => SetValue(StateChangedCommandProperty, value);
+    }
+
+    public ICommand? EventReceivedCommand
+    {
+        get => (ICommand?)GetValue(EventReceivedCommandProperty);
+        set => SetValue(EventReceivedCommandProperty, value);
     }
 
     public StateMachineInputCollection StateMachineInputs

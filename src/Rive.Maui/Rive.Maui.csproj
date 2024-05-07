@@ -14,7 +14,7 @@
 		<Title>Rive Maui</Title>
 		<Description>Rive animations in Maui using iOS/Android runtimes</Description>
 		<VersionPrefix>1.0.0</VersionPrefix>
-		<VersionSuffix>pre.10</VersionSuffix>
+		<VersionSuffix>pre.11</VersionSuffix>
 		<PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
@@ -28,11 +28,6 @@
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-ios'))">
 		<ProjectReference Include="..\Rive.iOS\Rive.iOS.csproj" />
-		<!-- Reference the dll directly to get intellisense: https://github.com/xamarin/xamarin-macios/issues/10148 -->
-		<!-- Remember to also unload Rive.iOS project in solution -->
-		<!--<Reference Include="Rive.iOS">
-		  <HintPath>..\Rive.iOS\bin\Rive.iOS.dll</HintPath>
-		</Reference>-->
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-android'))">
