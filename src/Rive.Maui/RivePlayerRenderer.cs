@@ -11,7 +11,6 @@ public interface IRivePlayerRenderer
     static abstract void MapAutoPlay(RivePlayerRenderer handler, RivePlayer view);
     static abstract void MapFit(RivePlayerRenderer handler, RivePlayer view);
     static abstract void MapAlignment(RivePlayerRenderer handler, RivePlayer view);
-    static abstract void MapStateChangedCommand(RivePlayerRenderer handler, RivePlayer view);
     static abstract void MapPlay(RivePlayerRenderer handler, RivePlayer view, object? args);
     static abstract void MapPause(RivePlayerRenderer handler, RivePlayer view, object? args);
     static abstract void MapStop(RivePlayerRenderer handler, RivePlayer view, object? args);
@@ -33,8 +32,7 @@ public partial class RivePlayerRenderer
             [nameof(RivePlayer.Fit)] = MapFit,
             [nameof(RivePlayer.Alignment)] = MapAlignment,
             [nameof(RivePlayer.Loop)] = MapAnimationProperties,
-            [nameof(RivePlayer.Direction)] = MapAnimationProperties,
-            [nameof(RivePlayer.StateChangedCommand)] = MapStateChangedCommand
+            [nameof(RivePlayer.Direction)] = MapAnimationProperties
         };
 
     public static readonly CommandMapper<RivePlayer, RivePlayerRenderer> CommandMapper = new(ViewRenderer.VisualElementRendererCommandMapper)

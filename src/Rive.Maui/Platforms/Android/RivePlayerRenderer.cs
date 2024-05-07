@@ -10,7 +10,8 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
 {
     internal RiveAnimationView? _riveAnimationView;
     private View? _tmpView;
-    private StateListener? _listener;
+    private StateListener? _stateListener;
+    private EventListener? _eventListener;
     private string? _resourceName;
 
     protected override void OnElementChanged(ElementChangedEventArgs<RivePlayer> e)
@@ -42,12 +43,20 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
 
     private void Destroy()
     {
-        if (_listener != null)
+        if (_stateListener != null)
         {
-            _riveAnimationView?.UnregisterListener(_listener);
-            _listener.RivePlayerHandlerReference.SetTarget(null);
-            _listener.Dispose();
-            _listener = null;
+            _riveAnimationView?.UnregisterListener(_stateListener);
+            _stateListener.RivePlayerHandlerReference.SetTarget(null);
+            _stateListener.Dispose();
+            _stateListener = null;
+        }
+
+        if (_eventListener != null)
+        {
+            _riveAnimationView?.RemoveEventListener(_eventListener);
+            _eventListener.RivePlayerHandlerReference.SetTarget(null);
+            _eventListener.Dispose();
+            _eventListener = null;
         }
 
         Element?.StateMachineInputs.Dispose();
@@ -96,6 +105,14 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
             riveAlignment,
             riveLoop
         );
+
+        _stateListener = new StateListener();
+        _stateListener.RivePlayerHandlerReference.SetTarget(this);
+        _riveAnimationView.RegisterListener(_stateListener);
+
+        _eventListener = new EventListener();
+        _eventListener.RivePlayerHandlerReference.SetTarget(this);
+        _riveAnimationView.AddEventListener(_eventListener);
 
         SetNativeControl(_riveAnimationView);
     }
@@ -154,16 +171,6 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
         var riveAlignment = view.Alignment.AsRive();
         if (handler._riveAnimationView != null && handler._riveAnimationView.Alignment != riveAlignment)
             handler._riveAnimationView.Alignment = riveAlignment;
-    }
-
-    public static void MapStateChangedCommand(RivePlayerRenderer handler, RivePlayer view)
-    {
-        if (handler._listener == null && handler._riveAnimationView != null)
-        {
-            handler._listener = new StateListener();
-            handler._listener.RivePlayerHandlerReference.SetTarget(handler);
-            handler._riveAnimationView.RegisterListener(handler._listener);
-        }
     }
 
     public static void MapPlay(RivePlayerRenderer handler, RivePlayer view, object? args)

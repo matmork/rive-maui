@@ -113,10 +113,6 @@ public partial class RivePlayerRenderer() : ViewRenderer<RivePlayer, UIView>(Pro
             handler._riveAnimationView.Alignment = view.Alignment.AsRive();
     }
 
-    public static void MapStateChangedCommand(RivePlayerRenderer handler, RivePlayer view)
-    {
-    }
-
     public static void MapPlay(RivePlayerRenderer handler, RivePlayer view, object? args)
         => handler._riveAnimationView?.Play();
 

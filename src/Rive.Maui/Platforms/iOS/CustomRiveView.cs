@@ -111,29 +111,47 @@ public sealed class CustomRiveView : RiveRendererView
         {
             if (Control.TryGetTarget(out var control))
             {
-                var inputs = new Dictionary<string, object>();
-                for (var i = 0; i < _riveStateMachine.InputCount; i++)
+                // Event
+                for (var i = 0; i < _riveStateMachine.ReportedEventCount; i++)
                 {
-                    var input = _riveStateMachine.InputFromIndex(i, out _);
-                    switch (input)
+                    var evt = _riveStateMachine.ReportedEventAt(i);
+                    if (evt != null)
                     {
-                        case RiveSMINumber smiNumber:
-                            inputs.Add(smiNumber.Name, smiNumber.Value);
-                            break;
-                        case RiveSMIBool smiBool:
-                            inputs.Add(smiBool.Name, smiBool.Value);
-                            break;
+                        var properties = evt.Properties
+                            .ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
+                        var args = new EventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
+                        control.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
+                        control.EventReceivedCommand?.Execute(args);
                     }
                 }
 
-                for (var i = 0; i < _riveStateMachine.StateChangedCount; i++)
+                // State
+                if (_riveStateMachine.StateChangedCount > 0)
                 {
-                    var stateChanged = _riveStateMachine.StateChangedFromIndex(i, out _);
-                    if (stateChanged != null)
+                    var inputs = new Dictionary<string, object>();
+                    for (var i = 0; i < _riveStateMachine.InputCount; i++)
                     {
-                        var args = new StateMachineChangeArgs(_riveStateMachine.Name, stateChanged.Name, inputs);
-                        control.StateChangedEventManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
-                        control.StateChangedCommand?.Execute(args);
+                        var input = _riveStateMachine.InputFromIndex(i, out _);
+                        switch (input)
+                        {
+                            case RiveSMINumber smiNumber:
+                                inputs.Add(smiNumber.Name, smiNumber.Value);
+                                break;
+                            case RiveSMIBool smiBool:
+                                inputs.Add(smiBool.Name, smiBool.Value);
+                                break;
+                        }
+                    }
+
+                    for (var i = 0; i < _riveStateMachine.StateChangedCount; i++)
+                    {
+                        var stateChanged = _riveStateMachine.StateChangedFromIndex(i, out _);
+                        if (stateChanged != null)
+                        {
+                            var args = new StateMachineChangeArgs(_riveStateMachine.Name, stateChanged.Name, inputs);
+                            control.StateChangedManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
+                            control.StateChangedCommand?.Execute(args);
+                        }
                     }
                 }
             }
