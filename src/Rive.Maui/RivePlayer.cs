@@ -206,4 +206,14 @@ public class RivePlayer : View
 
     public void TriggerInput(StateMachineTriggerInputArgs args)
         => Handler?.Invoke(nameof(TriggerInput), args);
+
+    protected override void OnBindingContextChanged()
+    {
+        foreach (var input in StateMachineInputs)
+        {
+            input.BindingContext = BindingContext;
+        }
+
+        base.OnBindingContextChanged();
+    }
 }

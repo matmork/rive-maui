@@ -10,7 +10,6 @@
     <Title>Rive iOS</Title>
     <Description>Wrapper around the iOS runtime</Description>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>pre.11</VersionSuffix>
     <PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
     <RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
