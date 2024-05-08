@@ -29,6 +29,7 @@ public sealed class StateMachineInputCollection : ObservableCollection<StateMach
         foreach (var input in this)
         {
             input.RivePlayerReference.SetTarget(null);
+            input.BindingContext = null;
         }
 
         _rivePlayerReference.SetTarget(null);
