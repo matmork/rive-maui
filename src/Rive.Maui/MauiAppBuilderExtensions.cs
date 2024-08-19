@@ -2,23 +2,30 @@
 {
     public static class MauiAppBuilderExtensions
     {
-        public static MauiAppBuilder UseRive(this MauiAppBuilder builder, RiveRendererType rendererType = RiveRendererType.Skia)
+        public static MauiAppBuilder UseRive(
+            this MauiAppBuilder builder,
+            RiveAndroidRendererType riveAndroidRendererType = RiveAndroidRendererType.Rive,
+            RiveIOSRendererType riveIosRendererType = RiveIOSRendererType.Rive)
         {
 #if ANDROID
-            var renderer = rendererType switch
+            var renderer = riveAndroidRendererType switch
             {
-                RiveRendererType.Rive => Android.Core.RendererType.Rive!,
-                RiveRendererType.Skia => Android.Core.RendererType.Skia!
+                RiveAndroidRendererType.Rive => Android.Core.RendererType.Rive!,
+                RiveAndroidRendererType.Skia => Android.Core.RendererType.Skia!,
+                RiveAndroidRendererType.Canvas => Android.Core.RendererType.Canvas!,
             };
 
             Android.Core.Rive.Instance.Init(Platform.AppContext, renderer);
 #endif
 
 #if IOS
-            // At this time, the Rive Renderer is not supported in simulator environments, default is Skia
-            // See https://help.rive.app/runtimes/renderer
-            if (rendererType == RiveRendererType.Rive && DeviceInfo.DeviceType == DeviceType.Physical)
-                Rive.iOS.RenderContextManager.Shared.DefaultRenderer = Rive.iOS.RendererType.riveRenderer;
+            var renderer = riveIosRendererType switch
+            {
+                RiveIOSRendererType.Rive => Rive.iOS.RendererType.riveRenderer,
+                RiveIOSRendererType.CoreGraphics => Rive.iOS.RendererType.cgRenderer,
+            };
+
+            Rive.iOS.RenderContextManager.Shared.DefaultRenderer = renderer;
 #endif
 
             builder.ConfigureMauiHandlers(handlers => handlers.AddHandler<RivePlayer, RivePlayerRenderer>());

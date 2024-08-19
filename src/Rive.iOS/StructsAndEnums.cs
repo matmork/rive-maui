@@ -3,9 +3,16 @@ using ObjCRuntime;
 namespace Rive.iOS
 {
 	[Native]
+	public enum RiveHitResult : long
+	{
+		none,
+		hit,
+		hitOpaque
+	}
+
+	[Native]
 	public enum RendererType : long
 	{
-		skiaRenderer,
 		riveRenderer,
 		cgRenderer
 	}
@@ -68,6 +75,15 @@ namespace Rive.iOS
 		UnsupportedVersion = 500,
 		MalformedFile = 600,
 		UnknownError = 700
+	}
+
+	[Native]
+	public enum RiveTouchEvent : long
+	{
+		Began = 0,
+		Moved = 1,
+		Ended = 2,
+		Cancelled = 3
 	}
 
 	[Native]

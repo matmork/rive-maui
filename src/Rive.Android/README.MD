@@ -1,4 +1,4 @@
 # Rive.Android
 
 Current version
-[9.3.4](https://github.com/rive-app/rive-android/blob/master/CHANGELOG.md)
+[9.6.4](https://central.sonatype.com/artifact/app.rive/rive-android/9.6.4)

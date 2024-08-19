@@ -140,6 +140,10 @@ namespace Rive.iOS
 	[BaseType (typeof(NSObject))]
 	interface RiveArtboard
 	{
+		// @property (assign, nonatomic) float volume __attribute__((swift_private));
+		[Export ("volume", ArgumentSemantic.Assign)]
+		float Volume { get; set; }
+
 		// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
@@ -149,6 +153,18 @@ namespace Rive.iOS
 		[Export ("bounds")]
 		//[Verify (MethodToProperty)]
 		CGRect Bounds { get; }
+
+		// -(const RiveSMIBool * _Nonnull)getBool:(NSString * _Nonnull)name path:(NSString * _Nonnull)path;
+		[Export ("getBool:path:")]
+		RiveSMIBool GetBool (string name, string path);
+
+		// -(const RiveSMITrigger * _Nonnull)getTrigger:(NSString * _Nonnull)name path:(NSString * _Nonnull)path;
+		[Export ("getTrigger:path:")]
+		RiveSMITrigger GetTrigger (string name, string path);
+
+		// -(const RiveSMINumber * _Nonnull)getNumber:(NSString * _Nonnull)name path:(NSString * _Nonnull)path;
+		[Export ("getNumber:path:")]
+		RiveSMINumber GetNumber (string name, string path);
 
 		// -(NSInteger)animationCount;
 		[Export ("animationCount")]
@@ -410,21 +426,21 @@ namespace Rive.iOS
 		[Export ("reportedEventAt:")]
 		RiveEvent ReportedEventAt (nint index);
 
-		// -(void)touchBeganAtLocation:(CGPoint)touchLocation;
+		// -(RiveHitResult)touchBeganAtLocation:(CGPoint)touchLocation;
 		[Export ("touchBeganAtLocation:")]
-		void TouchBeganAtLocation (CGPoint touchLocation);
+		RiveHitResult TouchBeganAtLocation (CGPoint touchLocation);
 
-		// -(void)touchMovedAtLocation:(CGPoint)touchLocation;
+		// -(RiveHitResult)touchMovedAtLocation:(CGPoint)touchLocation;
 		[Export ("touchMovedAtLocation:")]
-		void TouchMovedAtLocation (CGPoint touchLocation);
+		RiveHitResult TouchMovedAtLocation (CGPoint touchLocation);
 
-		// -(void)touchEndedAtLocation:(CGPoint)touchLocation;
+		// -(RiveHitResult)touchEndedAtLocation:(CGPoint)touchLocation;
 		[Export ("touchEndedAtLocation:")]
-		void TouchEndedAtLocation (CGPoint touchLocation);
+		RiveHitResult TouchEndedAtLocation (CGPoint touchLocation);
 
-		// -(void)touchCancelledAtLocation:(CGPoint)touchLocation;
+		// -(RiveHitResult)touchCancelledAtLocation:(CGPoint)touchLocation;
 		[Export ("touchCancelledAtLocation:")]
-		void TouchCancelledAtLocation (CGPoint touchLocation);
+		RiveHitResult TouchCancelledAtLocation (CGPoint touchLocation);
 	}
 
 	// @interface RiveTextValueRun : NSObject
@@ -533,50 +549,50 @@ namespace Rive.iOS
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveExitState
 	{
-		// -(NSString * _Nonnull)name;
+		/*// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }
+		string Name { get; }*/
 	}
 
 	// @interface RiveEntryState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveEntryState
 	{
-		// -(NSString * _Nonnull)name;
+		/*// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }
+		string Name { get; }*/
 	}
 
 	// @interface RiveAnyState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveAnyState
 	{
-		// -(NSString * _Nonnull)name;
+		/*// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }
+		string Name { get; }*/
 	}
 
 	// @interface RiveAnimationState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveAnimationState
 	{
-		// -(NSString * _Nonnull)name;
+		/*// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }
+		string Name { get; }*/
 	}
 
 	// @interface RiveUnknownState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveUnknownState
 	{
-		// -(NSString * _Nonnull)name;
+		/*// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }
+		string Name { get; }*/
 	}
 
 	// @interface RenderContextManager : NSObject
@@ -597,11 +613,6 @@ namespace Rive.iOS
 		[Export ("getDefaultContext")]
 		//[Verify (MethodToProperty)]
 		RenderContext DefaultContext { get; }
-
-		// -(RenderContext *)getSkiaContext;
-		[Export ("getSkiaContext")]
-		//[Verify (MethodToProperty)]
-		RenderContext SkiaContext { get; }
 
 		// -(RenderContext *)getRiveRendererContext;
 		[Export ("getRiveRendererContext")]
@@ -800,7 +811,7 @@ namespace Rive.iOS
 	[BaseType (typeof(MTKView))]
 	interface RiveRendererView
 	{
-		// -(instancetype)initWithFrame:(CGRect)frameRect;
+		// -(instancetype _Nonnull)initWithFrame:(CGRect)frameRect;
 		[Export ("initWithFrame:")]
 		NativeHandle Constructor (CGRect frameRect);
 
@@ -816,17 +827,21 @@ namespace Rive.iOS
 		[Export ("restore")]
 		void Restore ();
 
-		// -(void)transform:(float)xx xy:(float)xy yx:(float)yx yy:(float)yy tx:(float)tx ty:(float)ty;
+		/*// -(void)transform:(float)xx xy:(float)xy yx:(float)yx yy:(float)yy tx:(float)tx ty:(float)ty;
 		[Export ("transform:xy:yx:yy:tx:ty:")]
-		void Transform (float xx, float xy, float yx, float yy, float tx, float ty);
+		void Transform (float xx, float xy, float yx, float yy, float tx, float ty);*/
 
-		// -(void)drawWithArtboard:(RiveArtboard *)artboard;
+		// -(void)drawWithArtboard:(RiveArtboard * _Nonnull)artboard;
 		[Export ("drawWithArtboard:")]
 		void DrawWithArtboard (RiveArtboard artboard);
 
 		// -(void)drawRive:(CGRect)rect size:(CGSize)size;
 		[Export ("drawRive:size:")]
 		void DrawRive (CGRect rect, CGSize size);
+
+		/*// -(void)drawInRect:(CGRect)rect withCompletion:(MTLCommandBufferHandler _Nullable)completionHandler;
+		[Export ("drawInRect:withCompletion:")]
+		void DrawInRect (CGRect rect, [NullAllowed] MTLCommandBufferHandler completionHandler);*/
 
 		// -(_Bool)isPaused;
 		[Export ("isPaused")]
@@ -847,11 +862,56 @@ namespace Rive.iOS
 		[DesignatedInitializer]
 		NativeHandle Constructor (CGRect frame);
 
-		/#1#/ -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
+		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
 		[Export ("initWithCoder:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder coder);#1#
+		NativeHandle Constructor (NSCoder coder);
 	}*/
+
+	// @interface RiveModel : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime9RiveModel")]
+	[DisableDefaultCtor]
+	interface RiveModel
+	{
+		// @property (nonatomic) float volume;
+		[Export ("volume")]
+		float Volume { get; set; }
+
+		/*// @property (readonly, copy, nonatomic) NSString * _Nonnull description;
+		[Export ("description")]
+		string Description { get; }*/
+	}
+
+	// @protocol RivePlayerDelegate
+	[Protocol (Name = "_TtP11RiveRuntime18RivePlayerDelegate_"), Model]
+	[BaseType (typeof(NSObject))]
+	interface RivePlayerDelegate
+	{
+		// @required -(void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithPlayedWithModel:")]
+		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// @required -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithPausedWithModel:")]
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// @required -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
+		[Abstract]
+		[Export ("playerWithLoopedWithModel:type:")]
+		void PlayerWithLoopedWithModel ([NullAllowed] RiveModel riveModel, nint type);
+
+		// @required -(void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithStoppedWithModel:")]
+		void PlayerWithStoppedWithModel ([NullAllowed] RiveModel riveModel);
+
+		// @required -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
+		[Abstract]
+		[Export ("playerWithDidAdvanceby:riveModel:")]
+		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);
+	}
 
 	// @protocol RiveStateMachineDelegate
 	[Protocol (Name = "_TtP11RiveRuntime24RiveStateMachineDelegate_"), Model]
@@ -882,6 +942,10 @@ namespace Rive.iOS
 		[Export ("stateMachine:didChangeState:")]
 		void StateMachine (RiveStateMachineInstance stateMachine, string stateName);
 
+		// @optional -(void)stateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine didReceiveHitResult:(RiveHitResult)hitResult from:(enum RiveTouchEvent)event;
+		[Export ("stateMachine:didReceiveHitResult:from:")]
+		void StateMachine (RiveStateMachineInstance stateMachine, RiveHitResult hitResult, RiveTouchEvent @event);
+
 		// @optional -(void)onRiveEventReceivedOnRiveEvent:(RiveEvent * _Nonnull)riveEvent;
 		[Export ("onRiveEventReceivedOnRiveEvent:")]
 		void OnRiveEventReceivedOnRiveEvent (RiveEvent riveEvent);
@@ -891,6 +955,14 @@ namespace Rive.iOS
 	[BaseType (typeof(RiveRendererView), Name = "_TtC11RiveRuntime8RiveView")]
 	interface RiveView
 	{
+		/*[Wrap ("WeakPlayerDelegate")]
+		[NullAllowed]
+		RivePlayerDelegate PlayerDelegate { get; set; }*/
+
+		// @property (nonatomic, weak) id<RivePlayerDelegate> _Nullable playerDelegate;
+		[NullAllowed, Export ("playerDelegate", ArgumentSemantic.Weak)]
+		NSObject WeakPlayerDelegate { get; set; }
+
 		/*// -(instancetype _Nonnull)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
 		[Export ("initWithCoder:")]
 		[DesignatedInitializer]
@@ -900,9 +972,9 @@ namespace Rive.iOS
 		[Export ("advanceWithDelta:")]
 		void AdvanceWithDelta (double delta);
 
-		// -(void)drawRive:(CGRect)rect size:(CGSize)size;
+		/*// -(void)drawRive:(CGRect)rect size:(CGSize)size;
 		[Export ("drawRive:size:")]
-		void DrawRive (CGRect rect, CGSize size);
+		void DrawRive (CGRect rect, CGSize size);*/
 
 		// -(void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 		[Export ("touchesBegan:withEvent:")]
@@ -921,11 +993,95 @@ namespace Rive.iOS
 		void TouchesCancelled (NSSet<UITouch> touches, [NullAllowed] UIEvent @event);
 	}
 
-	// @interface RiveViewModel : NSObject <RiveFileDelegate, RiveStateMachineDelegate>
+	// @interface RiveViewModel : NSObject <RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate>
 	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime13RiveViewModel")]
 	[DisableDefaultCtor]
-	interface RiveViewModel : RiveFileDelegate, RiveStateMachineDelegate
+	interface RiveViewModel : RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate
 	{
+		// -(instancetype _Nonnull)init:(RiveModel * _Nonnull)model stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
+		[Export ("init:stateMachineName:fit:alignment:autoPlay:artboardName:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (RiveModel model, [NullAllowed] string stateMachineName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName);
+
+		// -(instancetype _Nonnull)init:(RiveModel * _Nonnull)model animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
+		[Export ("init:animationName:fit:alignment:autoPlay:artboardName:")]
+		[DesignatedInitializer]
+		NativeHandle initWithAnimationName (RiveModel model, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName);
+
+		// -(instancetype _Nonnull)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName loadCdn:(BOOL)loadCdn customLoader:(LoadAsset _Nullable)customLoader __attribute__((objc_designated_initializer));
+		[Export ("initWithFileName:extension:in:stateMachineName:fit:alignment:autoPlay:artboardName:loadCdn:customLoader:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (string fileName, string extension, NSBundle bundle, [NullAllowed] string stateMachineName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName, bool loadCdn, [NullAllowed] LoadAsset customLoader);
+
+		// -(instancetype _Nonnull)initWithWebURL:(NSString * _Nonnull)webURL stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay loadCdn:(BOOL)loadCdn artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
+		[Export ("initWithWebURL:stateMachineName:fit:alignment:autoPlay:loadCdn:artboardName:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (string webURL, [NullAllowed] string stateMachineName, RiveFit fit, RiveAlignment alignment, bool autoPlay, bool loadCdn, [NullAllowed] string artboardName);
+
+		// -(instancetype _Nonnull)initWithWebURL:(NSString * _Nonnull)webURL animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay loadCdn:(BOOL)loadCdn artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
+		[Export ("initWithWebURL:animationName:fit:alignment:autoPlay:loadCdn:artboardName:")]
+		[DesignatedInitializer]
+		NativeHandle initWithWebURL (string webURL, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, bool loadCdn, [NullAllowed] string artboardName);
+
+		// -(void)playWithAnimationName:(NSString * _Nullable)animationName loop:(RiveLoop)loop direction:(RiveDirection)direction;
+		[Export ("playWithAnimationName:loop:direction:")]
+		void PlayWithAnimationName ([NullAllowed] string animationName, RiveLoop loop, RiveDirection direction);
+
+		// -(void)pause;
+		[Export ("pause")]
+		void Pause ();
+
+		// -(void)stop;
+		[Export ("stop")]
+		void Stop ();
+
+		// -(void)reset;
+		[Export ("reset")]
+		void Reset ();
+
+		// -(BOOL)configureModelWithArtboardName:(NSString * _Nullable)artboardName stateMachineName:(NSString * _Nullable)stateMachineName animationName:(NSString * _Nullable)animationName error:(NSError * _Nullable * _Nullable)error;
+		[Export ("configureModelWithArtboardName:stateMachineName:animationName:error:")]
+		bool ConfigureModelWithArtboardName ([NullAllowed] string artboardName, [NullAllowed] string stateMachineName, [NullAllowed] string animationName, [NullAllowed] out NSError error);
+
+		// -(void)resetToDefaultModel;
+		[Export ("resetToDefaultModel")]
+		void ResetToDefaultModel ();
+
+		// -(void)triggerInput:(NSString * _Nonnull)inputName;
+		[Export ("triggerInput:")]
+		void TriggerInput (string inputName);
+
+		// -(void)setBooleanInput:(NSString * _Nonnull)inputName :(BOOL)value;
+		[Export ("setBooleanInput::")]
+		void SetBooleanInput (string inputName, bool value);
+
+		// -(void)setFloatInput:(NSString * _Nonnull)inputName :(float)value;
+		[Export ("setFloatInput::")]
+		void SetFloatInput (string inputName, float value);
+
+		// -(void)setDoubleInput:(NSString * _Nonnull)inputName :(double)value;
+		[Export ("setDoubleInput::")]
+		void SetDoubleInput (string inputName, double value);
+
+		// -(NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName __attribute__((warn_unused_result("")));
+		[Export ("getTextRunValue:")]
+		[return: NullAllowed]
+		string GetTextRunValue (string textRunName);
+
+		// -(BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
+		[Export ("setTextRunValue:textValue:error:")]
+		bool SetTextRunValue (string textRunName, string textValue, [NullAllowed] out NSError error);
+
+		// -(NSArray<NSString *> * _Nonnull)artboardNames __attribute__((warn_unused_result("")));
+		[Export ("artboardNames")]
+		//[Verify (MethodToProperty)]
+		string[] ArtboardNames { get; }
+
+		// -(RiveView * _Nonnull)createRiveView __attribute__((warn_unused_result("")));
+		[Export ("createRiveView")]
+		//[Verify (MethodToProperty)]
+		RiveView CreateRiveView { get; }
+
 		// -(void)updateWithView:(RiveView * _Nonnull)view;
 		[Export ("updateWithView:")]
 		void UpdateWithView (RiveView view);
@@ -937,6 +1093,28 @@ namespace Rive.iOS
 		/*// -(BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
 		[Export ("riveFileDidLoad:error:")]
 		bool RiveFileDidLoad (RiveFile riveFile, [NullAllowed] out NSError error);*/
+
+		/*// -(void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithPlayedWithModel:")]
+		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);*/
+
+		/*
+		// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithPausedWithModel:")]
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
+		*/
+
+		/*// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
+		[Export ("playerWithLoopedWithModel:type:")]
+		void PlayerWithLoopedWithModel ([NullAllowed] RiveModel riveModel, nint type);*/
+
+		/*// -(void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithStoppedWithModel:")]
+		void PlayerWithStoppedWithModel ([NullAllowed] RiveModel riveModel);*/
+
+		/*// -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
+		[Export ("playerWithDidAdvanceby:riveModel:")]
+		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);*/
 	}
 
 	// @interface StateMachineInput : NSObject
