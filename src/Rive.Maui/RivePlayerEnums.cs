@@ -39,10 +39,17 @@ public enum RivePlayerAlignment
     BottomRight
 }
 
-public enum RiveRendererType
+public enum RiveAndroidRendererType
 {
+    Rive,
     Skia,
-    Rive
+    Canvas
+}
+
+public enum RiveIOSRendererType
+{
+    Rive,
+    CoreGraphics
 }
 
 public enum RivePlayerEvent

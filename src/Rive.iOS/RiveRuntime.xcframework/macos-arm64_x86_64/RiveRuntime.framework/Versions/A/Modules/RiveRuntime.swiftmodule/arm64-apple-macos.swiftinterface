@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-macos14.2 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RiveRuntime
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-macos13.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RiveRuntime
 import AppKit
 import Combine
 import Foundation
@@ -16,7 +15,7 @@ extension RiveRuntime.RiveFile {
   public static func getBytes(fileName: Swift.String, extension ext: Swift.String = ".riv", in bundle: Foundation.Bundle = .main) -> [Swift.UInt8]
 }
 @objc @_Concurrency.MainActor(unsafe) open class RiveView : RiveRuntime.RiveRendererView {
-  @_Concurrency.MainActor(unsafe) weak public var playerDelegate: (any RiveRuntime.RivePlayerDelegate)?
+  @objc @_Concurrency.MainActor(unsafe) weak public var playerDelegate: (any RiveRuntime.RivePlayerDelegate)?
   @_Concurrency.MainActor(unsafe) weak public var stateMachineDelegate: (any RiveRuntime.RiveStateMachineDelegate)?
   @_Concurrency.MainActor(unsafe) public var showFPS: Swift.Bool {
     get
@@ -37,6 +36,17 @@ extension RiveRuntime.RiveFile {
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateTrackingAreas()
   @objc deinit
 }
+@objc public enum RiveTouchEvent : Swift.Int {
+  case began
+  case moved
+  case ended
+  case cancelled
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc public protocol RiveStateMachineDelegate {
   @objc optional func touchBegan(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
   @objc optional func touchMoved(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
@@ -44,14 +54,15 @@ extension RiveRuntime.RiveFile {
   @objc optional func touchCancelled(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
   @objc optional func stateMachine(_ stateMachine: RiveRuntime.RiveStateMachineInstance, receivedInput input: RiveRuntime.StateMachineInput)
   @objc optional func stateMachine(_ stateMachine: RiveRuntime.RiveStateMachineInstance, didChangeState stateName: Swift.String)
+  @objc optional func stateMachine(_ stateMachine: RiveRuntime.RiveStateMachineInstance, didReceiveHitResult hitResult: RiveRuntime.RiveHitResult, from event: RiveRuntime.RiveTouchEvent)
   @objc optional func onRiveEventReceived(onRiveEvent riveEvent: RiveRuntime.RiveEvent)
 }
-public protocol RivePlayerDelegate : AnyObject {
-  func player(playedWithModel riveModel: RiveRuntime.RiveModel?)
-  func player(pausedWithModel riveModel: RiveRuntime.RiveModel?)
-  func player(loopedWithModel riveModel: RiveRuntime.RiveModel?, type: Swift.Int)
-  func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
-  func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
+@objc public protocol RivePlayerDelegate {
+  @objc func player(playedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc func player(pausedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc func player(loopedWithModel riveModel: RiveRuntime.RiveModel?, type: Swift.Int)
+  @objc func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
 }
 extension RiveRuntime.RiveStateMachineInstance {
   public var inputs: [RiveRuntime.StateMachineInput] {
@@ -75,12 +86,12 @@ extension RiveRuntime.RiveStateMachineInstance {
   open var riveView: RiveRuntime.RiveView? {
     get
   }
-  public init(_ model: RiveRuntime.RiveModel, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil)
-  public init(_ model: RiveRuntime.RiveModel, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil)
-  public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil)
+  @objc public init(_ model: RiveRuntime.RiveModel, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(_ model: RiveRuntime.RiveModel, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil)
   public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil, preferredFramesPerSecond: Swift.Int? = nil, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil)
-  public init(webURL: Swift.String, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, loadCdn: Swift.Bool = true, artboardName: Swift.String? = nil)
-  public init(webURL: Swift.String, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, loadCdn: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(webURL: Swift.String, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, loadCdn: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(webURL: Swift.String, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, loadCdn: Swift.Bool = true, artboardName: Swift.String? = nil)
   open var riveModel: RiveRuntime.RiveModel? {
     get
   }
@@ -96,30 +107,35 @@ extension RiveRuntime.RiveStateMachineInstance {
     get
     set
   }
-  open func play(animationName: Swift.String? = nil, loop: RiveRuntime.RiveLoop = .autoLoop, direction: RiveRuntime.RiveDirection = .autoDirection)
-  open func pause()
-  open func stop()
-  open func reset()
-  open func configureModel(artboardName: Swift.String? = nil, stateMachineName: Swift.String? = nil, animationName: Swift.String? = nil) throws
-  open func resetToDefaultModel()
-  open func triggerInput(_ inputName: Swift.String)
-  open func setInput(_ inputName: Swift.String, value: Swift.Bool)
-  open func setInput(_ inputName: Swift.String, value: Swift.Float)
-  open func setInput(_ inputName: Swift.String, value: Swift.Double)
-  open func getTextRunValue(_ textRunName: Swift.String) -> Swift.String?
-  open func setTextRunValue(_ textRunName: Swift.String, textValue: Swift.String) throws
-  open func artboardNames() -> [Swift.String]
-  open func createRiveView() -> RiveRuntime.RiveView
+  @objc open func play(animationName: Swift.String? = nil, loop: RiveRuntime.RiveLoop = .autoLoop, direction: RiveRuntime.RiveDirection = .autoDirection)
+  @objc open func pause()
+  @objc open func stop()
+  @objc open func reset()
+  @objc open func configureModel(artboardName: Swift.String? = nil, stateMachineName: Swift.String? = nil, animationName: Swift.String? = nil) throws
+  @objc open func resetToDefaultModel()
+  @objc open func triggerInput(_ inputName: Swift.String)
+  @objc(setBooleanInput::) open func setInput(_ inputName: Swift.String, value: Swift.Bool)
+  @objc(setFloatInput::) open func setInput(_ inputName: Swift.String, value: Swift.Float)
+  @objc(setDoubleInput::) open func setInput(_ inputName: Swift.String, value: Swift.Double)
+  open func triggerInput(_ inputName: Swift.String, path: Swift.String)
+  open func setInput(_ inputName: Swift.String, value: Swift.Bool, path: Swift.String)
+  open func setInput(_ inputName: Swift.String, value: Swift.Float, path: Swift.String)
+  open func setInput(_ inputName: Swift.String, value: Swift.Double, path: Swift.String)
+  @objc open func getTextRunValue(_ textRunName: Swift.String) -> Swift.String?
+  @objc open func setTextRunValue(_ textRunName: Swift.String, textValue: Swift.String) throws
+  @objc open func artboardNames() -> [Swift.String]
+  @objc open func createRiveView() -> RiveRuntime.RiveView
+  open func setRiveView(view: RiveRuntime.RiveView)
   @objc open func update(view: RiveRuntime.RiveView)
   open func deregisterView()
   open func view() -> SwiftUI.AnyView
   @objc open func setView(_ view: RiveRuntime.RiveView)
-  @objc public func riveFileDidLoad(_ riveFile: RiveRuntime.RiveFile) throws
-  open func player(playedWithModel riveModel: RiveRuntime.RiveModel?)
-  open func player(pausedWithModel riveModel: RiveRuntime.RiveModel?)
-  open func player(loopedWithModel riveModel: RiveRuntime.RiveModel?, type: Swift.Int)
-  open func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
-  open func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
+  @objc open func riveFileDidLoad(_ riveFile: RiveRuntime.RiveFile) throws
+  @objc open func player(playedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc open func player(pausedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc open func player(loopedWithModel riveModel: RiveRuntime.RiveModel?, type: Swift.Int)
+  @objc open func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc open func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
@@ -136,7 +152,7 @@ public struct RiveViewRepresentable : SwiftUI.NSViewRepresentable {
   public typealias Body = Swift.Never
   public typealias NSViewType = RiveRuntime.RiveView
 }
-open class RiveModel : Foundation.ObservableObject {
+@objc open class RiveModel : ObjectiveC.NSObject, Foundation.ObservableObject {
   public var stateMachine: RiveRuntime.RiveStateMachineInstance? {
     get
   }
@@ -149,18 +165,25 @@ open class RiveModel : Foundation.ObservableObject {
   public init(riveFile: RiveRuntime.RiveFile)
   public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil) throws
   public init(webURL: Swift.String, delegate: any RiveRuntime.RiveFileDelegate, loadCdn: Swift.Bool)
+  @objc open var volume: Swift.Float {
+    @objc get
+    @objc set
+  }
   open func setArtboard(_ name: Swift.String) throws
   open func setArtboard(_ index: Swift.Int? = nil) throws
   open func setStateMachine(_ name: Swift.String) throws
   open func setStateMachine(_ index: Swift.Int? = nil) throws
   open func setAnimation(_ name: Swift.String) throws
   open func setAnimation(_ index: Swift.Int? = nil) throws
-  public var description: Swift.String {
-    get
+  @objc override dynamic public var description: Swift.String {
+    @objc get
   }
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
+extension RiveRuntime.RiveTouchEvent : Swift.Equatable {}
+extension RiveRuntime.RiveTouchEvent : Swift.Hashable {}
+extension RiveRuntime.RiveTouchEvent : Swift.RawRepresentable {}
 extension RiveRuntime.StateMachineInputType : Swift.Equatable {}
 extension RiveRuntime.StateMachineInputType : Swift.Hashable {}
 extension RiveRuntime.StateMachineInputType : Swift.RawRepresentable {}

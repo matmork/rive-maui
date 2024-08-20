@@ -12,6 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class RiveLinearAnimationInstance;
+@class RiveSMIBool;
+@class RiveSMITrigger;
+@class RiveSMINumber;
 @class RiveStateMachineInstance;
 @class RiveRenderer;
 @class RiveTextValueRun;
@@ -20,8 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 //
 @interface RiveArtboard : NSObject
 
+@property(nonatomic, assign) float volume NS_REFINED_FOR_SWIFT;
+
 - (NSString*)name;
 - (CGRect)bounds;
+
+- (const RiveSMIBool*)getBool:(NSString*)name path:(NSString*)path;
+- (const RiveSMITrigger*)getTrigger:(NSString*)name path:(NSString*)path;
+- (const RiveSMINumber*)getNumber:(NSString*)name path:(NSString*)path;
 
 - (NSInteger)animationCount;
 - (NSArray<NSString*>*)animationNames;
