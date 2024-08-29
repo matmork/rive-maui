@@ -201,29 +201,25 @@ public sealed class CustomRiveView : RiveRendererView
         DrawWithArtboard(_riveArtboard);
     }
 
-    public void PlayAnimation(string animationName)
-    {
-        if (string.Equals(animationName, AnimationName, StringComparison.OrdinalIgnoreCase))
-            return;
-
-        if (_riveArtboard?.AnimationFromName(animationName, out var error) is { } animation && error == null)
-        {
-            animation.Loop((int)Loop);
-            animation.Direction((int)Direction);
-
-            if (animation.HasEnded())
-            {
-                animation.Time = 0;
-            }
-
-            _riveAnimation?.Dispose();
-            _riveAnimation = null;
-            _riveAnimation = animation;
-        }
-    }
-
     public void Play()
     {
+        if (_riveAnimation != null)
+        {
+            if (!string.IsNullOrEmpty(AnimationName)
+                && !string.Equals(_riveAnimation.Name(), AnimationName, StringComparison.OrdinalIgnoreCase)
+                && _riveArtboard?.AnimationFromName(AnimationName, out var error) is { } animation && error == null)
+            {
+                _riveAnimation.Dispose();
+                _riveAnimation = animation;
+            }
+
+            if (_riveAnimation.HasEnded())
+                _riveAnimation.Time = 0;
+
+            _riveAnimation.Loop((int)Loop);
+            _riveAnimation.Direction((int)Direction);
+        }
+
         if (_displayLink == null)
         {
             CreateDisplayLink();

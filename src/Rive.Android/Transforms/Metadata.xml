@@ -34,7 +34,7 @@
   <remove-node path="/api/package[@name='app.rive.runtime.kotlin.core']/class[@name='BytesRequest']"/>
 
   <attr path="/api/package[@name='app.rive.runtime.kotlin.core']/class[@name='Loop']/field[@name='LOOP']"
-        name="name">LOOP2
+        name="managedName">Loop2
   </attr>
 
 </metadata>
