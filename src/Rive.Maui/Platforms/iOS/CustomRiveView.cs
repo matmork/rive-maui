@@ -65,6 +65,7 @@ public sealed class CustomRiveView : RiveRendererView
 
         if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount == 0)
         {
+            _riveAnimation?.Dispose();
             _riveAnimation = !string.IsNullOrWhiteSpace(AnimationName)
                 ? _riveArtboard?.AnimationFromName(AnimationName, out _)
                 : _riveArtboard?.AnimationFromIndex(0, out _);
@@ -203,22 +204,8 @@ public sealed class CustomRiveView : RiveRendererView
 
     public void Play()
     {
-        if (_riveAnimation != null)
-        {
-            if (!string.IsNullOrEmpty(AnimationName)
-                && !string.Equals(_riveAnimation.Name(), AnimationName, StringComparison.OrdinalIgnoreCase)
-                && _riveArtboard?.AnimationFromName(AnimationName, out var error) is { } animation && error == null)
-            {
-                _riveAnimation.Dispose();
-                _riveAnimation = animation;
-            }
-
-            if (_riveAnimation.HasEnded())
-                _riveAnimation.Time = 0;
-
-            _riveAnimation.Loop((int)Loop);
-            _riveAnimation.Direction((int)Direction);
-        }
+        if (_riveAnimation?.HasEnded() == true)
+            _riveAnimation.Time = 0;
 
         if (_displayLink == null)
         {

@@ -134,6 +134,7 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
 
         if (view.AutoPlay)
         {
+            handler._riveAnimationView?.Stop();
             handler._riveAnimationView?.Play(view.AnimationName, riveLoop, riveDirection, false, true);
         }
     }
@@ -204,7 +205,16 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
             : handler._riveAnimationView?.Controller.ActiveArtboard?.StateMachineNames.FirstOrDefault();
 
         if (!string.IsNullOrWhiteSpace(stateMachineName))
+        {
             handler._riveAnimationView?.Play(stateMachineName, riveLoop, riveDirection, true, true);
+            return;
+        }
+
+        var firstAnimationName = handler._riveAnimationView?.Controller.ActiveArtboard?.AnimationNames.FirstOrDefault();
+        if (!string.IsNullOrWhiteSpace(firstAnimationName))
+        {
+            handler._riveAnimationView?.Play(firstAnimationName, riveLoop, riveDirection, false, true);
+        }
     }
 
     public static void MapPause(RivePlayerRenderer handler, RivePlayer view, object? args)

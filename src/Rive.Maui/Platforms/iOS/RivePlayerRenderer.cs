@@ -77,11 +77,8 @@ public partial class RivePlayerRenderer() : ViewRenderer<RivePlayer, UIView>(Pro
             return;
 
         handler._riveAnimationView.AnimationName = view.AnimationName;
-
-        if (view.AutoPlay)
-        {
-            handler._riveAnimationView.Play();
-        }
+        handler._riveAnimationView.ResetProperties(false);
+        handler._riveAnimationView.UpdateAnimation();
     }
 
     public static void MapStateMachineName(RivePlayerRenderer handler, RivePlayer view)
