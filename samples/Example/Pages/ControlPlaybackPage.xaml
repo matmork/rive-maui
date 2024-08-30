@@ -11,8 +11,10 @@
             <riveMaui:RivePlayer x:Name="RivePlayer"
                                  Margin="0,20,0,0"
                                  AutoPlay="False"
+                                 Loop="Loop"
                                  ResourceName="runner"
                                  Fit="Cover"
+                                 AnimationName="run"
                                  HeightRequest="500" />
 
             <HorizontalStackLayout Spacing="10"

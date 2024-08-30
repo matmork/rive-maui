@@ -124,14 +124,18 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
             handler._riveAnimationView.ArtboardName = view.ArtboardName;
     }
 
-    public static void MapAnimationProperties(RivePlayerRenderer handler, RivePlayer view)
+    public static void MapAnimationName(RivePlayerRenderer handler, RivePlayer view)
     {
-        if (!string.IsNullOrWhiteSpace(view.AnimationName))
-        {
-            var riveLoop = view.Loop.AsRive();
-            var riveDirection = view.Direction.AsRive();
+        if (string.IsNullOrWhiteSpace(view.AnimationName))
+            return;
 
-            handler._riveAnimationView?.Play(view.AnimationName, riveLoop, riveDirection, string.IsNullOrWhiteSpace(view.StateMachineName), true);
+        var riveLoop = view.Loop.AsRive();
+        var riveDirection = view.Direction.AsRive();
+
+        if (view.AutoPlay)
+        {
+            handler._riveAnimationView?.Stop();
+            handler._riveAnimationView?.Play(view.AnimationName, riveLoop, riveDirection, false, true);
         }
     }
 
@@ -173,12 +177,44 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
             handler._riveAnimationView.Alignment = riveAlignment;
     }
 
+    public static void MapLoop(RivePlayerRenderer handler, RivePlayer view)
+    {
+        var rendererAttributes = handler._riveAnimationView?.GetRendererAttributes();
+        if (rendererAttributes != null)
+            rendererAttributes.Loop = view.Loop.AsRive();
+    }
+
+    public static void MapDirection(RivePlayerRenderer handler, RivePlayer view)
+    {
+        //
+    }
+
     public static void MapPlay(RivePlayerRenderer handler, RivePlayer view, object? args)
     {
         var riveLoop = view.Loop.AsRive();
         var riveDirection = view.Direction.AsRive();
 
-        handler._riveAnimationView?.Play(riveLoop, riveDirection, true);
+        if (!string.IsNullOrWhiteSpace(view.AnimationName))
+        {
+            handler._riveAnimationView?.Play(view.AnimationName, riveLoop, riveDirection, false, true);
+            return;
+        }
+
+        var stateMachineName = !string.IsNullOrWhiteSpace(view.StateMachineName)
+            ? view.StateMachineName
+            : handler._riveAnimationView?.Controller.ActiveArtboard?.StateMachineNames.FirstOrDefault();
+
+        if (!string.IsNullOrWhiteSpace(stateMachineName))
+        {
+            handler._riveAnimationView?.Play(stateMachineName, riveLoop, riveDirection, true, true);
+            return;
+        }
+
+        var firstAnimationName = handler._riveAnimationView?.Controller.ActiveArtboard?.AnimationNames.FirstOrDefault();
+        if (!string.IsNullOrWhiteSpace(firstAnimationName))
+        {
+            handler._riveAnimationView?.Play(firstAnimationName, riveLoop, riveDirection, false, true);
+        }
     }
 
     public static void MapPause(RivePlayerRenderer handler, RivePlayer view, object? args)

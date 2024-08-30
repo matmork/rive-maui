@@ -65,6 +65,7 @@ public sealed class CustomRiveView : RiveRendererView
 
         if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount == 0)
         {
+            _riveAnimation?.Dispose();
             _riveAnimation = !string.IsNullOrWhiteSpace(AnimationName)
                 ? _riveArtboard?.AnimationFromName(AnimationName, out _)
                 : _riveArtboard?.AnimationFromIndex(0, out _);
@@ -118,7 +119,7 @@ public sealed class CustomRiveView : RiveRendererView
                     if (evt != null)
                     {
                         var properties = evt.Properties
-                            .ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
+                            ?.ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
                         var args = new EventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
                         control.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
                         control.EventReceivedCommand?.Execute(args);
@@ -201,29 +202,11 @@ public sealed class CustomRiveView : RiveRendererView
         DrawWithArtboard(_riveArtboard);
     }
 
-    public void PlayAnimation(string animationName)
-    {
-        if (string.Equals(animationName, AnimationName, StringComparison.OrdinalIgnoreCase))
-            return;
-
-        if (_riveArtboard?.AnimationFromName(animationName, out var error) is { } animation && error == null)
-        {
-            animation.Loop((int)Loop);
-            animation.Direction((int)Direction);
-
-            if (animation.HasEnded())
-            {
-                animation.Time = 0;
-            }
-
-            _riveAnimation?.Dispose();
-            _riveAnimation = null;
-            _riveAnimation = animation;
-        }
-    }
-
     public void Play()
     {
+        if (_riveAnimation?.HasEnded() == true)
+            _riveAnimation.Time = 0;
+
         if (_displayLink == null)
         {
             CreateDisplayLink();

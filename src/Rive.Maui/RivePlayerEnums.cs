@@ -54,6 +54,6 @@ public enum RiveIOSRendererType
 
 public enum RivePlayerEvent
 {
-    GeneralEvent,
+    GeneralEvent = 407,
     OpenURLEvent
 }

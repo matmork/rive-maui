@@ -71,14 +71,14 @@ public partial class RivePlayerRenderer() : ViewRenderer<RivePlayer, UIView>(Pro
         }
     }
 
-    public static void MapAnimationProperties(RivePlayerRenderer handler, RivePlayer view)
+    public static void MapAnimationName(RivePlayerRenderer handler, RivePlayer view)
     {
-        if (handler._riveAnimationView != null && !string.IsNullOrWhiteSpace(view.AnimationName))
-        {
-            handler._riveAnimationView.Loop = view.Loop.AsRive();
-            handler._riveAnimationView.Direction = view.Direction.AsRive();
-            handler._riveAnimationView.PlayAnimation(view.AnimationName);
-        }
+        if (handler._riveAnimationView == null || string.IsNullOrWhiteSpace(view.AnimationName))
+            return;
+
+        handler._riveAnimationView.AnimationName = view.AnimationName;
+        handler._riveAnimationView.ResetProperties(false);
+        handler._riveAnimationView.UpdateAnimation();
     }
 
     public static void MapStateMachineName(RivePlayerRenderer handler, RivePlayer view)
@@ -111,6 +111,18 @@ public partial class RivePlayerRenderer() : ViewRenderer<RivePlayer, UIView>(Pro
     {
         if (handler._riveAnimationView != null)
             handler._riveAnimationView.Alignment = view.Alignment.AsRive();
+    }
+
+    public static void MapLoop(RivePlayerRenderer handler, RivePlayer view)
+    {
+        if (handler._riveAnimationView != null)
+            handler._riveAnimationView.Loop = view.Loop.AsRive();
+    }
+
+    public static void MapDirection(RivePlayerRenderer handler, RivePlayer view)
+    {
+        if (handler._riveAnimationView != null)
+            handler._riveAnimationView.Direction = view.Direction.AsRive();
     }
 
     public static void MapPlay(RivePlayerRenderer handler, RivePlayer view, object? args)

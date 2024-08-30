@@ -366,6 +366,7 @@ typedef SWIFT_ENUM(NSInteger, RiveTouchEvent, open) {
   RiveTouchEventCancelled = 3,
 };
 
+@class UITraitCollection;
 @class UITouch;
 @class UIEvent;
 @protocol MTLDevice;
@@ -373,6 +374,8 @@ typedef SWIFT_ENUM(NSInteger, RiveTouchEvent, open) {
 SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 @interface RiveView : RiveRendererView
 @property (nonatomic, weak) id <RivePlayerDelegate> _Nullable playerDelegate;
+@property (nonatomic) CGRect bounds;
+@property (nonatomic) CGRect frame;
 /// Minimalist constructor, call <code>.configure</code> to customize the <code>RiveView</code> later.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -384,6 +387,7 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 /// This is called in the middle of drawRect. Override this method to implement
 /// custom draw logic
 - (void)drawRive:(CGRect)rect size:(CGSize)size;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (void)touchesMoved:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
@@ -913,6 +917,7 @@ typedef SWIFT_ENUM(NSInteger, RiveTouchEvent, open) {
   RiveTouchEventCancelled = 3,
 };
 
+@class UITraitCollection;
 @class UITouch;
 @class UIEvent;
 @protocol MTLDevice;
@@ -920,6 +925,8 @@ typedef SWIFT_ENUM(NSInteger, RiveTouchEvent, open) {
 SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 @interface RiveView : RiveRendererView
 @property (nonatomic, weak) id <RivePlayerDelegate> _Nullable playerDelegate;
+@property (nonatomic) CGRect bounds;
+@property (nonatomic) CGRect frame;
 /// Minimalist constructor, call <code>.configure</code> to customize the <code>RiveView</code> later.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -931,6 +938,7 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 /// This is called in the middle of drawRect. Override this method to implement
 /// custom draw logic
 - (void)drawRive:(CGRect)rect size:(CGSize)size;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 - (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (void)touchesMoved:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;

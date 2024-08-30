@@ -22,9 +22,18 @@ extension RiveRuntime.RiveFile {
     set
   }
   @_Concurrency.MainActor(unsafe) public static var showFPSCounters: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var bounds: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var frame: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) convenience public init(model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
   @_Concurrency.MainActor(unsafe) open func setModel(_ model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true) throws
   @objc @_Concurrency.MainActor(unsafe) open func advance(delta: Swift.Double)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func drawRive(_ rect: CoreFoundation.CGRect, size: CoreFoundation.CGSize)
@@ -34,7 +43,6 @@ extension RiveRuntime.RiveFile {
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseUp(with event: AppKit.NSEvent)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func mouseExited(with event: AppKit.NSEvent)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func updateTrackingAreas()
-  @objc deinit
 }
 @objc public enum RiveTouchEvent : Swift.Int {
   case began
@@ -104,6 +112,10 @@ extension RiveRuntime.RiveStateMachineInstance {
     set
   }
   open var alignment: RiveRuntime.RiveAlignment {
+    get
+    set
+  }
+  open var forwardsListenerEvents: Swift.Bool {
     get
     set
   }

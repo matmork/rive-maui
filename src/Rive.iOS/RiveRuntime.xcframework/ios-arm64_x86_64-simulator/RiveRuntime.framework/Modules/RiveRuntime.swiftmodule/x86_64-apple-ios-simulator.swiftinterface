@@ -22,20 +22,29 @@ extension RiveRuntime.RiveFile {
     set
   }
   @_Concurrency.MainActor(unsafe) public static var showFPSCounters: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var bounds: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var frame: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) convenience public init(model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
   @_Concurrency.MainActor(unsafe) open func setModel(_ model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true) throws
   @_Concurrency.MainActor(unsafe) open func setPreferredFramesPerSecond(preferredFramesPerSecond: Swift.Int)
   @available(iOS 15.0, *)
   @_Concurrency.MainActor(unsafe) open func setPreferredFrameRateRange(preferredFrameRateRange: QuartzCore.CAFrameRateRange)
   @objc @_Concurrency.MainActor(unsafe) open func advance(delta: Swift.Double)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func drawRive(_ rect: CoreFoundation.CGRect, size: CoreFoundation.CGSize)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc deinit
 }
 @objc public enum RiveTouchEvent : Swift.Int {
   case began
@@ -105,6 +114,10 @@ extension RiveRuntime.RiveStateMachineInstance {
     set
   }
   open var alignment: RiveRuntime.RiveAlignment {
+    get
+    set
+  }
+  open var forwardsListenerEvents: Swift.Bool {
     get
     set
   }
