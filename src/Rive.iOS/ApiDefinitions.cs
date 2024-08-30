@@ -963,6 +963,14 @@ namespace Rive.iOS
 		[NullAllowed, Export ("playerDelegate", ArgumentSemantic.Weak)]
 		NSObject WeakPlayerDelegate { get; set; }
 
+		/*// @property (nonatomic) CGRect bounds;
+		[Export ("bounds", ArgumentSemantic.Assign)]
+		CGRect Bounds { get; set; }*/
+
+		/*// @property (nonatomic) CGRect frame;
+		[Export ("frame", ArgumentSemantic.Assign)]
+		CGRect Frame { get; set; }*/
+
 		/*// -(instancetype _Nonnull)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
 		[Export ("initWithCoder:")]
 		[DesignatedInitializer]
@@ -975,6 +983,10 @@ namespace Rive.iOS
 		/*// -(void)drawRive:(CGRect)rect size:(CGSize)size;
 		[Export ("drawRive:size:")]
 		void DrawRive (CGRect rect, CGSize size);*/
+
+		/*// -(void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+		[Export ("traitCollectionDidChange:")]
+		void TraitCollectionDidChange ([NullAllowed] UITraitCollection previousTraitCollection);*/
 
 		// -(void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 		[Export ("touchesBegan:withEvent:")]
@@ -1098,11 +1110,9 @@ namespace Rive.iOS
 		[Export ("playerWithPlayedWithModel:")]
 		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);*/
 
-		/*
-		// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
+		/*// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithPausedWithModel:")]
-		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
-		*/
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);*/
 
 		/*// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
 		[Export ("playerWithLoopedWithModel:type:")]

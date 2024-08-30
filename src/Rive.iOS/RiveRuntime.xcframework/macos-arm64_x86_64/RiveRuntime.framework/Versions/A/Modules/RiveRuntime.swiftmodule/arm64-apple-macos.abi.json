@@ -436,6 +436,178 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "bounds",
+            "printedName": "bounds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(py)bounds",
+            "mangledName": "$s11RiveRuntime0A4ViewC6boundsSo6CGRectVvp",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "isOpen": true,
+            "objc_name": "bounds",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)bounds",
+                "mangledName": "$s11RiveRuntime0A4ViewC6boundsSo6CGRectVvg",
+                "moduleName": "RiveRuntime",
+                "overriding": true,
+                "implicit": true,
+                "isOpen": true,
+                "objc_name": "bounds",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setBounds:",
+                "mangledName": "$s11RiveRuntime0A4ViewC6boundsSo6CGRectVvs",
+                "moduleName": "RiveRuntime",
+                "overriding": true,
+                "implicit": true,
+                "isOpen": true,
+                "objc_name": "setBounds:",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "frame",
+            "printedName": "frame",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(py)frame",
+            "mangledName": "$s11RiveRuntime0A4ViewC5frameSo6CGRectVvp",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "isOpen": true,
+            "objc_name": "frame",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)frame",
+                "mangledName": "$s11RiveRuntime0A4ViewC5frameSo6CGRectVvg",
+                "moduleName": "RiveRuntime",
+                "overriding": true,
+                "implicit": true,
+                "isOpen": true,
+                "objc_name": "frame",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)setFrame:",
+                "mangledName": "$s11RiveRuntime0A4ViewC5frameSo6CGRectVvs",
+                "moduleName": "RiveRuntime",
+                "overriding": true,
+                "implicit": true,
+                "isOpen": true,
+                "objc_name": "setFrame:",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -3407,6 +3579,97 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "forwardsListenerEvents",
+            "printedName": "forwardsListenerEvents",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvp",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvp",
+            "moduleName": "RiveRuntime",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvg",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvs",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvs",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvM",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC22forwardsListenerEventsSbvM",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "play",
             "printedName": "play(animationName:loop:direction:)",
@@ -6159,35 +6422,42 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 497,
+      "offset": 943,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1023,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 546,
+      "offset": 1072,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1124,
+      "offset": 1650,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1347,
+      "offset": 2161,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1853,
+      "offset": 3693,
       "length": 4,
       "value": "true"
     },
@@ -6208,49 +6478,49 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16540,
+      "offset": 19998,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16631,
+      "offset": 20089,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16724,
+      "offset": 20182,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16540,
+      "offset": 19998,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16631,
+      "offset": 20089,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16724,
+      "offset": 20182,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "Array",
-      "offset": 19998,
+      "offset": 23456,
       "length": 2,
       "value": "[]"
     },
@@ -6292,86 +6562,93 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1586,
+      "offset": 1582,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2079,
+      "offset": 2075,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 2455,
+      "offset": 2451,
       "length": 6,
       "value": "\".riv\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2635,
+      "offset": 2631,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2702,
+      "offset": 2698,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3188,
+      "offset": 3184,
       "length": 6,
       "value": "\".riv\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3371,
+      "offset": 3367,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3484,
+      "offset": 3480,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4080,
+      "offset": 4076,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4110,
+      "offset": 4106,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4673,
+      "offset": 4669,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4703,
+      "offset": 4699,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6636,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
@@ -6383,7 +6660,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 21584,
+      "offset": 22327,
       "length": 11,
       "value": "\"RiveRuntime.Coordinator\""
     },
