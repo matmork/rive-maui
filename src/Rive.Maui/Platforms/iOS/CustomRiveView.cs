@@ -119,7 +119,7 @@ public sealed class CustomRiveView : RiveRendererView
                     if (evt != null)
                     {
                         var properties = evt.Properties
-                            .ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
+                            ?.ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
                         var args = new EventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
                         control.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
                         control.EventReceivedCommand?.Execute(args);
