@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
-
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
@@ -13,7 +11,7 @@
 		<PackageId>Rive.Maui</PackageId>
 		<Title>Rive Maui</Title>
 		<Description>Rive animations in Maui using iOS/Android runtimes</Description>
-		<VersionPrefix>1.0.2</VersionPrefix>
+		<VersionPrefix>1.0.3</VersionPrefix>
 		<PackageProjectUrl>https://github.com/matmork/rive-maui</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/matmork/rive-maui</RepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>

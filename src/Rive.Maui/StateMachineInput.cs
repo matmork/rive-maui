@@ -12,7 +12,7 @@ public abstract class StateMachineInput : BindableObject
 
     public WeakReference<RivePlayer?> RivePlayerReference { get; } = new(null);
 
-    protected void Apply()
+    public void Apply()
     {
         if (!string.IsNullOrWhiteSpace(InputName)
             && !string.IsNullOrWhiteSpace(StateMachineName)
