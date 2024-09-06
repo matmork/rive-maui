@@ -102,6 +102,12 @@ public class RivePlayer : View
         typeof(RivePlayer)
     );
 
+    public static readonly BindableProperty DynamicAssetsProperty = BindableProperty.Create(
+        nameof(DynamicAssets),
+        typeof(List<DynamicAsset>),
+        typeof(RivePlayer)
+    );
+
     public string? ArtboardName
     {
         get => (string?)GetValue(ArtboardNameProperty);
@@ -172,6 +178,12 @@ public class RivePlayer : View
     {
         get => (StateMachineInputCollection)GetValue(StateMachineInputsProperty);
         set => SetValue(StateMachineInputsProperty, value);
+    }
+
+    public List<DynamicAsset>? DynamicAssets
+    {
+        get => (List<DynamicAsset>?)GetValue(DynamicAssetsProperty);
+        set => SetValue(DynamicAssetsProperty, value);
     }
 
     public ICommand PlayCommand

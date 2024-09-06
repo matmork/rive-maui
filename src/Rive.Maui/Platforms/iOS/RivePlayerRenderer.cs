@@ -52,9 +52,9 @@ public partial class RivePlayerRenderer() : ViewRenderer<RivePlayer, UIView>(Pro
             Direction = control.Direction.AsRive()
         };
 
-        platformView.SetRiveResource(control.ResourceName);
         platformView.Control.SetTarget(control);
         platformView.Frame = control.Bounds;
+        platformView.SetRiveResource(control.ResourceName);
 
         _riveAnimationView = platformView;
         SetNativeControl(_riveAnimationView);
