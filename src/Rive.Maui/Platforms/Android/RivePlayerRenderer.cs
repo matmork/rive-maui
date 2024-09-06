@@ -90,6 +90,11 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
         _tmpView = new View(Context);
         _riveAnimationView = new RiveAnimationView(Context, null);
 
+        if (Element.DynamicAssets?.Count > 0)
+        {
+            _riveAnimationView.SetAssetLoader(new AssetLoader(Context, Element.DynamicAssets));
+        }
+
         _riveAnimationView.LayoutParameters = new LayoutParams(
             LayoutParams.MatchParent,
             LayoutParams.MatchParent

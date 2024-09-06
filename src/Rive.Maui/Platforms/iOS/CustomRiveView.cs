@@ -44,17 +44,62 @@ public sealed class CustomRiveView : RiveRendererView
 
         _resourceName = resourceName;
 
-        var resourceUrl = NSBundle.MainBundle.GetUrlForResource(resourceName, ".riv");
-        if (resourceUrl == null)
-            return;
-
-        var resourceData = NSData.FromUrl(resourceUrl);
+        var resourceData = GetNSDataForResource(resourceName, ".riv");
         if (resourceData == null)
             return;
 
-        _riveFile = new RiveFile(resourceData, true, out _);
+        if (Control.TryGetTarget(out var rivePlayer) && rivePlayer.DynamicAssets?.Count > 0)
+        {
+            var loader = new LoadAsset((asset, _, factory) =>
+            {
+                var dynamicAsset =
+                    rivePlayer.DynamicAssets.FirstOrDefault(x => string.Equals(x.Name, asset.Name, StringComparison.OrdinalIgnoreCase));
+                if (dynamicAsset == null)
+                    return false;
+
+                var newData = GetNSDataForResource(dynamicAsset.Filename, dynamicAsset.Extension);
+                if (newData == null)
+                    return false;
+
+                switch (asset)
+                {
+                    case RiveImageAsset imageAsset:
+                    {
+                        var riveRenderImage = factory.DecodeImage(newData);
+                        imageAsset.RenderImage(riveRenderImage);
+                        return true;
+                    }
+                    case RiveFontAsset fontAsset:
+                    {
+                        var riveFont = factory.DecodeFont(newData);
+                        fontAsset.Font(riveFont);
+                        return true;
+                    }
+                    case RiveAudioAsset audioAsset:
+                    {
+                        var riveAudio = factory.DecodeAudio(newData);
+                        audioAsset.Audio(riveAudio);
+                        return true;
+                    }
+                    default:
+                        return false;
+                }
+            });
+
+            _riveFile = new RiveFile(resourceData, true, loader, out _);
+        }
+        else
+        {
+            _riveFile = new RiveFile(resourceData, true, out _);
+        }
 
         UpdateAnimation();
+
+        NSData? GetNSDataForResource(string name, string extension)
+        {
+            var resourceUrl = NSBundle.MainBundle.GetUrlForResource(name, extension);
+            return resourceUrl == null ? null : NSData.FromUrl(resourceUrl);
+        }
     }
 
     public void UpdateAnimation()
