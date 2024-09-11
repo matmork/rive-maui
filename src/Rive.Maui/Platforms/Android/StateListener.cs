@@ -10,6 +10,14 @@ internal class StateListener : Object, RiveFileController.IListener
 
     public void NotifyAdvance(float elapsed)
     {
+        if (RivePlayerHandlerReference.TryGetTarget(out var handler) && handler is { _animation: not null, Element.PlayToPercentage: > 0 })
+        {
+            var percentElapsed = Math.Floor(handler._animation.Time / handler._animation.EffectiveDurationInSeconds * 100);
+            if (percentElapsed >= handler.Element.PlayToPercentage)
+            {
+                handler._riveAnimationView?.Pause();
+            }
+        }
     }
 
     public void NotifyLoop(IPlayableInstance animation)

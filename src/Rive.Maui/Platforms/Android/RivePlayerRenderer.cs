@@ -2,6 +2,7 @@ using Android.Content;
 using Rive.Android;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Microsoft.Maui.Controls.Platform;
+using Rive.Android.Core;
 using View = Android.Views.View;
 
 namespace Rive.Maui;
@@ -13,6 +14,7 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
     private StateListener? _stateListener;
     private EventListener? _eventListener;
     private string? _resourceName;
+    internal LinearAnimationInstance? _animation;
 
     protected override void OnElementChanged(ElementChangedEventArgs<RivePlayer> e)
     {
@@ -62,6 +64,9 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
         Element?.StateMachineInputs.Dispose();
         _riveAnimationView?.Dispose();
         _riveAnimationView = null;
+
+        _animation?.Dispose();
+        _animation = null;
     }
 
     protected override void DisconnectHandler(View oldPlatformView)
@@ -202,6 +207,7 @@ public partial class RivePlayerRenderer(Context context) : ViewRenderer<RivePlay
         if (!string.IsNullOrWhiteSpace(view.AnimationName))
         {
             handler._riveAnimationView?.Play(view.AnimationName, riveLoop, riveDirection, false, true);
+            handler._animation = handler._riveAnimationView?.Animations.FirstOrDefault(x => x.Name == view.AnimationName);
             return;
         }
 

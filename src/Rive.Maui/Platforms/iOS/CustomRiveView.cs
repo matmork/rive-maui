@@ -206,6 +206,16 @@ public sealed class CustomRiveView : RiveRendererView
         }
         else
         {
+            if (Control.TryGetTarget(out var control) && control.PlayToPercentage > 0 && _riveAnimation != null)
+            {
+                var percentElapsed = Math.Floor(_riveAnimation.Time / _riveAnimation.EffectiveDurationInSeconds() * 100);
+                if (percentElapsed >= control.PlayToPercentage)
+                {
+                    Pause();
+                    return;
+                }
+            }
+
             _riveAnimation?.AdvanceBy(elapsedTime);
         }
 
