@@ -6,13 +6,11 @@ namespace Rive.Maui;
 
 public class EventListener : Object, RiveFileController.IRiveEventListener
 {
-    public WeakReference<RivePlayerRenderer?> RivePlayerHandlerReference { get; set; } = new(null);
+    public WeakReference<RiveView?> RiveViewReference { get; set; } = new(null);
 
     public void NotifyEvent(RiveEvent evt)
     {
-        if (!RivePlayerHandlerReference.TryGetTarget(out var handler)
-            || handler.Element == null
-            || handler._riveAnimationView == null)
+        if (!RiveViewReference.TryGetTarget(out var handler))
             return;
 
         var type = RivePlayerEvent.GeneralEvent;
@@ -24,7 +22,7 @@ public class EventListener : Object, RiveFileController.IRiveEventListener
         var properties = evt.Properties
             .ToDictionary<KeyValuePair<string, Object>, string, object>(k => k.Key, k => k.Value);
         var args = new EventReceivedArgs(evt.Name, type, properties);
-        handler.Element.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
-        handler.Element.EventReceivedCommand?.Execute(args);
+        handler.VirtualView.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
+        handler.VirtualView.EventReceivedCommand?.Execute(args);
     }
 }

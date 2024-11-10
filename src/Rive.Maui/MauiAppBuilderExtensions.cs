@@ -28,7 +28,7 @@
             Rive.iOS.RenderContextManager.Shared.DefaultRenderer = renderer;
 #endif
 
-            builder.ConfigureMauiHandlers(handlers => handlers.AddHandler<RivePlayer, RivePlayerRenderer>());
+            builder.ConfigureMauiHandlers(handlers => handlers.AddHandler<RivePlayer, RivePlayerHandler>());
 
             return builder;
         }
