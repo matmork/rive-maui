@@ -108,12 +108,6 @@ public class RivePlayer : View
         typeof(RivePlayer)
     );
 
-    public static readonly BindableProperty PlayToPercentageProperty = BindableProperty.Create(
-        nameof(PlayToPercentage),
-        typeof(double),
-        typeof(RivePlayer)
-    );
-
     public string? ArtboardName
     {
         get => (string?)GetValue(ArtboardNameProperty);
@@ -190,12 +184,6 @@ public class RivePlayer : View
     {
         get => (List<DynamicAsset>?)GetValue(DynamicAssetsProperty);
         set => SetValue(DynamicAssetsProperty, value);
-    }
-
-    public double PlayToPercentage
-    {
-        get => (double)GetValue(PlayToPercentageProperty);
-        set => SetValue(PlayToPercentageProperty, value);
     }
 
     public ICommand PlayCommand

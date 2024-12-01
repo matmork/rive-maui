@@ -6,18 +6,10 @@ namespace Rive.Maui;
 
 internal class StateListener : Object, RiveFileController.IListener
 {
-    public WeakReference<RiveView?> RiveViewReference { get; set; } = new(null);
+    public WeakReference<CustomRiveView?> RiveViewReference { get; set; } = new(null);
 
     public void NotifyAdvance(float elapsed)
     {
-        if (RiveViewReference.TryGetTarget(out var view) && view is { RiveAnimation: not null, VirtualView.PlayToPercentage: > 0 })
-        {
-            var percentElapsed = Math.Floor(view.RiveAnimation.Time / view.RiveAnimation.EffectiveDurationInSeconds * 100);
-            if (percentElapsed >= view.VirtualView.PlayToPercentage)
-            {
-                view.AnimationView?.Pause();
-            }
-        }
     }
 
     public void NotifyLoop(IPlayableInstance animation)
@@ -34,7 +26,9 @@ internal class StateListener : Object, RiveFileController.IListener
 
     public void NotifyStateChanged(string stateMachineName, string stateName)
     {
-        if (!RiveViewReference.TryGetTarget(out var handler) || handler.AnimationView == null)
+        if (!RiveViewReference.TryGetTarget(out var handler) ||
+            handler.AnimationView == null ||
+            !handler.VirtualView.TryGetTarget(out var virtualView))
             return;
 
         var inputs = new Dictionary<string, object>();
@@ -55,8 +49,8 @@ internal class StateListener : Object, RiveFileController.IListener
         }
 
         var args = new StateMachineChangeArgs(stateMachineName, stateName, inputs);
-        handler.VirtualView.StateChangedManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
-        handler.VirtualView.StateChangedCommand?.Execute(args);
+        virtualView.StateChangedManager.HandleEvent(this, args, nameof(RivePlayer.StateChanged));
+        virtualView.StateChangedCommand?.Execute(args);
     }
 
     public void NotifyStop(IPlayableInstance animation)

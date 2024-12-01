@@ -18,7 +18,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
             Direction = VirtualView.Direction.AsRive()
         };
 
-        platformView.Control.SetTarget(VirtualView);
+        platformView.VirtualView.SetTarget(VirtualView);
         platformView.Frame = VirtualView.Bounds;
         platformView.SetRiveResource(VirtualView.ResourceName);
 
@@ -60,9 +60,6 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
             handler.PlatformView.UpdateAnimation();
         }
     }
-
-    public static void MapResourceName(RivePlayerHandler handler, RivePlayer view)
-        => handler.PlatformView?.SetRiveResource(view.ResourceName);
 
     public static void MapAutoPlay(RivePlayerHandler handler, RivePlayer view)
     {

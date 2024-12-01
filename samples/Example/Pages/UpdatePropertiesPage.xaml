@@ -16,7 +16,7 @@
         <VerticalStackLayout>
 
             <riveMaui:RivePlayer Margin="0,40,0,0"
-                                 ResourceName="{Binding ResourceName}"
+                                 ResourceName="emoji"
                                  ArtboardName="{Binding ArtboardName}"
                                  Fit="Cover"
                                  HeightRequest="400" />
@@ -24,11 +24,6 @@
             <FlexLayout Wrap="Wrap"
                         Padding="10"
                         HorizontalOptions="Center">
-
-                <Button Text="ResourceName"
-                        Margin="5,5,0,5"
-                        Command="{Binding UpdatePropertyCommand, Mode=OneTime}"
-                        CommandParameter="resource" />
 
                 <Button Text="ArtboardName"
                         Margin="5,5,0,5"

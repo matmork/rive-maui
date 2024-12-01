@@ -18,7 +18,7 @@ public sealed class CustomRiveView : RiveRendererView
     private double? _lastTime;
     private string? _resourceName;
 
-    public WeakReference<RivePlayer?> Control { get; set; } = new(null);
+    public WeakReference<RivePlayer?> VirtualView { get; set; } = new(null);
     public string? ArtboardName { get; set; }
     public string? StateMachineName { get; set; }
     public string? AnimationName { get; set; }
@@ -48,7 +48,7 @@ public sealed class CustomRiveView : RiveRendererView
         if (resourceData == null)
             return;
 
-        if (Control.TryGetTarget(out var rivePlayer) && rivePlayer.DynamicAssets?.Count > 0)
+        if (VirtualView.TryGetTarget(out var rivePlayer) && rivePlayer.DynamicAssets?.Count > 0)
         {
             var loader = new LoadAsset((asset, _, factory) =>
             {
@@ -155,7 +155,7 @@ public sealed class CustomRiveView : RiveRendererView
 
         if (_riveStateMachine != null)
         {
-            if (Control.TryGetTarget(out var control))
+            if (VirtualView.TryGetTarget(out var control))
             {
                 // Event
                 for (var i = 0; i < _riveStateMachine.ReportedEventCount; i++)
@@ -206,16 +206,6 @@ public sealed class CustomRiveView : RiveRendererView
         }
         else
         {
-            if (Control.TryGetTarget(out var control) && control.PlayToPercentage > 0 && _riveAnimation != null)
-            {
-                var percentElapsed = Math.Floor(_riveAnimation.Time / _riveAnimation.EffectiveDurationInSeconds() * 100);
-                if (percentElapsed >= control.PlayToPercentage)
-                {
-                    Pause();
-                    return;
-                }
-            }
-
             _riveAnimation?.AdvanceBy(elapsedTime);
         }
 
@@ -341,10 +331,10 @@ public sealed class CustomRiveView : RiveRendererView
     {
         ResetProperties();
 
-        if (Control.TryGetTarget(out var control))
+        if (VirtualView.TryGetTarget(out var control))
             control.StateMachineInputs.Dispose();
 
-        Control.SetTarget(null);
+        VirtualView.SetTarget(null);
 
         base.Dispose();
     }

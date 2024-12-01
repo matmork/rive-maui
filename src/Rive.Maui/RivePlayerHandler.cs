@@ -8,7 +8,6 @@ public partial class RivePlayerHandler
             [nameof(RivePlayer.ArtboardName)] = MapArtboardName,
             [nameof(RivePlayer.AnimationName)] = MapAnimationName,
             [nameof(RivePlayer.StateMachineName)] = MapStateMachineName,
-            [nameof(RivePlayer.ResourceName)] = MapResourceName,
             [nameof(RivePlayer.AutoPlay)] = MapAutoPlay,
             [nameof(RivePlayer.Fit)] = MapFit,
             [nameof(RivePlayer.Alignment)] = MapAlignment,
