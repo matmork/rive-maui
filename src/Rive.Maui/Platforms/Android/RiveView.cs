@@ -2,7 +2,6 @@ using Android.Content;
 using Android.Views;
 using Rive.Android;
 using Rive.Android.Core;
-using View = Android.Views.View;
 
 namespace Rive.Maui;
 
@@ -17,13 +16,14 @@ public class RiveView(Context context, RivePlayer virtualView) : ViewGroup(conte
     //private readonly View _tempView = new(context);
     private StateListener? _stateListener;
     private EventListener? _eventListener;
+    private readonly Context _context = context;
 
     public void CreateAnimationView()
     {
         if (string.IsNullOrWhiteSpace(VirtualView.ResourceName))
             throw new Exception("Invalid ResourceName");
 
-        var resourceIdentifier = context.Resources?.GetIdentifier(VirtualView.ResourceName, "drawable", context.PackageName) ?? 0;
+        var resourceIdentifier = _context.Resources?.GetIdentifier(VirtualView.ResourceName, "drawable", _context.PackageName) ?? 0;
         if (resourceIdentifier == 0)
             throw new Exception("Resource not found");
 
@@ -33,11 +33,11 @@ public class RiveView(Context context, RivePlayer virtualView) : ViewGroup(conte
         var riveFit = VirtualView.Fit.AsRive();
         var riveLoop = VirtualView.Loop.AsRive();
 
-        var animationView = new RiveAnimationView(context, null);
+        var animationView = new RiveAnimationView(_context, null);
 
         if (VirtualView.DynamicAssets?.Count > 0)
         {
-            animationView.SetAssetLoader(new AssetLoader(context, VirtualView.DynamicAssets));
+            animationView.SetAssetLoader(new AssetLoader(_context, VirtualView.DynamicAssets));
         }
 
         animationView.LayoutParameters = new LayoutParams(

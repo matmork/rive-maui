@@ -13,6 +13,7 @@
                 RiveAndroidRendererType.Rive => Android.Core.RendererType.Rive!,
                 RiveAndroidRendererType.Skia => Android.Core.RendererType.Skia!,
                 RiveAndroidRendererType.Canvas => Android.Core.RendererType.Canvas!,
+                _ => throw new ArgumentOutOfRangeException(nameof(riveAndroidRendererType), riveAndroidRendererType, null)
             };
 
             Android.Core.Rive.Instance.Init(Platform.AppContext, renderer);
@@ -23,6 +24,7 @@
             {
                 RiveIOSRendererType.Rive => Rive.iOS.RendererType.riveRenderer,
                 RiveIOSRendererType.CoreGraphics => Rive.iOS.RendererType.cgRenderer,
+                _ => throw new ArgumentOutOfRangeException(nameof(riveIosRendererType), riveIosRendererType, null)
             };
 
             Rive.iOS.RenderContextManager.Shared.DefaultRenderer = renderer;
