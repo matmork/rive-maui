@@ -122,7 +122,7 @@ public sealed class CustomRiveView : RiveRendererView
             }
         }
 
-        if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount == 0)
+        if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount() == 0)
         {
             _riveAnimation?.Dispose();
             _riveAnimation = !string.IsNullOrWhiteSpace(AnimationName)

@@ -1446,7 +1446,7 @@ namespace Rive.iOS
 		[Export ("setView:")]
 		void SetView (RiveView view);
 
-		// -(BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
+		/*// -(BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
 		[Export ("riveFileDidLoad:error:")]
 		bool RiveFileDidLoad (RiveFile riveFile, [NullAllowed] out NSError error);
 
@@ -1456,7 +1456,7 @@ namespace Rive.iOS
 
 		// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithPausedWithModel:")]
-		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
+		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);
 
 		// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
 		[Export ("playerWithLoopedWithModel:type:")]
@@ -1468,7 +1468,7 @@ namespace Rive.iOS
 
 		// -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithDidAdvanceby:riveModel:")]
-		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);
+		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);*/
 	}
 
 	// @protocol RiveWeightProvider
@@ -1496,7 +1496,7 @@ namespace Rive.iOS
 	{
 	}
 
-	// @interface RiveRuntime_Swift_803 (UIFont) <RiveWeightProvider>
+	/*// @interface RiveRuntime_Swift_803 (UIFont) <RiveWeightProvider>
 	//[Category]
 	[BaseType (typeof(UIFont))]
 	interface UIFont_RiveRuntime_Swift_803 : RiveWeightProvider
@@ -1504,7 +1504,7 @@ namespace Rive.iOS
 		// @property (readonly, nonatomic) NSInteger riveWeightValue;
 		[Export ("riveWeightValue")]
 		nint RiveWeightValue { get; }
-	}
+	}*/
 
 	/*// @interface RiveRuntime_Swift_808 (UIFont) <RiveFallbackFontProvider>
 	//[Category]
@@ -1516,7 +1516,7 @@ namespace Rive.iOS
 		UIFont FallbackFont { get; }
 	}*/
 
-	// @interface RiveRuntime_Swift_814 (UIFont) <RiveFontWidthProvider>
+	/*// @interface RiveRuntime_Swift_814 (UIFont) <RiveFontWidthProvider>
 	//[Category]
 	[BaseType (typeof(UIFont))]
 	interface UIFont_RiveRuntime_Swift_814 : RiveFontWidthProvider
@@ -1524,5 +1524,5 @@ namespace Rive.iOS
 		// @property (readonly, nonatomic) NSInteger riveFontWidthValue;
 		[Export ("riveFontWidthValue")]
 		nint RiveFontWidthValue { get; }
-	}
+	}*/
 }
