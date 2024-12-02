@@ -23,5 +23,6 @@ public partial class RivePlayerHandler
         [nameof(RivePlayer.Reset)] = MapReset,
         [nameof(RivePlayer.SetInput)] = MapSetInput,
         [nameof(RivePlayer.TriggerInput)] = MapTriggerInput,
+        [nameof(RivePlayer.SetTextRun)] = MapSetTextRun,
     };
 }

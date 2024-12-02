@@ -155,4 +155,12 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
             handler.PlatformView.AnimationView?.FireState(triggerInputArgs.StateMachineName, triggerInputArgs.InputName);
         }
     }
+
+    public static void MapSetTextRun(RivePlayerHandler handler, RivePlayer view, object? args)
+    {
+        if (args is TextRun setTextRun)
+        {
+            handler.PlatformView.AnimationView?.SetTextRunValue(setTextRun.TextRunName, setTextRun.Value);
+        }
+    }
 }

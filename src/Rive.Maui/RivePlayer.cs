@@ -108,6 +108,12 @@ public class RivePlayer : View
         typeof(RivePlayer)
     );
 
+    public static readonly BindableProperty TextRunsProperty = BindableProperty.Create(
+        nameof(TextRuns),
+        typeof(List<TextRun>),
+        typeof(RivePlayer)
+    );
+
     public string? ArtboardName
     {
         get => (string?)GetValue(ArtboardNameProperty);
@@ -186,6 +192,12 @@ public class RivePlayer : View
         set => SetValue(DynamicAssetsProperty, value);
     }
 
+    public List<TextRun>? TextRuns
+    {
+        get => (List<TextRun>?)GetValue(TextRunsProperty);
+        set => SetValue(TextRunsProperty, value);
+    }
+
     public ICommand PlayCommand
         => new Command(Play);
 
@@ -218,6 +230,9 @@ public class RivePlayer : View
 
     public void TriggerInput(StateMachineTriggerInputArgs args)
         => Handler?.Invoke(nameof(TriggerInput), args);
+
+    public void SetTextRun(TextRun args)
+        => Handler?.Invoke(nameof(SetTextRun), args);
 
     protected override void OnHandlerChanged()
     {

@@ -65,6 +65,14 @@ public sealed class CustomRiveView : LinearLayout
         _eventListener.RiveViewReference.SetTarget(this);
         animationView.AddEventListener(_eventListener);
 
+        if (virtualView.TextRuns != null)
+        {
+            foreach (var textRun in virtualView.TextRuns)
+            {
+                animationView.SetTextRunValue(textRun.TextRunName, textRun.Value);
+            }
+        }
+
         AnimationView = animationView;
     }
 

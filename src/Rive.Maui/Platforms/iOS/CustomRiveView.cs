@@ -114,6 +114,14 @@ public sealed class CustomRiveView : RiveRendererView
             ? _riveFile?.ArtboardFromName(ArtboardName, out _)
             : _riveFile?.Artboard(out _);
 
+        if (VirtualView.TryGetTarget(out var rivePlayer) && rivePlayer.TextRuns?.Count > 0)
+        {
+            foreach (var textRun in rivePlayer.TextRuns)
+            {
+                SetTextRun(textRun.TextRunName, textRun.Value);
+            }
+        }
+
         if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount == 0)
         {
             _riveAnimation?.Dispose();
@@ -307,6 +315,15 @@ public sealed class CustomRiveView : RiveRendererView
     public void TriggerInput(string stateMachineName, string inputName)
     {
         _riveStateMachine?.GetTrigger(inputName)?.Fire();
+    }
+
+    public void SetTextRun(string textRunName, string value)
+    {
+        var textRun = _riveArtboard?.TextRun(textRunName);
+        if (textRun != null)
+        {
+            textRun.Text = value;
+        }
     }
 
     public void ResetProperties(bool disposeFile = true)
