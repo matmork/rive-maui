@@ -21,7 +21,7 @@ public class EventListener : Object, RiveFileController.IRiveEventListener
 
         var properties = evt.Properties
             .ToDictionary<KeyValuePair<string, Object>, string, object>(k => k.Key, k => k.Value);
-        var args = new EventReceivedArgs(evt.Name, type, properties);
+        var args = new StateMachineEventReceivedArgs(evt.Name, type, properties);
 
         virtualView.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
         virtualView.EventReceivedCommand?.Execute(args);

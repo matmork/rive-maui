@@ -57,7 +57,13 @@ public sealed class CustomRiveView : RiveRendererView
                 if (dynamicAsset == null)
                     return false;
 
-                var newData = GetNSDataForResource(dynamicAsset.Filename, dynamicAsset.Extension);
+                NSData? newData = null;
+                if (!string.IsNullOrWhiteSpace(dynamicAsset.Filename) && !string.IsNullOrWhiteSpace(dynamicAsset.FileExtension))
+                    newData = GetNSDataForResource(dynamicAsset.Filename, dynamicAsset.FileExtension);
+
+                if (dynamicAsset.FileBytes != null)
+                    newData = NSData.FromArray(dynamicAsset.FileBytes);
+
                 if (newData == null)
                     return false;
 
@@ -165,7 +171,7 @@ public sealed class CustomRiveView : RiveRendererView
                     {
                         var properties = evt.Properties
                             ?.ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
-                        var args = new EventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
+                        var args = new StateMachineEventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
                         control.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
                         control.EventReceivedCommand?.Execute(args);
                     }
