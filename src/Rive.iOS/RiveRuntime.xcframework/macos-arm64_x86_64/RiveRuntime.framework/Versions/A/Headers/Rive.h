@@ -26,6 +26,7 @@
 #import <RiveRuntime/RiveFileAsset.h>
 #import <RiveRuntime/RiveFileAssetLoader.h>
 #import <RiveRuntime/CDNFileAssetLoader.h>
+#import <RiveRuntime/RiveFont.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,7 +47,16 @@ typedef NS_ENUM(NSInteger, RiveDirection) {
 /*
  * Fits
  */
-typedef NS_ENUM(NSInteger, RiveFit) { fill, contain, cover, fitHeight, fitWidth, scaleDown, noFit };
+typedef NS_ENUM(NSInteger, RiveFit) {
+    fill,
+    contain,
+    cover,
+    fitHeight,
+    fitWidth,
+    scaleDown,
+    noFit,
+    layout
+};
 
 /*
  * Alignments
@@ -93,7 +103,9 @@ typedef NS_ENUM(NSInteger, RiveErrorCode) {
 
 @end
 
-typedef bool (^LoadAsset)(RiveFileAsset* asset, NSData* data, RiveFactory* factory);
+typedef bool (^LoadAsset)(RiveFileAsset* asset,
+                          NSData* data,
+                          RiveFactory* factory);
 
 NS_ASSUME_NONNULL_END
 

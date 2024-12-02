@@ -141,7 +141,7 @@ namespace Rive.iOS
 	interface RiveArtboard
 	{
 		// @property (assign, nonatomic) float volume __attribute__((swift_private));
-		[Export ("volume", ArgumentSemantic.Assign)]
+		[Export ("volume")]
 		float Volume { get; set; }
 
 		// -(NSString * _Nonnull)name;
@@ -153,6 +153,22 @@ namespace Rive.iOS
 		[Export ("bounds")]
 		//[Verify (MethodToProperty)]
 		CGRect Bounds { get; }
+
+		// -(double)width;
+		// -(void)setWidth:(double)value;
+		[Export ("width")]
+		//[Verify (MethodToProperty)]
+		double Width { get; set; }
+
+		// -(double)height;
+		// -(void)setHeight:(double)value;
+		[Export ("height")]
+		//[Verify (MethodToProperty)]
+		double Height { get; set; }
+
+		// -(void)resetArtboardSize;
+		[Export ("resetArtboardSize")]
+		void ResetArtboardSize ();
 
 		// -(const RiveSMIBool * _Nonnull)getBool:(NSString * _Nonnull)name path:(NSString * _Nonnull)path;
 		[Export ("getBool:path:")]
@@ -168,13 +184,11 @@ namespace Rive.iOS
 
 		// -(NSInteger)animationCount;
 		[Export ("animationCount")]
-		//[Verify (MethodToProperty)]
-		nint AnimationCount { get; }
+		nint AnimationCount ();
 
 		// -(NSArray<NSString *> * _Nonnull)animationNames;
 		[Export ("animationNames")]
-		//[Verify (MethodToProperty)]
-		string[] AnimationNames { get; }
+		string[] AnimationNames ();
 
 		// -(RiveLinearAnimationInstance * _Nullable)animationFromIndex:(NSInteger)index error:(NSError * _Nullable * _Nullable)error;
 		[Export ("animationFromIndex:error:")]
@@ -188,13 +202,11 @@ namespace Rive.iOS
 
 		// -(NSInteger)stateMachineCount;
 		[Export ("stateMachineCount")]
-		//[Verify (MethodToProperty)]
-		nint StateMachineCount { get; }
+		nint StateMachineCount ();
 
 		// -(NSArray<NSString *> * _Nonnull)stateMachineNames;
 		[Export ("stateMachineNames")]
-		//[Verify (MethodToProperty)]
-		string[] StateMachineNames { get; }
+		string[] StateMachineNames ();
 
 		// -(RiveStateMachineInstance * _Nullable)stateMachineFromIndex:(NSInteger)index error:(NSError * _Nullable * _Nullable)error;
 		[Export ("stateMachineFromIndex:error:")]
@@ -207,14 +219,19 @@ namespace Rive.iOS
 		RiveStateMachineInstance StateMachineFromName (string name, [NullAllowed] out NSError error);
 
 		// -(RiveStateMachineInstance * _Nullable)defaultStateMachine;
-		[NullAllowed, Export ("defaultStateMachine")]
-		//[Verify (MethodToProperty)]
-		RiveStateMachineInstance DefaultStateMachine { get; }
+		[Export ("defaultStateMachine")]
+		[return: NullAllowed]
+		RiveStateMachineInstance DefaultStateMachine ();
 
 		// -(RiveTextValueRun * _Nullable)textRun:(NSString * _Nonnull)name;
 		[Export ("textRun:")]
 		[return: NullAllowed]
 		RiveTextValueRun TextRun (string name);
+
+		// -(RiveTextValueRun * _Nullable)textRun:(NSString * _Nonnull)name path:(NSString * _Nonnull)path;
+		[Export ("textRun:path:")]
+		[return: NullAllowed]
+		RiveTextValueRun TextRun (string name, string path);
 
 		// -(void)advanceBy:(double)elapsedSeconds;
 		[Export ("advanceBy:")]
@@ -549,50 +566,50 @@ namespace Rive.iOS
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveExitState
 	{
-		/*// -(NSString * _Nonnull)name;
+		// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }*/
+		string Name { get; }
 	}
 
 	// @interface RiveEntryState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveEntryState
 	{
-		/*// -(NSString * _Nonnull)name;
+		// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }*/
+		string Name { get; }
 	}
 
 	// @interface RiveAnyState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveAnyState
 	{
-		/*// -(NSString * _Nonnull)name;
+		// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }*/
+		string Name { get; }
 	}
 
 	// @interface RiveAnimationState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveAnimationState
 	{
-		/*// -(NSString * _Nonnull)name;
+		// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }*/
+		string Name { get; }
 	}
 
 	// @interface RiveUnknownState : RiveLayerState
 	[BaseType (typeof(RiveLayerState))]
 	interface RiveUnknownState
 	{
-		/*// -(NSString * _Nonnull)name;
+		// -(NSString * _Nonnull)name;
 		[Export ("name")]
 		//[Verify (MethodToProperty)]
-		string Name { get; }*/
+		string Name { get; }
 	}
 
 	// @interface RenderContextManager : NSObject
@@ -629,11 +646,6 @@ namespace Rive.iOS
 		//[Verify (MethodToProperty)]
 		RiveFactory DefaultFactory { get; }
 
-		// -(RiveFactory *)getSkiaFactory;
-		[Export ("getSkiaFactory")]
-		//[Verify (MethodToProperty)]
-		RiveFactory SkiaFactory { get; }
-
 		// -(RiveFactory *)getCGFactory;
 		[Export ("getCGFactory")]
 		//[Verify (MethodToProperty)]
@@ -643,12 +655,6 @@ namespace Rive.iOS
 		[Export ("getRiveRendererFactory")]
 		//[Verify (MethodToProperty)]
 		RiveFactory RiveRendererFactory { get; }
-	}
-
-	// @interface RiveFont : NSObject
-	[BaseType (typeof(NSObject))]
-	interface RiveFont
-	{
 	}
 
 	// @interface RiveRenderImage : NSObject
@@ -670,6 +676,10 @@ namespace Rive.iOS
 		// -(RiveFont * _Nonnull)decodeFont:(NSData * _Nonnull)data;
 		[Export ("decodeFont:")]
 		RiveFont DecodeFont (NSData data);
+
+		// -(RiveFont * _Nonnull)decodeUIFont:(UIFont * _Nonnull)data __attribute__((swift_name("decodeFont(_:)")));
+		[Export ("decodeUIFont:")]
+		RiveFont DecodeUIFont (UIFont data);
 
 		// -(RiveRenderImage * _Nonnull)decodeImage:(NSData * _Nonnull)data;
 		[Export ("decodeImage:")]
@@ -719,6 +729,10 @@ namespace Rive.iOS
 	[BaseType (typeof(RiveFileAsset))]
 	interface RiveImageAsset
 	{
+		// @property (readonly, nonatomic) CGSize size;
+		[Export ("size")]
+		CGSize Size { get; }
+
 		// -(void)renderImage:(RiveRenderImage * _Nonnull)image;
 		[Export ("renderImage:")]
 		void RenderImage (RiveRenderImage image);
@@ -782,6 +796,45 @@ namespace Rive.iOS
 		NativeHandle Constructor (LoadAsset loader);
 	}
 
+	// @interface RiveFontStyle : NSObject <NSCopying>
+	[BaseType (typeof(NSObject))]
+	interface RiveFontStyle : INSCopying
+	{
+		// @property (readonly, nonatomic) RiveFontStyleWeight weight;
+		[Export ("weight")]
+		RiveFontStyleWeight Weight { get; }
+
+		// @property (readonly, nonatomic) CGFloat rawWeight;
+		[Export ("rawWeight")]
+		nfloat RawWeight { get; }
+
+		// -(instancetype _Nonnull)initWithWeight:(RiveFontStyleWeight)weight;
+		[Export ("initWithWeight:")]
+		NativeHandle Constructor (RiveFontStyleWeight weight);
+
+		// -(instancetype _Nonnull)initWithRawWeight:(CGFloat)rawWeight;
+		[Export ("initWithRawWeight:")]
+		NativeHandle Constructor (nfloat rawWeight);
+	}
+
+	// typedef NSArray<id<RiveFallbackFontProvider>> * _Nonnull (^RiveFallbackFontsCallback)(RiveFontStyle * _Nonnull);
+	//delegate RiveFallbackFontProvider[] RiveFallbackFontsCallback (RiveFontStyle arg0);
+
+	// @interface RiveFont : NSObject
+	[BaseType (typeof(NSObject))]
+	interface RiveFont
+	{
+		// @property (copy, class) NSArray<id<RiveFallbackFontProvider>> * _Nonnull fallbackFonts;
+		[Static]
+		[Export ("fallbackFonts", ArgumentSemantic.Copy)]
+		RiveFallbackFontProvider[] FallbackFonts { get; set; }
+
+		/*// @property (copy, nonatomic, class) RiveFallbackFontsCallback _Nonnull fallbackFontsCallback;
+		[Static]
+		[Export ("fallbackFontsCallback", ArgumentSemantic.Copy)]
+		RiveFallbackFontsCallback FallbackFontsCallback { get; set; }*/
+	}
+
 	/*[Static]
 	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
@@ -815,9 +868,13 @@ namespace Rive.iOS
 		[Export ("initWithFrame:")]
 		NativeHandle Constructor (CGRect frameRect);
 
-		// -(void)alignWithRect:(CGRect)rect contentRect:(CGRect)contentRect alignment:(RiveAlignment)alignment fit:(RiveFit)fit;
+		// -(void)alignWithRect:(CGRect)rect contentRect:(CGRect)contentRect alignment:(RiveAlignment)alignment fit:(RiveFit)fit __attribute__((deprecated("Use alignWithRect:contentRect:alignment:fit:scaleFactor: instead.")));
 		[Export ("alignWithRect:contentRect:alignment:fit:")]
 		void AlignWithRect (CGRect rect, CGRect contentRect, RiveAlignment alignment, RiveFit fit);
+
+		// -(void)alignWithRect:(CGRect)rect contentRect:(CGRect)contentRect alignment:(RiveAlignment)alignment fit:(RiveFit)fit scaleFactor:(CGFloat)scaleFactor;
+		[Export ("alignWithRect:contentRect:alignment:fit:scaleFactor:")]
+		void AlignWithRect (CGRect rect, CGRect contentRect, RiveAlignment alignment, RiveFit fit, nfloat scaleFactor);
 
 		// -(void)save;
 		[Export ("save")]
@@ -827,9 +884,9 @@ namespace Rive.iOS
 		[Export ("restore")]
 		void Restore ();
 
-		/*// -(void)transform:(float)xx xy:(float)xy yx:(float)yx yy:(float)yy tx:(float)tx ty:(float)ty;
+		// -(void)transform:(float)xx xy:(float)xy yx:(float)yx yy:(float)yy tx:(float)tx ty:(float)ty;
 		[Export ("transform:xy:yx:yy:tx:ty:")]
-		void Transform (float xx, float xy, float yx, float yy, float tx, float ty);*/
+		void Transform (float xx, float xy, float yx, float yy, float tx, float ty);
 
 		// -(void)drawWithArtboard:(RiveArtboard * _Nonnull)artboard;
 		[Export ("drawWithArtboard:")]
@@ -868,6 +925,266 @@ namespace Rive.iOS
 		NativeHandle Constructor (NSCoder coder);
 	}*/
 
+	// @interface RiveFallbackFontDescriptor : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime26RiveFallbackFontDescriptor")]
+	[DisableDefaultCtor]
+	interface RiveFallbackFontDescriptor
+	{
+		// -(instancetype _Nonnull)initWithDesign:(enum RiveFallbackFontDescriptorDesign)design weight:(enum RiveFallbackFontDescriptorWeight)weight width:(enum RiveFallbackFontDescriptorWidth)width __attribute__((objc_designated_initializer));
+		[Export ("initWithDesign:weight:width:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (RiveFallbackFontDescriptorDesign design, RiveFallbackFontDescriptorWeight weight, RiveFallbackFontDescriptorWidth width);
+	}
+
+	// @protocol RiveFallbackFontProvider
+	/*
+  Check whether adding [Model] to this declaration is appropriate.
+  [Model] is used to generate a C# class that implements this protocol,
+  and might be useful for protocols that consumers are supposed to implement,
+  since consumers can subclass the generated class instead of implementing
+  the generated interface. If consumers are not supposed to implement this
+  protocol, then [Model] is redundant and will generate code that will never
+  be used.
+*/
+	[Protocol (Name = "_TtP11RiveRuntime24RiveFallbackFontProvider_")]
+	[BaseType (typeof(NSObject))]
+	interface RiveFallbackFontProvider
+	{
+		// @required @property (readonly, nonatomic, strong) UIFont * _Nonnull fallbackFont;
+		[Abstract]
+		[Export ("fallbackFont", ArgumentSemantic.Strong)]
+		UIFont FallbackFont { get; }
+	}
+
+	/*// @interface RiveRuntime_Swift_344 (RiveFallbackFontDescriptor) <RiveFallbackFontProvider>
+	//[Category]
+	[BaseType (typeof(RiveFallbackFontDescriptor))]
+	interface RiveFallbackFontDescriptor_RiveRuntime_Swift_344 : RiveFallbackFontProvider
+	{
+		// @property (readonly, nonatomic, strong) UIFont * _Nonnull fallbackFont;
+		[Export ("fallbackFont", ArgumentSemantic.Strong)]
+		UIFont FallbackFont { get; }
+	}*/
+
+	// @protocol RiveFontWidthProvider
+	/*
+  Check whether adding [Model] to this declaration is appropriate.
+  [Model] is used to generate a C# class that implements this protocol,
+  and might be useful for protocols that consumers are supposed to implement,
+  since consumers can subclass the generated class instead of implementing
+  the generated interface. If consumers are not supposed to implement this
+  protocol, then [Model] is redundant and will generate code that will never
+  be used.
+*/[Protocol (Name = "_TtP11RiveRuntime21RiveFontWidthProvider_")]
+	interface RiveFontWidthProvider
+	{
+		// @required @property (readonly, nonatomic) NSInteger riveFontWidthValue;
+		[Abstract]
+		[Export ("riveFontWidthValue")]
+		nint RiveFontWidthValue { get; }
+	}
+
+	// @interface RiveLogCategory : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime15RiveLogCategory")]
+	[DisableDefaultCtor]
+	interface RiveLogCategory
+	{
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull stateMachine;
+		[Static]
+		[Export ("stateMachine", ArgumentSemantic.Strong)]
+		RiveLogCategory StateMachine { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull artboard;
+		[Static]
+		[Export ("artboard", ArgumentSemantic.Strong)]
+		RiveLogCategory Artboard { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull viewModel;
+		[Static]
+		[Export ("viewModel", ArgumentSemantic.Strong)]
+		RiveLogCategory ViewModel { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull model;
+		[Static]
+		[Export ("model", ArgumentSemantic.Strong)]
+		RiveLogCategory Model { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull file;
+		[Static]
+		[Export ("file", ArgumentSemantic.Strong)]
+		RiveLogCategory File { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull view;
+		[Static]
+		[Export ("view", ArgumentSemantic.Strong)]
+		RiveLogCategory View { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull none;
+		[Static]
+		[Export ("none", ArgumentSemantic.Strong)]
+		RiveLogCategory None { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogCategory * _Nonnull all;
+		[Static]
+		[Export ("all", ArgumentSemantic.Strong)]
+		RiveLogCategory All { get; }
+
+		// -(BOOL)isEqual:(id _Nullable)object __attribute__((warn_unused_result("")));
+		[Export ("isEqual:")]
+		bool IsEqual ([NullAllowed] NSObject @object);
+
+		// @property (readonly, nonatomic) NSUInteger hash;
+		[Export ("hash")]
+		nuint Hash { get; }
+	}
+
+	// @interface RiveLogLevel : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime12RiveLogLevel")]
+	[DisableDefaultCtor]
+	interface RiveLogLevel
+	{
+		// @property (readonly, nonatomic, strong, class) RiveLogLevel * _Nonnull debug;
+		[Static]
+		[Export ("debug", ArgumentSemantic.Strong)]
+		RiveLogLevel Debug { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogLevel * _Nonnull info;
+		[Static]
+		[Export ("info", ArgumentSemantic.Strong)]
+		RiveLogLevel Info { get; }
+
+		// @property (readonly, getter = default, nonatomic, strong, class) RiveLogLevel * _Nonnull default_;
+		[Static]
+		[Export ("default_", ArgumentSemantic.Strong)]
+		RiveLogLevel Default_ { [Bind ("default")] get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogLevel * _Nonnull error;
+		[Static]
+		[Export ("error", ArgumentSemantic.Strong)]
+		RiveLogLevel Error { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogLevel * _Nonnull fault;
+		[Static]
+		[Export ("fault", ArgumentSemantic.Strong)]
+		RiveLogLevel Fault { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogLevel * _Nonnull none;
+		[Static]
+		[Export ("none", ArgumentSemantic.Strong)]
+		RiveLogLevel None { get; }
+
+		// @property (readonly, nonatomic, strong, class) RiveLogLevel * _Nonnull all;
+		[Static]
+		[Export ("all", ArgumentSemantic.Strong)]
+		RiveLogLevel All { get; }
+
+		// -(BOOL)isEqual:(id _Nullable)object __attribute__((warn_unused_result("")));
+		[Export ("isEqual:")]
+		bool IsEqual ([NullAllowed] NSObject @object);
+
+		// @property (readonly, nonatomic) NSUInteger hash;
+		[Export ("hash")]
+		nuint Hash { get; }
+	}
+
+	// @interface RiveLogger : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime10RiveLogger")]
+	interface RiveLogger
+	{
+		// @property (nonatomic, class) BOOL isEnabled;
+		[Static]
+		[Export ("isEnabled")]
+		bool IsEnabled { get; set; }
+
+		// @property (nonatomic, class) BOOL isVerbose;
+		[Static]
+		[Export ("isVerbose")]
+		bool IsVerbose { get; set; }
+
+		// @property (nonatomic, strong, class) RiveLogLevel * _Nonnull levels;
+		[Static]
+		[Export ("levels", ArgumentSemantic.Strong)]
+		RiveLogLevel Levels { get; set; }
+
+		// @property (nonatomic, strong, class) RiveLogCategory * _Nonnull categories;
+		[Static]
+		[Export ("categories", ArgumentSemantic.Strong)]
+		RiveLogCategory Categories { get; set; }
+	}
+
+	// @interface RiveRuntime_Swift_503 (RiveLogger)
+	[Category]
+	[BaseType (typeof(RiveLogger))]
+	interface RiveLogger_RiveRuntime_Swift_503
+	{
+		// +(void)logArtboard:(RiveArtboard * _Nonnull)artboard advance:(double)advance;
+		[Static]
+		[Export ("logArtboard:advance:")]
+		void LogArtboard (RiveArtboard artboard, double advance);
+
+		// +(void)logArtboard:(RiveArtboard * _Nonnull)artboard error:(NSString * _Nonnull)error;
+		[Static]
+		[Export ("logArtboard:error:")]
+		void LogArtboard (RiveArtboard artboard, string error);
+	}
+
+	// @interface RiveRuntime_Swift_510 (RiveLogger)
+	[Category]
+	[BaseType (typeof(RiveLogger))]
+	interface RiveLogger_RiveRuntime_Swift_510
+	{
+		// +(void)logStateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine advance:(double)advance;
+		[Static]
+		[Export ("logStateMachine:advance:")]
+		void LogStateMachine (RiveStateMachineInstance stateMachine, double advance);
+
+		// +(void)logStateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine error:(NSString * _Nonnull)error;
+		[Static]
+		[Export ("logStateMachine:error:")]
+		void LogStateMachine (RiveStateMachineInstance stateMachine, string error);
+	}
+
+	// @interface RiveRuntime_Swift_521 (RiveLogger)
+	[Category]
+	[BaseType (typeof(RiveLogger))]
+	interface RiveLogger_RiveRuntime_Swift_521
+	{
+		// +(void)logFile:(RiveFile * _Nullable)file error:(NSString * _Nonnull)message;
+		[Static]
+		[Export ("logFile:error:")]
+		void LogFile ([NullAllowed] RiveFile file, string message);
+
+		// +(void)logLoadingAsset:(RiveFileAsset * _Nonnull)asset;
+		[Static]
+		[Export ("logLoadingAsset:")]
+		void LogLoadingAsset (RiveFileAsset asset);
+
+		// +(void)logFontAssetLoad:(RiveFontAsset * _Nonnull)fontAsset fromURL:(NSURL * _Nonnull)url;
+		[Static]
+		[Export ("logFontAssetLoad:fromURL:")]
+		void LogFontAssetLoad (RiveFontAsset fontAsset, NSUrl url);
+
+		// +(void)logImageAssetLoad:(RiveImageAsset * _Nonnull)imageAsset fromURL:(NSURL * _Nonnull)url;
+		[Static]
+		[Export ("logImageAssetLoad:fromURL:")]
+		void LogImageAssetLoad (RiveImageAsset imageAsset, NSUrl url);
+
+		// +(void)logAssetLoaded:(RiveFileAsset * _Nonnull)asset;
+		[Static]
+		[Export ("logAssetLoaded:")]
+		void LogAssetLoaded (RiveFileAsset asset);
+
+		// +(void)logLoadedFromURL:(NSURL * _Nonnull)url;
+		[Static]
+		[Export ("logLoadedFromURL:")]
+		void LogLoadedFromURL (NSUrl url);
+
+		// +(void)logLoadingFromResource:(NSString * _Nonnull)name;
+		[Static]
+		[Export ("logLoadingFromResource:")]
+		void LogLoadingFromResource (string name);
+	}
+
 	// @interface RiveModel : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC11RiveRuntime9RiveModel")]
 	[DisableDefaultCtor]
@@ -877,9 +1194,9 @@ namespace Rive.iOS
 		[Export ("volume")]
 		float Volume { get; set; }
 
-		/*// @property (readonly, copy, nonatomic) NSString * _Nonnull description;
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull description;
 		[Export ("description")]
-		string Description { get; }*/
+		string Description { get; }
 	}
 
 	// @protocol RivePlayerDelegate
@@ -915,7 +1232,6 @@ namespace Rive.iOS
 
 	// @protocol RiveStateMachineDelegate
 	[Protocol (Name = "_TtP11RiveRuntime24RiveStateMachineDelegate_"), Model]
-	[BaseType (typeof(NSObject))]
 	interface RiveStateMachineDelegate
 	{
 		// @optional -(void)touchBeganOnArtboard:(RiveArtboard * _Nullable)artboard atLocation:(CGPoint)location;
@@ -955,38 +1271,42 @@ namespace Rive.iOS
 	[BaseType (typeof(RiveRendererView), Name = "_TtC11RiveRuntime8RiveView")]
 	interface RiveView
 	{
-		/*[Wrap ("WeakPlayerDelegate")]
+		[Wrap ("WeakPlayerDelegate")]
 		[NullAllowed]
-		RivePlayerDelegate PlayerDelegate { get; set; }*/
+		RivePlayerDelegate PlayerDelegate { get; set; }
 
 		// @property (nonatomic, weak) id<RivePlayerDelegate> _Nullable playerDelegate;
 		[NullAllowed, Export ("playerDelegate", ArgumentSemantic.Weak)]
 		NSObject WeakPlayerDelegate { get; set; }
 
-		/*// @property (nonatomic) CGRect bounds;
+		// @property (nonatomic) CGRect bounds;
 		[Export ("bounds", ArgumentSemantic.Assign)]
-		CGRect Bounds { get; set; }*/
+		CGRect Bounds { get; set; }
 
-		/*// @property (nonatomic) CGRect frame;
+		// @property (nonatomic) CGRect frame;
 		[Export ("frame", ArgumentSemantic.Assign)]
-		CGRect Frame { get; set; }*/
+		CGRect Frame { get; set; }
 
 		/*// -(instancetype _Nonnull)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
 		[Export ("initWithCoder:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor (NSCoder aDecoder);*/
 
+		// -(void)didMoveToWindow;
+		[Export ("didMoveToWindow")]
+		void DidMoveToWindow ();
+
 		// -(void)advanceWithDelta:(double)delta;
 		[Export ("advanceWithDelta:")]
 		void AdvanceWithDelta (double delta);
 
-		/*// -(void)drawRive:(CGRect)rect size:(CGSize)size;
+		// -(void)drawRive:(CGRect)rect size:(CGSize)size;
 		[Export ("drawRive:size:")]
-		void DrawRive (CGRect rect, CGSize size);*/
+		void DrawRive (CGRect rect, CGSize size);
 
-		/*// -(void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+		// -(void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 		[Export ("traitCollectionDidChange:")]
-		void TraitCollectionDidChange ([NullAllowed] UITraitCollection previousTraitCollection);*/
+		void TraitCollectionDidChange ([NullAllowed] UITraitCollection previousTraitCollection);
 
 		// -(void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 		[Export ("touchesBegan:withEvent:")]
@@ -1010,6 +1330,11 @@ namespace Rive.iOS
 	[DisableDefaultCtor]
 	interface RiveViewModel : RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate
 	{
+		// @property (readonly, nonatomic, class) double layoutScaleFactorAutomatic;
+		[Static]
+		[Export ("layoutScaleFactorAutomatic")]
+		double LayoutScaleFactorAutomatic { get; }
+
 		// -(instancetype _Nonnull)init:(RiveModel * _Nonnull)model stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
 		[Export ("init:stateMachineName:fit:alignment:autoPlay:artboardName:")]
 		[DesignatedInitializer]
@@ -1018,7 +1343,7 @@ namespace Rive.iOS
 		// -(instancetype _Nonnull)init:(RiveModel * _Nonnull)model animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
 		[Export ("init:animationName:fit:alignment:autoPlay:artboardName:")]
 		[DesignatedInitializer]
-		NativeHandle initWithAnimationName (RiveModel model, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName);
+		NativeHandle Constructor2 (RiveModel model, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, [NullAllowed] string artboardName);
 
 		// -(instancetype _Nonnull)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName loadCdn:(BOOL)loadCdn customLoader:(LoadAsset _Nullable)customLoader __attribute__((objc_designated_initializer));
 		[Export ("initWithFileName:extension:in:stateMachineName:fit:alignment:autoPlay:artboardName:loadCdn:customLoader:")]
@@ -1033,7 +1358,7 @@ namespace Rive.iOS
 		// -(instancetype _Nonnull)initWithWebURL:(NSString * _Nonnull)webURL animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay loadCdn:(BOOL)loadCdn artboardName:(NSString * _Nullable)artboardName __attribute__((objc_designated_initializer));
 		[Export ("initWithWebURL:animationName:fit:alignment:autoPlay:loadCdn:artboardName:")]
 		[DesignatedInitializer]
-		NativeHandle initWithWebURL (string webURL, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, bool loadCdn, [NullAllowed] string artboardName);
+		NativeHandle Constructor2 (string webURL, [NullAllowed] string animationName, RiveFit fit, RiveAlignment alignment, bool autoPlay, bool loadCdn, [NullAllowed] string artboardName);
 
 		// -(void)playWithAnimationName:(NSString * _Nullable)animationName loop:(RiveLoop)loop direction:(RiveDirection)direction;
 		[Export ("playWithAnimationName:loop:direction:")]
@@ -1067,6 +1392,11 @@ namespace Rive.iOS
 		[Export ("setBooleanInput::")]
 		void SetBooleanInput (string inputName, bool value);
 
+		// -(RiveSMIBool * _Nullable)boolInputWithNamed:(NSString * _Nonnull)name __attribute__((warn_unused_result("")));
+		[Export ("boolInputWithNamed:")]
+		[return: NullAllowed]
+		RiveSMIBool BoolInputWithNamed (string name);
+
 		// -(void)setFloatInput:(NSString * _Nonnull)inputName :(float)value;
 		[Export ("setFloatInput::")]
 		void SetFloatInput (string inputName, float value);
@@ -1075,14 +1405,28 @@ namespace Rive.iOS
 		[Export ("setDoubleInput::")]
 		void SetDoubleInput (string inputName, double value);
 
+		// -(RiveSMINumber * _Nullable)numberInputWithNamed:(NSString * _Nonnull)name __attribute__((warn_unused_result("")));
+		[Export ("numberInputWithNamed:")]
+		[return: NullAllowed]
+		RiveSMINumber NumberInputWithNamed (string name);
+
 		// -(NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName __attribute__((warn_unused_result("")));
 		[Export ("getTextRunValue:")]
 		[return: NullAllowed]
 		string GetTextRunValue (string textRunName);
 
+		// -(NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path __attribute__((warn_unused_result("")));
+		[Export ("getTextRunValue:path:")]
+		[return: NullAllowed]
+		string GetTextRunValue (string textRunName, string path);
+
 		// -(BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 		[Export ("setTextRunValue:textValue:error:")]
 		bool SetTextRunValue (string textRunName, string textValue, [NullAllowed] out NSError error);
+
+		// -(BOOL)setTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
+		[Export ("setTextRunValue:path:textValue:error:")]
+		bool SetTextRunValue (string textRunName, string path, string textValue, [NullAllowed] out NSError error);
 
 		// -(NSArray<NSString *> * _Nonnull)artboardNames __attribute__((warn_unused_result("")));
 		[Export ("artboardNames")]
@@ -1102,29 +1446,47 @@ namespace Rive.iOS
 		[Export ("setView:")]
 		void SetView (RiveView view);
 
-		/*// -(BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
+		// -(BOOL)riveFileDidLoad:(RiveFile * _Nonnull)riveFile error:(NSError * _Nullable * _Nullable)error;
 		[Export ("riveFileDidLoad:error:")]
-		bool RiveFileDidLoad (RiveFile riveFile, [NullAllowed] out NSError error);*/
+		bool RiveFileDidLoad (RiveFile riveFile, [NullAllowed] out NSError error);
 
-		/*// -(void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
+		// -(void)playerWithPlayedWithModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithPlayedWithModel:")]
-		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);*/
+		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);
 
-		/*// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
+		// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithPausedWithModel:")]
-		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);*/
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
 
-		/*// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
+		// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
 		[Export ("playerWithLoopedWithModel:type:")]
-		void PlayerWithLoopedWithModel ([NullAllowed] RiveModel riveModel, nint type);*/
+		void PlayerWithLoopedWithModel ([NullAllowed] RiveModel riveModel, nint type);
 
-		/*// -(void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
+		// -(void)playerWithStoppedWithModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithStoppedWithModel:")]
-		void PlayerWithStoppedWithModel ([NullAllowed] RiveModel riveModel);*/
+		void PlayerWithStoppedWithModel ([NullAllowed] RiveModel riveModel);
 
-		/*// -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
+		// -(void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithDidAdvanceby:riveModel:")]
-		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);*/
+		void PlayerWithDidAdvanceby (double seconds, [NullAllowed] RiveModel riveModel);
+	}
+
+	// @protocol RiveWeightProvider
+	/*
+  Check whether adding [Model] to this declaration is appropriate.
+  [Model] is used to generate a C# class that implements this protocol,
+  and might be useful for protocols that consumers are supposed to implement,
+  since consumers can subclass the generated class instead of implementing
+  the generated interface. If consumers are not supposed to implement this
+  protocol, then [Model] is redundant and will generate code that will never
+  be used.
+*/[Protocol (Name = "_TtP11RiveRuntime18RiveWeightProvider_")]
+	interface RiveWeightProvider
+	{
+		// @required @property (readonly, nonatomic) NSInteger riveWeightValue;
+		[Abstract]
+		[Export ("riveWeightValue")]
+		nint RiveWeightValue { get; }
 	}
 
 	// @interface StateMachineInput : NSObject
@@ -1132,5 +1494,35 @@ namespace Rive.iOS
 	[DisableDefaultCtor]
 	interface StateMachineInput
 	{
+	}
+
+	// @interface RiveRuntime_Swift_803 (UIFont) <RiveWeightProvider>
+	//[Category]
+	[BaseType (typeof(UIFont))]
+	interface UIFont_RiveRuntime_Swift_803 : RiveWeightProvider
+	{
+		// @property (readonly, nonatomic) NSInteger riveWeightValue;
+		[Export ("riveWeightValue")]
+		nint RiveWeightValue { get; }
+	}
+
+	/*// @interface RiveRuntime_Swift_808 (UIFont) <RiveFallbackFontProvider>
+	//[Category]
+	[BaseType (typeof(UIFont))]
+	interface UIFont_RiveRuntime_Swift_808 : RiveFallbackFontProvider
+	{
+		// @property (readonly, nonatomic, strong) UIFont * _Nonnull fallbackFont;
+		[Export ("fallbackFont", ArgumentSemantic.Strong)]
+		UIFont FallbackFont { get; }
+	}*/
+
+	// @interface RiveRuntime_Swift_814 (UIFont) <RiveFontWidthProvider>
+	//[Category]
+	[BaseType (typeof(UIFont))]
+	interface UIFont_RiveRuntime_Swift_814 : RiveFontWidthProvider
+	{
+		// @property (readonly, nonatomic) NSInteger riveFontWidthValue;
+		[Export ("riveFontWidthValue")]
+		nint RiveFontWidthValue { get; }
 	}
 }

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/CDNFileAssetLoader.h</key>
 		<data>
-		JJVvSU8JIIjVEUEBM/Is2dVBH98=
+		zVRNPko/SISqDaQ1s6mtnQY8uOY=
 		</data>
 		<key>Headers/LayerState.h</key>
 		<data>
@@ -14,35 +14,39 @@
 		</data>
 		<key>Headers/RenderContextManager.h</key>
 		<data>
-		ujefaQm7OFjAV0DEF87bmroN6E8=
+		Xv7GSDG/+a8756FdIocrv60hamw=
 		</data>
 		<key>Headers/Rive.h</key>
 		<data>
-		XZqkJiT/hgJ9O30UHyXotmLm33E=
+		REMldc9Cyu0hCsDWejdg6fKNn4Y=
 		</data>
 		<key>Headers/RiveArtboard.h</key>
 		<data>
-		B4ul86ZFmlO6nchO3UTygwyXroE=
+		VzRqhSJSbKauR6UZjk5R0Sj5e0I=
 		</data>
 		<key>Headers/RiveEvent.h</key>
 		<data>
-		tra0zbdpYp8F4tvH1UXNAwa0YUY=
+		kbUMpEEmrt9Yv/+1J61spgl4+Y8=
 		</data>
 		<key>Headers/RiveFactory.h</key>
 		<data>
-		tFIPlpfL+5Bxrn2h/k395p1eZ/Y=
+		vguGnoFf+Dxz93xbzwnRGitsATo=
 		</data>
 		<key>Headers/RiveFile.h</key>
 		<data>
-		X5bLLslLTvwcx50ki0vooAWSx/k=
+		izUXqIUEk0x9lxNjdVVfXt8cYzM=
 		</data>
 		<key>Headers/RiveFileAsset.h</key>
 		<data>
-		u+YLlFIaM4qipbZkXDU4sASEUsA=
+		39QsLWjpeLy12E2x8L1MOBo9z9M=
 		</data>
 		<key>Headers/RiveFileAssetLoader.h</key>
 		<data>
 		5cT8H45ThW6ptnS8S5i5I8nDA2k=
+		</data>
+		<key>Headers/RiveFont.h</key>
+		<data>
+		7jd9TMncZSK2bL8kPcCtbROMpJY=
 		</data>
 		<key>Headers/RiveLinearAnimationInstance.h</key>
 		<data>
@@ -50,11 +54,11 @@
 		</data>
 		<key>Headers/RiveRuntime-Swift.h</key>
 		<data>
-		XAMTC88ylFKe28mqERArss3LQiQ=
+		yeC5TtaR86vPyapNJVVzLglUmxA=
 		</data>
 		<key>Headers/RiveRuntime.h</key>
 		<data>
-		4LMzpsps3VUZjGOHMBep696b24A=
+		MlrKmWIPR9YrHp3RSHNeQvHchUg=
 		</data>
 		<key>Headers/RiveSMIInput.h</key>
 		<data>
@@ -62,7 +66,7 @@
 		</data>
 		<key>Headers/RiveStateMachineInstance.h</key>
 		<data>
-		gaSEijfGBhUUrogX8NXu8xkMxKU=
+		YI4VUv4O3varfvhohfS1r2KbcH8=
 		</data>
 		<key>Headers/RiveTextValueRun.h</key>
 		<data>
@@ -70,51 +74,51 @@
 		</data>
 		<key>Headers/rive_renderer_view.hh</key>
 		<data>
-		+tAY8ArjuQsEJ2mV1Uwq0ho+VK4=
+		cHRFjI+zxobvFNOdy34Xkj6NUOU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		JHI9pVMO3jTR1Tq5aNYReZaaeCk=
+		1LVsL5BPuQuyK9Fx8cEB8ZASpbo=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		HXKYQxpBg5BRtf8OM63WCkG5DY4=
+		51PTH5n3IBG6h1onbzMSNzLOAx4=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		SjGJK/JGkmj0Jpe2tJrXSPVQahA=
+		3EodOgItxHlA3f0UpZhSVI/DLIc=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		7eWz4KqCoCihTmSy8sUj5RwBJaY=
+		AuHnd6Rv7ZEJfRQY+ez+53Uhih4=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		SjGJK/JGkmj0Jpe2tJrXSPVQahA=
+		3EodOgItxHlA3f0UpZhSVI/DLIc=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		YG7dvieEHrm4+TqmhBZe56EsDkk=
+		C3Ibpx7ADO76w6wY6g86PsHcC5c=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		HXKYQxpBg5BRtf8OM63WCkG5DY4=
+		51PTH5n3IBG6h1onbzMSNzLOAx4=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		dGmrFXFgb9rjraJfgj/S2VLeCYM=
+		wAfVxQGQjK9b9tOBYq6yXfXimqY=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		4VnyphnB0upEh2vtnL22LN5mY9Y=
+		VgEU0JkMN5Gi0ruLdD7DJZw2flQ=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		dGmrFXFgb9rjraJfgj/S2VLeCYM=
+		wAfVxQGQjK9b9tOBYq6yXfXimqY=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Fjx3HPwoRiXKBCqD3LvQBHamXcw=
+		By4Mdb1PWofWtFc0lNlfPRidG4w=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -135,7 +139,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			88cdYH/M8x8Dz/FfNT8PP0CQbT88ryUK3DFCMjKGehA=
+			xbnJSD3f6Inaa/gC96A15Y5cjoN2OaSH1TQpCqcGLgU=
 			</data>
 		</dict>
 		<key>Headers/LayerState.h</key>
@@ -149,49 +153,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/jQWbvwGM3MZw/eYyJGNookgpFLeTLQbyPMwYkTIOtI=
+			2bptr6e37bOsBIT0h4oUr4eLurKWbM0qlO6987pd8zo=
 			</data>
 		</dict>
 		<key>Headers/Rive.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oflItwaKZTjgHd0NnoiqMUL1Yl4M8RIPgmkV9jMFWyY=
+			iPC3JptQGyjCjLmYAPuVi4HytvMPbxG4zDPhEM4+XyU=
 			</data>
 		</dict>
 		<key>Headers/RiveArtboard.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jtPQjXEiDqNTQyHPUiDP5IyAibi/1jktLMt347BXAlc=
+			98hbZ87Jn+QhLDbAX+3vkpRlqUWLmzbllYGh4jPEmzY=
 			</data>
 		</dict>
 		<key>Headers/RiveEvent.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zh/VuK61F9E8fKZ6SeUAWDByrIdB6sJRvL8OMx9Hxlo=
+			1CmRaDrBRWYB5xrvYJ/bP0DPLjyj+Qi+UGnMyZfJG1s=
 			</data>
 		</dict>
 		<key>Headers/RiveFactory.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m5GA+GrzBJ1jpIRfJ2LqOClI/AoX2Z5Ga+OSmKQrUF0=
+			rbYoFIersLcMF2AUc/9/5MDKcv+peHGhfd9fomEjBuQ=
 			</data>
 		</dict>
 		<key>Headers/RiveFile.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			efmOc0Cw5WTzsoByRb4PEEko9se64c8tw9jgka8sJT8=
+			QPDIJ5scr6NCPtQgty3vsYHO9OGJzjZ5v9gE/XRn1DY=
 			</data>
 		</dict>
 		<key>Headers/RiveFileAsset.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0UY9uqjzG6wIzSUrJle/IZ2Ioh3EHqtxl8T8p/oJ6w8=
+			jd9ptuQpkIZx1AAPlAHSOHRiTT5bzwg1XNCfjqGry24=
 			</data>
 		</dict>
 		<key>Headers/RiveFileAssetLoader.h</key>
@@ -199,6 +203,13 @@
 			<key>hash2</key>
 			<data>
 			k79Y8B7qCaAV4zHM9pPchDKE3CfYVV0HtYhvHfm5sQ4=
+			</data>
+		</dict>
+		<key>Headers/RiveFont.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lr6Rk884BKUZ62fKwnQOsilaMgew0X7TNJjdKT2MeAg=
 			</data>
 		</dict>
 		<key>Headers/RiveLinearAnimationInstance.h</key>
@@ -212,14 +223,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kOXp4VFWg0G+otMm+NbACI4a272NF4f4lnBfQ942N40=
+			AbQ0vVNsJAZrsjpx6yYeRq1ErRaIPEmMx3NBUVW6qMU=
 			</data>
 		</dict>
 		<key>Headers/RiveRuntime.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f8cuESUwrS4T+CLEOU6no8Eca0wb2gr+Mtr2ePyb05A=
+			cCn8fZz/l8my0kY45MZRIMSimAObC+ZrOB3QWQMyt3U=
 			</data>
 		</dict>
 		<key>Headers/RiveSMIInput.h</key>
@@ -233,7 +244,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wIGlLvoqoRYVlXFiaQs3vgsWDuDs8YHj9QDbWRGQDfM=
+			1vrrCUhqQ7V3aNYHCXACfPWwHLKj+LVyHRwia+tUmFw=
 			</data>
 		</dict>
 		<key>Headers/RiveTextValueRun.h</key>
@@ -247,77 +258,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EDvP+gYb465W6uaYU91iAQppWXZf68FMJQkf1ODipxQ=
+			i1zeDYnDh02YwtjSvXLI+cqkHrVw67ESdV9442yl3CQ=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9imbAMH0bbBAEfCCjXC9uC7PG9fWWSSX9TvZq4xSeaQ=
+			ge1Tj9PTfbzXDTO94zPKoFKdGWlJFYlFoH9yF8iIYOI=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			csSY8rngiMSXSaMsspO1KY8SUj/E/LJ3T87Mocg6/jY=
+			cyoWTeb48/Avfe9RMCRkLu2P/eC3o2+E5VRcViHLyuY=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xZ8WpDhjbcLILULpT8hdZgzDZJyLna6KPPlt/W10MAE=
+			7zW0FIT3YJffrPgCNEIU4rwGioUAoyn6NqtcvVFsGTc=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			csSY8rngiMSXSaMsspO1KY8SUj/E/LJ3T87Mocg6/jY=
+			cyoWTeb48/Avfe9RMCRkLu2P/eC3o2+E5VRcViHLyuY=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9/v2O6/Gf2Npvlx7jga0K7TQrJ2zCde+LNli9aA3SnE=
+			HscJeCPocJbkVj7y6v7CZJmG9p1ADp8GmeFFFQUaGwQ=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9imbAMH0bbBAEfCCjXC9uC7PG9fWWSSX9TvZq4xSeaQ=
+			ge1Tj9PTfbzXDTO94zPKoFKdGWlJFYlFoH9yF8iIYOI=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Txygnhfn56BIF+NOl0L0ScMBQeXfQJUJGj6enBXcjtg=
+			XMyC5I3wqOk6QRcS6dRzehPtxGozsA5E803tRhs77bo=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+1AU4MzGbXoOL+PQwLRsz9j4Ol0HpyrydbEiRSEFhBM=
+			bRNRtds0f2MaZtYrCeZZ/gIkvovANbTHIehlAKah7OI=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Txygnhfn56BIF+NOl0L0ScMBQeXfQJUJGj6enBXcjtg=
+			XMyC5I3wqOk6QRcS6dRzehPtxGozsA5E803tRhs77bo=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UYhUDolWZLo2IKP4HBWLOm2uCcr/gK+A9l6dvQQ1mes=
+			fk7IXF6Tc4uS/6OZyoy5D0GtUZ2ESIuMkQUz+H7znTg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
