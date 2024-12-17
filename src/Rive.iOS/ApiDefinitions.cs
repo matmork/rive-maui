@@ -1,6 +1,7 @@
 using System;
 using CoreGraphics;
 using Foundation;
+using Metal;
 using MetalKit;
 using ObjCRuntime;
 using UIKit;
@@ -860,8 +861,72 @@ namespace Rive.iOS
 	// typedef _Bool (^LoadAsset)(RiveFileAsset * _Nonnull, NSData * _Nonnull, RiveFactory * _Nonnull);
 	//delegate bool LoadAsset (RiveFileAsset arg0, NSData arg1, RiveFactory arg2);
 
-	// @interface RiveRendererView : MTKView
+	// @protocol RiveMetalDrawableView
+	/*
+  Check whether adding [Model] to this declaration is appropriate.
+  [Model] is used to generate a C# class that implements this protocol,
+  and might be useful for protocols that consumers are supposed to implement,
+  since consumers can subclass the generated class instead of implementing
+  the generated interface. If consumers are not supposed to implement this
+  protocol, then [Model] is redundant and will generate code that will never
+  be used.
+*/  [Protocol]
+	interface RiveMetalDrawableView
+	{
+		/*// @required @property (retain, nonatomic) id<MTLDevice> _Nullable device;
+		[Abstract]
+		[NullAllowed, Export ("device", ArgumentSemantic.Retain)]
+		MTLDevice Device { get; set; }*/
+
+		// @required @property (nonatomic) MTLPixelFormat depthStencilPixelFormat;
+		[Abstract]
+		[Export ("depthStencilPixelFormat", ArgumentSemantic.Assign)]
+		MTLPixelFormat DepthStencilPixelFormat { get; set; }
+
+		// @required @property (nonatomic) BOOL framebufferOnly;
+		[Abstract]
+		[Export ("framebufferOnly")]
+		bool FramebufferOnly { get; set; }
+
+		// @required @property (nonatomic) NSUInteger sampleCount;
+		[Abstract]
+		[Export ("sampleCount")]
+		nuint SampleCount { get; set; }
+
+		// @required @property (nonatomic) BOOL enableSetNeedsDisplay;
+		[Abstract]
+		[Export ("enableSetNeedsDisplay")]
+		bool EnableSetNeedsDisplay { get; set; }
+
+		// @required @property (getter = isPaused, nonatomic) BOOL paused;
+		[Abstract]
+		[Export ("paused")]
+		bool Paused { [Bind ("isPaused")] get; set; }
+
+		/*// @required @property (readonly, nonatomic) id<CAMetalDrawable> _Nullable currentDrawable;
+		[Abstract]
+		[NullAllowed, Export ("currentDrawable")]
+		CAMetalDrawable CurrentDrawable { get; }*/
+
+		// @required @property (nonatomic) MTLPixelFormat colorPixelFormat;
+		[Abstract]
+		[Export ("colorPixelFormat", ArgumentSemantic.Assign)]
+		MTLPixelFormat ColorPixelFormat { get; set; }
+
+		// @required @property (nonatomic) CGSize drawableSize;
+		[Abstract]
+		[Export ("drawableSize", ArgumentSemantic.Assign)]
+		CGSize DrawableSize { get; set; }
+	}
+
+	// @interface RiveMTKView : MTKView <RiveMetalDrawableView>
 	[BaseType (typeof(MTKView))]
+	interface RiveMTKView : RiveMetalDrawableView
+	{
+	}
+
+	// @interface RiveRendererView : RiveMTKView
+	[BaseType (typeof(RiveMTKView))]
 	interface RiveRendererView
 	{
 		// -(instancetype _Nonnull)initWithFrame:(CGRect)frameRect;

@@ -1253,6 +1253,7 @@
         "superclassUsr": "c:objc(cs)RiveRendererView",
         "superclassNames": [
           "RiveRuntime.RiveRendererView",
+          "RiveRuntime.RiveMTKView",
           "MetalKit.MTKView",
           "UIKit.UIView",
           "UIKit.UIResponder",
@@ -10766,42 +10767,42 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2099,
+      "offset": 2127,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2179,
+      "offset": 2207,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2228,
+      "offset": 2256,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2806,
+      "offset": 2834,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3373,
+      "offset": 3401,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6293,
+      "offset": 6798,
       "length": 4,
       "value": "true"
     },
@@ -10822,49 +10823,49 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25036,
+      "offset": 25689,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25127,
+      "offset": 25780,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25220,
+      "offset": 25873,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25036,
+      "offset": 25689,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25127,
+      "offset": 25780,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25220,
+      "offset": 25873,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "Array",
-      "offset": 28494,
+      "offset": 29175,
       "length": 2,
       "value": "[]"
     },
@@ -11473,7 +11474,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 26138,
+      "offset": 26192,
       "length": 11,
       "value": "\"RiveRuntime.Coordinator\""
     },
@@ -11501,133 +11502,133 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "IntegerLiteral",
-      "offset": 3544,
+      "offset": 3572,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6602,
+      "offset": 6658,
       "length": 23,
       "value": "\"CTFontUltraLightUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6642,
+      "offset": 6698,
       "length": 17,
       "value": "\"CTFontThinUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6677,
+      "offset": 6733,
       "length": 18,
       "value": "\"CTFontLightUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6715,
+      "offset": 6771,
       "length": 20,
       "value": "\"CTFontRegularUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6754,
+      "offset": 6810,
       "length": 19,
       "value": "\"CTFontMediumUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6794,
+      "offset": 6850,
       "length": 17,
       "value": "\"CTFontDemiUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6828,
+      "offset": 6884,
       "length": 17,
       "value": "\"CTFontBoldUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6863,
+      "offset": 6919,
       "length": 18,
       "value": "\"CTFontHeavyUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6899,
+      "offset": 6955,
       "length": 18,
       "value": "\"CTFontBlackUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6602,
+      "offset": 6658,
       "length": 23,
       "value": "\"CTFontUltraLightUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6642,
+      "offset": 6698,
       "length": 17,
       "value": "\"CTFontThinUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6677,
+      "offset": 6733,
       "length": 18,
       "value": "\"CTFontLightUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6715,
+      "offset": 6771,
       "length": 20,
       "value": "\"CTFontRegularUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6754,
+      "offset": 6810,
       "length": 19,
       "value": "\"CTFontMediumUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6794,
+      "offset": 6850,
       "length": 17,
       "value": "\"CTFontDemiUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6828,
+      "offset": 6884,
       "length": 17,
       "value": "\"CTFontBoldUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6863,
+      "offset": 6919,
       "length": 18,
       "value": "\"CTFontHeavyUsage\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 6899,
+      "offset": 6955,
       "length": 18,
       "value": "\"CTFontBlackUsage\""
     },

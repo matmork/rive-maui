@@ -1,0 +1,331 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-xros1.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RiveRuntime
+import Combine
+import Foundation
+import OSLog
+@_exported import RiveRuntime
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension RiveRuntime.RiveFile {
+  convenience public init(name fileName: Swift.String, extension ext: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil) throws
+  public static func getBytes(fileName: Swift.String, extension ext: Swift.String = ".riv", in bundle: Foundation.Bundle = .main) -> [Swift.UInt8]
+}
+@objc @_Concurrency.MainActor(unsafe) open class RiveView : RiveRuntime.RiveRendererView {
+  @objc @_Concurrency.MainActor(unsafe) weak public var playerDelegate: (any RiveRuntime.RivePlayerDelegate)?
+  @_Concurrency.MainActor(unsafe) weak public var stateMachineDelegate: (any RiveRuntime.RiveStateMachineDelegate)?
+  @_Concurrency.MainActor(unsafe) public var showFPS: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public static var showFPSCounters: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var bounds: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var frame: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) convenience public init(model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToWindow()
+  @_Concurrency.MainActor(unsafe) open func setModel(_ model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true) throws
+  @_Concurrency.MainActor(unsafe) open func setPreferredFramesPerSecond(preferredFramesPerSecond: Swift.Int)
+  @available(iOS 15.0, *)
+  @_Concurrency.MainActor(unsafe) open func setPreferredFrameRateRange(preferredFrameRateRange: QuartzCore.CAFrameRateRange)
+  @objc @_Concurrency.MainActor(unsafe) open func advance(delta: Swift.Double)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func drawRive(_ rect: CoreFoundation.CGRect, size: CoreFoundation.CGSize)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+}
+@objc public enum RiveTouchEvent : Swift.Int {
+  case began
+  case moved
+  case ended
+  case cancelled
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol RiveStateMachineDelegate {
+  @objc optional func touchBegan(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
+  @objc optional func touchMoved(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
+  @objc optional func touchEnded(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
+  @objc optional func touchCancelled(onArtboard artboard: RiveRuntime.RiveArtboard?, atLocation location: CoreFoundation.CGPoint)
+  @objc optional func stateMachine(_ stateMachine: RiveRuntime.RiveStateMachineInstance, receivedInput input: RiveRuntime.StateMachineInput)
+  @objc optional func stateMachine(_ stateMachine: RiveRuntime.RiveStateMachineInstance, didChangeState stateName: Swift.String)
+  @objc optional func stateMachine(_ stateMachine: RiveRuntime.RiveStateMachineInstance, didReceiveHitResult hitResult: RiveRuntime.RiveHitResult, from event: RiveRuntime.RiveTouchEvent)
+  @objc optional func onRiveEventReceived(onRiveEvent riveEvent: RiveRuntime.RiveEvent)
+}
+@objc public protocol RivePlayerDelegate {
+  @objc func player(playedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc func player(pausedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc func player(loopedWithModel riveModel: RiveRuntime.RiveModel?, type: Swift.Int)
+  @objc func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
+}
+@objc public enum RiveFallbackFontDescriptorDesign : Swift.Int {
+  case `default` = 0
+  case rounded = 1
+  case monospaced = 2
+  case serif = 3
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RiveFallbackFontDescriptorWeight : Swift.Int {
+  case ultraLight = 0
+  case thin = 1
+  case light = 2
+  case regular = 3
+  case medium = 4
+  case semibold = 5
+  case bold = 6
+  case heavy = 7
+  case black = 8
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RiveFallbackFontDescriptorWidth : Swift.Int {
+  case compressed = 0
+  case condensed = 1
+  case standard = 2
+  case expanded = 3
+  public var defaultFloatValue: CoreFoundation.CGFloat {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class RiveFallbackFontDescriptor : ObjectiveC.NSObject {
+  @objc public init(design: RiveRuntime.RiveFallbackFontDescriptorDesign = .default, weight: RiveRuntime.RiveFallbackFontDescriptorWeight = .regular, width: RiveRuntime.RiveFallbackFontDescriptorWidth = .standard)
+  @objc deinit
+}
+@objc public class RiveLogLevel : ObjectiveC.NSObject, Swift.OptionSet {
+  public var rawValue: Swift.Int
+  required public init(rawValue: Swift.Int)
+  @objc public static let debug: RiveRuntime.RiveLogLevel
+  @objc public static let info: RiveRuntime.RiveLogLevel
+  @objc public static let `default`: RiveRuntime.RiveLogLevel
+  @objc public static let error: RiveRuntime.RiveLogLevel
+  @objc public static let fault: RiveRuntime.RiveLogLevel
+  @objc public static let none: RiveRuntime.RiveLogLevel
+  @objc public static let all: RiveRuntime.RiveLogLevel
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  public typealias ArrayLiteralElement = RiveRuntime.RiveLogLevel
+  public typealias Element = RiveRuntime.RiveLogLevel
+  public typealias RawValue = Swift.Int
+  @objc deinit
+}
+@objc public class RiveLogCategory : ObjectiveC.NSObject, Swift.OptionSet {
+  public var rawValue: Swift.Int
+  required public init(rawValue: Swift.Int)
+  @objc public static let stateMachine: RiveRuntime.RiveLogCategory
+  @objc public static let artboard: RiveRuntime.RiveLogCategory
+  @objc public static let viewModel: RiveRuntime.RiveLogCategory
+  @objc public static let model: RiveRuntime.RiveLogCategory
+  @objc public static let file: RiveRuntime.RiveLogCategory
+  @objc public static let view: RiveRuntime.RiveLogCategory
+  @objc public static let none: RiveRuntime.RiveLogCategory
+  @objc public static let all: RiveRuntime.RiveLogCategory
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  public typealias ArrayLiteralElement = RiveRuntime.RiveLogCategory
+  public typealias Element = RiveRuntime.RiveLogCategory
+  public typealias RawValue = Swift.Int
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class RiveLogger : ObjectiveC.NSObject {
+  @objc public static var isEnabled: Swift.Bool
+  @objc public static var isVerbose: Swift.Bool
+  @objc public static var levels: RiveRuntime.RiveLogLevel
+  @objc public static var categories: RiveRuntime.RiveLogCategory
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol RiveFallbackFontProvider {
+  @objc var fallbackFont: RiveRuntime.RiveNativeFont { get }
+}
+extension RiveRuntime.RiveStateMachineInstance {
+  public var inputs: [RiveRuntime.StateMachineInput] {
+    get
+  }
+}
+@objc public enum StateMachineInputType : Swift.IntegerLiteralType {
+  case trigger, number, boolean
+  public init?(rawValue: Swift.IntegerLiteralType)
+  public typealias RawValue = Swift.IntegerLiteralType
+  public var rawValue: Swift.IntegerLiteralType {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc public class StateMachineInput : ObjectiveC.NSObject {
+  final public let name: Swift.String
+  final public let type: RiveRuntime.StateMachineInputType
+  @objc deinit
+}
+@objc open class RiveViewModel : ObjectiveC.NSObject, Combine.ObservableObject, RiveRuntime.RiveFileDelegate, RiveRuntime.RiveStateMachineDelegate, RiveRuntime.RivePlayerDelegate {
+  @objc public static let layoutScaleFactorAutomatic: Swift.Double
+  open var riveView: RiveRuntime.RiveView? {
+    get
+  }
+  @objc public init(_ model: RiveRuntime.RiveModel, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(_ model: RiveRuntime.RiveModel, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil)
+  public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, artboardName: Swift.String? = nil, preferredFramesPerSecond: Swift.Int? = nil, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil)
+  @objc public init(webURL: Swift.String, stateMachineName: Swift.String?, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, loadCdn: Swift.Bool = true, artboardName: Swift.String? = nil)
+  @objc public init(webURL: Swift.String, animationName: Swift.String? = nil, fit: RiveRuntime.RiveFit = .contain, alignment: RiveRuntime.RiveAlignment = .center, autoPlay: Swift.Bool = true, loadCdn: Swift.Bool = true, artboardName: Swift.String? = nil)
+  open var riveModel: RiveRuntime.RiveModel? {
+    get
+  }
+  open var isPlaying: Swift.Bool {
+    get
+  }
+  open var autoPlay: Swift.Bool
+  open var fit: RiveRuntime.RiveFit {
+    get
+    set
+  }
+  open var alignment: RiveRuntime.RiveAlignment {
+    get
+    set
+  }
+  open var layoutScaleFactor: Swift.Double {
+    get
+    set
+  }
+  open var forwardsListenerEvents: Swift.Bool {
+    get
+    set
+  }
+  public func setPreferredFramesPerSecond(preferredFramesPerSecond: Swift.Int)
+  @available(iOS 15.0, *)
+  public func setPreferredFrameRateRange(preferredFrameRateRange: QuartzCore.CAFrameRateRange)
+  @objc open func play(animationName: Swift.String? = nil, loop: RiveRuntime.RiveLoop = .autoLoop, direction: RiveRuntime.RiveDirection = .autoDirection)
+  @objc open func pause()
+  @objc open func stop()
+  @objc open func reset()
+  @objc open func configureModel(artboardName: Swift.String? = nil, stateMachineName: Swift.String? = nil, animationName: Swift.String? = nil) throws
+  @objc open func resetToDefaultModel()
+  @objc open func triggerInput(_ inputName: Swift.String)
+  @objc(setBooleanInput::) open func setInput(_ inputName: Swift.String, value: Swift.Bool)
+  @objc open func boolInput(named name: Swift.String) -> RiveRuntime.RiveSMIBool?
+  @objc(setFloatInput::) open func setInput(_ inputName: Swift.String, value: Swift.Float)
+  @objc(setDoubleInput::) open func setInput(_ inputName: Swift.String, value: Swift.Double)
+  @objc open func numberInput(named name: Swift.String) -> RiveRuntime.RiveSMINumber?
+  open func triggerInput(_ inputName: Swift.String, path: Swift.String)
+  open func setInput(_ inputName: Swift.String, value: Swift.Bool, path: Swift.String)
+  open func setInput(_ inputName: Swift.String, value: Swift.Float, path: Swift.String)
+  open func setInput(_ inputName: Swift.String, value: Swift.Double, path: Swift.String)
+  @objc open func getTextRunValue(_ textRunName: Swift.String) -> Swift.String?
+  @objc open func getTextRunValue(_ textRunName: Swift.String, path: Swift.String) -> Swift.String?
+  @objc open func setTextRunValue(_ textRunName: Swift.String, textValue: Swift.String) throws
+  @objc open func setTextRunValue(_ textRunName: Swift.String, path: Swift.String, textValue: Swift.String) throws
+  @objc open func artboardNames() -> [Swift.String]
+  @objc open func createRiveView() -> RiveRuntime.RiveView
+  open func setRiveView(view: RiveRuntime.RiveView)
+  @objc open func update(view: RiveRuntime.RiveView)
+  open func deregisterView()
+  open func view() -> SwiftUI.AnyView
+  @objc open func setView(_ view: RiveRuntime.RiveView)
+  @objc open func riveFileDidLoad(_ riveFile: RiveRuntime.RiveFile) throws
+  @objc open func player(playedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc open func player(pausedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc open func player(loopedWithModel riveModel: RiveRuntime.RiveModel?, type: Swift.Int)
+  @objc open func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
+  @objc open func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public struct RiveViewRepresentable : SwiftUI.UIViewRepresentable {
+  public init(viewModel: RiveRuntime.RiveViewModel)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: RiveRuntime.RiveViewRepresentable.Context) -> RiveRuntime.RiveView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ view: RiveRuntime.RiveView, context: SwiftUI.UIViewRepresentableContext<RiveRuntime.RiveViewRepresentable>)
+  @_Concurrency.MainActor(unsafe) public static func dismantleUIView(_ view: RiveRuntime.RiveView, coordinator: RiveRuntime.RiveViewRepresentable.Coordinator)
+  @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> RiveRuntime.RiveViewRepresentable.Coordinator
+  @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject {
+    public var viewModel: RiveRuntime.RiveViewModel
+    @objc deinit
+  }
+  public typealias Body = Swift.Never
+  public typealias UIViewType = RiveRuntime.RiveView
+}
+public typealias RiveNativeFont = UIKit.UIFont
+extension RiveRuntime.RiveFallbackFontDescriptor : RiveRuntime.RiveFallbackFontProvider {
+  @objc dynamic public var fallbackFont: RiveRuntime.RiveNativeFont {
+    @objc get
+  }
+}
+@objc extension UIKit.UIFont : RiveRuntime.RiveFallbackFontProvider {
+  @objc dynamic public var fallbackFont: RiveRuntime.RiveNativeFont {
+    @objc get
+  }
+}
+@objc open class RiveModel : ObjectiveC.NSObject, Foundation.ObservableObject {
+  public var stateMachine: RiveRuntime.RiveStateMachineInstance? {
+    get
+  }
+  public var animation: RiveRuntime.RiveLinearAnimationInstance? {
+    get
+  }
+  public var artboard: RiveRuntime.RiveArtboard! {
+    get
+  }
+  public init(riveFile: RiveRuntime.RiveFile)
+  public init(fileName: Swift.String, extension: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil) throws
+  public init(webURL: Swift.String, delegate: any RiveRuntime.RiveFileDelegate, loadCdn: Swift.Bool)
+  @objc open var volume: Swift.Float {
+    @objc get
+    @objc set
+  }
+  open func setArtboard(_ name: Swift.String) throws
+  open func setArtboard(_ index: Swift.Int? = nil) throws
+  open func setStateMachine(_ name: Swift.String) throws
+  open func setStateMachine(_ index: Swift.Int? = nil) throws
+  open func setAnimation(_ name: Swift.String) throws
+  open func setAnimation(_ index: Swift.Int? = nil) throws
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+extension RiveRuntime.RiveTouchEvent : Swift.Equatable {}
+extension RiveRuntime.RiveTouchEvent : Swift.Hashable {}
+extension RiveRuntime.RiveTouchEvent : Swift.RawRepresentable {}
+extension RiveRuntime.RiveFallbackFontDescriptorDesign : Swift.Equatable {}
+extension RiveRuntime.RiveFallbackFontDescriptorDesign : Swift.Hashable {}
+extension RiveRuntime.RiveFallbackFontDescriptorDesign : Swift.RawRepresentable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWeight : Swift.Equatable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWeight : Swift.Hashable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWeight : Swift.RawRepresentable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWidth : Swift.Equatable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWidth : Swift.Hashable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWidth : Swift.RawRepresentable {}
+extension RiveRuntime.StateMachineInputType : Swift.Equatable {}
+extension RiveRuntime.StateMachineInputType : Swift.Hashable {}
+extension RiveRuntime.StateMachineInputType : Swift.RawRepresentable {}
