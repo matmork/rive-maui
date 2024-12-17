@@ -3,6 +3,7 @@
 // swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RiveRuntime
 import Combine
 import Foundation
+import OSLog
 @_exported import RiveRuntime
 import Swift
 import SwiftUI
@@ -34,6 +35,7 @@ extension RiveRuntime.RiveFile {
   @_Concurrency.MainActor(unsafe) convenience public init(model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder aDecoder: Foundation.NSCoder)
   @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToWindow()
   @_Concurrency.MainActor(unsafe) open func setModel(_ model: RiveRuntime.RiveModel, autoPlay: Swift.Bool = true) throws
   @_Concurrency.MainActor(unsafe) open func setPreferredFramesPerSecond(preferredFramesPerSecond: Swift.Int)
   @available(iOS 15.0, *)
@@ -74,6 +76,101 @@ extension RiveRuntime.RiveFile {
   @objc func player(stoppedWithModel riveModel: RiveRuntime.RiveModel?)
   @objc func player(didAdvanceby seconds: Swift.Double, riveModel: RiveRuntime.RiveModel?)
 }
+@objc public enum RiveFallbackFontDescriptorDesign : Swift.Int {
+  case `default` = 0
+  case rounded = 1
+  case monospaced = 2
+  case serif = 3
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RiveFallbackFontDescriptorWeight : Swift.Int {
+  case ultraLight = 0
+  case thin = 1
+  case light = 2
+  case regular = 3
+  case medium = 4
+  case semibold = 5
+  case bold = 6
+  case heavy = 7
+  case black = 8
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RiveFallbackFontDescriptorWidth : Swift.Int {
+  case compressed = 0
+  case condensed = 1
+  case standard = 2
+  case expanded = 3
+  public var defaultFloatValue: CoreFoundation.CGFloat {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class RiveFallbackFontDescriptor : ObjectiveC.NSObject {
+  @objc public init(design: RiveRuntime.RiveFallbackFontDescriptorDesign = .default, weight: RiveRuntime.RiveFallbackFontDescriptorWeight = .regular, width: RiveRuntime.RiveFallbackFontDescriptorWidth = .standard)
+  @objc deinit
+}
+@objc public class RiveLogLevel : ObjectiveC.NSObject, Swift.OptionSet {
+  public var rawValue: Swift.Int
+  required public init(rawValue: Swift.Int)
+  @objc public static let debug: RiveRuntime.RiveLogLevel
+  @objc public static let info: RiveRuntime.RiveLogLevel
+  @objc public static let `default`: RiveRuntime.RiveLogLevel
+  @objc public static let error: RiveRuntime.RiveLogLevel
+  @objc public static let fault: RiveRuntime.RiveLogLevel
+  @objc public static let none: RiveRuntime.RiveLogLevel
+  @objc public static let all: RiveRuntime.RiveLogLevel
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  public typealias ArrayLiteralElement = RiveRuntime.RiveLogLevel
+  public typealias Element = RiveRuntime.RiveLogLevel
+  public typealias RawValue = Swift.Int
+  @objc deinit
+}
+@objc public class RiveLogCategory : ObjectiveC.NSObject, Swift.OptionSet {
+  public var rawValue: Swift.Int
+  required public init(rawValue: Swift.Int)
+  @objc public static let stateMachine: RiveRuntime.RiveLogCategory
+  @objc public static let artboard: RiveRuntime.RiveLogCategory
+  @objc public static let viewModel: RiveRuntime.RiveLogCategory
+  @objc public static let model: RiveRuntime.RiveLogCategory
+  @objc public static let file: RiveRuntime.RiveLogCategory
+  @objc public static let view: RiveRuntime.RiveLogCategory
+  @objc public static let none: RiveRuntime.RiveLogCategory
+  @objc public static let all: RiveRuntime.RiveLogCategory
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  public typealias ArrayLiteralElement = RiveRuntime.RiveLogCategory
+  public typealias Element = RiveRuntime.RiveLogCategory
+  public typealias RawValue = Swift.Int
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class RiveLogger : ObjectiveC.NSObject {
+  @objc public static var isEnabled: Swift.Bool
+  @objc public static var isVerbose: Swift.Bool
+  @objc public static var levels: RiveRuntime.RiveLogLevel
+  @objc public static var categories: RiveRuntime.RiveLogCategory
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol RiveFallbackFontProvider {
+  @objc var fallbackFont: RiveRuntime.RiveNativeFont { get }
+}
 extension RiveRuntime.RiveStateMachineInstance {
   public var inputs: [RiveRuntime.StateMachineInput] {
     get
@@ -93,6 +190,7 @@ extension RiveRuntime.RiveStateMachineInstance {
   @objc deinit
 }
 @objc open class RiveViewModel : ObjectiveC.NSObject, Combine.ObservableObject, RiveRuntime.RiveFileDelegate, RiveRuntime.RiveStateMachineDelegate, RiveRuntime.RivePlayerDelegate {
+  @objc public static let layoutScaleFactorAutomatic: Swift.Double
   open var riveView: RiveRuntime.RiveView? {
     get
   }
@@ -117,6 +215,10 @@ extension RiveRuntime.RiveStateMachineInstance {
     get
     set
   }
+  open var layoutScaleFactor: Swift.Double {
+    get
+    set
+  }
   open var forwardsListenerEvents: Swift.Bool {
     get
     set
@@ -132,14 +234,18 @@ extension RiveRuntime.RiveStateMachineInstance {
   @objc open func resetToDefaultModel()
   @objc open func triggerInput(_ inputName: Swift.String)
   @objc(setBooleanInput::) open func setInput(_ inputName: Swift.String, value: Swift.Bool)
+  @objc open func boolInput(named name: Swift.String) -> RiveRuntime.RiveSMIBool?
   @objc(setFloatInput::) open func setInput(_ inputName: Swift.String, value: Swift.Float)
   @objc(setDoubleInput::) open func setInput(_ inputName: Swift.String, value: Swift.Double)
+  @objc open func numberInput(named name: Swift.String) -> RiveRuntime.RiveSMINumber?
   open func triggerInput(_ inputName: Swift.String, path: Swift.String)
   open func setInput(_ inputName: Swift.String, value: Swift.Bool, path: Swift.String)
   open func setInput(_ inputName: Swift.String, value: Swift.Float, path: Swift.String)
   open func setInput(_ inputName: Swift.String, value: Swift.Double, path: Swift.String)
   @objc open func getTextRunValue(_ textRunName: Swift.String) -> Swift.String?
+  @objc open func getTextRunValue(_ textRunName: Swift.String, path: Swift.String) -> Swift.String?
   @objc open func setTextRunValue(_ textRunName: Swift.String, textValue: Swift.String) throws
+  @objc open func setTextRunValue(_ textRunName: Swift.String, path: Swift.String, textValue: Swift.String) throws
   @objc open func artboardNames() -> [Swift.String]
   @objc open func createRiveView() -> RiveRuntime.RiveView
   open func setRiveView(view: RiveRuntime.RiveView)
@@ -168,6 +274,17 @@ public struct RiveViewRepresentable : SwiftUI.UIViewRepresentable {
   }
   public typealias Body = Swift.Never
   public typealias UIViewType = RiveRuntime.RiveView
+}
+public typealias RiveNativeFont = UIKit.UIFont
+extension RiveRuntime.RiveFallbackFontDescriptor : RiveRuntime.RiveFallbackFontProvider {
+  @objc dynamic public var fallbackFont: RiveRuntime.RiveNativeFont {
+    @objc get
+  }
+}
+@objc extension UIKit.UIFont : RiveRuntime.RiveFallbackFontProvider {
+  @objc dynamic public var fallbackFont: RiveRuntime.RiveNativeFont {
+    @objc get
+  }
 }
 @objc open class RiveModel : ObjectiveC.NSObject, Foundation.ObservableObject {
   public var stateMachine: RiveRuntime.RiveStateMachineInstance? {
@@ -201,6 +318,15 @@ public struct RiveViewRepresentable : SwiftUI.UIViewRepresentable {
 extension RiveRuntime.RiveTouchEvent : Swift.Equatable {}
 extension RiveRuntime.RiveTouchEvent : Swift.Hashable {}
 extension RiveRuntime.RiveTouchEvent : Swift.RawRepresentable {}
+extension RiveRuntime.RiveFallbackFontDescriptorDesign : Swift.Equatable {}
+extension RiveRuntime.RiveFallbackFontDescriptorDesign : Swift.Hashable {}
+extension RiveRuntime.RiveFallbackFontDescriptorDesign : Swift.RawRepresentable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWeight : Swift.Equatable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWeight : Swift.Hashable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWeight : Swift.RawRepresentable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWidth : Swift.Equatable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWidth : Swift.Hashable {}
+extension RiveRuntime.RiveFallbackFontDescriptorWidth : Swift.RawRepresentable {}
 extension RiveRuntime.StateMachineInputType : Swift.Equatable {}
 extension RiveRuntime.StateMachineInputType : Swift.Hashable {}
 extension RiveRuntime.StateMachineInputType : Swift.RawRepresentable {}

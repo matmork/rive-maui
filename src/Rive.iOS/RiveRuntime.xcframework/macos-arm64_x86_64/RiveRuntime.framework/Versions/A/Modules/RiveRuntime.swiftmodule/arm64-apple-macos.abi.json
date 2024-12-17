@@ -705,6 +705,33 @@
           },
           {
             "kind": "Function",
+            "name": "viewDidMoveToWindow",
+            "printedName": "viewDidMoveToWindow()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveView(im)viewDidMoveToWindow",
+            "mangledName": "$s11RiveRuntime0A4ViewC19viewDidMoveToWindowyyF",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "isOpen": true,
+            "objc_name": "viewDidMoveToWindow",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setModel",
             "printedName": "setModel(_:autoPlay:)",
             "children": [
@@ -1097,6 +1124,7 @@
         "superclassUsr": "c:objc(cs)RiveRendererView",
         "superclassNames": [
           "RiveRuntime.RiveRendererView",
+          "RiveRuntime.RiveMTKView",
           "MetalKit.MTKView",
           "AppKit.NSView",
           "AppKit.NSResponder",
@@ -2036,6 +2064,3620 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveFallbackFontDescriptorDesign",
+        "printedName": "RiveFallbackFontDescriptorDesign",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "default",
+            "printedName": "default",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorDesign.Type) -> RiveRuntime.RiveFallbackFontDescriptorDesign",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorDesign",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorDesign",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign@RiveFallbackFontDescriptorDesignDefault",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO7defaultyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "rounded",
+            "printedName": "rounded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorDesign.Type) -> RiveRuntime.RiveFallbackFontDescriptorDesign",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorDesign",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorDesign",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign@RiveFallbackFontDescriptorDesignRounded",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO7roundedyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "monospaced",
+            "printedName": "monospaced",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorDesign.Type) -> RiveRuntime.RiveFallbackFontDescriptorDesign",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorDesign",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorDesign",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign@RiveFallbackFontDescriptorDesignMonospaced",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO10monospacedyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "serif",
+            "printedName": "serif",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorDesign.Type) -> RiveRuntime.RiveFallbackFontDescriptorDesign",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorDesign",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorDesign",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign@RiveFallbackFontDescriptorDesignSerif",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO5serifyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorDesign",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11RiveRuntime0A28FallbackFontDescriptorDesignO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO8rawValueACSgSi_tcfc",
+            "moduleName": "RiveRuntime",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A28FallbackFontDescriptorDesignO8rawValueSivp",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO8rawValueSivp",
+            "moduleName": "RiveRuntime",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A28FallbackFontDescriptorDesignO8rawValueSivg",
+                "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO8rawValueSivg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign",
+        "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorDesignO",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveFallbackFontDescriptorWeight",
+        "printedName": "RiveFallbackFontDescriptorWeight",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "ultraLight",
+            "printedName": "ultraLight",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightUltraLight",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO10ultraLightyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "thin",
+            "printedName": "thin",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightThin",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO4thinyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "light",
+            "printedName": "light",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightLight",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO5lightyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "regular",
+            "printedName": "regular",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightRegular",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO7regularyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "medium",
+            "printedName": "medium",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightMedium",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO6mediumyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "semibold",
+            "printedName": "semibold",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightSemibold",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO8semiboldyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "bold",
+            "printedName": "bold",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightBold",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO4boldyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 6
+          },
+          {
+            "kind": "Var",
+            "name": "heavy",
+            "printedName": "heavy",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightHeavy",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO5heavyyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 7
+          },
+          {
+            "kind": "Var",
+            "name": "black",
+            "printedName": "black",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWeight.Type) -> RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWeight",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight@RiveFallbackFontDescriptorWeightBlack",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO5blackyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 8
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWeight",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11RiveRuntime0A28FallbackFontDescriptorWeightO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO8rawValueACSgSi_tcfc",
+            "moduleName": "RiveRuntime",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A28FallbackFontDescriptorWeightO8rawValueSivp",
+            "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO8rawValueSivp",
+            "moduleName": "RiveRuntime",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A28FallbackFontDescriptorWeightO8rawValueSivg",
+                "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO8rawValueSivg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight",
+        "mangledName": "$s11RiveRuntime0A28FallbackFontDescriptorWeightO",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveFallbackFontDescriptorWidth",
+        "printedName": "RiveFallbackFontDescriptorWidth",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "compressed",
+            "printedName": "compressed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWidth.Type) -> RiveRuntime.RiveFallbackFontDescriptorWidth",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWidth",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWidth",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth@RiveFallbackFontDescriptorWidthCompressed",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO10compressedyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "condensed",
+            "printedName": "condensed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWidth.Type) -> RiveRuntime.RiveFallbackFontDescriptorWidth",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWidth",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWidth",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth@RiveFallbackFontDescriptorWidthCondensed",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO9condensedyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "standard",
+            "printedName": "standard",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWidth.Type) -> RiveRuntime.RiveFallbackFontDescriptorWidth",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWidth",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWidth",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth@RiveFallbackFontDescriptorWidthStandard",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO8standardyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "expanded",
+            "printedName": "expanded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RiveRuntime.RiveFallbackFontDescriptorWidth.Type) -> RiveRuntime.RiveFallbackFontDescriptorWidth",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWidth",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RiveFallbackFontDescriptorWidth",
+                        "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth@RiveFallbackFontDescriptorWidthExpanded",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO8expandedyA2CmF",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "defaultFloatValue",
+            "printedName": "defaultFloatValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A27FallbackFontDescriptorWidthO17defaultFloatValue14CoreFoundation7CGFloatVvp",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO17defaultFloatValue12CoreGraphics7CGFloatVvp",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A27FallbackFontDescriptorWidthO17defaultFloatValue14CoreFoundation7CGFloatVvg",
+                "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO17defaultFloatValue12CoreGraphics7CGFloatVvg",
+                "moduleName": "RiveRuntime",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveFallbackFontDescriptorWidth",
+                    "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                    "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11RiveRuntime0A27FallbackFontDescriptorWidthO8rawValueACSgSi_tcfc",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO8rawValueACSgSi_tcfc",
+            "moduleName": "RiveRuntime",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A27FallbackFontDescriptorWidthO8rawValueSivp",
+            "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO8rawValueSivp",
+            "moduleName": "RiveRuntime",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A27FallbackFontDescriptorWidthO8rawValueSivg",
+                "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO8rawValueSivg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth",
+        "mangledName": "$s11RiveRuntime0A27FallbackFontDescriptorWidthO",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveFallbackFontDescriptor",
+        "printedName": "RiveFallbackFontDescriptor",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(design:weight:width:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveFallbackFontDescriptor",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveFallbackFontDescriptor"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RiveFallbackFontDescriptorDesign",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptorDesign",
+                "hasDefaultArg": true,
+                "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorDesign"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RiveFallbackFontDescriptorWeight",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptorWeight",
+                "hasDefaultArg": true,
+                "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWeight"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RiveFallbackFontDescriptorWidth",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptorWidth",
+                "hasDefaultArg": true,
+                "usr": "c:@M@RiveRuntime@E@RiveFallbackFontDescriptorWidth"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveFallbackFontDescriptor(im)initWithDesign:weight:width:",
+            "mangledName": "$s11RiveRuntime0A22FallbackFontDescriptorC6design6weight5widthAcA0acdE6DesignO_AA0acdE6WeightOAA0acdE5WidthOtcfc",
+            "moduleName": "RiveRuntime",
+            "objc_name": "initWithDesign:weight:width:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveFallbackFontDescriptor",
+                "printedName": "RiveRuntime.RiveFallbackFontDescriptor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveFallbackFontDescriptor"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveFallbackFontDescriptor(im)init",
+            "mangledName": "$s11RiveRuntime0A22FallbackFontDescriptorCACycfc",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "fallbackFont",
+            "printedName": "fallbackFont",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFont",
+                "printedName": "AppKit.NSFont",
+                "usr": "c:objc(cs)NSFont"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@RiveRuntime@objc(cs)RiveFallbackFontDescriptor(py)fallbackFont",
+            "mangledName": "$s11RiveRuntime0A22FallbackFontDescriptorC08fallbackD0So6NSFontCvp",
+            "moduleName": "RiveRuntime",
+            "objc_name": "fallbackFont",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSFont",
+                    "printedName": "AppKit.NSFont",
+                    "usr": "c:objc(cs)NSFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@RiveRuntime@objc(cs)RiveFallbackFontDescriptor(im)fallbackFont",
+                "mangledName": "$s11RiveRuntime0A22FallbackFontDescriptorC08fallbackD0So6NSFontCvg",
+                "moduleName": "RiveRuntime",
+                "objc_name": "fallbackFont",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RiveRuntime@objc(cs)RiveFallbackFontDescriptor",
+        "mangledName": "$s11RiveRuntime0A22FallbackFontDescriptorC",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RiveFallbackFontProvider",
+            "printedName": "RiveFallbackFontProvider",
+            "usr": "c:@M@RiveRuntime@objc(pl)RiveFallbackFontProvider",
+            "mangledName": "$s11RiveRuntime0A20FallbackFontProviderP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveLogLevel",
+        "printedName": "RiveLogLevel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A8LogLevelC8rawValueSivp",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC8rawValueSivp",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A8LogLevelC8rawValueSivg",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC8rawValueSivg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A8LogLevelC8rawValueSivs",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC8rawValueSivs",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A8LogLevelC8rawValueSivM",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC8rawValueSivM",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11RiveRuntime0A8LogLevelC8rawValueACSi_tcfc",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC8rawValueACSi_tcfc",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "Required",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "debug",
+            "printedName": "debug",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)debug",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC5debugACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)debug",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC5debugACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "info",
+            "printedName": "info",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)info",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC4infoACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)info",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC4infoACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "default",
+            "printedName": "default",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)default",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC7defaultACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)default",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC7defaultACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "error",
+            "printedName": "error",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)error",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC5errorACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)error",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC5errorACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "fault",
+            "printedName": "fault",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)fault",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC5faultACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)fault",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC5faultACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)none",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC4noneACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)none",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC4noneACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "all",
+            "printedName": "all",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cpy)all",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC3allACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(cm)all",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC3allACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isEqual",
+            "printedName": "isEqual(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(im)isEqual:",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC7isEqualySbypSgF",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "objc_name": "isEqual:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hash",
+            "printedName": "hash",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(py)hash",
+            "mangledName": "$s11RiveRuntime0A8LogLevelC4hashSivp",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "objc_name": "hash",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(im)hash",
+                "mangledName": "$s11RiveRuntime0A8LogLevelC4hashSivg",
+                "moduleName": "RiveRuntime",
+                "overriding": true,
+                "objc_name": "hash",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel(im)init",
+            "mangledName": "$s11RiveRuntime0A8LogLevelCACycfc",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel",
+        "mangledName": "$s11RiveRuntime0A8LogLevelC",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OptionSet",
+            "printedName": "OptionSet",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s9OptionSetP",
+            "mangledName": "$ss9OptionSetP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SetAlgebra",
+            "printedName": "SetAlgebra",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s10SetAlgebraP",
+            "mangledName": "$ss10SetAlgebraP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByArrayLiteral",
+            "printedName": "ExpressibleByArrayLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ArrayLiteralElement",
+                "printedName": "ArrayLiteralElement",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByArrayLiteralP",
+            "mangledName": "$ss25ExpressibleByArrayLiteralP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveLogCategory",
+        "printedName": "RiveLogCategory",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A11LogCategoryC8rawValueSivp",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC8rawValueSivp",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A11LogCategoryC8rawValueSivg",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC8rawValueSivg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A11LogCategoryC8rawValueSivs",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC8rawValueSivs",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A11LogCategoryC8rawValueSivM",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC8rawValueSivM",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11RiveRuntime0A11LogCategoryC8rawValueACSi_tcfc",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC8rawValueACSi_tcfc",
+            "moduleName": "RiveRuntime",
+            "declAttributes": [
+              "Required",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "stateMachine",
+            "printedName": "stateMachine",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)stateMachine",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC12stateMachineACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)stateMachine",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC12stateMachineACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "artboard",
+            "printedName": "artboard",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)artboard",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC8artboardACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)artboard",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC8artboardACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "viewModel",
+            "printedName": "viewModel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)viewModel",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC9viewModelACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)viewModel",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC9viewModelACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "model",
+            "printedName": "model",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)model",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC5modelACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)model",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC5modelACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "file",
+            "printedName": "file",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)file",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC4fileACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)file",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC4fileACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "view",
+            "printedName": "view",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)view",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC4viewACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)view",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC4viewACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)none",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC4noneACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)none",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC4noneACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "all",
+            "printedName": "all",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cpy)all",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC3allACvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(cm)all",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC3allACvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isEqual",
+            "printedName": "isEqual(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(im)isEqual:",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC7isEqualySbypSgF",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "objc_name": "isEqual:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hash",
+            "printedName": "hash",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(py)hash",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryC4hashSivp",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "objc_name": "hash",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(im)hash",
+                "mangledName": "$s11RiveRuntime0A11LogCategoryC4hashSivg",
+                "moduleName": "RiveRuntime",
+                "overriding": true,
+                "objc_name": "hash",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory(im)init",
+            "mangledName": "$s11RiveRuntime0A11LogCategoryCACycfc",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory",
+        "mangledName": "$s11RiveRuntime0A11LogCategoryC",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OptionSet",
+            "printedName": "OptionSet",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s9OptionSetP",
+            "mangledName": "$ss9OptionSetP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SetAlgebra",
+            "printedName": "SetAlgebra",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Element",
+                "printedName": "Element",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s10SetAlgebraP",
+            "mangledName": "$ss10SetAlgebraP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByArrayLiteral",
+            "printedName": "ExpressibleByArrayLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ArrayLiteralElement",
+                "printedName": "ArrayLiteralElement",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByArrayLiteralP",
+            "mangledName": "$ss25ExpressibleByArrayLiteralP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveLogger",
+        "printedName": "RiveLogger",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isEnabled",
+            "printedName": "isEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cpy)isEnabled",
+            "mangledName": "$s11RiveRuntime0A6LoggerC9isEnabledSbvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)isEnabled",
+                "mangledName": "$s11RiveRuntime0A6LoggerC9isEnabledSbvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)setIsEnabled:",
+                "mangledName": "$s11RiveRuntime0A6LoggerC9isEnabledSbvsZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A6LoggerC9isEnabledSbvMZ",
+                "mangledName": "$s11RiveRuntime0A6LoggerC9isEnabledSbvMZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isVerbose",
+            "printedName": "isVerbose",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cpy)isVerbose",
+            "mangledName": "$s11RiveRuntime0A6LoggerC9isVerboseSbvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)isVerbose",
+                "mangledName": "$s11RiveRuntime0A6LoggerC9isVerboseSbvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)setIsVerbose:",
+                "mangledName": "$s11RiveRuntime0A6LoggerC9isVerboseSbvsZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A6LoggerC9isVerboseSbvMZ",
+                "mangledName": "$s11RiveRuntime0A6LoggerC9isVerboseSbvMZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "levels",
+            "printedName": "levels",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogLevel",
+                "printedName": "RiveRuntime.RiveLogLevel",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cpy)levels",
+            "mangledName": "$s11RiveRuntime0A6LoggerC6levelsAA0A8LogLevelCvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)levels",
+                "mangledName": "$s11RiveRuntime0A6LoggerC6levelsAA0A8LogLevelCvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogLevel",
+                    "printedName": "RiveRuntime.RiveLogLevel",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogLevel"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)setLevels:",
+                "mangledName": "$s11RiveRuntime0A6LoggerC6levelsAA0A8LogLevelCvsZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A6LoggerC6levelsAA0A8LogLevelCvMZ",
+                "mangledName": "$s11RiveRuntime0A6LoggerC6levelsAA0A8LogLevelCvMZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "categories",
+            "printedName": "categories",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogCategory",
+                "printedName": "RiveRuntime.RiveLogCategory",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cpy)categories",
+            "mangledName": "$s11RiveRuntime0A6LoggerC10categoriesAA0A11LogCategoryCvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)categories",
+                "mangledName": "$s11RiveRuntime0A6LoggerC10categoriesAA0A11LogCategoryCvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveLogCategory",
+                    "printedName": "RiveRuntime.RiveLogCategory",
+                    "usr": "c:@M@RiveRuntime@objc(cs)RiveLogCategory"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(cm)setCategories:",
+                "mangledName": "$s11RiveRuntime0A6LoggerC10categoriesAA0A11LogCategoryCvsZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A6LoggerC10categoriesAA0A11LogCategoryCvMZ",
+                "mangledName": "$s11RiveRuntime0A6LoggerC10categoriesAA0A11LogCategoryCvMZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RiveLogger",
+                "printedName": "RiveRuntime.RiveLogger",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger(im)init",
+            "mangledName": "$s11RiveRuntime0A6LoggerCACycfc",
+            "moduleName": "RiveRuntime",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RiveRuntime@objc(cs)RiveLogger",
+        "mangledName": "$s11RiveRuntime0A6LoggerC",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RiveFallbackFontProvider",
+        "printedName": "RiveFallbackFontProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "fallbackFont",
+            "printedName": "fallbackFont",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFont",
+                "printedName": "AppKit.NSFont",
+                "usr": "c:objc(cs)NSFont"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(pl)RiveFallbackFontProvider(py)fallbackFont",
+            "mangledName": "$s11RiveRuntime0A20FallbackFontProviderP08fallbackD0So6NSFontCvp",
+            "moduleName": "RiveRuntime",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSFont",
+                    "printedName": "AppKit.NSFont",
+                    "usr": "c:objc(cs)NSFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(pl)RiveFallbackFontProvider(im)fallbackFont",
+                "mangledName": "$s11RiveRuntime0A20FallbackFontProviderP08fallbackD0So6NSFontCvg",
+                "moduleName": "RiveRuntime",
+                "genericSig": "<τ_0_0 where τ_0_0 : RiveRuntime.RiveFallbackFontProvider>",
+                "sugared_genericSig": "<Self where Self : RiveRuntime.RiveFallbackFontProvider>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@RiveRuntime@objc(pl)RiveFallbackFontProvider",
+        "mangledName": "$s11RiveRuntime0A20FallbackFontProviderP",
+        "moduleName": "RiveRuntime",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "StateMachineInputType",
         "printedName": "StateMachineInputType",
@@ -2501,6 +6143,60 @@
         "name": "RiveViewModel",
         "printedName": "RiveViewModel",
         "children": [
+          {
+            "kind": "Var",
+            "name": "layoutScaleFactorAutomatic",
+            "printedName": "layoutScaleFactorAutomatic",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(cpy)layoutScaleFactorAutomatic",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC26layoutScaleFactorAutomaticSdvpZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(cm)layoutScaleFactorAutomatic",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC26layoutScaleFactorAutomaticSdvgZ",
+                "moduleName": "RiveRuntime",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
           {
             "kind": "Var",
             "name": "riveView",
@@ -3580,6 +7276,97 @@
           },
           {
             "kind": "Var",
+            "name": "layoutScaleFactor",
+            "printedName": "layoutScaleFactor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvp",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvp",
+            "moduleName": "RiveRuntime",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvg",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvg",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvs",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvs",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvM",
+                "mangledName": "$s11RiveRuntime0A9ViewModelC17layoutScaleFactorSdvM",
+                "moduleName": "RiveRuntime",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "forwardsListenerEvents",
             "printedName": "forwardsListenerEvents",
             "children": [
@@ -3951,6 +7738,45 @@
           },
           {
             "kind": "Function",
+            "name": "boolInput",
+            "printedName": "boolInput(named:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RiveRuntime.RiveSMIBool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveSMIBool",
+                    "printedName": "RiveRuntime.RiveSMIBool",
+                    "usr": "c:objc(cs)RiveSMIBool"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)boolInputWithNamed:",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC9boolInput5namedSo0A7SMIBoolCSgSS_tF",
+            "moduleName": "RiveRuntime",
+            "isOpen": true,
+            "objc_name": "boolInputWithNamed:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setInput",
             "printedName": "setInput(_:value:)",
             "children": [
@@ -4014,6 +7840,45 @@
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "objc_name": "setDoubleInput::",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "numberInput",
+            "printedName": "numberInput(named:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RiveRuntime.RiveSMINumber?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RiveSMINumber",
+                    "printedName": "RiveRuntime.RiveSMINumber",
+                    "usr": "c:objc(cs)RiveSMINumber"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)numberInputWithNamed:",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC11numberInput5namedSo0A9SMINumberCSgSS_tF",
+            "moduleName": "RiveRuntime",
+            "isOpen": true,
+            "objc_name": "numberInputWithNamed:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
@@ -4215,6 +8080,50 @@
           },
           {
             "kind": "Function",
+            "name": "getTextRunValue",
+            "printedName": "getTextRunValue(_:path:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)getTextRunValue:path:",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC15getTextRunValue_4pathSSSgSS_SStF",
+            "moduleName": "RiveRuntime",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setTextRunValue",
             "printedName": "setTextRunValue(_:textValue:)",
             "children": [
@@ -4239,6 +8148,48 @@
             "declKind": "Func",
             "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)setTextRunValue:textValue:error:",
             "mangledName": "$s11RiveRuntime0A9ViewModelC15setTextRunValue_04textH0ySS_SStKF",
+            "moduleName": "RiveRuntime",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setTextRunValue",
+            "printedName": "setTextRunValue(_:path:textValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RiveRuntime@objc(cs)RiveViewModel(im)setTextRunValue:path:textValue:error:",
+            "mangledName": "$s11RiveRuntime0A9ViewModelC15setTextRunValue_4path04textH0ySS_S2StKF",
             "moduleName": "RiveRuntime",
             "isOpen": true,
             "declAttributes": [
@@ -5230,6 +9181,40 @@
       },
       {
         "kind": "Import",
+        "name": "AppKit",
+        "printedName": "AppKit",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
         "declKind": "Import",
@@ -6043,6 +10028,23 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RiveRuntime"
+      },
+      {
         "kind": "TypeDecl",
         "name": "RiveFile",
         "printedName": "RiveFile",
@@ -6393,6 +10395,138 @@
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NSFont",
+        "printedName": "NSFont",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "fallbackFont",
+            "printedName": "fallbackFont",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFont",
+                "printedName": "AppKit.NSFont",
+                "usr": "c:objc(cs)NSFont"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@RiveRuntime@@objc(cs)NSFont(py)fallbackFont",
+            "mangledName": "$sSo6NSFontC11RiveRuntimeE12fallbackFontABvp",
+            "moduleName": "RiveRuntime",
+            "objc_name": "fallbackFont",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSFont",
+                    "printedName": "AppKit.NSFont",
+                    "usr": "c:objc(cs)NSFont"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@RiveRuntime@@objc(cs)NSFont(im)fallbackFont",
+                "mangledName": "$sSo6NSFontC11RiveRuntimeE12fallbackFontABvg",
+                "moduleName": "RiveRuntime",
+                "objc_name": "fallbackFont",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSFont",
+        "moduleName": "AppKit",
+        "isOpen": true,
+        "objc_name": "NSFont",
+        "declAttributes": [
+          "ObjC",
+          "NonSendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RiveFallbackFontProvider",
+            "printedName": "RiveFallbackFontProvider",
+            "usr": "c:@M@RiveRuntime@objc(pl)RiveFallbackFontProvider",
+            "mangledName": "$s11RiveRuntime0A20FallbackFontProviderP"
+          }
+        ]
       }
     ],
     "json_format_version": 8
@@ -6415,49 +10549,63 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Utils\/RiveFile+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 751,
+      "offset": 816,
       "length": 6,
       "value": "\".riv\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 274,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1513,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 943,
+      "offset": 2127,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1023,
+      "offset": 2207,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1072,
+      "offset": 2256,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1650,
+      "offset": 2834,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2161,
+      "offset": 3401,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3693,
+      "offset": 6798,
       "length": 4,
       "value": "true"
     },
@@ -6478,51 +10626,520 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 19998,
+      "offset": 25689,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 20089,
+      "offset": 25780,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 20182,
+      "offset": 25873,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 19998,
+      "offset": 25689,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 20089,
+      "offset": 25780,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 20182,
+      "offset": 25873,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "Array",
-      "offset": 23456,
+      "offset": 29175,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger+Model.swift",
+      "kind": "StringLiteral",
+      "offset": 593,
+      "length": 12,
+      "value": "\"rive-model\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger+ViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 634,
+      "length": 17,
+      "value": "\"rive-view-model\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 455,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 518,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 587,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 646,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 455,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 518,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 587,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 646,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 867,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 915,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 965,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1039,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1091,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1148,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1196,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1246,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1296,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 867,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 915,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 965,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1039,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1091,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1148,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1196,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1246,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1296,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1420,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1482,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1542,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1602,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1420,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1482,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1542,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1602,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor.swift",
+      "kind": "StringLiteral",
+      "offset": 2040,
+      "length": 26,
+      "value": "\"RiveRuntime.RiveFallbackFontDescriptor\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 548,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 553,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 672,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 677,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 774,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 779,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 885,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 890,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1011,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1016,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "Array",
+      "offset": 1117,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 285,
+      "length": 12,
+      "value": "\"RiveRuntime.RiveLogLevel\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1851,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1856,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1985,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1990,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2122,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2127,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2250,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2255,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2376,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2381,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2502,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2507,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "Array",
+      "offset": 2603,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 1561,
+      "length": 15,
+      "value": "\"RiveRuntime.RiveLogCategory\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3279,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3514,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger+File.swift",
+      "kind": "StringLiteral",
+      "offset": 589,
+      "length": 11,
+      "value": "\"rive-file\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger+View.swift",
+      "kind": "StringLiteral",
+      "offset": 576,
+      "length": 11,
+      "value": "\"rive-view\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Utils\/RiveStateMachineInstance+Extensions.swift",
@@ -6562,91 +11179,91 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1582,
+      "offset": 1793,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2075,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
-      "kind": "StringLiteral",
-      "offset": 2451,
-      "length": 6,
-      "value": "\".riv\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2631,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2698,
+      "offset": 2286,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3184,
+      "offset": 2662,
       "length": 6,
       "value": "\".riv\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3367,
+      "offset": 2842,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 3480,
+      "offset": 2909,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 3395,
+      "length": 6,
+      "value": "\".riv\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3578,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4076,
+      "offset": 3691,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4106,
+      "offset": 4287,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4669,
+      "offset": 4317,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4699,
+      "offset": 4880,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 6636,
+      "offset": 4910,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7298,
       "length": 5,
       "value": "false"
     },
@@ -6660,7 +11277,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 22327,
+      "offset": 27285,
       "length": 11,
       "value": "\"RiveRuntime.Coordinator\""
     },
@@ -6679,6 +11296,146 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3572,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6658,
+      "length": 23,
+      "value": "\"CTFontUltraLightUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6698,
+      "length": 17,
+      "value": "\"CTFontThinUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6733,
+      "length": 18,
+      "value": "\"CTFontLightUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6771,
+      "length": 20,
+      "value": "\"CTFontRegularUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6810,
+      "length": 19,
+      "value": "\"CTFontMediumUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6850,
+      "length": 17,
+      "value": "\"CTFontDemiUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6884,
+      "length": 17,
+      "value": "\"CTFontBoldUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6919,
+      "length": 18,
+      "value": "\"CTFontHeavyUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6955,
+      "length": 18,
+      "value": "\"CTFontBlackUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6658,
+      "length": 23,
+      "value": "\"CTFontUltraLightUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6698,
+      "length": 17,
+      "value": "\"CTFontThinUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6733,
+      "length": 18,
+      "value": "\"CTFontLightUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6771,
+      "length": 20,
+      "value": "\"CTFontRegularUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6810,
+      "length": 19,
+      "value": "\"CTFontMediumUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6850,
+      "length": 17,
+      "value": "\"CTFontDemiUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6884,
+      "length": 17,
+      "value": "\"CTFontBoldUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6919,
+      "length": 18,
+      "value": "\"CTFontHeavyUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Fonts\/RiveFallbackFontDescriptor+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 6955,
+      "length": 18,
+      "value": "\"CTFontBlackUsage\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger+Artboard.swift",
+      "kind": "StringLiteral",
+      "offset": 355,
+      "length": 15,
+      "value": "\"rive-artboard\""
+    },
+    {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveModel.swift",
       "kind": "StringLiteral",
       "offset": 691,
@@ -6695,7 +11452,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 1309,
+      "offset": 1313,
       "length": 1,
       "value": "1"
     },
@@ -6705,6 +11462,13 @@
       "offset": 188,
       "length": 9,
       "value": "\"RiveRuntime.RiveModel\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Logging\/RiveLogger+StateMachine.swift",
+      "kind": "StringLiteral",
+      "offset": 400,
+      "length": 20,
+      "value": "\"rive-state-machine\""
     }
   ]
 }

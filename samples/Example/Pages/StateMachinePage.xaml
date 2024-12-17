@@ -14,15 +14,15 @@
 
                 <riveMaui:BoolInput StateMachineName="Login Machine"
                                     InputName="isChecking"
-                                    Value="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}" />
+                                    Value="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}, x:DataType=Switch}" />
 
                 <riveMaui:NumberInput StateMachineName="Login Machine"
                                       InputName="numLook"
-                                      Value="{Binding Value, Source={x:Reference LookSlider}}" />
+                                      Value="{Binding Value, Source={x:Reference LookSlider}, x:DataType=Slider}" />
 
                 <riveMaui:BoolInput StateMachineName="Login Machine"
                                     InputName="isHandsUp"
-                                    Value="{Binding IsToggled, Source={x:Reference IsHandsUpSwitch}}" />
+                                    Value="{Binding IsToggled, Source={x:Reference IsHandsUpSwitch}, x:DataType=Switch}" />
 
                 <riveMaui:TriggerInput x:Name="TrigFail"
                                        StateMachineName="Login Machine"
@@ -43,7 +43,7 @@
                 </HorizontalStackLayout>
 
                 <Slider x:Name="LookSlider"
-                        IsEnabled="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}}"
+                        IsEnabled="{Binding IsToggled, Source={x:Reference IsCheckingSwitch}, x:DataType=Switch}"
                         Minimum="0"
                         Maximum="100"
                         Value="0" />
@@ -55,10 +55,10 @@
                 </HorizontalStackLayout>
 
                 <Button Text="Failure"
-                        Command="{Binding FireCommand, Source={x:Reference TrigFail}}" />
+                        Command="{Binding FireCommand, Source={x:Reference TrigFail}, x:DataType=riveMaui:TriggerInput}" />
 
                 <Button Text="Success"
-                        Command="{Binding FireCommand, Source={x:Reference TrigSuccess}}" />
+                        Command="{Binding FireCommand, Source={x:Reference TrigSuccess}, x:DataType=riveMaui:TriggerInput}" />
             </StackLayout>
         </Grid>
     </ScrollView>

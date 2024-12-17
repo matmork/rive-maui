@@ -20,27 +20,39 @@ public class AssetLoader : FileAssetLoader
         if (dynamicAsset == null)
             return false;
 
-        var resourceIdentifier = _context.Resources?.GetIdentifier(dynamicAsset.Filename, "drawable", _context.PackageName) ?? 0;
-        if (resourceIdentifier == 0)
-            return false;
+        byte[]? newData = null;
+        if (!string.IsNullOrWhiteSpace(dynamicAsset.Filename))
+        {
+            var resourceIdentifier = _context.Resources?.GetIdentifier(dynamicAsset.Filename, "drawable", _context.PackageName) ?? 0;
+            if (resourceIdentifier == 0)
+                return false;
 
-        using var stream = _context.Resources?.OpenRawResource(resourceIdentifier);
-        if (stream == null)
-            return false;
+            using var stream = _context.Resources?.OpenRawResource(resourceIdentifier);
+            if (stream == null)
+                return false;
 
-        using var memoryStream = new MemoryStream();
-        stream.CopyTo(memoryStream);
+            using var memoryStream = new MemoryStream();
+            stream.CopyTo(memoryStream);
+
+            newData = memoryStream.ToArray();
+        }
+
+        if (dynamicAsset.FileBytes != null)
+            newData = dynamicAsset.FileBytes;
+
+        if (newData == null)
+            return false;
 
         switch (asset)
         {
             case ImageAsset imageAsset:
-                imageAsset.Decode(memoryStream.ToArray());
+                imageAsset.Decode(newData);
                 return true;
             case FontAsset fontAsset:
-                fontAsset.Decode(memoryStream.ToArray());
+                fontAsset.Decode(newData);
                 return true;
             case AudioAsset audioAsset:
-                audioAsset.Decode(memoryStream.ToArray());
+                audioAsset.Decode(newData);
                 return true;
             default:
                 return false;

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net8.0-android</TargetFramework>
+		<TargetFramework>net9.0-android</TargetFramework>
 		<SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
@@ -18,14 +18,5 @@
 	<ItemGroup>
 		<PackageReference Include="Com.Getkeepsafe.Relinker" />
 		<PackageReference Include="Xamarin.Android.Volley" />
-		<PackageReference Include="Xamarin.AndroidX.AppCompat" />
-		
-		<!-- Xamarin.AndroidX.Collection.Ktx helped fix the issue from https://stackoverflow.com/a/77949214/1114918 -->
-		<PackageReference Include="Xamarin.AndroidX.Collection.Ktx" />
-		
-		<PackageReference Include="Xamarin.AndroidX.Core.Core.Ktx" />
-		<PackageReference Include="Xamarin.AndroidX.Startup.StartupRuntime" />
-		<PackageReference Include="Xamarin.Kotlin.Reflect" />
-		<PackageReference Include="Xamarin.Kotlin.StdLib" />
 	</ItemGroup>
 </Project>

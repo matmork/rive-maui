@@ -21,16 +21,16 @@
                                    HorizontalOptions="Center">
 
                 <Button Text="Play"
-                        Command="{Binding PlayCommand, Source={x:Reference RivePlayer}}" />
+                        Command="{Binding PlayCommand, Source={x:Reference RivePlayer}, x:DataType=riveMaui:RivePlayer}" />
 
                 <Button Text="Pause"
-                        Command="{Binding PauseCommand, Source={x:Reference RivePlayer}}" />
+                        Command="{Binding PauseCommand, Source={x:Reference RivePlayer}, x:DataType=riveMaui:RivePlayer}" />
 
                 <Button Text="Stop"
-                        Command="{Binding StopCommand, Source={x:Reference RivePlayer}}" />
+                        Command="{Binding StopCommand, Source={x:Reference RivePlayer}, x:DataType=riveMaui:RivePlayer}" />
 
                 <Button Text="Reset"
-                        Command="{Binding ResetCommand, Source={x:Reference RivePlayer}}" />
+                        Command="{Binding ResetCommand, Source={x:Reference RivePlayer}, x:DataType=riveMaui:RivePlayer}" />
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

@@ -18,7 +18,7 @@ public sealed class CustomRiveView : RiveRendererView
     private double? _lastTime;
     private string? _resourceName;
 
-    public WeakReference<RivePlayer?> Control { get; set; } = new(null);
+    public WeakReference<RivePlayer?> VirtualView { get; set; } = new(null);
     public string? ArtboardName { get; set; }
     public string? StateMachineName { get; set; }
     public string? AnimationName { get; set; }
@@ -48,7 +48,7 @@ public sealed class CustomRiveView : RiveRendererView
         if (resourceData == null)
             return;
 
-        if (Control.TryGetTarget(out var rivePlayer) && rivePlayer.DynamicAssets?.Count > 0)
+        if (VirtualView.TryGetTarget(out var rivePlayer) && rivePlayer.DynamicAssets?.Count > 0)
         {
             var loader = new LoadAsset((asset, _, factory) =>
             {
@@ -57,7 +57,13 @@ public sealed class CustomRiveView : RiveRendererView
                 if (dynamicAsset == null)
                     return false;
 
-                var newData = GetNSDataForResource(dynamicAsset.Filename, dynamicAsset.Extension);
+                NSData? newData = null;
+                if (!string.IsNullOrWhiteSpace(dynamicAsset.Filename) && !string.IsNullOrWhiteSpace(dynamicAsset.FileExtension))
+                    newData = GetNSDataForResource(dynamicAsset.Filename, dynamicAsset.FileExtension);
+
+                if (dynamicAsset.FileBytes != null)
+                    newData = NSData.FromArray(dynamicAsset.FileBytes);
+
                 if (newData == null)
                     return false;
 
@@ -108,7 +114,15 @@ public sealed class CustomRiveView : RiveRendererView
             ? _riveFile?.ArtboardFromName(ArtboardName, out _)
             : _riveFile?.Artboard(out _);
 
-        if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount == 0)
+        if (VirtualView.TryGetTarget(out var rivePlayer) && rivePlayer.TextRuns?.Count > 0)
+        {
+            foreach (var textRun in rivePlayer.TextRuns)
+            {
+                SetTextRun(textRun.TextRunName, textRun.Value);
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(AnimationName) || _riveArtboard?.StateMachineCount() == 0)
         {
             _riveAnimation?.Dispose();
             _riveAnimation = !string.IsNullOrWhiteSpace(AnimationName)
@@ -155,7 +169,7 @@ public sealed class CustomRiveView : RiveRendererView
 
         if (_riveStateMachine != null)
         {
-            if (Control.TryGetTarget(out var control))
+            if (VirtualView.TryGetTarget(out var control))
             {
                 // Event
                 for (var i = 0; i < _riveStateMachine.ReportedEventCount; i++)
@@ -165,7 +179,7 @@ public sealed class CustomRiveView : RiveRendererView
                     {
                         var properties = evt.Properties
                             ?.ToDictionary<KeyValuePair<NSString, NSObject>, string, object>(k => k.Key, k => k.Value);
-                        var args = new EventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
+                        var args = new StateMachineEventReceivedArgs(evt.Name, (RivePlayerEvent)evt.Type, properties);
                         control.EventReceivedManager.HandleEvent(this, args, nameof(RivePlayer.EventReceived));
                         control.EventReceivedCommand?.Execute(args);
                     }
@@ -206,16 +220,6 @@ public sealed class CustomRiveView : RiveRendererView
         }
         else
         {
-            if (Control.TryGetTarget(out var control) && control.PlayToPercentage > 0 && _riveAnimation != null)
-            {
-                var percentElapsed = Math.Floor(_riveAnimation.Time / _riveAnimation.EffectiveDurationInSeconds() * 100);
-                if (percentElapsed >= control.PlayToPercentage)
-                {
-                    Pause();
-                    return;
-                }
-            }
-
             _riveAnimation?.AdvanceBy(elapsedTime);
         }
 
@@ -313,6 +317,15 @@ public sealed class CustomRiveView : RiveRendererView
         _riveStateMachine?.GetTrigger(inputName)?.Fire();
     }
 
+    public void SetTextRun(string textRunName, string value)
+    {
+        var textRun = _riveArtboard?.TextRun(textRunName);
+        if (textRun != null)
+        {
+            textRun.Text = value;
+        }
+    }
+
     public void ResetProperties(bool disposeFile = true)
     {
         _resourceName = null;
@@ -341,10 +354,10 @@ public sealed class CustomRiveView : RiveRendererView
     {
         ResetProperties();
 
-        if (Control.TryGetTarget(out var control))
+        if (VirtualView.TryGetTarget(out var control))
             control.StateMachineInputs.Dispose();
 
-        Control.SetTarget(null);
+        VirtualView.SetTarget(null);
 
         base.Dispose();
     }

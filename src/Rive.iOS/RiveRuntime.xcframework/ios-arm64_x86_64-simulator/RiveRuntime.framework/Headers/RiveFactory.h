@@ -11,10 +11,15 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+#if TARGET_OS_IPHONE
+#import <UIKit/UIFont.h>
+#else
+#import <AppKit/NSFont.h>
+#endif
 
-@interface RiveFont : NSObject
-@end
+@class RiveFont;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface RiveRenderImage : NSObject
 @end
@@ -27,6 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface RiveFactory : NSObject
 - (RiveFont*)decodeFont:(NSData*)data;
+#if TARGET_OS_IPHONE || TARGET_OS_VISION || TARGET_OS_TV
+- (RiveFont*)decodeUIFont:(UIFont*)data NS_SWIFT_NAME(decodeFont(_:));
+#else
+- (RiveFont*)decodeNSFont:(NSFont*)data NS_SWIFT_NAME(decodeFont(_:));
+#endif
 - (RiveRenderImage*)decodeImage:(NSData*)data;
 - (RiveAudio*)decodeAudio:(NSData*)data;
 @end

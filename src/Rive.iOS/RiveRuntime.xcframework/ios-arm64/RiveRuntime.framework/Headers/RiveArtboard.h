@@ -28,6 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString*)name;
 - (CGRect)bounds;
 
+- (double)width;
+- (double)height;
+- (void)setWidth:(double)value;
+- (void)setHeight:(double)value;
+- (void)resetArtboardSize;
+
 - (const RiveSMIBool*)getBool:(NSString*)name path:(NSString*)path;
 - (const RiveSMITrigger*)getTrigger:(NSString*)name path:(NSString*)path;
 - (const RiveSMINumber*)getNumber:(NSString*)name path:(NSString*)path;
@@ -36,16 +42,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSString*>*)animationNames;
 - (RiveLinearAnimationInstance* __nullable)animationFromIndex:(NSInteger)index
                                                         error:(NSError**)error;
-- (RiveLinearAnimationInstance* __nullable)animationFromName:(NSString*)name error:(NSError**)error;
+- (RiveLinearAnimationInstance* __nullable)animationFromName:(NSString*)name
+                                                       error:(NSError**)error;
 
 - (NSInteger)stateMachineCount;
 - (NSArray<NSString*>*)stateMachineNames;
 - (RiveStateMachineInstance* __nullable)stateMachineFromIndex:(NSInteger)index
                                                         error:(NSError**)error;
-- (RiveStateMachineInstance* __nullable)stateMachineFromName:(NSString*)name error:(NSError**)error;
+- (RiveStateMachineInstance* __nullable)stateMachineFromName:(NSString*)name
+                                                       error:(NSError**)error;
 - (RiveStateMachineInstance* __nullable)defaultStateMachine;
 
 - (RiveTextValueRun* __nullable)textRun:(NSString*)name;
+- (RiveTextValueRun* __nullable)textRun:(NSString*)name path:(NSString*)path;
 
 - (void)advanceBy:(double)elapsedSeconds;
 - (void)draw:(RiveRenderer*)renderer;

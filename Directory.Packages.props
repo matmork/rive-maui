@@ -1,16 +1,9 @@
 <Project>
   <ItemGroup>
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageVersion Include="Microsoft.Maui.Controls" Version="9.0.10" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+    <PackageVersion Include="Xamarin.Android.Volley" Version="1.2.1.14" />
     <PackageVersion Include="Com.Getkeepsafe.Relinker" Version="1.3.1" />
-    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-    <PackageVersion Include="Microsoft.Maui.Controls" Version="8.0.7" />
-    <PackageVersion Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.7" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-    <PackageVersion Include="Xamarin.Android.Volley" Version="1.2.1.9" />
-    <PackageVersion Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.7" />
-    <PackageVersion Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.0.1" />
-    <PackageVersion Include="Xamarin.AndroidX.Core.Core.Ktx" Version="1.12.0.4" />
-    <PackageVersion Include="Xamarin.AndroidX.Startup.StartupRuntime" Version="1.1.1.11" />
-    <PackageVersion Include="Xamarin.Kotlin.Reflect" Version="1.9.22.1" />
-    <PackageVersion Include="Xamarin.Kotlin.StdLib" Version="1.9.23" />
   </ItemGroup>
 </Project>

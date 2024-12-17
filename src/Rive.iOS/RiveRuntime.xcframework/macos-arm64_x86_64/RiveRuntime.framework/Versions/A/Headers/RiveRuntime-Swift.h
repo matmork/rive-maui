@@ -313,7 +313,245 @@ SWIFT_CLASS("_TtC11RiveRuntime14FPSCounterView")
 @end
 
 
+/// A type that is capable of providing fonts usable as fallback fonts.
+SWIFT_PROTOCOL("_TtP11RiveRuntime24RiveFallbackFontProvider_")
+@protocol RiveFallbackFontProvider
+/// An array of possible fonts to use as fallback fonts.
+@property (nonatomic, readonly, strong) NSFont * _Nonnull fallbackFont;
+@end
+
+
+@interface NSFont (SWIFT_EXTENSION(RiveRuntime)) <RiveFallbackFontProvider>
+/// The native font returned that can be used as a fallback font. In this instance, the native font itself can be used.
+@property (nonatomic, readonly, strong) NSFont * _Nonnull fallbackFont;
+@end
+
+
+/// Defines the interface of a type that can return a weight value to be used when rendering a font in Rive.
+SWIFT_PROTOCOL("_TtP11RiveRuntime18RiveWeightProvider_")
+@protocol RiveWeightProvider
+/// The weight to use when rendering a font in Rive.
+@property (nonatomic, readonly) NSInteger riveWeightValue;
+@end
+
+
+@interface NSFont (SWIFT_EXTENSION(RiveRuntime)) <RiveWeightProvider>
+@property (nonatomic, readonly) NSInteger riveWeightValue;
+@end
+
+
+/// Defines the interface of a type that can return a width value to be used when rendering a font in Rive.
+SWIFT_PROTOCOL("_TtP11RiveRuntime21RiveFontWidthProvider_")
+@protocol RiveFontWidthProvider
+/// The width to use when rendering a font in Rive. This value may be ignored, depending on the font
+/// data loaded by Rive when rendering.
+/// note:
+/// In some cases, iOS may override any provided weight values when generating fonts.
+@property (nonatomic, readonly) NSInteger riveFontWidthValue;
+@end
+
+
+@interface NSFont (SWIFT_EXTENSION(RiveRuntime)) <RiveFontWidthProvider>
+@property (nonatomic, readonly) NSInteger riveFontWidthValue;
+@end
+
+enum RiveFallbackFontDescriptorDesign : NSInteger;
+enum RiveFallbackFontDescriptorWeight : NSInteger;
+enum RiveFallbackFontDescriptorWidth : NSInteger;
+
+/// A type that represents the description of a font, based on a system font.
+SWIFT_CLASS("_TtC11RiveRuntime26RiveFallbackFontDescriptor")
+@interface RiveFallbackFontDescriptor : NSObject
+/// Initializes a new font descriptor, used to generate a font based on a system font.
+/// \param design The design of the font.
+///
+/// \param weight The weight of the font.
+///
+/// \param weight The width of the font. This value is not guaranteed to be available for all fonts.
+///
+- (nonnull instancetype)initWithDesign:(enum RiveFallbackFontDescriptorDesign)design weight:(enum RiveFallbackFontDescriptorWeight)weight width:(enum RiveFallbackFontDescriptorWidth)width OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface RiveFallbackFontDescriptor (SWIFT_EXTENSION(RiveRuntime)) <RiveFallbackFontProvider>
+///
+/// returns:
+/// The font generated from all values of a <code>RiveFallbackFontDescriptor</code>.
+@property (nonatomic, readonly, strong) NSFont * _Nonnull fallbackFont;
+@end
+
+/// An enumeration of system design values available when creating a font based on a (system) font.
+typedef SWIFT_ENUM(NSInteger, RiveFallbackFontDescriptorDesign, open) {
+/// Defaults to the iOS (system) font design; sans-serif on the latest versions of iOS.
+  RiveFallbackFontDescriptorDesignDefault = 0,
+/// The rounded variant of <code>default</code>.
+  RiveFallbackFontDescriptorDesignRounded = 1,
+/// The monospaced variant of <code>default</code>.
+  RiveFallbackFontDescriptorDesignMonospaced = 2,
+/// The serif variant of <code>default</code>.
+  RiveFallbackFontDescriptorDesignSerif = 3,
+};
+
+/// An enuimeration of font weight values available when creating a font based on a (system) font.
+typedef SWIFT_ENUM(NSInteger, RiveFallbackFontDescriptorWeight, open) {
+/// The ultra-light font weight.
+  RiveFallbackFontDescriptorWeightUltraLight = 0,
+/// The thin font weight.
+  RiveFallbackFontDescriptorWeightThin = 1,
+/// The light font weight.
+  RiveFallbackFontDescriptorWeightLight = 2,
+/// The regular (typically default) font weight.
+  RiveFallbackFontDescriptorWeightRegular = 3,
+/// The medium font weight.
+  RiveFallbackFontDescriptorWeightMedium = 4,
+/// The semi-bold font weight.
+  RiveFallbackFontDescriptorWeightSemibold = 5,
+/// The bold font weight.
+  RiveFallbackFontDescriptorWeightBold = 6,
+/// The heavy font weight.
+  RiveFallbackFontDescriptorWeightHeavy = 7,
+/// The black font weight.
+  RiveFallbackFontDescriptorWeightBlack = 8,
+};
+
+typedef SWIFT_ENUM(NSInteger, RiveFallbackFontDescriptorWidth, open) {
+/// A width that compresses a font.
+  RiveFallbackFontDescriptorWidthCompressed = 0,
+/// A width that condenses a font.
+  RiveFallbackFontDescriptorWidthCondensed = 1,
+/// The standard width of a font.
+  RiveFallbackFontDescriptorWidthStandard = 2,
+/// The expanded width of a font.
+  RiveFallbackFontDescriptorWidthExpanded = 3,
+};
+
+
+
+
+
+SWIFT_CLASS("_TtC11RiveRuntime15RiveLogCategory")
+@interface RiveLogCategory : NSObject
+/// The category used when logging from a Rive state machine.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull stateMachine;)
++ (RiveLogCategory * _Nonnull)stateMachine SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive artboard.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull artboard;)
++ (RiveLogCategory * _Nonnull)artboard SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive view model.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull viewModel;)
++ (RiveLogCategory * _Nonnull)viewModel SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive model.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull model;)
++ (RiveLogCategory * _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive file.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull file;)
++ (RiveLogCategory * _Nonnull)file SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive view.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull view;)
++ (RiveLogCategory * _Nonnull)view SWIFT_WARN_UNUSED_RESULT;
+/// An option set of no categories.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull none;)
++ (RiveLogCategory * _Nonnull)none SWIFT_WARN_UNUSED_RESULT;
+/// An option set containing all possible categories
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull all;)
++ (RiveLogCategory * _Nonnull)all SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// An option set of possible log levels, checked when attempting to log.
+SWIFT_CLASS("_TtC11RiveRuntime12RiveLogLevel")
+@interface RiveLogLevel : NSObject
+/// A log level that captures debug information
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull debug;)
++ (RiveLogLevel * _Nonnull)debug SWIFT_WARN_UNUSED_RESULT;
+/// A log level that captures additional information.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull info;)
++ (RiveLogLevel * _Nonnull)info SWIFT_WARN_UNUSED_RESULT;
+/// The default log level.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) RiveLogLevel * _Nonnull default_;)
++ (RiveLogLevel * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
+/// A log level that captures an error.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull error;)
++ (RiveLogLevel * _Nonnull)error SWIFT_WARN_UNUSED_RESULT;
+/// A log level that captures a fatal error, or fault.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull fault;)
++ (RiveLogLevel * _Nonnull)fault SWIFT_WARN_UNUSED_RESULT;
+/// An option set containing no levels.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull none;)
++ (RiveLogLevel * _Nonnull)none SWIFT_WARN_UNUSED_RESULT;
+/// An option set containing all possible levels.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull all;)
++ (RiveLogLevel * _Nonnull)all SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC11RiveRuntime10RiveLogger")
+@interface RiveLogger : NSObject
+/// A Bool indicating whether logging is enabled or not.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setIsEnabled:(BOOL)value;
+/// A Bool indicating whether verbose logs are enabled or not.
+/// note:
+/// Logs that emit a constant stream of information, such as state machine advances, are considererd verbose.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isVerbose;)
++ (BOOL)isVerbose SWIFT_WARN_UNUSED_RESULT;
++ (void)setIsVerbose:(BOOL)value;
+/// A set of levels that should be logged. Only used when <code>isEnabled</code> is set to <code>true</code>.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) RiveLogLevel * _Nonnull levels;)
++ (RiveLogLevel * _Nonnull)levels SWIFT_WARN_UNUSED_RESULT;
++ (void)setLevels:(RiveLogLevel * _Nonnull)value;
+/// A set of categories that should be logged. Only used when <code>isEnabled</code> is set to <code>true</code>.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) RiveLogCategory * _Nonnull categories;)
++ (RiveLogCategory * _Nonnull)categories SWIFT_WARN_UNUSED_RESULT;
++ (void)setCategories:(RiveLogCategory * _Nonnull)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+@class RiveStateMachineInstance;
 @class NSString;
+
+@interface RiveLogger (SWIFT_EXTENSION(RiveRuntime))
++ (void)logStateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine advance:(double)advance;
++ (void)logStateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine error:(NSString * _Nonnull)error;
+@end
+
+@class RiveArtboard;
+
+@interface RiveLogger (SWIFT_EXTENSION(RiveRuntime))
++ (void)logArtboard:(RiveArtboard * _Nonnull)artboard advance:(double)advance;
++ (void)logArtboard:(RiveArtboard * _Nonnull)artboard error:(NSString * _Nonnull)error;
+@end
+
+@class RiveFile;
+@class RiveFileAsset;
+@class RiveFontAsset;
+@class NSURL;
+@class RiveImageAsset;
+
+@interface RiveLogger (SWIFT_EXTENSION(RiveRuntime))
++ (void)logFile:(RiveFile * _Nullable)file error:(NSString * _Nonnull)message;
++ (void)logLoadingAsset:(RiveFileAsset * _Nonnull)asset;
++ (void)logFontAssetLoad:(RiveFontAsset * _Nonnull)fontAsset fromURL:(NSURL * _Nonnull)url;
++ (void)logImageAssetLoad:(RiveImageAsset * _Nonnull)imageAsset fromURL:(NSURL * _Nonnull)url;
++ (void)logAssetLoaded:(RiveFileAsset * _Nonnull)asset;
++ (void)logLoadedFromURL:(NSURL * _Nonnull)url;
++ (void)logLoadingFromResource:(NSString * _Nonnull)name;
+@end
+
 
 SWIFT_CLASS("_TtC11RiveRuntime9RiveModel")
 @interface RiveModel : NSObject
@@ -334,8 +572,6 @@ SWIFT_PROTOCOL("_TtP11RiveRuntime18RivePlayerDelegate_")
 - (void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
 @end
 
-@class RiveArtboard;
-@class RiveStateMachineInstance;
 @class StateMachineInput;
 enum RiveTouchEvent : NSInteger;
 @class RiveEvent;
@@ -377,6 +613,7 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 /// Minimalist constructor, call <code>.configure</code> to customize the <code>RiveView</code> later.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidMoveToWindow;
 /// Advances the Artboard and either a StateMachine or an Animation.
 /// Also fires any remaining events in the queue.
 /// \param delta elapsed seconds since the last advance
@@ -396,7 +633,8 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 @end
 
 @class NSBundle;
-@class RiveFile;
+@class RiveSMIBool;
+@class RiveSMINumber;
 
 /// An object used for controlling a RiveView. For most common Rive files you should only need
 /// to interact with a <code>RiveViewModel</code> object.
@@ -439,6 +677,9 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 /// \endcode
 SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 @interface RiveViewModel : NSObject <RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate>
+/// The default layout scale factor that allows for the scale factor to be determined by Rive.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFactorAutomatic;)
++ (double)layoutScaleFactorAutomatic SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init:(RiveModel * _Nonnull)model stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init:(RiveModel * _Nonnull)model animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName loadCdn:(BOOL)loadCdn customLoader:(LoadAsset _Nullable)customLoader OBJC_DESIGNATED_INITIALIZER;
@@ -471,10 +712,17 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 /// \param value A Bool value for the input
 ///
 - (void)setBooleanInput:(NSString * _Nonnull)inputName :(BOOL)value;
+/// Returns the current boolean input by name. Get its value by calling <code>.value</code> on the returned object.
+/// \param input The name of the input
+///
+///
+/// returns:
+/// The boolean input if it exists. Returns <code>nil</code> if the input cannot be found.
+- (RiveSMIBool * _Nullable)boolInputWithNamed:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 /// Provide the active StateMachine a <code>Number</code> input
 /// \param inputName The name of a <code>Number</code> input on the active StateMachine
 ///
-/// \param value A Float value for the input
+/// \param value A Float value for the input.
 ///
 - (void)setFloatInput:(NSString * _Nonnull)inputName :(float)value;
 /// Provide the active StateMachine a <code>Number</code> input
@@ -483,6 +731,13 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 /// \param value A Double value for the input
 ///
 - (void)setDoubleInput:(NSString * _Nonnull)inputName :(double)value;
+/// Returns the current number input by name. Get its value by calling <code>.value</code> on the returned object.
+/// \param input The name of the input
+///
+///
+/// returns:
+/// The number input if it exists. Returns <code>nil</code> if the input cannot be found.
+- (RiveSMINumber * _Nullable)numberInputWithNamed:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 /// Get a text value from a specified text run
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
@@ -490,12 +745,31 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 /// returns:
 /// String text value of the specified text run if applicable
 - (NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName SWIFT_WARN_UNUSED_RESULT;
+/// Get a text value from a specified text run
+/// \param textRunName The name of a <code>Text Run</code> on the active Artboard
+///
+/// \param path The path to the nested text run.
+///
+///
+/// returns:
+/// String text value of the specified text run if applicable
+- (NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path SWIFT_WARN_UNUSED_RESULT;
 /// Set a text value for a specified text run
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
 /// \param value A String value for the text run
 ///
 - (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
+/// Set a text value for a specified text run
+/// \param textRunName The name of a <code>Text Run</code> on the active Artboard
+///
+/// \param path The path to the nested text run.
+///
+/// \param value A String value for the text run
+///
+/// \param Note If the specified path is empty, the parent artboard will be used to find the text run.
+///
+- (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 - (NSArray<NSString *> * _Nonnull)artboardNames SWIFT_WARN_UNUSED_RESULT;
 /// Makes a new <code>RiveView</code> for the instance property with data from model which will
 /// replace any previous <code>RiveView</code>. This is called when first drawing a <code>RiveViewRepresentable</code>.
@@ -524,6 +798,7 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 /// Simple data type for passing state machine input names and their types
@@ -863,7 +1138,245 @@ SWIFT_CLASS("_TtC11RiveRuntime14FPSCounterView")
 @end
 
 
+/// A type that is capable of providing fonts usable as fallback fonts.
+SWIFT_PROTOCOL("_TtP11RiveRuntime24RiveFallbackFontProvider_")
+@protocol RiveFallbackFontProvider
+/// An array of possible fonts to use as fallback fonts.
+@property (nonatomic, readonly, strong) NSFont * _Nonnull fallbackFont;
+@end
+
+
+@interface NSFont (SWIFT_EXTENSION(RiveRuntime)) <RiveFallbackFontProvider>
+/// The native font returned that can be used as a fallback font. In this instance, the native font itself can be used.
+@property (nonatomic, readonly, strong) NSFont * _Nonnull fallbackFont;
+@end
+
+
+/// Defines the interface of a type that can return a weight value to be used when rendering a font in Rive.
+SWIFT_PROTOCOL("_TtP11RiveRuntime18RiveWeightProvider_")
+@protocol RiveWeightProvider
+/// The weight to use when rendering a font in Rive.
+@property (nonatomic, readonly) NSInteger riveWeightValue;
+@end
+
+
+@interface NSFont (SWIFT_EXTENSION(RiveRuntime)) <RiveWeightProvider>
+@property (nonatomic, readonly) NSInteger riveWeightValue;
+@end
+
+
+/// Defines the interface of a type that can return a width value to be used when rendering a font in Rive.
+SWIFT_PROTOCOL("_TtP11RiveRuntime21RiveFontWidthProvider_")
+@protocol RiveFontWidthProvider
+/// The width to use when rendering a font in Rive. This value may be ignored, depending on the font
+/// data loaded by Rive when rendering.
+/// note:
+/// In some cases, iOS may override any provided weight values when generating fonts.
+@property (nonatomic, readonly) NSInteger riveFontWidthValue;
+@end
+
+
+@interface NSFont (SWIFT_EXTENSION(RiveRuntime)) <RiveFontWidthProvider>
+@property (nonatomic, readonly) NSInteger riveFontWidthValue;
+@end
+
+enum RiveFallbackFontDescriptorDesign : NSInteger;
+enum RiveFallbackFontDescriptorWeight : NSInteger;
+enum RiveFallbackFontDescriptorWidth : NSInteger;
+
+/// A type that represents the description of a font, based on a system font.
+SWIFT_CLASS("_TtC11RiveRuntime26RiveFallbackFontDescriptor")
+@interface RiveFallbackFontDescriptor : NSObject
+/// Initializes a new font descriptor, used to generate a font based on a system font.
+/// \param design The design of the font.
+///
+/// \param weight The weight of the font.
+///
+/// \param weight The width of the font. This value is not guaranteed to be available for all fonts.
+///
+- (nonnull instancetype)initWithDesign:(enum RiveFallbackFontDescriptorDesign)design weight:(enum RiveFallbackFontDescriptorWeight)weight width:(enum RiveFallbackFontDescriptorWidth)width OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface RiveFallbackFontDescriptor (SWIFT_EXTENSION(RiveRuntime)) <RiveFallbackFontProvider>
+///
+/// returns:
+/// The font generated from all values of a <code>RiveFallbackFontDescriptor</code>.
+@property (nonatomic, readonly, strong) NSFont * _Nonnull fallbackFont;
+@end
+
+/// An enumeration of system design values available when creating a font based on a (system) font.
+typedef SWIFT_ENUM(NSInteger, RiveFallbackFontDescriptorDesign, open) {
+/// Defaults to the iOS (system) font design; sans-serif on the latest versions of iOS.
+  RiveFallbackFontDescriptorDesignDefault = 0,
+/// The rounded variant of <code>default</code>.
+  RiveFallbackFontDescriptorDesignRounded = 1,
+/// The monospaced variant of <code>default</code>.
+  RiveFallbackFontDescriptorDesignMonospaced = 2,
+/// The serif variant of <code>default</code>.
+  RiveFallbackFontDescriptorDesignSerif = 3,
+};
+
+/// An enuimeration of font weight values available when creating a font based on a (system) font.
+typedef SWIFT_ENUM(NSInteger, RiveFallbackFontDescriptorWeight, open) {
+/// The ultra-light font weight.
+  RiveFallbackFontDescriptorWeightUltraLight = 0,
+/// The thin font weight.
+  RiveFallbackFontDescriptorWeightThin = 1,
+/// The light font weight.
+  RiveFallbackFontDescriptorWeightLight = 2,
+/// The regular (typically default) font weight.
+  RiveFallbackFontDescriptorWeightRegular = 3,
+/// The medium font weight.
+  RiveFallbackFontDescriptorWeightMedium = 4,
+/// The semi-bold font weight.
+  RiveFallbackFontDescriptorWeightSemibold = 5,
+/// The bold font weight.
+  RiveFallbackFontDescriptorWeightBold = 6,
+/// The heavy font weight.
+  RiveFallbackFontDescriptorWeightHeavy = 7,
+/// The black font weight.
+  RiveFallbackFontDescriptorWeightBlack = 8,
+};
+
+typedef SWIFT_ENUM(NSInteger, RiveFallbackFontDescriptorWidth, open) {
+/// A width that compresses a font.
+  RiveFallbackFontDescriptorWidthCompressed = 0,
+/// A width that condenses a font.
+  RiveFallbackFontDescriptorWidthCondensed = 1,
+/// The standard width of a font.
+  RiveFallbackFontDescriptorWidthStandard = 2,
+/// The expanded width of a font.
+  RiveFallbackFontDescriptorWidthExpanded = 3,
+};
+
+
+
+
+
+SWIFT_CLASS("_TtC11RiveRuntime15RiveLogCategory")
+@interface RiveLogCategory : NSObject
+/// The category used when logging from a Rive state machine.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull stateMachine;)
++ (RiveLogCategory * _Nonnull)stateMachine SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive artboard.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull artboard;)
++ (RiveLogCategory * _Nonnull)artboard SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive view model.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull viewModel;)
++ (RiveLogCategory * _Nonnull)viewModel SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive model.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull model;)
++ (RiveLogCategory * _Nonnull)model SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive file.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull file;)
++ (RiveLogCategory * _Nonnull)file SWIFT_WARN_UNUSED_RESULT;
+/// The category used when logging from a Rive view.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull view;)
++ (RiveLogCategory * _Nonnull)view SWIFT_WARN_UNUSED_RESULT;
+/// An option set of no categories.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull none;)
++ (RiveLogCategory * _Nonnull)none SWIFT_WARN_UNUSED_RESULT;
+/// An option set containing all possible categories
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogCategory * _Nonnull all;)
++ (RiveLogCategory * _Nonnull)all SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// An option set of possible log levels, checked when attempting to log.
+SWIFT_CLASS("_TtC11RiveRuntime12RiveLogLevel")
+@interface RiveLogLevel : NSObject
+/// A log level that captures debug information
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull debug;)
++ (RiveLogLevel * _Nonnull)debug SWIFT_WARN_UNUSED_RESULT;
+/// A log level that captures additional information.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull info;)
++ (RiveLogLevel * _Nonnull)info SWIFT_WARN_UNUSED_RESULT;
+/// The default log level.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) RiveLogLevel * _Nonnull default_;)
++ (RiveLogLevel * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
+/// A log level that captures an error.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull error;)
++ (RiveLogLevel * _Nonnull)error SWIFT_WARN_UNUSED_RESULT;
+/// A log level that captures a fatal error, or fault.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull fault;)
++ (RiveLogLevel * _Nonnull)fault SWIFT_WARN_UNUSED_RESULT;
+/// An option set containing no levels.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull none;)
++ (RiveLogLevel * _Nonnull)none SWIFT_WARN_UNUSED_RESULT;
+/// An option set containing all possible levels.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RiveLogLevel * _Nonnull all;)
++ (RiveLogLevel * _Nonnull)all SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC11RiveRuntime10RiveLogger")
+@interface RiveLogger : NSObject
+/// A Bool indicating whether logging is enabled or not.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isEnabled;)
++ (BOOL)isEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setIsEnabled:(BOOL)value;
+/// A Bool indicating whether verbose logs are enabled or not.
+/// note:
+/// Logs that emit a constant stream of information, such as state machine advances, are considererd verbose.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isVerbose;)
++ (BOOL)isVerbose SWIFT_WARN_UNUSED_RESULT;
++ (void)setIsVerbose:(BOOL)value;
+/// A set of levels that should be logged. Only used when <code>isEnabled</code> is set to <code>true</code>.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) RiveLogLevel * _Nonnull levels;)
++ (RiveLogLevel * _Nonnull)levels SWIFT_WARN_UNUSED_RESULT;
++ (void)setLevels:(RiveLogLevel * _Nonnull)value;
+/// A set of categories that should be logged. Only used when <code>isEnabled</code> is set to <code>true</code>.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) RiveLogCategory * _Nonnull categories;)
++ (RiveLogCategory * _Nonnull)categories SWIFT_WARN_UNUSED_RESULT;
++ (void)setCategories:(RiveLogCategory * _Nonnull)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+@class RiveStateMachineInstance;
 @class NSString;
+
+@interface RiveLogger (SWIFT_EXTENSION(RiveRuntime))
++ (void)logStateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine advance:(double)advance;
++ (void)logStateMachine:(RiveStateMachineInstance * _Nonnull)stateMachine error:(NSString * _Nonnull)error;
+@end
+
+@class RiveArtboard;
+
+@interface RiveLogger (SWIFT_EXTENSION(RiveRuntime))
++ (void)logArtboard:(RiveArtboard * _Nonnull)artboard advance:(double)advance;
++ (void)logArtboard:(RiveArtboard * _Nonnull)artboard error:(NSString * _Nonnull)error;
+@end
+
+@class RiveFile;
+@class RiveFileAsset;
+@class RiveFontAsset;
+@class NSURL;
+@class RiveImageAsset;
+
+@interface RiveLogger (SWIFT_EXTENSION(RiveRuntime))
++ (void)logFile:(RiveFile * _Nullable)file error:(NSString * _Nonnull)message;
++ (void)logLoadingAsset:(RiveFileAsset * _Nonnull)asset;
++ (void)logFontAssetLoad:(RiveFontAsset * _Nonnull)fontAsset fromURL:(NSURL * _Nonnull)url;
++ (void)logImageAssetLoad:(RiveImageAsset * _Nonnull)imageAsset fromURL:(NSURL * _Nonnull)url;
++ (void)logAssetLoaded:(RiveFileAsset * _Nonnull)asset;
++ (void)logLoadedFromURL:(NSURL * _Nonnull)url;
++ (void)logLoadingFromResource:(NSString * _Nonnull)name;
+@end
+
 
 SWIFT_CLASS("_TtC11RiveRuntime9RiveModel")
 @interface RiveModel : NSObject
@@ -884,8 +1397,6 @@ SWIFT_PROTOCOL("_TtP11RiveRuntime18RivePlayerDelegate_")
 - (void)playerWithDidAdvanceby:(double)seconds riveModel:(RiveModel * _Nullable)riveModel;
 @end
 
-@class RiveArtboard;
-@class RiveStateMachineInstance;
 @class StateMachineInput;
 enum RiveTouchEvent : NSInteger;
 @class RiveEvent;
@@ -927,6 +1438,7 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 /// Minimalist constructor, call <code>.configure</code> to customize the <code>RiveView</code> later.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidMoveToWindow;
 /// Advances the Artboard and either a StateMachine or an Animation.
 /// Also fires any remaining events in the queue.
 /// \param delta elapsed seconds since the last advance
@@ -946,7 +1458,8 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 @end
 
 @class NSBundle;
-@class RiveFile;
+@class RiveSMIBool;
+@class RiveSMINumber;
 
 /// An object used for controlling a RiveView. For most common Rive files you should only need
 /// to interact with a <code>RiveViewModel</code> object.
@@ -989,6 +1502,9 @@ SWIFT_CLASS("_TtC11RiveRuntime8RiveView")
 /// \endcode
 SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 @interface RiveViewModel : NSObject <RiveFileDelegate, RivePlayerDelegate, RiveStateMachineDelegate>
+/// The default layout scale factor that allows for the scale factor to be determined by Rive.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFactorAutomatic;)
++ (double)layoutScaleFactorAutomatic SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init:(RiveModel * _Nonnull)model stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init:(RiveModel * _Nonnull)model animationName:(NSString * _Nullable)animationName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFileName:(NSString * _Nonnull)fileName extension:(NSString * _Nonnull)extension in:(NSBundle * _Nonnull)bundle stateMachineName:(NSString * _Nullable)stateMachineName fit:(RiveFit)fit alignment:(RiveAlignment)alignment autoPlay:(BOOL)autoPlay artboardName:(NSString * _Nullable)artboardName loadCdn:(BOOL)loadCdn customLoader:(LoadAsset _Nullable)customLoader OBJC_DESIGNATED_INITIALIZER;
@@ -1021,10 +1537,17 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 /// \param value A Bool value for the input
 ///
 - (void)setBooleanInput:(NSString * _Nonnull)inputName :(BOOL)value;
+/// Returns the current boolean input by name. Get its value by calling <code>.value</code> on the returned object.
+/// \param input The name of the input
+///
+///
+/// returns:
+/// The boolean input if it exists. Returns <code>nil</code> if the input cannot be found.
+- (RiveSMIBool * _Nullable)boolInputWithNamed:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 /// Provide the active StateMachine a <code>Number</code> input
 /// \param inputName The name of a <code>Number</code> input on the active StateMachine
 ///
-/// \param value A Float value for the input
+/// \param value A Float value for the input.
 ///
 - (void)setFloatInput:(NSString * _Nonnull)inputName :(float)value;
 /// Provide the active StateMachine a <code>Number</code> input
@@ -1033,6 +1556,13 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 /// \param value A Double value for the input
 ///
 - (void)setDoubleInput:(NSString * _Nonnull)inputName :(double)value;
+/// Returns the current number input by name. Get its value by calling <code>.value</code> on the returned object.
+/// \param input The name of the input
+///
+///
+/// returns:
+/// The number input if it exists. Returns <code>nil</code> if the input cannot be found.
+- (RiveSMINumber * _Nullable)numberInputWithNamed:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 /// Get a text value from a specified text run
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
@@ -1040,12 +1570,31 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 /// returns:
 /// String text value of the specified text run if applicable
 - (NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName SWIFT_WARN_UNUSED_RESULT;
+/// Get a text value from a specified text run
+/// \param textRunName The name of a <code>Text Run</code> on the active Artboard
+///
+/// \param path The path to the nested text run.
+///
+///
+/// returns:
+/// String text value of the specified text run if applicable
+- (NSString * _Nullable)getTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path SWIFT_WARN_UNUSED_RESULT;
 /// Set a text value for a specified text run
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
 /// \param value A String value for the text run
 ///
 - (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
+/// Set a text value for a specified text run
+/// \param textRunName The name of a <code>Text Run</code> on the active Artboard
+///
+/// \param path The path to the nested text run.
+///
+/// \param value A String value for the text run
+///
+/// \param Note If the specified path is empty, the parent artboard will be used to find the text run.
+///
+- (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 - (NSArray<NSString *> * _Nonnull)artboardNames SWIFT_WARN_UNUSED_RESULT;
 /// Makes a new <code>RiveView</code> for the instance property with data from model which will
 /// replace any previous <code>RiveView</code>. This is called when first drawing a <code>RiveViewRepresentable</code>.
@@ -1074,6 +1623,7 @@ SWIFT_CLASS("_TtC11RiveRuntime13RiveViewModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 /// Simple data type for passing state machine input names and their types

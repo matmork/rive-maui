@@ -108,9 +108,9 @@ public class RivePlayer : View
         typeof(RivePlayer)
     );
 
-    public static readonly BindableProperty PlayToPercentageProperty = BindableProperty.Create(
-        nameof(PlayToPercentage),
-        typeof(double),
+    public static readonly BindableProperty TextRunsProperty = BindableProperty.Create(
+        nameof(TextRuns),
+        typeof(List<TextRun>),
         typeof(RivePlayer)
     );
 
@@ -192,10 +192,10 @@ public class RivePlayer : View
         set => SetValue(DynamicAssetsProperty, value);
     }
 
-    public double PlayToPercentage
+    public List<TextRun>? TextRuns
     {
-        get => (double)GetValue(PlayToPercentageProperty);
-        set => SetValue(PlayToPercentageProperty, value);
+        get => (List<TextRun>?)GetValue(TextRunsProperty);
+        set => SetValue(TextRunsProperty, value);
     }
 
     public ICommand PlayCommand
@@ -230,6 +230,9 @@ public class RivePlayer : View
 
     public void TriggerInput(StateMachineTriggerInputArgs args)
         => Handler?.Invoke(nameof(TriggerInput), args);
+
+    public void SetTextRun(TextRun args)
+        => Handler?.Invoke(nameof(SetTextRun), args);
 
     protected override void OnHandlerChanged()
     {
