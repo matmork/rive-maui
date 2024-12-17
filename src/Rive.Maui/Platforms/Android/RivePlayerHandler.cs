@@ -99,7 +99,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
 
         if (!string.IsNullOrWhiteSpace(view.AnimationName))
         {
-            handler.PlatformView.AnimationView.Play(view.AnimationName, riveLoop, riveDirection, false, true);
+            handler.PlatformView.AnimationView.Play(riveLoop, riveDirection, true);
             return;
         }
 
