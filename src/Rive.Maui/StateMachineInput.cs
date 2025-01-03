@@ -10,21 +10,21 @@ public abstract class StateMachineInput : BindableObject
 
     public string? StateMachineName { get; set; }
 
+    public string? Path { get; set; }
+
     public WeakReference<RivePlayer?> RivePlayerReference { get; } = new(null);
 
     public void Apply()
     {
-        if (!string.IsNullOrWhiteSpace(InputName)
-            && !string.IsNullOrWhiteSpace(StateMachineName)
-            && RivePlayerReference.TryGetTarget(out var rivePlayer))
-        {
-            Apply(rivePlayer, StateMachineName, InputName);
-        }
+        if (string.IsNullOrWhiteSpace(InputName) || !RivePlayerReference.TryGetTarget(out var rivePlayer))
+            return;
+
+        Apply(rivePlayer, StateMachineName, InputName, Path);
     }
 
     // Applies our input value to the rive's state machine.
     // rive and inputName are guaranteed to not be null or empty.
-    protected abstract void Apply(RivePlayer rivePlayer, string stateMachineName, string inputName);
+    protected abstract void Apply(RivePlayer rivePlayer, string? stateMachineName, string inputName, string? path);
 }
 
 [ContentProperty(nameof(Value))]
@@ -49,9 +49,9 @@ public class BoolInput : StateMachineInput
         ((BoolInput)bindable).Apply();
     }
 
-    protected override void Apply(RivePlayer rivePlayer, string stateMachineName, string inputName)
+    protected override void Apply(RivePlayer rivePlayer, string? stateMachineName, string inputName, string? path)
     {
-        rivePlayer.SetInput(new StateMachineInputArgs(stateMachineName, inputName, Value));
+        rivePlayer.SetInput(new StateMachineInputArgs(stateMachineName, inputName, Value, path));
     }
 }
 
@@ -77,9 +77,9 @@ public class NumberInput : StateMachineInput
         ((NumberInput)bindable).Apply();
     }
 
-    protected override void Apply(RivePlayer rivePlayer, string stateMachineName, string inputName)
+    protected override void Apply(RivePlayer rivePlayer, string? stateMachineName, string inputName, string? path)
     {
-        rivePlayer.SetInput(new StateMachineInputArgs(stateMachineName, inputName, Value));
+        rivePlayer.SetInput(new StateMachineInputArgs(stateMachineName, inputName, Value, path));
     }
 }
 
@@ -91,7 +91,7 @@ public class TriggerInput : StateMachineInput
             && !string.IsNullOrWhiteSpace(StateMachineName)
             && RivePlayerReference.TryGetTarget(out var rivePlayer))
         {
-            rivePlayer.TriggerInput(new StateMachineTriggerInputArgs(StateMachineName, InputName));
+            rivePlayer.TriggerInput(new StateMachineTriggerInputArgs(StateMachineName, InputName, Path));
         }
     }
 
@@ -102,7 +102,7 @@ public class TriggerInput : StateMachineInput
     public ICommand FireCommand => new Command(Fire);
 
     // Triggers don't have any persistent data to apply.
-    protected override void Apply(RivePlayer rivePlayer, string stateMachineName, string inputName)
+    protected override void Apply(RivePlayer rivePlayer, string? stateMachineName, string inputName, string? path)
     {
     }
 }

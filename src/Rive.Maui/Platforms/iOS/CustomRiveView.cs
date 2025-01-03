@@ -118,7 +118,7 @@ public sealed class CustomRiveView : RiveRendererView
         {
             foreach (var textRun in rivePlayer.TextRuns)
             {
-                SetTextRun(textRun.TextRunName, textRun.Value);
+                SetTextRun(textRun.TextRunName, textRun.Value, textRun.Path);
             }
         }
 
@@ -296,30 +296,48 @@ public sealed class CustomRiveView : RiveRendererView
         UpdateAnimation();
     }
 
-    public void SetInput(string stateMachineName, string inputName, bool value)
+    public void SetInput(string? stateMachineName, string inputName, bool value, string? path)
     {
-        if (_riveStateMachine?.GetBool(inputName) is { } riveBool)
+        var riveBool = string.IsNullOrWhiteSpace(path)
+            ? _riveStateMachine?.GetBool(inputName)
+            : _riveArtboard?.GetBool(inputName, path);
+
+        if (riveBool != null)
         {
             riveBool.Value = value;
         }
     }
 
-    public void SetInput(string stateMachineName, string inputName, float value)
+    public void SetInput(string? stateMachineName, string inputName, float value, string? path)
     {
-        if (_riveStateMachine?.GetNumber(inputName) is { } riveNumber)
+        var riveNumber = string.IsNullOrWhiteSpace(path)
+            ? _riveStateMachine?.GetNumber(inputName)
+            : _riveArtboard?.GetNumber(inputName, path);
+
+        if (riveNumber != null)
         {
             riveNumber.Value = value;
         }
     }
 
-    public void TriggerInput(string stateMachineName, string inputName)
+    public void TriggerInput(string? stateMachineName, string inputName, string? path)
     {
-        _riveStateMachine?.GetTrigger(inputName)?.Fire();
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            _riveStateMachine?.GetTrigger(inputName)?.Fire();
+        }
+        else
+        {
+            _riveArtboard?.GetTrigger(inputName, path)?.Fire();
+        }
     }
 
-    public void SetTextRun(string textRunName, string value)
+    public void SetTextRun(string textRunName, string value, string? path)
     {
-        var textRun = _riveArtboard?.TextRun(textRunName);
+        var textRun = string.IsNullOrWhiteSpace(path)
+            ? _riveArtboard?.TextRun(textRunName)
+            : _riveArtboard?.TextRun(textRunName, path);
+
         if (textRun != null)
         {
             textRun.Text = value;

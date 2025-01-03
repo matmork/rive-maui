@@ -135,13 +135,13 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, WrapperView>(
         switch (inputArgs.Value)
         {
             case double doubleValue:
-                handler._riveView?.SetInput(inputArgs.StateMachineName, inputArgs.InputName, (float)doubleValue);
+                handler._riveView?.SetInput(inputArgs.StateMachineName, inputArgs.InputName, (float)doubleValue, inputArgs.Path);
                 break;
             case float floatValue:
-                handler._riveView?.SetInput(inputArgs.StateMachineName, inputArgs.InputName, floatValue);
+                handler._riveView?.SetInput(inputArgs.StateMachineName, inputArgs.InputName, floatValue, inputArgs.Path);
                 break;
             case bool boolValue:
-                handler._riveView?.SetInput(inputArgs.StateMachineName, inputArgs.InputName, boolValue);
+                handler._riveView?.SetInput(inputArgs.StateMachineName, inputArgs.InputName, boolValue, inputArgs.Path);
                 break;
         }
     }
@@ -150,7 +150,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, WrapperView>(
     {
         if (args is StateMachineTriggerInputArgs triggerInputArgs)
         {
-            handler._riveView?.TriggerInput(triggerInputArgs.StateMachineName, triggerInputArgs.InputName);
+            handler._riveView?.TriggerInput(triggerInputArgs.StateMachineName, triggerInputArgs.InputName, triggerInputArgs.Path);
         }
     }
 
@@ -158,7 +158,7 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, WrapperView>(
     {
         if (args is TextRun setTextRun)
         {
-            handler._riveView?.SetTextRun(setTextRun.TextRunName, setTextRun.Value);
+            handler._riveView?.SetTextRun(setTextRun.TextRunName, setTextRun.Value, setTextRun.Path);
         }
     }
 }

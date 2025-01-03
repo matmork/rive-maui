@@ -134,33 +134,71 @@ public partial class RivePlayerHandler() : ViewHandler<RivePlayer, CustomRiveVie
         if (args is not StateMachineInputArgs inputArgs)
             return;
 
-        switch (inputArgs.Value)
+        if (string.IsNullOrWhiteSpace(inputArgs.Path))
         {
-            case double doubleValue:
-                handler.PlatformView.AnimationView?.SetNumberState(inputArgs.StateMachineName, inputArgs.InputName, (float)doubleValue);
-                break;
-            case float floatValue:
-                handler.PlatformView.AnimationView?.SetNumberState(inputArgs.StateMachineName, inputArgs.InputName, floatValue);
-                break;
-            case bool boolValue:
-                handler.PlatformView.AnimationView?.SetBooleanState(inputArgs.StateMachineName, inputArgs.InputName, boolValue);
-                break;
+            if (string.IsNullOrWhiteSpace(inputArgs.StateMachineName))
+                return;
+
+            switch (inputArgs.Value)
+            {
+                case double doubleValue:
+                    handler.PlatformView.AnimationView?.SetNumberState(inputArgs.StateMachineName, inputArgs.InputName, (float)doubleValue);
+                    break;
+                case float floatValue:
+                    handler.PlatformView.AnimationView?.SetNumberState(inputArgs.StateMachineName, inputArgs.InputName, floatValue);
+                    break;
+                case bool boolValue:
+                    handler.PlatformView.AnimationView?.SetBooleanState(inputArgs.StateMachineName, inputArgs.InputName, boolValue);
+                    break;
+            }
+        }
+        else
+        {
+            switch (inputArgs.Value)
+            {
+                case double doubleValue:
+                    handler.PlatformView.AnimationView?.SetNumberStateAtPath(inputArgs.InputName, (float)doubleValue, inputArgs.Path);
+                    break;
+                case float floatValue:
+                    handler.PlatformView.AnimationView?.SetNumberStateAtPath(inputArgs.InputName, floatValue, inputArgs.Path);
+                    break;
+                case bool boolValue:
+                    handler.PlatformView.AnimationView?.SetBooleanStateAtPath(inputArgs.InputName, boolValue, inputArgs.Path);
+                    break;
+            }
         }
     }
 
     public static void MapTriggerInput(RivePlayerHandler handler, RivePlayer view, object? args)
     {
-        if (args is StateMachineTriggerInputArgs triggerInputArgs)
+        if (args is not StateMachineTriggerInputArgs triggerInputArgs)
+            return;
+
+        if (string.IsNullOrWhiteSpace(triggerInputArgs.Path))
         {
+            if (string.IsNullOrWhiteSpace(triggerInputArgs.StateMachineName))
+                return;
+
             handler.PlatformView.AnimationView?.FireState(triggerInputArgs.StateMachineName, triggerInputArgs.InputName);
+        }
+        else
+        {
+            handler.PlatformView.AnimationView?.FireStateAtPath(triggerInputArgs.InputName, triggerInputArgs.Path);
         }
     }
 
     public static void MapSetTextRun(RivePlayerHandler handler, RivePlayer view, object? args)
     {
-        if (args is TextRun setTextRun)
+        if (args is not TextRun setTextRun)
+            return;
+
+        if (string.IsNullOrWhiteSpace(setTextRun.Path))
         {
             handler.PlatformView.AnimationView?.SetTextRunValue(setTextRun.TextRunName, setTextRun.Value);
+        }
+        else
+        {
+            handler.PlatformView.AnimationView?.SetTextRunValue(setTextRun.TextRunName, setTextRun.Value, setTextRun.Path);
         }
     }
 }
