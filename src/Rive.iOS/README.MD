@@ -1,7 +1,7 @@
 # Rive.iOS
 
 Current version
-[6.5.1](https://github.com/rive-app/rive-ios)
+[6.6.3](https://github.com/rive-app/rive-ios)
 
 ```
 sharpie bind \

@@ -324,7 +324,7 @@ SWIFT_CLASS("_TtC11RiveRuntime26RiveFallbackFontDescriptor")
 ///
 /// \param weight The weight of the font.
 ///
-/// \param weight The width of the font. This value is not guaranteed to be available for all fonts.
+/// \param width The width of the font. This value is not guaranteed to be available for all fonts.
 ///
 - (nonnull instancetype)initWithDesign:(enum RiveFallbackFontDescriptorDesign)design weight:(enum RiveFallbackFontDescriptorWeight)weight width:(enum RiveFallbackFontDescriptorWidth)width OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -688,7 +688,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFa
 ///
 - (void)setBooleanInput:(NSString * _Nonnull)inputName :(BOOL)value;
 /// Returns the current boolean input by name. Get its value by calling <code>.value</code> on the returned object.
-/// \param input The name of the input
+/// \param name The name of the input
 ///
 ///
 /// returns:
@@ -707,7 +707,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFa
 ///
 - (void)setDoubleInput:(NSString * _Nonnull)inputName :(double)value;
 /// Returns the current number input by name. Get its value by calling <code>.value</code> on the returned object.
-/// \param input The name of the input
+/// \param name The name of the input
 ///
 ///
 /// returns:
@@ -732,17 +732,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFa
 /// Set a text value for a specified text run
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
-/// \param value A String value for the text run
+/// \param textValue A String value for the text run
 ///
 - (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 /// Set a text value for a specified text run
+/// note:
+/// If the specified path is empty, the parent artboard will be used to find the text run.
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
 /// \param path The path to the nested text run.
 ///
-/// \param value A String value for the text run
-///
-/// \param Note If the specified path is empty, the parent artboard will be used to find the text run.
+/// \param textValue A String value for the text run
 ///
 - (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 - (NSArray<NSString *> * _Nonnull)artboardNames SWIFT_WARN_UNUSED_RESULT;
@@ -1147,7 +1147,7 @@ SWIFT_CLASS("_TtC11RiveRuntime26RiveFallbackFontDescriptor")
 ///
 /// \param weight The weight of the font.
 ///
-/// \param weight The width of the font. This value is not guaranteed to be available for all fonts.
+/// \param width The width of the font. This value is not guaranteed to be available for all fonts.
 ///
 - (nonnull instancetype)initWithDesign:(enum RiveFallbackFontDescriptorDesign)design weight:(enum RiveFallbackFontDescriptorWeight)weight width:(enum RiveFallbackFontDescriptorWidth)width OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1511,7 +1511,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFa
 ///
 - (void)setBooleanInput:(NSString * _Nonnull)inputName :(BOOL)value;
 /// Returns the current boolean input by name. Get its value by calling <code>.value</code> on the returned object.
-/// \param input The name of the input
+/// \param name The name of the input
 ///
 ///
 /// returns:
@@ -1530,7 +1530,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFa
 ///
 - (void)setDoubleInput:(NSString * _Nonnull)inputName :(double)value;
 /// Returns the current number input by name. Get its value by calling <code>.value</code> on the returned object.
-/// \param input The name of the input
+/// \param name The name of the input
 ///
 ///
 /// returns:
@@ -1555,17 +1555,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double layoutScaleFa
 /// Set a text value for a specified text run
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
-/// \param value A String value for the text run
+/// \param textValue A String value for the text run
 ///
 - (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 /// Set a text value for a specified text run
+/// note:
+/// If the specified path is empty, the parent artboard will be used to find the text run.
 /// \param textRunName The name of a <code>Text Run</code> on the active Artboard
 ///
 /// \param path The path to the nested text run.
 ///
-/// \param value A String value for the text run
-///
-/// \param Note If the specified path is empty, the parent artboard will be used to find the text run.
+/// \param textValue A String value for the text run
 ///
 - (BOOL)setTextRunValue:(NSString * _Nonnull)textRunName path:(NSString * _Nonnull)path textValue:(NSString * _Nonnull)textValue error:(NSError * _Nullable * _Nullable)error;
 - (NSArray<NSString *> * _Nonnull)artboardNames SWIFT_WARN_UNUSED_RESULT;

@@ -14,6 +14,7 @@ import _SwiftConcurrencyShims
 extension RiveRuntime.RiveFile {
   convenience public init(name fileName: Swift.String, extension ext: Swift.String = ".riv", in bundle: Foundation.Bundle = .main, loadCdn: Swift.Bool = true, customLoader: RiveRuntime.LoadAsset? = nil) throws
   public static func getBytes(fileName: Swift.String, extension ext: Swift.String = ".riv", in bundle: Foundation.Bundle = .main) -> [Swift.UInt8]
+  public static func getData(fileName: Swift.String, extension ext: Swift.String = ".riv", in bundle: Foundation.Bundle = .main) -> Foundation.Data
 }
 @objc @_Concurrency.MainActor(unsafe) open class RiveView : RiveRuntime.RiveRendererView {
   @objc @_Concurrency.MainActor(unsafe) weak public var playerDelegate: (any RiveRuntime.RivePlayerDelegate)?

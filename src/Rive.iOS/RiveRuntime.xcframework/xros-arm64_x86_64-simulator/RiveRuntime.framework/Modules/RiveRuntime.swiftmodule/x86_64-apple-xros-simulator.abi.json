@@ -10355,6 +10355,49 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getData",
+            "printedName": "getData(fileName:extension:in:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bundle",
+                "printedName": "Foundation.Bundle",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSBundle"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So8RiveFileC0A7RuntimeE7getData8fileName9extension2in10Foundation0E0VSS_SSSo8NSBundleCtFZ",
+            "mangledName": "$sSo8RiveFileC0A7RuntimeE7getData8fileName9extension2in10Foundation0E0VSS_SSSo8NSBundleCtFZ",
+            "moduleName": "RiveRuntime",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -10718,7 +10761,14 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Utils\/RiveFile+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 816,
+      "offset": 801,
+      "length": 6,
+      "value": "\".riv\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/Utils\/RiveFile+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 1070,
       "length": 6,
       "value": "\".riv\""
     },
@@ -10788,49 +10838,49 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25689,
+      "offset": 25786,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25780,
+      "offset": 25877,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25873,
+      "offset": 25970,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25689,
+      "offset": 25786,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25780,
+      "offset": 25877,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "IntegerLiteral",
-      "offset": 25873,
+      "offset": 25970,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveView.swift",
       "kind": "Array",
-      "offset": 29175,
+      "offset": 29272,
       "length": 2,
       "value": "[]"
     },
@@ -11439,7 +11489,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/rive-ios\/rive-ios\/Source\/RiveViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 26192,
+      "offset": 26196,
       "length": 11,
       "value": "\"RiveRuntime.Coordinator\""
     },

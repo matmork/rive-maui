@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/RiveRuntime-Swift.h</key>
 		<data>
-		3OxsoESFRTViXykHJPNndyVyOK0=
+		iCPSwL7UEnNlXkB9n/wSKpwl0hc=
 		</data>
 		<key>Headers/RiveRuntime.h</key>
 		<data>
@@ -82,47 +82,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XJ3qNyjLrub8LO5Ng2XUQ4Gdbgk=
+		iQ4t910foWsJwBmvh5kSmbkUWfg=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.abi.json</key>
 		<data>
-		yMHYz2ctBaRP8bqvN1rbWhddEEM=
+		kokQxl6Bv+ujjtEsQiNF7o8H0Dc=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.private.swiftinterface</key>
 		<data>
-		s+J4+jL1ZabmM8QnU8wHaMBMKhI=
+		Gd81dDmBdT52jC3eL0YqYmskOj0=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.swiftdoc</key>
 		<data>
-		ZPNUp7CGeot8Rf9JYT1crn4Uyjw=
+		hIhTAN7F58a+oG22EUIJ6F/riJY=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.swiftinterface</key>
 		<data>
-		s+J4+jL1ZabmM8QnU8wHaMBMKhI=
+		Gd81dDmBdT52jC3eL0YqYmskOj0=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.swiftmodule</key>
 		<data>
-		bijEjC5N1ZA92o2QFFspHe9C0r8=
+		NmzyxtFpIWIOL6DMH22Zo0vzlw0=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.abi.json</key>
 		<data>
-		yMHYz2ctBaRP8bqvN1rbWhddEEM=
+		kokQxl6Bv+ujjtEsQiNF7o8H0Dc=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.private.swiftinterface</key>
 		<data>
-		eVy36rqFOh1cC6MDSMaOF62CDn4=
+		qCf+ubTpzUjQtsZKC2kT5s6No1w=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.swiftdoc</key>
 		<data>
-		heuVJS/iTr8jNAhui/pjqXKify4=
+		YQZpgZmL0xN+oGVHkRcVEu5vchg=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.swiftinterface</key>
 		<data>
-		eVy36rqFOh1cC6MDSMaOF62CDn4=
+		qCf+ubTpzUjQtsZKC2kT5s6No1w=
 		</data>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.swiftmodule</key>
 		<data>
-		KMjUzcQMplJYtNYer8a3h3lW9oI=
+		SlW0UoBaAUcI8H58jI/MQ4cetTk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -234,7 +234,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KJnqPyffJZiIZCFIHIwBeDSHVfpBPTjcnMutGfZVYuo=
+			VtqCHV33jWAZmcEu7B8cNSftfDKmXfEyqjWCkjx1cfM=
 			</data>
 		</dict>
 		<key>Headers/RiveRuntime.h</key>
@@ -276,70 +276,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CKKlVQurX4RpfMDRf51m8U182pSFPZh8xzZnro3thnc=
+			MdRz24oBbS9Ia5/tBjan9aTzM3FY1ioCQaOCCYEZK5w=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			D+J+ZkhxMRTuGA0ybNWZVD6xc5nBJHflbzwbNPFddnI=
+			/eUHdQYYFOFyABny6tTLX/GlfbY7cYRwoE2ug6ExBMA=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MLbHGDsRBwRpU8V/OfMqLAqPQvtclwbmmONFXSnqtuk=
+			F0zxXm9qHqjsqRJE2SrJlSn4MNvBMeOqpk9ztQTME9Q=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			D+J+ZkhxMRTuGA0ybNWZVD6xc5nBJHflbzwbNPFddnI=
+			/eUHdQYYFOFyABny6tTLX/GlfbY7cYRwoE2ug6ExBMA=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/arm64-apple-xros-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3ANwGEc7un6hPNJHVzYLhlMbV6SBaO3IvKJ5srnlSzM=
+			NN1Ipw5SoCuRK5Zmfx110WjmKRPm7jDoBxWe2NX/56g=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CKKlVQurX4RpfMDRf51m8U182pSFPZh8xzZnro3thnc=
+			MdRz24oBbS9Ia5/tBjan9aTzM3FY1ioCQaOCCYEZK5w=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsnAokumxQ0CQ8NzDwz4gJ0ohSgK8nrxc2EAhYFHYAw=
+			PgtcKQYuwQxrLBRplySZTFwr8ZWOZPvAtXOsSLRN5jo=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oMBtrhLHMKDZydAc5moXe4XspU2wc/AWBfBDku2NLU8=
+			IqFwYgMweAdcsPF3ECQLIrVRQPZtRaJ15rzWEum4aLI=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nsnAokumxQ0CQ8NzDwz4gJ0ohSgK8nrxc2EAhYFHYAw=
+			PgtcKQYuwQxrLBRplySZTFwr8ZWOZPvAtXOsSLRN5jo=
 			</data>
 		</dict>
 		<key>Modules/RiveRuntime.swiftmodule/x86_64-apple-xros-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AkuIafsV/NZLrkdZZSz5PhaBFoABtqFeld4H6njzHMM=
+			lrFP5F20w6CHJHHBDCw8IjV71CCvAwInxPMhu163x0w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -1521,7 +1521,7 @@ namespace Rive.iOS
 
 		// -(void)playerWithPausedWithModel:(RiveModel * _Nullable)riveModel;
 		[Export ("playerWithPausedWithModel:")]
-		void PlayerWithPlayedWithModel ([NullAllowed] RiveModel riveModel);
+		void PlayerWithPausedWithModel ([NullAllowed] RiveModel riveModel);
 
 		// -(void)playerWithLoopedWithModel:(RiveModel * _Nullable)riveModel type:(NSInteger)type;
 		[Export ("playerWithLoopedWithModel:type:")]
